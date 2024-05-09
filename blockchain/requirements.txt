@@ -2,4 +2,4 @@
 pi-network-python==0.1.0
 web3==5.25.0
 bitcoinrpc==0.3.2
-requests==2.26.0
+requests==2.31.0
