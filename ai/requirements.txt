@@ -5,7 +5,7 @@ scikit-learn==1.0.1
 
 # Natural Language Processing Libraries
 spacy==3.0.6
-nltk==3.6.5
+nltk==3.6.6
 transformers==4.38.0
 
 # Computer Vision Libraries
