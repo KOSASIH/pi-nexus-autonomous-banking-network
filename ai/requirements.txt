@@ -1,7 +1,7 @@
 # Machine Learning and Deep Learning Libraries
 tensorflow==2.5.0
 pytorch==1.8.1
-scikit-learn==0.24.2
+scikit-learn==1.0.1
 
 # Natural Language Processing Libraries
 spacy==3.0.6
