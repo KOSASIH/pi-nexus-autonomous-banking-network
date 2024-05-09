@@ -1,3 +1,5 @@
+[![DeepSource](https://app.deepsource.com/gh/KOSASIH/pi-nexus-autonomous-banking-network.svg/?label=active+issues&show_trend=true&token=J48vq2P0V-jMIAXmrKlh9NYZ)](https://app.deepsource.com/gh/KOSASIH/pi-nexus-autonomous-banking-network/)
+
 # pi-nexus-autonomous-banking-network
 
 A decentralized, AI-driven system accelerating the Open Mainet Pi Network, connecting global banks for secure, efficient, and autonomous transactions.
