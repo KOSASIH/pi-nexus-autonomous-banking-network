@@ -1,5 +1,5 @@
 # Machine Learning and Deep Learning Libraries
-tensorflow==2.5.0
+tensorflow==2.11.1
 pytorch==1.8.1
 scikit-learn==1.0.1
 
