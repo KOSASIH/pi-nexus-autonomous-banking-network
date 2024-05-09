@@ -38,7 +38,7 @@ pytest==6.2.4
 coverage==6.1.2
 
 # Code Formatting and Linting Tools
-black==21.9b0
+black==24.3.0
 flake8==3.9.2
 
 # Documentation and Help Tools
