@@ -16,10 +16,6 @@ def deposit(account_id: int, amount: float) -> bool:
     """
 
 
-
-
-
-
 def withdraw(account_id: int, amount: float) -> bool:
     """
     Withdraw an amount from an account.
@@ -31,7 +27,6 @@ def withdraw(account_id: int, amount: float) -> bool:
     Returns:
         bool: True if the withdrawal was successful, False otherwise.
     """
-
 
 
 def transfer(from_account_id: int, to_account_id: int, amount: float) -> bool:
@@ -46,4 +41,3 @@ def transfer(from_account_id: int, to_account_id: int, amount: float) -> bool:
     Returns:
         bool: True if the transfer was successful, False otherwise.
     """
-
