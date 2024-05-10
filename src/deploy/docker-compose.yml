@@ -1,0 +1,24 @@
+version: "3"
+services:
+  pi-nexus-autonomous-banking-network:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      - PI_NEXUS_AUTONOMOUS_BANKING_NETWORK_ENV=development
+      - DATABASE_URL=postgres://user:password@host:port/dbname
+    depends_on:
+      - db
+    restart: always
+
+  db:
+    image: postgres
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=dbname
+    volumes:
+      - db-data:/var/lib/postgresql/data
+
+volumes:
+  db-data:
