@@ -7,7 +7,7 @@ from banking.accounts import (
 from banking.transactions import pay_bill, transfer
 
 
-def create_account(account_type, account_number):
+
     """
     Creates a new bank account with the specified account type and account number.
     """
@@ -19,6 +19,7 @@ def create_account(account_type, account_number):
         raise ValueError(f"Invalid account type: {account_type}")
 
     return account
+
 
 
 def get_account(account_number):
@@ -45,6 +46,7 @@ def save_account(account):
     """
     # Save account data to database or other storage system
     save_account_data(account.account_number, account.type, account.balance)
+
 
 
 def process_transaction(transaction):
