@@ -2,6 +2,7 @@
 
 import logging
 
+
 def deposit(account_id: int, amount: float) -> bool:
     """
     Deposit an amount into an account.
@@ -23,13 +24,14 @@ def deposit(account_id: int, amount: float) -> bool:
         raise ValueError("Amount cannot be negative")
 
     # Update the account balance
-    account['balance'] += amount
+    account["balance"] += amount
 
     # Save the updated account back to the database or in-memory data structure
     save_account(account)
 
     # Return True to indicate success
     return True
+
 
 def withdraw(account_id: int, amount: float) -> bool:
     """
@@ -50,17 +52,18 @@ def withdraw(account_id: int, amount: float) -> bool:
     # Validate the input parameters
     if amount < 0:
         raise ValueError("Amount cannot be negative")
-    if account['balance'] < amount:
+    if account["balance"] < amount:
         raise ValueError("Insufficient balance")
 
     # Update the account balance
-    account['balance'] -= amount
+    account["balance"] -= amount
 
     # Save the updated account back to the database or in-memory data structure
     save_account(account)
 
     # Return True to indicate success
     return True
+
 
 def transfer(from_account_id: int, to_account_id: int, amount: float) -> bool:
     """
@@ -75,7 +78,9 @@ def transfer(from_account_id: int, to_account_id: int, amount: float) -> bool:
         bool: True if the transfer was successful, False otherwise.
     """
     # implementation
-    logging.info(f"Transferring {amount} from account {from_account_id} to account {to_account_id}")
+    logging.info(
+        f"Transferring {amount} from account {from_account_id} to account {to_account_id}"
+    )
     # Withdraw the amount from the source account
     withdraw(from_account_id, amount)
 
