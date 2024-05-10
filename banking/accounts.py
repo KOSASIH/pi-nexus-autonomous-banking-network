@@ -2,6 +2,7 @@ class BankAccount:
     """
     Represents a bank account with a balance and transaction history.
     """
+
     def __init__(self, account_number, balance=0):
         """
         Initializes a new bank account with the specified account number and balance.
@@ -25,10 +26,14 @@ class BankAccount:
             self.balance -= amount
             self.transaction_history.append(f"Withdraw: ${amount:.2f}")
         else:
-            raise InsufficientFundsError(f"Insufficient funds to withdraw ${amount:.2f} from account {self.account_number}")
+            raise InsufficientFundsError(
+                f"Insufficient funds to withdraw ${amount:.2f} from account {self.account_number}"
+            )
+
 
 class InsufficientFundsError(Exception):
     """
     Raised when there are insufficient funds to complete a withdrawal.
     """
+
     pass
