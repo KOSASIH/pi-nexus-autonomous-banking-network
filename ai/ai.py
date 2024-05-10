@@ -2,8 +2,15 @@ import numpy as np
 import tensorflow as tf
 from tensorflow import keras
 
+
 class AI:
-    def __init__(self, input_shape, output_shape, hidden_layers=None, activation_function=tf.nn.relu):
+    def __init__(
+        self,
+        input_shape,
+        output_shape,
+        hidden_layers=None,
+        activation_function=tf.nn.relu,
+    ):
         """
         Initializes the AI class with the specified input and output shapes, and optional hidden layer sizes and activation function.
         """
@@ -23,7 +30,9 @@ class AI:
 
         if self.hidden_layers is not None:
             for hidden_layer in self.hidden_layers:
-                x = keras.layers.Dense(hidden_layer, activation=self.activation_function)(x)
+                x = keras.layers.Dense(
+                    hidden_layer, activation=self.activation_function
+                )(x)
 
         outputs = keras.layers.Dense(self.output_shape)(x)
 
