@@ -2,6 +2,7 @@ import hashlib
 import json
 from typing import Any
 
+
 class Transaction:
     def __init__(self, sender: str, receiver: str, amount: int):
         self.sender = sender
@@ -12,11 +13,11 @@ class Transaction:
 
     def to_dict(self) -> dict:
         return {
-            'sender': self.sender,
-            'receiver': self.receiver,
-            'amount': self.amount,
-            'timestamp': self.timestamp,
-            'signature': self.signature
+            "sender": self.sender,
+            "receiver": self.receiver,
+            "amount": self.amount,
+            "timestamp": self.timestamp,
+            "signature": self.signature,
         }
 
     def calculate_hash(self) -> str:
