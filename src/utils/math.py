@@ -1,10 +1,12 @@
 import math
 
+
 def factorial(n: int) -> int:
     """
     Returns the factorial of the given number.
     """
     return math.factorial(n)
+
 
 def is_prime(n: int) -> bool:
     """
@@ -17,11 +19,13 @@ def is_prime(n: int) -> bool:
             return False
     return True
 
+
 def gcd(a: int, b: int) -> int:
     """
     Returns the greatest common divisor of the given numbers.
     """
     return math.gcd(a, b)
+
 
 def lcm(a: int, b: int) -> int:
     """
