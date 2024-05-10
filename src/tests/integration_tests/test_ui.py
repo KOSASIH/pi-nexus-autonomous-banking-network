@@ -2,12 +2,14 @@
 import pytest
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import WebDriverWait
+
 
 @pytest.fixture
 def browser():
     return webdriver.Chrome()
+
 
 def test_login(browser):
     # Test login functionality
@@ -19,11 +21,13 @@ def test_login(browser):
     browser.find_element_by_name("login").click()
     WebDriverWait(browser, 10).until(EC.title_contains("Dashboard"))
 
+
 def test_account_list(browser):
     # Test account list page
     browser.get("https://pi-nexus-autonomous-banking-network.com/accounts")
     account_list = browser.find_elements_by_css_selector(".account-list li")
     assert len(account_list) > 0
+
 
 def test_create_account(browser):
     # Test create account functionality

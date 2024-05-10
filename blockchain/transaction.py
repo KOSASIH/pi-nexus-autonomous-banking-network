@@ -5,4 +5,11 @@ class Transaction:
         self.amount = amount
 
     def to_string(self):
-        return "Sender: " + self.sender + ", Receiver: " + self.receiver + ", Amount: " + str(self.amount)
+        return (
+            "Sender: "
+            + self.sender
+            + ", Receiver: "
+            + self.receiver
+            + ", Amount: "
+            + str(self.amount)
+        )

@@ -1,35 +1,35 @@
-const express = require("express");
-const bodyParser = require("body-parser");
-const cors = require("cors");
-const mongoose = require("mongoose");
+const express = require('express')
+const bodyParser = require('body-parser')
+const cors = require('cors')
+const mongoose = require('mongoose')
 
-const { JWT_SECRET, MONGODB_URI } = process.env;
+const { JWT_SECRET, MONGODB_URI } = process.env
 
-const app = express();
+const app = express()
 
-app.use(bodyParser.json());
-app.use(cors());
+app.use(bodyParser.json())
+app.use(cors())
 
-const router = require("./routes");
-app.use("/api", router);
+const router = require('./routes')
+app.use('/api', router)
 
 const connectToMongoDB = async () => {
   try {
     await mongoose.connect(MONGODB_URI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
-      useCreateIndex: true,
-    });
-    console.log("Connected to MongoDB");
+      useCreateIndex: true
+    })
+    console.log('Connected to MongoDB')
   } catch (error) {
-    console.error("Failed to connect to MongoDB", error);
-    process.exit(1);
+    console.error('Failed to connect to MongoDB', error)
+    process.exit(1)
   }
-};
+}
 
-connectToMongoDB();
+connectToMongoDB()
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5000
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+  console.log(`Server running on port ${PORT}`)
+})
