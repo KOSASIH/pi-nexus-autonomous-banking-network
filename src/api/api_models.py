@@ -4,6 +4,7 @@ class Transaction:
         self.receiver = receiver
         self.amount = amount
 
+
 def validate_api_key(api_key: str) -> bool:
     # Validate the API key
     # This is a placeholder for the actual validation process
