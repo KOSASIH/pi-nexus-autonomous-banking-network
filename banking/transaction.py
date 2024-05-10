@@ -1,5 +1,7 @@
 from datetime import datetime
+
 from banking.accounts import BankAccount
+
 
 def transfer(from_account: BankAccount, to_account: BankAccount, amount):
     """
@@ -13,4 +15,6 @@ def transfer(from_account: BankAccount, to_account: BankAccount, amount):
     to_account_number = to_account.account_number
     transaction_amount = amount
 
-    print(f"Transfer from account {from_account_number} to account {to_account_number} for ${transaction_amount:.2f} on {transaction_date}")
+    print(
+        f"Transfer from account {from_account_number} to account {to_account_number} for ${transaction_amount:.2f} on {transaction_date}"
+    )
