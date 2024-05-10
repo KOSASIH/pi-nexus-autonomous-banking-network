@@ -1,15 +1,17 @@
 from banking.accounts import BankAccount
 from banking.transactions import transfer
 
+
 def create_account(account_number):
     """
     Creates a new bank account with the specified account number.
     """
     return BankAccount(account_number)
 
+
 def get_account(account_number):
     """
-Retrieves the bank account with the specified account number.
+    Retrieves the bank account with the specified account number.
     """
     # Load account data from database or other storage system
     account_data = load_account_data(account_number)
@@ -22,12 +24,14 @@ Retrieves the bank account with the specified account number.
 
     return account
 
+
 def save_account(account):
     """
     Saves the specified bank account to the database or other storage system.
     """
     # Save account data to database or other storage system
     save_account_data(account.account_number, account.balance)
+
 
 def process_transaction(transaction):
     """
