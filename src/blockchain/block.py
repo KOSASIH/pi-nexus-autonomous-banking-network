@@ -3,6 +3,7 @@ import json
 from time import time
 from typing import Any
 
+
 class Transaction:
     def __init__(self, sender: str, receiver: str, amount: int):
         self.sender = sender
@@ -10,14 +11,18 @@ class Transaction:
         self.amount = amount
 
     def to_dict(self) -> dict:
-        return {
-            'sender': self.sender,
-            'receiver': self.receiver,
-            'amount': self.amount
-        }
+        return {"sender": self.sender, "receiver": self.receiver, "amount": self.amount}
+
 
 class Block:
-    def __init__(self, index: int, previous_hash: str, timestamp: int, transactions: list[Transaction], nonce: int = 0):
+    def __init__(
+        self,
+        index: int,
+        previous_hash: str,
+        timestamp: int,
+        transactions: list[Transaction],
+        nonce: int = 0,
+    ):
         self.index = index
         self.previous_hash = previous_hash
         self.timestamp = timestamp
@@ -30,7 +35,7 @@ class Block:
         return hashlib.sha256(block_data).hexdigest()
 
     def mine_block(self, difficulty: int):
-        prefix = '0' * difficulty
+        prefix = "0" * difficulty
         while not self.hash.startswith(prefix):
             self.nonce += 1
             self.hash = self.calculate_hash()
