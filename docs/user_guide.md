@@ -1,4 +1,4 @@
-# User Guide for Pi-Nexus Autonomous Banking Network 
+# User Guide for Pi-Nexus Autonomous Banking Network
 
 Welcome to the Pi-Nexus Autonomous Banking Network! This user guide will help you get started with using and contributing to the project.
 
@@ -90,4 +90,3 @@ We welcome contributions to the Pi-Nexus Autonomous Banking Network! Here are so
 ## 6. License
 
 The Pi-Nexus Autonomous Banking Network is released under the MIT License. See the LICENSE file for more information.
-
