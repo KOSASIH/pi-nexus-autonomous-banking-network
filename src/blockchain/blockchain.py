@@ -3,6 +3,7 @@ import json
 from time import time
 from typing import Any
 
+
 class Blockchain:
     def __init__(self):
         self.chain = [self.create_genesis_block()]
@@ -10,7 +11,9 @@ class Blockchain:
         self.pending_transactions = []
 
     def create_genesis_block(self) -> Block:
-        return Block(index=0, previous_hash='0' * 64, timestamp=time(), transactions=[], nonce=0)
+        return Block(
+            index=0, previous_hash="0" * 64, timestamp=time(), transactions=[], nonce=0
+        )
 
     def get_latest_block(self) -> Block:
         return self.chain[-1]
