@@ -1,5 +1,6 @@
 import hardware
 
+
 def read_temperature_sensor(i2c_address):
     """
     Reads the temperature from the specified I2C temperature sensor.
@@ -23,6 +24,7 @@ def read_temperature_sensor(i2c_address):
     hardware.cleanup()
 
     return temperature
+
 
 def read_humidity_sensor(i2c_address):
     """
