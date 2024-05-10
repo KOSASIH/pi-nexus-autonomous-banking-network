@@ -1,5 +1,6 @@
-import pandas as pd
 import numpy as np
+import pandas as pd
+
 
 def preprocess_data(data):
     """
@@ -16,6 +17,7 @@ def preprocess_data(data):
     data = pd.DataFrame(scaler.fit_transform(data), columns=data.columns)
 
     return data
+
 
 def split_data(data, test_size=0.2):
     """
