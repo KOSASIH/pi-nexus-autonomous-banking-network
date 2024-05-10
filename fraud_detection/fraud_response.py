@@ -6,13 +6,13 @@ class FraudResponse:
     def respond_to_fraud(self, transactions):
         for transaction in transactions:
             fraud_level = self.fraud_detection_model.predict_fraud(transaction)
-            if fraud_level == 'fraudulent':
+            if fraud_level == "fraudulent":
                 anomaly_score = self.anomaly_detection.detect_anomalies(transaction)
                 if anomaly_score == -1:
                     # Implement fraud response strategies here
                     # For example, you could flag the transaction for review or decline it altogether
-                    print('Fraudulent transaction detected: Flagged for review')
+                    print("Fraudulent transaction detected: Flagged for review")
                 else:
-                    print('Anomalous transaction detected: Flagged for review')
+                    print("Anomalous transaction detected: Flagged for review")
             else:
-                print('Non-fraudulent transaction detected: Transaction approved')
+                print("Non-fraudulent transaction detected: Transaction approved")
