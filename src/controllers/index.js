@@ -1,10 +1,10 @@
-const express = require("express");
-const router = express.Router();
+const express = require('express')
+const router = express.Router()
 
-const AccountsController = require("./accounts");
-const TransfersController = require("./transfers");
+const AccountsController = require('./accounts')
+const TransfersController = require('./transfers')
 
-router.use("/accounts", AccountsController);
-router.use("/transfers", TransfersController);
+router.use('/accounts', AccountsController)
+router.use('/transfers', TransfersController)
 
-module.exports = router;
+module.exports = router

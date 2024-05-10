@@ -2,6 +2,7 @@ import numpy as np
 import pandas as pd
 from sklearn.ensemble import IsolationForest
 
+
 class AnomalyDetection:
     def __init__(self, transaction_data):
         self.transaction_data = transaction_data
