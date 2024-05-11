@@ -1,3 +1,3 @@
 from .biometrics import BiometricVerifier
 
-__all__ = ['BiometricVerifier']
+__all__ = ["BiometricVerifier"]
