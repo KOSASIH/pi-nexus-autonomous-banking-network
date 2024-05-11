@@ -2,6 +2,7 @@ import numpy as np
 import pandas as pd
 from statsmodels.tsa.statespace.sarimax import SARIMAX
 
+
 class TimeSeriesAnalysis:
     def __init__(self, data, target_column, exogenous_variables):
         self.data = data
@@ -25,6 +26,9 @@ class TimeSeriesAnalysis:
         Predicts market trends using the time series analysis model.
         """
         model_fit = self.fit_model()
-        forecast = model_fit.forecast(steps=num_periods, exog=self.data[self.exogenous_variables].tail(num_periods))
+        forecast = model_fit.forecast(
+            steps=num_periods,
+            exog=self.data[self.exogenous_variables].tail(num_periods),
+        )
 
         return forecast
