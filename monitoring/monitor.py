@@ -1,10 +1,16 @@
 import time
+
 import prometheus_client
+
 
 class Monitor:
     def __init__(self):
-        self.counter = prometheus_client.Counter('transaction_counter', 'Number of transactions processed')
-        self.gauge = prometheus_client.Gauge('transaction_latency_seconds', 'Latency of transactions in seconds')
+        self.counter = prometheus_client.Counter(
+            "transaction_counter", "Number of transactions processed"
+        )
+        self.gauge = prometheus_client.Gauge(
+            "transaction_latency_seconds", "Latency of transactions in seconds"
+        )
 
     def monitor_transaction(self, transaction_time):
         """
