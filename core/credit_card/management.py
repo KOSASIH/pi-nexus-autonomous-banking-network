@@ -18,6 +18,7 @@ class CreditCard:
         self.balance += amount
         return True
 
+
 def process_payments():
     # Process payments for all issued credit cards
     for credit_card in issued_credit_cards:
@@ -26,6 +27,7 @@ def process_payments():
 
         # Process the payment
         credit_card.make_payment(payment_amount)
+
 
 def process_purchases():
     # Process purchases for all issued credit cards
@@ -38,6 +40,9 @@ def process_purchases():
 
         if not success:
             # Deny the purchase if the applicant has insufficient credit
-            print(f"The purchase of {purchase_amount} was denied for credit card {credit_card.credit_card_number}.")
+            print(
+                f"The purchase of {purchase_amount} was denied for credit card {credit_card.credit_card_number}."
+            )
+
 
 issued_credit_cards = []
