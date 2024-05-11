@@ -10,7 +10,6 @@ class CreditCard:
         self.closed = False
 
 
-
 def process_payments():
     for card in all_cards:
         amount_due = card.balance * (1 + card.interest_rate)
@@ -18,7 +17,6 @@ def process_payments():
             print(f"WARNING: Credit limit exceeded for card {card.card_number}")
         else:
             card.balance = 0
-
 
 
 def process_purchases():
@@ -55,7 +53,6 @@ def apply_interest(card):
 def deny_credit(card):
     card.limit = 0
     card.closed = True
-
 
 
 # Initialize list of all credit cards
