@@ -1,8 +1,9 @@
-import time
-import random
 import hashlib
 import logging
-from typing import List, Dict, Tuple
+import random
+import time
+from typing import Dict, List, Tuple
+
 
 class Transaction:
     def __init__(self, sender: str, receiver: str, amount: float):
@@ -13,7 +14,8 @@ class Transaction:
         self.hash = self.calculate_hash()
 
     def calculate_hash(self) -> str:
-        return hashlib.sha256(str(self.__dict__).encode('utf-8')).hexdigest()
+        return hashlib.sha256(str(self.__dict__).encode("utf-8")).hexdigest()
+
 
 class Node:
     def __init__(self, node_id: str, public_key: str, private_key: str):
@@ -35,8 +37,17 @@ class Node:
                 total += transaction.amount
         return total
 
+
 class Block:
-    def __init__(self, index: int, previous_hash: str, timestamp: int, transactions: List[Transaction], nonce: int, hash: str):
+    def __init__(
+        self,
+        index: int,
+        previous_hash: str,
+        timestamp: int,
+        transactions: List[Transaction],
+        nonce: int,
+        hash: str,
+    ):
         self.index = index
         self.previous_hash = previous_hash
         self.timestamp = timestamp
@@ -45,7 +56,8 @@ class Block:
         self.hash = hash
 
     def calculate_hash(self) -> str:
-        return hashlib.sha256(str(self.__dict__).encode('utf-8')).hexdigest()
+        return hashlib.sha256(str(self.__dict__).encode("utf-8")).hexdigest()
+
 
 class Blockchain:
     def __init__(self):
@@ -79,11 +91,13 @@ class Blockchain:
         return True
 
     def is_valid_difficulty(self, block: Block) -> bool:
-        return block.hash[0:self.difficulty] == "0" * self.difficulty
+        return block.hash[0 : self.difficulty] == "0" * self.difficulty
 
     def mine_block(self, node: Node):
         last_block = self.get_latest_block()
-        new_block = Block(len(self.chain), last_block.hash, int(time.time()), node.transactions, 0, "")
+        new_block = Block(
+            len(self.chain), last_block.hash, int(time.time()), node.transactions, 0, ""
+        )
 
         while not self.is_valid_difficulty(new_block):
             new_block.nonce += 1
