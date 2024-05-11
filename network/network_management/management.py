@@ -1,6 +1,7 @@
 import random
 import time
 
+
 class NetworkManagement:
     def __init__(self, nodes):
         self.nodes = nodes
