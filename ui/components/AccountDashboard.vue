@@ -11,11 +11,11 @@ export default {
   data() {
     return {
       account: null,
-      transactions: []
-    }
+      transactions: [],
+    };
   },
   async mounted() {
     // Fetch account information and transactions
-  }
-}
+  },
+};
 </script>
