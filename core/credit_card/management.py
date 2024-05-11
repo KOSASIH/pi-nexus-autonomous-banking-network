@@ -1,43 +1,48 @@
+import datetime
+
 class CreditCard:
-    def __init__(self, credit_card_number, credit_limit, application):
-        self.credit_card_number = credit_card_number
-        self.credit_limit = credit_limit
+    def __init__(self, card_number, limit):
+        self.card_number = card_number
+        self.limit = limit
         self.balance = 0
-        self.application = application
-
-    def make_payment(self, amount):
-        # Process a payment for the specified amount
-        self.balance -= amount
-
-    def charge_purchase(self, amount):
-        # Charge a purchase for the specified amount
-        if amount > self.credit_limit - self.balance:
-            # Deny the purchase if the applicant has insufficient credit
-            return False
-
-        self.balance += amount
-        return True
+        self.interest_rate = 0.05
+        self.closed = False
 
 def process_payments():
-    # Process payments for all issued credit cards
-    for credit_card in issued_credit_cards:
-        # Assume that the credit card company charges a 3% fee for processing payments
-        payment_amount = credit_card.balance * 0.03
-
-        # Process the payment
-        credit_card.make_payment(payment_amount)
+    for card in all_cards:
+        amount_due = card.balance * (1 + card.interest_rate)
+        if amount_due > card.limit:
+            print(f"WARNING: Credit limit exceeded for card {card.card_number}")
+        else:
+            card.balance = 0
 
 def process_purchases():
-    # Process purchases for all issued credit cards
-    for credit_card in issued_credit_cards:
-        # Assume that the credit card company charges a 2% fee for processing purchases
-        purchase_amount = credit_card.balance * 0.02
+    for card in all_cards:
+        if card.closed:
+            continue
+        purchase_amount = float(input(f"Enter purchase amount for card {card.card_number}: "))
+        if purchase_amount > card.limit - card.balance:
+            print(f"PURCHASE DENIED: Insufficient credit for card {card.card_number}")
+        else:
+            card.balance += purchase_amount
+            if card.balance > card.limit:
+                print(f"WARNING: Credit limit exceeded for card {card.card_number}")
 
-        # Process the purchase
-        success = credit_card.charge_purchase(purchase_amount)
+def set_credit_limit(card, limit):
+    card.limit = limit
 
-        if not success:
-            # Deny the purchase if the applicant has insufficient credit
-            print(f"The purchase of {purchase_amount} was denied for credit card {credit_card.credit_card_number}.")
+def get_credit_limit(card):
+    return card.limit
 
-issued_credit_cards = []
+def get_balance(card):
+    return card.balance
+
+def apply_interest(card):
+    card.balance *= (1 + card.interest_rate)
+
+def deny_credit(card):
+    card.limit = 0
+    card.closed = True
+
+# Initialize list of all credit cards
+all_cards = []
