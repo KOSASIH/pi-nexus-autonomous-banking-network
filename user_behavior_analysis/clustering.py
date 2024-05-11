@@ -1,6 +1,7 @@
 import numpy as np
 from sklearn.cluster import KMeans
 
+
 class Clustering:
     def __init__(self, data, features):
         self.data = data
