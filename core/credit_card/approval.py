@@ -1,5 +1,6 @@
 import random
 
+
 def approve_application(application):
     # Define the minimum income requirement for credit card approval
     MIN_INCOME = 50000
