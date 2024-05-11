@@ -1,0 +1,3 @@
+def send_in_app_notification(user, message, title, type):
+    """Send an in-app notification to the specified user with the given message, title, and type."""
+    # Implementation here...
