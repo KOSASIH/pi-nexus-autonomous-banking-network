@@ -6,6 +6,7 @@ class NetworkNode:
     def receive_data(self, amount):
         self.data += amount
 
+
 class Router(NetworkNode):
     def __init__(self, name, connections):
         super().__init__(name)
@@ -13,6 +14,7 @@ class Router(NetworkNode):
 
     def send_data(self, node, amount):
         node.receive_data(amount)
+
 
 class Endpoint(NetworkNode):
     def __init__(self, name, ip_address):
