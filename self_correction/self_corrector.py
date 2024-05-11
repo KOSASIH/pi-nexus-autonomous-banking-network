@@ -1,5 +1,6 @@
 import time
 
+
 class SelfCorrector:
     def __init__(self, feedback_loop, transaction_manager):
         self.feedback_loop = feedback_loop
@@ -14,7 +15,9 @@ class SelfCorrector:
             transaction = self.transaction_manager.get_new_transaction()
 
             # Adjust the transaction parameters using the feedback loop
-            adjusted_params = self.feedback_loop.adjust_transaction_parameters(transaction)
+            adjusted_params = self.feedback_loop.adjust_transaction_parameters(
+                transaction
+            )
 
             # Process the transaction with the adjusted parameters
             self.transaction_manager.process_transaction(transaction, adjusted_params)
