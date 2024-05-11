@@ -1,14 +1,18 @@
 # Original code
+import logging
+from typing import Dict
+
+
 def send_message(chat_id, message):
     url = f"https://api.telegram.org/bot{TOKEN}/sendMessage"
     data = {"chat_id": chat_id, "text": message}
     requests.post(url, json=data)
 
+
 # Improved code
-import logging
-from typing import Dict
 
 logger = logging.getLogger(__name__)
+
 
 def send_message(chat_id: int, message: str) -> None:
     """Send a message to a Telegram chat"""
