@@ -1,5 +1,6 @@
 import random
 
+
 def issue_credit_card(application):
     # Define the minimum credit limit for credit card issuance
     MIN_CREDIT_LIMIT = 500
@@ -28,6 +29,7 @@ def issue_credit_card(application):
     issued_credit_cards.append(credit_card)
 
     return credit_card
+
 
 def generate_credit_card_number():
     # Generate a random 16-digit credit card number
