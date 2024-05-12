@@ -1,6 +1,9 @@
 import random
+
 import numpy as np
+
 from security_privacy.homomorphic_encryption import HomomorphicEncryption
+
 
 class SecurityPrivacyManager:
     def __init__(self, homomorphic_encryption):
@@ -26,13 +29,22 @@ class SecurityPrivacyManager:
         public_key = self.homomorphic_encryption.public_key
 
         for operation in operations:
-            if operation['operation'] == 'add':
-                ciphertext1, ciphertext2 = encrypted_data[operation['index1']], encrypted_data[operation['index2']]
-                encrypted_data[operation['result_index']] = self.homomorphic_encryption.add(public_key, ciphertext1, ciphertext2)
-            elif operation['operation'] == 'multiply':
-                ciphertext = encrypted_data[operation['index']]
-                value = operation['value']
-                encrypted_data[operation['result_index']] = self.homomorphic_encryption.multiply(public_key, ciphertext, value)
+            if operation["operation"] == "add":
+                ciphertext1, ciphertext2 = (
+                    encrypted_data[operation["index1"]],
+                    encrypted_data[operation["index2"]],
+                )
+                encrypted_data[operation["result_index"]] = (
+                    self.homomorphic_encryption.add(
+                        public_key, ciphertext1, ciphertext2
+                    )
+                )
+            elif operation["operation"] == "multiply":
+                ciphertext = encrypted_data[operation["index"]]
+                value = operation["value"]
+                encrypted_data[operation["result_index"]] = (
+                    self.homomorphic_encryption.multiply(public_key, ciphertext, value)
+                )
 
         return encrypted_data
 
@@ -42,7 +54,9 @@ class SecurityPrivacyManager:
         """
         decrypted_data = []
         for ciphertext in encrypted_data:
-            decrypted_value = self.homomorphic_encryption.decrypt(private_key, ciphertext)
+            decrypted_value = self.homomorphic_encryption.decrypt(
+                private_key, ciphertext
+            )
             decrypted_data.append(decrypted_value)
 
         return decrypted_data
