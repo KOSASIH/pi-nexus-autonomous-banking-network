@@ -2,9 +2,9 @@ import pandas as pd
 from sklearn.metrics import classification_report, confusion_matrix
 
 
-def evaluate_model_performance(model, X_test, y_test):
+def evaluate_transaction_model_performance(model, X_test, y_test):
     """
-    Evaluates the performance of the trained model using various metrics.
+    Evaluates the performance of the trained transaction machine learning model using various metrics.
     """
     y_pred = model.predict(X_test)
     report = classification_report(y_test, y_pred)

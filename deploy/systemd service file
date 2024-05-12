@@ -1,0 +1,13 @@
+[Unit]
+Description=Pi Nexus Banking Network
+After=network.target
+
+[Service]
+User=pi
+Group=pi
+WorkingDirectory=/var/www/pi-nexus-banking
+ExecStart=/usr/local/bin/gunicorn -b 0.0.0.0:8000 app:app
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
