@@ -1,10 +1,12 @@
-from flask import Blueprint, request, jsonify
+from flask import Blueprint, jsonify, request
+
 from . import db
+from .exceptions import InvalidTransactionError
 from .models import Transaction
 from .serializers import transaction_schema, transactions_schema
-from .exceptions import InvalidTransactionError
 
 transactions_api = Blueprint("transactions_api", __name__)
+
 
 @transactions_api.route("/transactions", methods=["POST"])
 def create_transaction():
@@ -20,6 +22,7 @@ def create_transaction():
         db.session.rollback()
         return jsonify({"error": str(e)}), 500
 
+
 @transactions_api.route("/transactions", methods=["GET"])
 def get_transactions():
     page = request.args.get("page", 1, type=int)
@@ -27,10 +30,12 @@ def get_transactions():
     transactions = Transaction.query.paginate(page, per_page)
     return transactions_schema.jsonify(transactions.items), 200
 
+
 @transactions_api.route("/transactions/<int:transaction_id>", methods=["GET"])
 def get_transaction(transaction_id):
     transaction = Transaction.query.get_or_404(transaction_id)
     return transaction_schema.jsonify(transaction), 200
+
 
 @transactions_api.route("/transactions/<int:transaction_id>", methods=["PUT"])
 def update_transaction(transaction_id):
@@ -46,6 +51,7 @@ def update_transaction(transaction_id):
         db.session.rollback()
         return jsonify({"error": str(e)}), 500
 
+
 @transactions_api.route("/transactions/<int:transaction_id>", methods=["DELETE"])
 def delete_transaction(transaction_id):
     transaction = Transaction.query.get_or_404(transaction_id)
@@ -56,6 +62,7 @@ def delete_transaction(transaction_id):
     except Exception as e:
         db.session.rollback()
         return jsonify({"error": str(e)}), 500
+
 
 @transactions_api.errorhandler(InvalidTransactionError)
 def handle_invalid_transaction_error(error):
