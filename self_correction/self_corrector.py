@@ -1,23 +1,46 @@
-import time
+import random
 
 class SelfCorrector:
-    def __init__(self, feedback_loop, transaction_manager):
+    def __init__(self, feedback_loop, transaction_parameters):
         self.feedback_loop = feedback_loop
-        self.transaction_manager = transaction_manager
+        self.transaction_parameters = transaction_parameters
 
-    def start_self_correction(self):
+    def adjust_parameters(self, user_feedback=None, system_performance=None):
         """
-        Starts the self-correction mechanism using the feedback loop.
+        Adjusts the transaction parameters based on user feedback or system performance.
         """
-        while True:
-            # Get a new transaction
-            transaction = self.transaction_manager.get_new_transaction()
+        if user_feedback is not None:
+            if user_feedback == 'increase':
+                self.feedback_loop.add_correction(IncreaseParameterCorrection(self.transaction_parameters))
+            elif user_feedback == 'decrease':
+                self.feedback_loop.add_correction(DecreaseParameterCorrection(self.transaction_parameters))
 
-            # Adjust the transaction parameters using the feedback loop
-            adjusted_params = self.feedback_loop.adjust_transaction_parameters(transaction)
+        if system_performance is not None:
+            if system_performance < 0.9:
+                self.feedback_loop.add_correction(IncreaseParameterCorrection(self.transaction_parameters))
+            elif system_performance > 0.95:
+                self.feedback_loop.add_correction(DecreaseParameterCorrection(self.transaction_parameters))
 
-            # Process the transaction with the adjusted parameters
-            self.transaction_manager.process_transaction(transaction, adjusted_params)
+class IncreaseParameterCorrection:
+    def __init__(self, transaction_parameters):
+        self.transaction_parameters = transaction_parameters
 
-            # Sleep for a while before checking again
-            time.sleep(60)
+    def apply(self, transaction_parameters):
+        """
+        Increases the transaction parameter by a random amount.
+        """
+        parameter_name = random.choice(list(transaction_parameters.keys()))
+        transaction_parameters[parameter_name] += random.uniform(0.1, 0.5)
+        return transaction_parameters
+
+class DecreaseParameterCorrection:
+    def __init__(self, transaction_parameters):
+        self.transaction_parameters = transaction_parameters
+
+    def apply(self, transaction_parameters):
+        """
+        Decreases the transaction parameter by a random amount.
+        """
+        parameter_name = random.choice(list(transaction_parameters.keys()))
+        transaction_parameters[parameter_name] -= random.uniform(0.1, 0.5)
+        return transaction_parameters
