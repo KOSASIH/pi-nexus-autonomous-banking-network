@@ -3,6 +3,7 @@
 import json
 from typing import Dict
 
+
 class Ledger:
     """
     Represents the Nexus ledger.
