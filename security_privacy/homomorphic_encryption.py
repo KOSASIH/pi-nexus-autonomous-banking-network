@@ -1,5 +1,7 @@
 import random
+
 import numpy as np
+
 
 class HomomorphicEncryption:
     def __init__(self, key_size=1024):
