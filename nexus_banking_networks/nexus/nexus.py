@@ -1,8 +1,9 @@
 # nexus.py
 
-import os
 import json
-from typing import List, Dict
+import os
+from typing import Dict, List
+
 
 def fetch_transaction_data() -> List[Dict]:
     """
@@ -13,6 +14,7 @@ def fetch_transaction_data() -> List[Dict]:
     """
     # ...
 
+
 def process_transaction_data(data: List[Dict]) -> None:
     """
     Processes transaction data and updates the ledger.
@@ -21,6 +23,7 @@ def process_transaction_data(data: List[Dict]) -> None:
         data (List[Dict]): A list of transaction data dictionaries.
     """
     # ...
+
 
 def main() -> None:
     """
@@ -31,6 +34,7 @@ def main() -> None:
         process_transaction_data(data)
     except Exception as e:
         print(f"Error: {e}")
+
 
 if __name__ == "__main__":
     main()
