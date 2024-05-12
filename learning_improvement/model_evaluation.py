@@ -1,5 +1,6 @@
 import xgboost as xgb
 
+
 class ModelEvaluation:
     def __init__(self, model_file):
         self.model_file = model_file
@@ -17,6 +18,6 @@ class ModelEvaluation:
 
         y_pred = model.predict(dtest)
 
-        rmse = (sum((y_pred - y)**2) / len(y))**0.5
+        rmse = (sum((y_pred - y) ** 2) / len(y)) ** 0.5
 
         return rmse

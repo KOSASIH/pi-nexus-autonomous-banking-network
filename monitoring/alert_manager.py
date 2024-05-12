@@ -1,7 +1,9 @@
 import os
 import time
-from prometheus_client import generate_latest, parse_textfile
+
 from alertmanager import AlertManager
+from prometheus_client import generate_latest, parse_textfile
+
 
 class AlertManager:
     def __init__(self, prometheus_rulefile):
@@ -19,7 +21,7 @@ class AlertManager:
             metrics = generate_latest()
 
             # Load the Prometheus rulefile
-            with open(self.prometheus_rulefile, 'r') as f:
+            with open(self.prometheus_rulefile, "r") as f:
                 rules = f.read()
 
             # Evaluate the rules against the metrics

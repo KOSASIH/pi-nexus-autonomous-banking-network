@@ -1,5 +1,6 @@
 import pandas as pd
 
+
 class DataPreparation:
     def __init__(self, data_file):
         self.data_file = data_file
