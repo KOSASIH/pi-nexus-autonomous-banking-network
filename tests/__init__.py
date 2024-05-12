@@ -1,5 +1,6 @@
 import unittest
 
+
 def load_tests(loader, tests, pattern):
     suite = unittest.TestSuite()
     suite.addTest(loader.loadTestsFromModule(test_block))
