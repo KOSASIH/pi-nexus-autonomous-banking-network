@@ -1,5 +1,7 @@
 import unittest
+
 from p2p_network import P2PNetwork
+
 
 class TestP2PNetwork(unittest.TestCase):
     def test_create_network(self):
