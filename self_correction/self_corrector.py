@@ -30,11 +30,6 @@ class SelfCorrector:
                     DecreaseParameterCorrection(self.transaction_parameters)
                 )
 
-
-class IncreaseParameterCorrection:
-    def __init__(self, transaction_parameters):
-        self.transaction_parameters = transaction_parameters
-
     def apply(self, transaction_parameters):
         """
         Increases the transaction parameter by a random amount.
