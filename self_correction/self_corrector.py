@@ -1,7 +1,6 @@
 import random
 
 
-
 class SelfCorrector:
     def __init__(self, feedback_loop, transaction_parameters):
         self.feedback_loop = feedback_loop
@@ -30,9 +29,6 @@ class SelfCorrector:
                 self.feedback_loop.add_correction(
                     DecreaseParameterCorrection(self.transaction_parameters)
                 )
-
-
-
 
     def apply(self, transaction_parameters):
         """
