@@ -1,9 +1,12 @@
 import json
 import socket
 import threading
-from typing import List, Dict, Tuple
+from typing import Dict, List, Tuple
+
 from cryptography.fernet import Fernet
+
 from .node import Node
+
 
 class P2PNetwork:
     def __init__(self):
@@ -33,7 +36,7 @@ class P2PNetwork:
                         node = Node(
                             node_id=node_info["node_id"],
                             host=node_info["host"],
-                            port=node_info["port"]
+                            port=node_info["port"],
                         )
                         node.load_keys()
                         node.load_node_info()
@@ -41,9 +44,7 @@ class P2PNetwork:
 
     def generate_keys(self) -> None:
         self.nodes[self.node_id] = Node(
-            node_id=self.node_id,
-            host=self.config.HOST,
-            port=self.config.PORT
+            node_id=self.node_id, host=self.config.HOST, port=self.config.PORT
         )
         self.nodes[self.node_id].generate_keys()
         self.nodes[self.node_id].save_keys()
@@ -52,10 +53,14 @@ class P2PNetwork:
     def handle_incoming_connections(self) -> None:
         while True:
             client_socket, client_address = self.server_socket.accept()
-            client_thread = threading.Thread(target=self.handle_client, args=(client_socket, client_address))
+            client_thread = threading.Thread(
+                target=self.handle_client, args=(client_socket, client_address)
+            )
             client_thread.start()
 
-    def handle_client(self, client_socket: socket.socket, client_address: Tuple[str, int]) -> None:
+    def handle_client(
+        self, client_socket: socket.socket, client_address: Tuple[str, int]
+    ) -> None:
         try:
             client_node = self.create_node_from_socket(client_socket)
             self.nodes[client_node.address] = client_node
@@ -76,12 +81,16 @@ class P2PNetwork:
         host = node_info["host"]
         port = node_info["port"]
         node = Node(node_id=node_id, host=host, port=port)
-        node.public_key = Fernet(node_info["public_key"]).decrypt(node_info["public_key"].encode())
+        node.public_key = Fernet(node_info["public_key"]).decrypt(
+            node_info["public_key"].encode()
+        )
         return node
 
     def announce_new_node(self, node: Node) -> None:
         for other_node in self.nodes.values():
-            if other_node.address != node.address and not node.is_connected_to(other_node):
+            if other_node.address != node.address and not node.is_connected_to(
+                other_node
+            ):
                 node.connect_to_node(other_node)
                 other_node.connect_to_node(node)
                 node.save_node_info()
@@ -91,7 +100,10 @@ class P2PNetwork:
         if node.address in self.nodes:
             blockchain = node.blockchain
             for other_node in self.nodes.values():
-                if other_node.address != node.address and other_node.blockchain.chain_height > blockchain.chain_height:
+                if (
+                    other_node.address != node.address
+                    and other_node.blockchain.chain_height > blockchain.chain_height
+                ):
                     blockchain.replace_chain(other_node.blockchain.chain)
 
     def handle_message_loop(self, socket: socket.socket) -> None:
