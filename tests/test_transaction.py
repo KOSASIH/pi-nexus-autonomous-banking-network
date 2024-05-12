@@ -1,5 +1,7 @@
 import unittest
+
 from transaction import Transaction
+
 
 class TestTransaction(unittest.TestCase):
     def test_create_transaction(self):
@@ -8,11 +10,13 @@ class TestTransaction(unittest.TestCase):
         self.assertEqual(transaction.receiver, "receiver")
         self.assertEqual(transaction.amount, 100)
         self.assertEqual(transaction.timestamp, 1234567890)
-        self.assertEqual(transaction.hash, "hash_value")  # Replace with actual hash value
+        # Replace with actual hash value
+        self.assertEqual(transaction.hash, "hash_value")
 
     def test_calculate_hash(self):
         transaction = Transaction("sender", "receiver", 100)
-        self.assertEqual(transaction.calculate_hash(), "hash_value")  # Replace with actual hash value
+        # Replace with actual hash value
+        self.assertEqual(transaction.calculate_hash(), "hash_value")
 
     def test_is_valid(self):
         transaction = Transaction("sender", "receiver", 100)
