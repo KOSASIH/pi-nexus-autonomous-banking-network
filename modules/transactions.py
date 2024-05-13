@@ -3,6 +3,7 @@ import logging
 
 logger = logging.getLogger(__name__)
 
+
 def process_transaction(transaction_data):
     try:
         # transaction processing logic
