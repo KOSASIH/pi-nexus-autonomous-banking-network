@@ -1,38 +1,38 @@
-const { deployments, ethers } = require("hardhat");
+const { deployments, ethers } = require('hardhat')
 
-const { deploy } = deployments;
+const { deploy } = deployments
 
-async function deployContracts() {
-  await deployments.fixture(["contracts"]);
+async function deployContracts () {
+  await deployments.fixture(['contracts'])
 
-  const [deployer] = await ethers.getSigners();
+  const [deployer] = await ethers.getSigners()
 
-  console.log("Deploying contracts with the account:", deployer.address);
+  console.log('Deploying contracts with the account:', deployer.address)
 
-  console.log("Account balance:", (await deployer.getBalance()).toString());
+  console.log('Account balance:', (await deployer.getBalance()).toString())
 
-  const MyContract = await ethers.getContractFactory("MyContract");
+  const MyContract = await ethers.getContractFactory('MyContract')
 
-  console.log("Deploying MyContract...");
+  console.log('Deploying MyContract...')
 
-  const myContract = await MyContract.deploy();
+  const myContract = await MyContract.deploy()
 
-  console.log("Deployed MyContract at:", myContract.address);
+  console.log('Deployed MyContract at:', myContract.address)
 
-  await myContract.deployed();
+  await myContract.deployed()
 
-  console.log("MyContract deployed.");
+  console.log('MyContract deployed.')
 
-  const myContractArtifact = await deployments.artifacts.get("MyContract");
+  const myContractArtifact = await deployments.artifacts.get('MyContract')
 
-  console.log("MyContract ABI:", myContractArtifact.abi);
+  console.log('MyContract ABI:', myContractArtifact.abi)
 
-  console.log("MyContract bytecode:", myContractArtifact.bytecode);
+  console.log('MyContract bytecode:', myContractArtifact.bytecode)
 }
 
 deployContracts()
   .then(() => process.exit(0))
   .catch((error) => {
-    console.error(error);
-    process.exit(1);
-  });
+    console.error(error)
+    process.exit(1)
+  })
