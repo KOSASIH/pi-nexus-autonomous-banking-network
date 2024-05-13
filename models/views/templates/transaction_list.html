@@ -1,8 +1,10 @@
 <h1>Transaction List</h1>
 <ul>
   {% for transaction in transactions %}
-    <li>
-      <a href="/transactions/{{ transaction['id'] }}">{{ transaction['description'] }}</a>
-    </li>
+  <li>
+    <a href="/transactions/{{ transaction['id'] }}"
+      >{{ transaction['description'] }}</a
+    >
+  </li>
   {% endfor %}
 </ul>
