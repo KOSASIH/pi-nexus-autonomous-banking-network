@@ -1,5 +1,31 @@
 import os
 
+# Ethereum network configuration
+ETH_NETWORK = os.environ.get('ETH_NETWORK', 'rinkeby')
+ETH_INFURA_PROJECT_ID = os.environ.get('ETH_INFURA_PROJECT_ID', '')
+ETH_PRIVATE_KEY = os.environ.get('ETH_PRIVATE_KEY', '')
+
+# Contract addresses
+BANK_CONTRACT_ADDRESS = os.environ.get('BANK_CONTRACT_ADDRESS', '')
+INTEREST_CONTRACT_ADDRESS = os.environ.get('INTEREST_CONTRACT_ADDRESS', '')
+LOAN_CONTRACT_ADDRESS = os.environ.get('LOAN_CONTRACT_ADDRESS', '')
+SECURITY_CONTRACT_ADDRESS = os.environ.get('SECURITY_CONTRACT_ADDRESS', '')
+
+# Contract ABI
+BANK_ABI = os.environ.get('BANK_ABI', '')
+INTEREST_ABI = os.environ.get('INTEREST_ABI', '')
+LOAN_ABI = os.environ.get('LOAN_ABI', '')
+SECURITY_ABI = os.environ.get('SECURITY_ABI', '')
+
+# Web3 provider
+w3 = web3.Web3(web3.HTTPProvider(f'https://{ETH_NETWORK}.infura.io/v3/{ETH_INFURA_PROJECT_ID}'))
+
+# Contract instances
+bank = w3.eth.contract(address=BANK_CONTRACT_ADDRESS, abi=BANK_ABI)
+interest = w3.eth.contract(address=INTEREST_CONTRACT_ADDRESS, abi=INTEREST_ABI)
+loan = w3.eth.contract(address=LOAN_CONTRACT_ADDRESS, abi=LOAN_ABI)
+security = w3.eth.contract(address=SECURITY_CONTRACT_ADDRESS, abi=SECURITY_ABI)
+
 # Database configuration
 DB_HOST = os.getenv("DB_HOST", "localhost")
 DB_PORT = int(os.getenv("DB_PORT", 5432))
