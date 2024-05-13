@@ -1,6 +1,8 @@
-import os
 import json
+import os
+
 import web3
+
 
 class AIManager:
     def __init__(self, provider_url):
@@ -12,15 +14,21 @@ class AIManager:
         with open(ai_contract_path) as f:
             ai_contract_code = f.read()
 
-        ai_contract = self.web3.eth.contract(abi=ai_contract_code['abi'], bytecode=ai_contract_code['bin'])
-        tx_hash = ai_contract.constructor().transact({'from': self.web3.eth.defaultAccount, 'gas': 1000000})
+        ai_contract = self.web3.eth.contract(
+            abi=ai_contract_code["abi"], bytecode=ai_contract_code["bin"]
+        )
+        tx_hash = ai_contract.constructor().transact(
+            {"from": self.web3.eth.defaultAccount, "gas": 1000000}
+        )
         tx_receipt = self.web3.eth.waitForTransactionReceipt(tx_hash)
-        ai_address = tx_receipt['contractAddress']
+        ai_address = tx_receipt["contractAddress"]
 
         return ai_address
 
     def call_ai_function(self, ai_address, function_name, *args):
-        ai_contract = self.web3.eth.contract(address=ai_address, abi=self.get_ai_contract_abi())
+        ai_contract = self.web3.eth.contract(
+            address=ai_address, abi=self.get_ai_contract_abi()
+        )
         result = ai_contract.functions[function_name](*args).call()
 
         return result
@@ -30,7 +38,9 @@ class AIManager:
         pass
 
     def train_model(self, ai_address, name, description, model_data):
-        tx_hash = ai_contract.functions.trainModel(name, description, model_data).transact({'from': self.web3.eth.defaultAccount, 'gas': 1000000})
+        tx_hash = ai_contract.functions.trainModel(
+            name, description, model_data
+        ).transact({"from": self.web3.eth.defaultAccount, "gas": 1000000})
         tx_receipt = self.web3.eth.waitForTransactionReceipt(tx_hash)
 
         return tx_receipt
@@ -41,7 +51,9 @@ class AIManager:
         return model
 
     def set_model_trained(self, ai_address, owner, model_id):
-        tx_hash = ai_contract.functions.setModelTrained(owner, model_id).transact({'from': self.web3.eth.defaultAccount, 'gas': 1000000})
+        tx_hash = ai_contract.functions.setModelTrained(owner, model_id).transact(
+            {"from": self.web3.eth.defaultAccount, "gas": 1000000}
+        )
         tx_receipt = self.web3.eth.waitForTransactionReceipt(tx_hash)
 
         return tx_receipt
