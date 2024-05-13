@@ -1,7 +1,8 @@
-import pandas as pd
-import numpy as np
 import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
 from sklearn.ensemble import IsolationForest
+
 
 class AIAnalytics:
     def __init__(self, data: pd.DataFrame):
@@ -20,7 +21,9 @@ class AIAnalytics:
         inliers = self.data[model.predict(self.data) == 1]
         return anomalies, inliers
 
-    def predict_future_values(self, feature: str, target: str, window_size: int, model_type: str = 'ARIMA'):
+    def predict_future_values(
+        self, feature: str, target: str, window_size: int, model_type: str = "ARIMA"
+    ):
         """
         Predict future values using a time series model.
 
