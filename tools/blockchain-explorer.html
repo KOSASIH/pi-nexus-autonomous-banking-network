@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blockchain Explorer</title>
+  <style>
+    /* Add some basic styling */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    #content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+    #input-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    #input-container label {
+      margin-bottom: 10px;
+    }
+    #input-container input {
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    #input-container button {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    #input-container button:hover {
+      background-color: #45a049;
+    }
+    #output-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+    #output-container table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    #output-container th,
+    #output-container td {
+      padding: 10px;
+      border: 1px solid #ccc;
+      text-align: left;
+    }
+    #output-container th {
+      background-color: #4CAF50;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div id="content">
+    <div id="input-container">
+      <label for="address">Enter an Ethereum address:</label>
+      <input type="text" id="address" placeholder="0x...">
+      <button id="explore-button">Explore</button>
+    </div>
+    <div id="output-container">
+      <table id="transaction-table">
+        <thead>
+          <tr>
+            <th>Block</th>
+            <th>Transaction Hash</th>
+            <th>From</th>
+            <th>To</th>
+            <th>Value</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+  <script>
+    // Add interactivity to the blockchain explorer
+    const exploreButton = document.getElementById("explore-button");
+    const addressInput = document.getElementById("address");
+    const transactionTableBody = document.querySelector("#transaction-table tbody");
+
+    exploreButton.addEventListener("click", async () => {
+      const address = addressInput.value;
+      const ethClient = new EthClient();
+
+      const balance = await ethClient.getBalance(address);
+      console.log(`Balance of ${address}: ${balance} Ether`);
+
+      const transactions = await ethClient.getTransactions(address);
+      console.log(`Transactions of ${address}:`, transactions);
+
+      // Display the transactions in the table
+      for (const transaction of transactions) {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td>${transaction.blockNumber}</td>
+          <td>${transaction.hash}</td>
+          <td>${transaction.from}</td>
+          <td>${transaction.to}</td>
+          <td>${ethers.utils.formatEther(transaction.value)} Ether</td>
+        `;
+        transactionTableBody.appendChild(row);
+      }
+    });
+
+    class EthClient {
+      constructor() {
+        this.provider = new ethers.providers.JsonRpcProvider("http://localhost:8545");
+        this.wallet = new ethers.Wallet("myPrivateKey", this.provider);
+        this.signer = this.wallet.connect(this.provider);
+      }
+
+      async getBalance(address) {
+        const balance = await this.provider.getBalance(address);
+        return ethers.utils.formatEther(balance);
+      }
+
+      async getTransactions(address) {
+        const transactions = [];
+
+        let blockNumber = await this.provider.getBlockNumber();
+        while (blockNumber > 0) {
+          const block = await this.provider.getBlock(blockNumber);
+          for (const transaction of block.transactions) {
+            if (transaction.from === address || transaction.to === address) {
+              transactions.push(transaction);
+            }
+          }
+          blockNumber--;
+        }
+
+        return transactions;
+      }
+    }
+  </script>
+</body>
+</html>
