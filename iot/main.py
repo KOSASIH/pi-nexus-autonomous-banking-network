@@ -1,11 +1,15 @@
 import time
+
 from iot.device import ATM, CreditCardTerminal, Sensor
 from iot.mqtt import MQTT
+
 
 class IoT:
     def __init__(self):
         self.atm = ATM("ATM 1", "atm/atm1")
-        self.credit_card_terminal = CreditCardTerminal("Credit Card Terminal 1", "credit_card/terminal1")
+        self.credit_card_terminal = CreditCardTerminal(
+            "Credit Card Terminal 1", "credit_card/terminal1"
+        )
         self.sensor = Sensor("Sensor 1", "sensor/sensor1")
         self.mqtt = MQTT("mqtt.example.com", 1883)
 
@@ -24,7 +28,7 @@ class IoT:
             message = message.payload.decode()
             print(f"Received message: {message} from topic: {topic}")
             if topic == "atm/commands":
-                command= message.split(":")[1].strip()
+                command = message.split(":")[1].strip()
                 self.atm.withdraw_money(int(command))
             elif topic == "credit_card/commands":
                 command = message.split(":")[1].strip()
@@ -33,6 +37,7 @@ class IoT:
         self.mqtt.subscribe("atm/commands", on_message)
         self.mqtt.subscribe("credit_card/commands", on_message)
         self.mqtt.loop()
+
 
 if __name__ == "__main__":
     iot = IoT()
