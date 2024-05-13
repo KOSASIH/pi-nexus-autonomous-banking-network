@@ -1,8 +1,9 @@
-import numpy as np
 import cv2
+import numpy as np
+
 
 class DR:
-    def __init__(self, model_path: str, device: str = 'cpu'):
+    def __init__(self, model_path: str, device: str = "cpu"):
         """
         Initialize the DR class with a pre-trained deep learning model.
         """
@@ -13,7 +14,9 @@ class DR:
         """
         Detect objects in an image using the pre-trained deep learning model.
         """
-        blob = cv2.dnn.blobFromImage(image, 1 / 255.0, (416, 416), swapRB=True, crop=False)
+        blob = cv2.dnn.blobFromImage(
+            image, 1 / 255.0, (416, 416), swapRB=True, crop=False
+        )
         self.model.setInput(blob)
         outputs = self.model.forward(self.model.getUnconnectedOutLayersNames())
 
@@ -46,10 +49,12 @@ class DR:
         for i in indices:
             box = boxes[i]
             x, y, w, h = box
-            result.append({
-                "class_id": class_ids[i],
-                "confidence": confidences[i],
-              "box": [x, y, w, h]
-            })
+            result.append(
+                {
+                    "class_id": class_ids[i],
+                    "confidence": confidences[i],
+                    "box": [x, y, w, h],
+                }
+            )
 
         return result
