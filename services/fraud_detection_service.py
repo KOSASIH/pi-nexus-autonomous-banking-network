@@ -1,6 +1,7 @@
 # services/fraud_detection_service.py
 import tensorflow as tf
 
+
 class FraudDetectionService:
     def __init__(self, model):
         self.model = model
