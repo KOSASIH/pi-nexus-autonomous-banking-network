@@ -1,0 +1,44 @@
+import os
+from logging.config import fileConfig
+
+from sqlalchemy import engine_from_config
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import scoped_session, sessionmaker
+
+config = context.config
+fileConfig(config.config_file_name)
+
+target_metadata = None
+if config.get_main_option("script_location"):
+    from logging.config import fileConfig
+    fileConfig(config.config_file_name)
+    from models.models import Base
+    target_metadata = Base.metadata
+
+Section(config.get_section(config.config_ini_section)).configure(
+    config,
+    url=config.get_main_option("sqlalchemy.url"),
+    dialect_name=config.get_main_option("sqlalchemy.dialect"),
+    poolclass=config.get_main_option("sqlalchemy.poolclass"),
+    pool_size=config.get_main_option("sqlalchemy.pool_size"),
+    max_overflow=config.get_main_option("sqlalchemy.max_overflow"),
+    pool_timeout=config.get_main_option("sqlalchemy.pool_timeout"),
+    pool_recycle=config.get_main_option("sqlalchemy.pool_recycle"),
+    literal_binds=config.get_main_option("sqlalchemy.literal_binds"),
+)
+
+if target_metadata is None:
+    target_metadata = metadata
+
+engine = engine_from_config(
+    config.get_section(config.config_ini_section),
+    prefix="sqlalchemy.",
+    poolclass=poolclass,
+)
+
+if config.get_main_option("sqlalchemy.url"):
+    connectable = engine
+else:
+    connectable = engine.connect()
+
+Session = scoped_session(sessionmaker(bind=connectable))
