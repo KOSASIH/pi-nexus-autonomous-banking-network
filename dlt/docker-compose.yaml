@@ -1,4 +1,4 @@
-version: '2'
+version: "2"
 
 networks:
   byfn:
@@ -320,4 +320,3 @@ services:
       - CORE_PEER_GOSSIP_SKIPHANDSHAKE=false
       - CORE_PEER_GOSSIP_SKIPPEERPROPOSAL=false
       - CORE_PEER_GOSSIP_SKIPPEERVALIDATION=false
-      
