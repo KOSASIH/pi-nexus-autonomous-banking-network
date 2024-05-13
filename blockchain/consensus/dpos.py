@@ -1,6 +1,7 @@
 import random
 import time
 
+
 class DPoSConsensus:
     def __init__(self, blockchain):
         self.blockchain = blockchain
