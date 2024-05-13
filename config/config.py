@@ -15,7 +15,9 @@ API_DEBUG = os.getenv("API_DEBUG", "True").lower() == "true"
 # Authentication configuration
 AUTH_SECRET_KEY = os.getenv("AUTH_SECRET_KEY", "secret_key")
 AUTH_ALGORITHM = os.getenv("AUTH_ALGORITHM", "HS256")
-AUTH_ACCESS_TOKEN_EXPIRE_MINUTES = int(os.getenv("AUTH_ACCESS_TOKEN_EXPIRE_MINUTES", 30))
+AUTH_ACCESS_TOKEN_EXPIRE_MINUTES = int(
+    os.getenv("AUTH_ACCESS_TOKEN_EXPIRE_MINUTES", 30)
+)
 AUTH_REFRESH_TOKEN_EXPIRE_DAYS = int(os.getenv("AUTH_REFRESH_TOKEN_EXPIRE_DAYS", 7))
 
 # Email configuration
