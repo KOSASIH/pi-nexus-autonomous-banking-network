@@ -1,14 +1,15 @@
-import pandas as pd
 import numpy as np
+import pandas as pd
 from sklearn.cluster import KMeans
-from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.linear_model import LogisticRegression
+
 
 class MachineLearning:
     def __init__(self, data: pd.DataFrame):
         self.data = data
 
-    def cluster_data(self, n_clusters: int, metric: str = 'euclidean'):
+    def cluster_data(self, n_clusters: int, metric: str = "euclidean"):
         """
         Cluster the data using KMeans.
 
@@ -21,7 +22,12 @@ class MachineLearning:
         labels = model.labels_
         return pd.Series(labels, index=self.data.index)
 
-    def classify(self, features: pd.DataFrame, target: pd.Series, model_type: str = 'LogisticRegression'):
+    def classify(
+        self,
+        features: pd.DataFrame,
+        target: pd.Series,
+        model_type: str = "LogisticRegression",
+    ):
         """
         Train and apply a classification model.
 
@@ -30,18 +36,23 @@ class MachineLearning:
         :param model_type: The type of classification model to use (LogisticRegression, RandomForestClassifier, etc.).
         :return: A pandas Series containing the predicted classes.
         """
-        if model_type == 'LogisticRegression':
+        if model_type == "LogisticRegression":
             model = LogisticRegression()
-        elif model_type == 'RandomForestClassifier':
+        elif model_type == "RandomForestClassifier":
             model = RandomForestClassifier()
         else:
-            raise ValueError(f'Invalid model type: {model_type}')
+            raise ValueError(f"Invalid model type: {model_type}")
 
         model.fit(features, target)
         predictions = model.predict(features)
         return pd.Series(predictions, index=features.index)
 
-    def regress(self, features: pd.DataFrame, target: pd.Series, model_type: str = 'LinearRegression'):
+    def regress(
+        self,
+        features: pd.DataFrame,
+        target: pd.Series,
+        model_type: str = "LinearRegression",
+    ):
         """
         Train and apply a regression model.
 
