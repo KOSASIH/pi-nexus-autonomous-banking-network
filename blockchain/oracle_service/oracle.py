@@ -1,6 +1,8 @@
 import json
+
 import requests
 from web3 import Web3
+
 
 class Oracle:
     def __init__(self, rpc_url):
@@ -9,9 +11,26 @@ class Oracle:
     def get_exchange_rate(self, base, quote):
         """Get the exchange rate from the decentralized oracle contract."""
         # Assuming the oracle contract is deployed at 0x1234567890123456789012345678901234567890
-        oracle_contract_address = Web3.toChecksumAddress("0x1234567890123456789012345678901234567890")
-        exchange_rate_abi = [{"constant":True,"inputs":[{"name":"_base","type":"address"},{"name":"_quote","type":"address"}],"name":"getExchangeRate","outputs":[{"name":"","type":"uint256"}],"payable":False,"stateMutability":"view","type":"function"}]
-        oracle_contract = self.web3.eth.contract(address=oracle_contract_address, abi=exchange_rate_abi)
+        oracle_contract_address = Web3.toChecksumAddress(
+            "0x1234567890123456789012345678901234567890"
+        )
+        exchange_rate_abi = [
+            {
+                "constant": True,
+                "inputs": [
+                    {"name": "_base", "type": "address"},
+                    {"name": "_quote", "type": "address"},
+                ],
+                "name": "getExchangeRate",
+                "outputs": [{"name": "", "type": "uint256"}],
+                "payable": False,
+                "stateMutability": "view",
+                "type": "function",
+            }
+        ]
+        oracle_contract = self.web3.eth.contract(
+            address=oracle_contract_address, abi=exchange_rate_abi
+        )
         exchange_rate = oracle_contract.functions.getExchangeRate(base, quote).call()
         return exchange_rate
 
@@ -35,8 +54,9 @@ class Oracle:
             weather = {
                 "city": data["name"],
                 "country": data["sys"]["country"],
-               "temperature": data["main"]["temp"] - 273.15, # Convert from Kelvin to Celsius
-               "description": data["weather"][0]["description"],
+                # Convert from Kelvin to Celsius
+                "temperature": data["main"]["temp"] - 273.15,
+                "description": data["weather"][0]["description"],
             }
             return weather
         else:
