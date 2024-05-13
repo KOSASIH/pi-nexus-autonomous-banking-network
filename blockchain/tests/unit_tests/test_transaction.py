@@ -1,5 +1,7 @@
 import unittest
+
 from blockchain.transaction import Transaction
+
 
 class TestTransaction(unittest.TestCase):
     def test_create_transaction(self):
@@ -22,10 +24,16 @@ class TestTransaction(unittest.TestCase):
         transaction = Transaction("sender_address", "recipient_address", 100)
 
         # Check if the transaction hash is correct
-        self.assertEqual(transaction.hash, Transaction("sender_address", "recipient_address", 100).hash)
+        self.assertEqual(
+            transaction.hash,
+            Transaction("sender_address", "recipient_address", 100).hash,
+        )
 
         # Change the data in the transaction
         transaction.amount = 200
 
         # Check if the transaction hash has changed
-        self.assertNotEqual(transaction.hash, Transaction("sender_address", "recipient_address", 100).hash)
+        self.assertNotEqual(
+            transaction.hash,
+            Transaction("sender_address", "recipient_address", 100).hash,
+        )
