@@ -1,6 +1,7 @@
 import random
 import time
 
+
 class PoSConsensus:
     def __init__(self, blockchain):
         self.blockchain = blockchain
@@ -14,7 +15,7 @@ class PoSConsensus:
 
     def validate_stake(self, node_address, amount):
         """
-Validate the staked coins of a node address.
+        Validate the staked coins of a node address.
         """
         # Implement the logic to validate the staked coins of a node address.
         pass
