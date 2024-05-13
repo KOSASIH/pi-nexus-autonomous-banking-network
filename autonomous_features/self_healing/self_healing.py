@@ -1,5 +1,6 @@
 import logging
 
+
 class SelfHealing:
     def __init__(self, logger: logging.Logger):
         self.logger = logger
@@ -19,5 +20,5 @@ class SelfHealing:
             else:
                 return False
         except Exception as e:
-            self.logger.error(f'Error during self-healing: {e}')
+            self.logger.error(f"Error during self-healing: {e}")
             return False
