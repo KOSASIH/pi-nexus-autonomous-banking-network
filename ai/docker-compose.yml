@@ -1,0 +1,20 @@
+version: "3.8"
+
+services:
+  data_ingestion:
+    build:
+      context: ./data_ingestion
+    ports:
+      - "5001:5001"
+
+  model_training:
+    build:
+      context: ./model_training
+    ports:
+      - "5002:5002"
+
+  prediction:
+    build:
+      context: ./prediction
+    ports:
+      - "5003:5003"
