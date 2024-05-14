@@ -18,9 +18,9 @@ type ScanRequest struct {
 
 type ScanResponse struct {
 	Vulnerabilities struct {
-		Low    int `json:"low"`
-		Medium int `json:"medium"`
-		High   int `json:"high"`
+		Low      int `json:"low"`
+		Medium   int `json:"medium"`
+		High     int `json:"high"`
 		Critical int `json:"critical"`
 	} `json:"vulnerabilities"`
 }
@@ -66,14 +66,14 @@ func scanStatusHandler(w http.ResponseWriter, r *http.Request) {
 	// Return the scan results
 	res := &ScanResponse{
 		Vulnerabilities: struct {
-			Low    int `json:"low"`
-			Medium int `json:"medium"`
-			High   int `json:"high"`
+			Low      int `json:"low"`
+			Medium   int `json:"medium"`
+			High     int `json:"high"`
 			Critical int `json:"critical"`
 		}{
-			Low:    0,
-			Medium: 0,
-			High:   0,
+			Low:      0,
+			Medium:   0,
+			High:     0,
 			Critical: 0,
 		},
 	}
