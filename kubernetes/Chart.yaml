@@ -1,0 +1,4 @@
+# Chart.yaml
+name: pi-nexus-autonomous-banking-network
+version: 1.0.0
+description: A Helm chart for pi-nexus-autonomous-banking-network
