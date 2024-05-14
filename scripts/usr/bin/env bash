@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+set -e
+
+export JWT_SECRET_KEY=my_secret_key
+
+docker-compose up --build
