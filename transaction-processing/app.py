@@ -6,6 +6,7 @@ app = Celery("transaction_processing", broker="amqp://guest:guest@localhost")
 
 logger = get_task_logger(__name__)
 
+
 @app.task
 def process_transaction(transaction_id):
     # Process transaction
