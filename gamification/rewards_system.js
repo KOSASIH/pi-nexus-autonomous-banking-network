@@ -1,12 +1,14 @@
 // rewards_system.js
-const axios = require('axios');
-const { v4: uuidv4 } = require('uuid');
+const axios = require("axios");
+const { v4: uuidv4 } = require("uuid");
 
-const REWARDS_API_URL = 'https://api.rewards.com';
+const REWARDS_API_URL = "https://api.rewards.com";
 
 const getUserRewards = async (userId) => {
   try {
-    const response = await axios.get(`${REWARDS_API_URL}/users/${userId}/rewards`);
+    const response = await axios.get(
+      `${REWARDS_API_URL}/users/${userId}/rewards`,
+    );
     return response.data;
   } catch (error) {
     console.error(`Error fetching user rewards: ${error.message}`);
@@ -36,9 +38,9 @@ module.exports = {
 };
 
 // leaderboard.js
-const axios = require('axios');
+const axios = require("axios");
 
-const LEADERBOARD_API_URL = 'https://api.leaderboard.com';
+const LEADERBOARD_API_URL = "https://api.leaderboard.com";
 
 const getLeaderboard = async () => {
   try {
@@ -55,9 +57,9 @@ module.exports = {
 };
 
 // challenges.js
-const axios = require('axios');
+const axios = require("axios");
 
-const CHALLENGES_API_URL = 'https://api.challenges.com';
+const CHALLENGES_API_URL = "https://api.challenges.com";
 
 const getChallenges = async () => {
   try {
