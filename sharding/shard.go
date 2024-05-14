@@ -12,7 +12,7 @@ type Shard struct {
 
 func NewShard(id int) *Shard {
 	return &Shard{
-	ID: id,
+		ID: id,
 	}
 }
 
