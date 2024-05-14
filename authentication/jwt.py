@@ -1,13 +1,15 @@
-import jwt
 import datetime
 
+import jwt
+
+
 class JWT:
-    def __init__(self, secret_key, algorithm='HS256'):
+    def __init__(self, secret_key, algorithm="HS256"):
         self.secret_key = secret_key
         self.algorithm = algorithm
 
     def encode(self, payload):
-        payload['exp'] = datetime.datetime.utcnow() + datetime.timedelta(minutes=10)
+        payload["exp"] = datetime.datetime.utcnow() + datetime.timedelta(minutes=10)
         return jwt.encode(payload, self.secret_key, algorithm=self.algorithm)
 
     def decode(self, token):
