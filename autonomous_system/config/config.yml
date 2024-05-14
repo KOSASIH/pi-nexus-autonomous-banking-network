@@ -1,0 +1,35 @@
+# config.yaml
+
+# Configuration for data processing
+data_processing:
+  input_file: data/input_data.csv
+  output_file: data/output_data.csv
+  temp_file: data/temp_data.csv
+
+# Configuration for machine learning
+machine_learning:
+  model_file: models/model.pkl
+  training_data_file: data/training_data.csv
+  evaluation_data_file: data/evaluation_data.csv
+  metrics:
+    accuracy: 0.85
+    precision: 0.85
+    recall: 0.85
+    f1_score: 0.85
+
+# Configuration for web application
+web_app:
+  host: 0.0.0.0
+  port: 5000
+  debug: True
+
+# Configuration for logging
+logging:
+  log_file: logs/app.log
+  log_level: INFO
+
+# Configuration for exceptions
+exceptions:
+  email_to: user@example.com
+  email_subject: Exception in Autonomous System
+  email_body: Please check the logs for more details.
