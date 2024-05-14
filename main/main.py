@@ -1,12 +1,26 @@
-import utils.math_utils as math_utils
-import utils.network_utils as network_utils
 import utils.sensor_utils as sensor_utils
+import sensors.temperature_sensor as temperature_sensor
+import sensors.humidity_sensor as humidity_sensor
+import network.banking_network as banking_network
 
 def main():
-    # Initialize sensors and network connections
-    sensor_data = sensor_utils.read_sensor_data('temperature')
-    processed_data = sensor_utils.process_sensor_data(sensor_data)
-    network_utils.send_data_to_server(processed_data)
+    # Initialize sensors and banking network
+    temp_sensor = temperature_sensor.TemperatureSensor("/dev/ttyUSB0")
+    humidity_sensor = humidity_sensor.HumiditySensor("/dev/ttyUSB1")
+    banking_network = banking_network.BankingNetwork("https://example.com")
+
+    # Read sensor data
+    temp_data = temp_sensor.read_data()
+    humidity_data = humidity_sensor.read_data()
+
+    # Process sensor data
+    sensor_data = sensor_utils.process_sensor_data(temp_data, humidity_data)
+
+    # Send data to banking network
+    banking_network.send_data(sensor_data)
+
+    # Receive data from banking network
+    data = banking_network.receive_data()
 
 if __name__ == "__main__":
     main()
