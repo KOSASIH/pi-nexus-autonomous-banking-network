@@ -1,3 +1,4 @@
+![Static Badge](https://img.shields.io/badge/Pi-Nexus-gold)
 [![DeepSource](https://app.deepsource.com/gh/KOSASIH/pi-nexus-autonomous-banking-network.svg/?label=active+issues&show_trend=true&token=J48vq2P0V-jMIAXmrKlh9NYZ)](https://app.deepsource.com/gh/KOSASIH/pi-nexus-autonomous-banking-network/)
 [![Greetings](https://github.com/KOSASIH/pi-nexus-autonomous-banking-network/actions/workflows/greetings.yml/badge.svg)](https://github.com/KOSASIH/pi-nexus-autonomous-banking-network/actions/workflows/greetings.yml)
 [![Docker Image CI](https://github.com/KOSASIH/pi-nexus-autonomous-banking-network/actions/workflows/docker-image.yml/badge.svg)](https://github.com/KOSASIH/pi-nexus-autonomous-banking-network/actions/workflows/docker-image.yml)
