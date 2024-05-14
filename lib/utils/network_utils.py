@@ -1,5 +1,7 @@
-import requests
 import socket
+
+import requests
+
 
 def send_data_to_server(data, url):
     """
@@ -17,6 +19,7 @@ def send_data_to_server(data, url):
         response.raise_for_status()
     except requests.exceptions.RequestException as e:
         print(f"Error sending data to server: {e}")
+
 
 def receive_data_from_server(url):
     """
