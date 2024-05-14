@@ -29,9 +29,9 @@ func (s *AccountService) CreateAccount(name string, currency string) (*Account, 
 	defer s.Mutex.Unlock()
 	id := GenerateAccountID()
 	account := &Account{
-		ID:     id,
-		Name:   name,
-		Balance: 0,
+		ID:       id,
+		Name:     name,
+		Balance:  0,
 		Currency: currency,
 	}
 	s.Accounts[id] = account
