@@ -53,7 +53,7 @@ func main() {
 
 func loadModel(filePath string) model.Model {
 	model, err := model.NewModelFromFile(filePath)
-if err != nil {
+	if err != nil {
 		log.Fatalf("Failed to load model: %v", err)
 	}
 	return model
