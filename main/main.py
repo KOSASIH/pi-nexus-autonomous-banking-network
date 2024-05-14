@@ -1,7 +1,8 @@
-import utils.sensor_utils as sensor_utils
-import sensors.temperature_sensor as temperature_sensor
-import sensors.humidity_sensor as humidity_sensor
 import network.banking_network as banking_network
+import sensors.humidity_sensor as humidity_sensor
+import sensors.temperature_sensor as temperature_sensor
+import utils.sensor_utils as sensor_utils
+
 
 def main():
     # Initialize sensors and banking network
@@ -21,6 +22,7 @@ def main():
 
     # Receive data from banking network
     data = banking_network.receive_data()
+
 
 if __name__ == "__main__":
     main()
