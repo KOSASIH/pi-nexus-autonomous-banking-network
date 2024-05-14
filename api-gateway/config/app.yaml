@@ -1,0 +1,8 @@
+api_gateway:
+  environment: development
+  secret_key: a_random_secret_key
+  authentication:
+    header: X-Auth-Token
+  rate_limiting:
+    interval: 60
+    limit: 100
