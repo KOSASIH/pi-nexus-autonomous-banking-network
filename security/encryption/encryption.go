@@ -37,7 +37,7 @@ func Decrypt(ciphertext, key []byte) ([]byte, error) {
 
 	gcm, err := cipher.NewGCM(c)
 	if err != nil {
-	return nil, err
+		return nil, err
 	}
 
 	nonceSize := gcm.NonceSize()
