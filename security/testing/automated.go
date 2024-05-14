@@ -1,42 +1,64 @@
+package main
+
+import (
+	"fmt"
+	"log"
+	"net/http"
+	"os"
+	"os/exec"
+	"time"
+
+	"github.com/prometheus/client_golang/prometheus"
+	"github.com/prometheus/client_golang/prometheus/promhttp"
+)
+
+var vulnerabilities = prometheus.NewCounterVec(
+	prometheus.CounterOpts{
+		Name: "vulnerabilities_total",
+		Help: "Total number of vulnerabilities found",
+	},
+	[]string{"severity"},
+)
+
+func init() {
+	prometheus.MustRegister(vulnerabilities)
+}
+
 func main() {
-	// Start Selenium and ZAP servers
-	startSeleniumServer()
-	zap := startZAP()
-	defer zap.Process.Kill()
+	http.Handle("/metrics", promhttp.Handler())
+	http.HandleFunc("/scan", scanHandler)
+	log.Fatal(http.ListenAndServe(":8080", nil))
+}
 
-	// Create a new HTTP session
-	caps := grid.Capabilities{
-		BrowserName: "chrome",
+func scanHandler(w http.ResponseWriter, r *http.Request) {
+	url := r.URL.Query().Get("url")
+	if url == "" {
+		http.Error(w, "URL parameter is required", http.StatusBadRequest)
+		return
 	}
-	webDriver, err := selenium.NewRemote(caps, "http://localhost:4444/wd/hub")
+
+	// Run OWASP ZAP and Selenium to scan the URL
+	cmd := exec.Command("python3", "scan.py", url)
+	output, err := cmd.CombinedOutput()
 	if err != nil {
-		log.Fatalf("Failed to create HTTP session: %v", err)
+		log.Printf("Failed to scan URL: %v\n%s", err, output)
+		http.Error(w, "Failed to scan URL", http.StatusInternalServerError)
+		return
 	}
-	defer webDriver.Quit()
 
-	// Navigate to the target website
-	webDriver.Get("https://example.com")
-
-	// Perform security testing using OWASP ZAP
-	zapURL := "http://localhost:8080/JSON/core/action/spider/view/"
-	spiderURL := fmt.Sprintf("%s?url=%s&recursive=true&contextName=%s", zapURL, "https://example.com", "example")
-	spiderResp, err := http.Get(spiderURL)
-	if err != nil {
-		log.Fatalf("Failed to start ZAP spider: %v", err)
+	// Parse the scan results and report the vulnerabilities
+	severities := []string{"low", "medium", "high", "critical"}
+	for _, severity := range severities {
+		count := 0
+		for _, line := range strings.Split(string(output), "\n") {
+			if strings.Contains(line, fmt.Sprintf("Severity: %s", severity)) {
+				count++
+			}
+		}
+		if count > 0 {
+			vulnerabilities.WithLabelValues(severity).Add(float64(count))
+		}
 	}
-	defer spiderResp.Body.Close()
 
-	alertsURL := fmt.Sprintf("%s?contextName=%s", zapURL, "example")
-	alertsResp, err := http.Get(alertsURL)
-	if err != nil {
-		log.Fatalf("Failed to get ZAP alerts: %v", err)
-	}
-	defer alertsResp.Body.Close()
-
-	// Print the ZAP alerts
-	alerts, err := ioutil.ReadAll(alertsResp.Body)
-	if err != nil {
-		log.Fatalf("Failed to read ZAP alerts: %v", err)
-	}
-	fmt.Println(string(alerts))
+	fmt.Fprintf(w, "Scan completed")
 }
