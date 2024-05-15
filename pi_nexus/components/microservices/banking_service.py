@@ -1,6 +1,7 @@
 # microservices/banking_service.py
 import requests
 
+
 class BankingService:
     def __init__(self, config):
         self.config = config
