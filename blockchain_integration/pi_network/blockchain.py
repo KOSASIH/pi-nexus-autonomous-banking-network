@@ -1,9 +1,10 @@
-import os
-import json
 import hashlib
+import json
+import os
 import time
 from datetime import datetime
-from typing import List, Dict, Any
+from typing import Any, Dict, List
+
 
 class Blockchain:
     """
@@ -27,7 +28,7 @@ class Blockchain:
         self.nodes = set()
 
         # Create the genesis block
-        genesis_block = self.create_block(proof=0, previous_hash='0' * 64)
+        genesis_block = self.create_block(proof=0, previous_hash="0" * 64)
         self.chain.append(genesis_block)
 
     def create_block(self, proof: int, previous_hash: str) -> Dict[str, Any]:
@@ -40,14 +41,14 @@ class Blockchain:
         """
 
         block = {
-            'index': len(self.chain),
-            'timestamp': int(time.time()),
-            'transactions': self.pending_transactions,
-            'proof': proof,
-            'previous_hash': previous_hash,
-            'pi_coin_symbol': self.pi_coin_symbol,
-            'stable_value': self.stable_value,
-            'exchanges': self.exchanges,
+            "index": len(self.chain),
+            "timestamp": int(time.time()),
+            "transactions": self.pending_transactions,
+            "proof": proof,
+            "previous_hash": previous_hash,
+            "pi_coin_symbol": self.pi_coin_symbol,
+            "stable_value": self.stable_value,
+            "exchanges": self.exchanges,
         }
 
         # Reset the pending transactions
@@ -67,11 +68,13 @@ class Blockchain:
         :param amount: The amount of the transaction.
         """
 
-        self.pending_transactions.append({
-            'sender': sender,
-            'recipient': recipient,
-            'amount': amount,
-        })
+        self.pending_transactions.append(
+            {
+                "sender": sender,
+                "recipient": recipient,
+                "amount": amount,
+            }
+        )
 
     def proof_of_work(self, last_block: Dict[str, Any]) -> int:
         """
@@ -82,7 +85,7 @@ class Blockchain:
         """
 
         proof = 0
-        while not self.is_valid_proof(last_block['proof'], proof):
+        while not self.is_valid_proof(last_block["proof"], proof):
             proof += 1
 
         return proof
@@ -96,9 +99,9 @@ class Blockchain:
         :return: True if the proof is valid, False otherwise.
         """
 
-        guess = f'{last_block_proof}{proof}'.encode()
+        guess = f"{last_block_proof}{proof}".encode()
         guess_hash = hashlib.sha256(guess).hexdigest()
-        return guess_hash[:4] == '0000'
+        return guess_hash[:4] == "0000"
 
     def is_valid(self) -> bool:
         """
@@ -111,10 +114,10 @@ class Blockchain:
             current_block = self.chain[i]
             previous_block = self.chain[i - 1]
 
-            if current_block['previous_hash'] != self.hash(previous_block):
+            if current_block["previous_hash"] != self.hash(previous_block):
                 return False
 
-            if not self.is_valid_proof(previous_block['proof'], current_block['proof']):
+            if not self.is_valid_proof(previous_block["proof"], current_block["proof"]):
                 return False
 
         return True
@@ -148,11 +151,11 @@ class Blockchain:
         max_length = len(self.chain)
 
         for node in self.nodes:
-            response = requests.get(f'{node}/chain')
+            response = requests.get(f"{node}/chain")
 
             if response.status_code == 200:
-                length = response.json()['length']
-                chain = response.json()['chain']
+                length = response.json()["length"]
+                chain = response.json()["chain"]
 
                 if length > max_length and self.is_valid(chain):
                     longest_chain = chain
