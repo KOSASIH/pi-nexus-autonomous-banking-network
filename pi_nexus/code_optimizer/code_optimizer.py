@@ -1,5 +1,7 @@
 import random
+
 from deap import base, creator, tools
+
 
 class CodeOptimizer:
     def __init__(self, code: str, fitness_function):
