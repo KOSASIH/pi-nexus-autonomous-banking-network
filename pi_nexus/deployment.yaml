@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pi-nexus
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: pi-nexus
+  template:
+    metadata:
+      labels:
+        app: pi-nexus
+    spec:
+      containers:
+        - name: pi-nexus
+          image: YOUR_DOCKER_IMAGE
+          ports:
+            - containerPort: 5000
