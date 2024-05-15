@@ -1,5 +1,6 @@
 import time
 
+
 class RealtimeMonitor:
     def monitor(self, data):
         while True:
