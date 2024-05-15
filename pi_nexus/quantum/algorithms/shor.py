@@ -1,5 +1,6 @@
 # quantum/algorithms/shor.py
-from qiskit import QuantumCircuit, transpile, assemble, Aer, execute
+from qiskit import Aer, QuantumCircuit, assemble, execute, transpile
+
 
 class Shor:
     def __init__(self):
