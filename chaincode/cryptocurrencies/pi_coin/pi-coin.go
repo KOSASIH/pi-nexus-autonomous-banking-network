@@ -8,8 +8,7 @@ import (
 	pb "github.com/hyperledger/fabric/protos/peer"
 )
 
-type PiCoin struct {
-}
+type PiCoin struct{}
 
 func (t *PiCoin) Init(stub shim.ChaincodeStub, function string, args []string) pb.Response {
 	return shim.Success(nil)
@@ -42,7 +41,7 @@ func (t *PiCoin) issue(stub shim.ChaincodeStub, args []string) pb.Response {
 
 func (t *PiCoin) transfer(stub shim.ChaincodeStub, args []string) pb.Response {
 	if len(args) != 3 {
-	return shim.Error("Invalid number of arguments")
+		return shim.Error("Invalid number of arguments")
 	}
 
 	// Transfer Pi Coins from one address to another
