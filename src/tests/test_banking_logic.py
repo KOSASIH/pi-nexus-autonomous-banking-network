@@ -1,5 +1,7 @@
 import unittest
+
 from banking_logic import BankAccount
+
 
 class TestBankingLogic(unittest.TestCase):
     def setUp(self):
@@ -25,6 +27,7 @@ class TestBankingLogic(unittest.TestCase):
         self.account.deposit(1000)
         self.account.display()
         # Verify that the display method prints the correct balance
+
 
 if __name__ == "__main__":
     unittest.main()
