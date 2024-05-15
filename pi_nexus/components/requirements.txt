@@ -1,5 +1,5 @@
 # requirements.txt
-tensorflow==2.6.0
+tensorflow==2.11.1
 boto3==1.18.32
 requests==2.26.0
 pandas==1.3.5
