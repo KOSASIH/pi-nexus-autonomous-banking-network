@@ -1,7 +1,8 @@
-import os
 import json
+import os
 import re
-from typing import List, Dict, Any, Union, Callable
+from typing import Any, Callable, Dict, List, Union
+
 
 class AutomaticRegulatoryTroubleshooter:
     """
@@ -9,7 +10,12 @@ class AutomaticRegulatoryTroubleshooter:
     regulatory compliance issues in a given system or application.
     """
 
-    def __init__(self, compliance_rules: List[Dict[str, Any]], asset_path: str = "assets/", issue_resolver: Callable[[Dict[str, Any]], None] = None):
+    def __init__(
+        self,
+        compliance_rules: List[Dict[str, Any]],
+        asset_path: str = "assets/",
+        issue_resolver: Callable[[Dict[str, Any]], None] = None,
+    ):
         """
         Initialize the AutomaticRegulatoryTroubleshooter object with a list of compliance rules,
         an optional asset path, and an optional issue resolver function.
@@ -64,7 +70,7 @@ class AutomaticRegulatoryTroubleshooter:
         issue = {
             "rule": rule,
             "asset": asset,
-            "description": self._generate_issue_description(rule, asset)
+            "description": self._generate_issue_description(rule, asset),
         }
         self.issues.append(issue)
 
@@ -148,25 +154,23 @@ class AutomaticRegulatoryTroubleshooter:
         with open(os.path.join(self.asset_path, f"{file_name}.json"), "r") as f:
             self.issues = json.load(f)
 
+
 # Example compliance rules:
 compliance_rules = [
     {
         "name": "Data encryption",
         "pattern": r"(.*)\.json$",
         "reason": "Data in JSON files should be encrypted for security reasons.",
-        "resolution": {
-            "replace_with": r"\1_encrypted.json"
-        }
+        "resolution": {"replace_with": r"\1_encrypted.json"},
     },
     {
         "name": "Image format",
         "pattern": r"(.*)\.png$",
         "reason": "PNG images should be converted to JPG for better compression.",
-        "resolution": {
-            "replace_with": r"\1.jpg"
-        }
-    }
+        "resolution": {"replace_with": r"\1.jpg"},
+    },
 ]
+
 
 # Example custom issue resolver function:
 def custom_issue_resolver(issues: List[Dict[str, Any]]) -> None:
@@ -180,6 +184,7 @@ def custom_issue_resolver(issues: List[Dict[str, Any]]) -> None:
                 replacement = resolution["replace_with"]
                 print(f"Resolving issue: Replacing '{asset}' with '{replacement}'.")
                 os.replace(asset, replacement)
+
 
 # Example usage:
 troubleshooter = AutomaticRegulatoryTroubleshooter(compliance_rules)
