@@ -1,6 +1,7 @@
 # pi_nexus/self_development.py
-import os
 import importlib
+import os
+
 
 class SelfDevelopment:
     def __init__(self) -> None:
