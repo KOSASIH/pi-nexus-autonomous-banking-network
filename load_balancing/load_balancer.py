@@ -1,6 +1,7 @@
 import hashlib
 import random
 
+
 class LoadBalancer:
     def __init__(self, server_count):
         self.server_count = server_count
