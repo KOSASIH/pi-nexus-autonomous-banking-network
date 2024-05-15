@@ -1,6 +1,8 @@
 # iot/devices/device_manager.py
 import time
+
 from .mqtt import MqttClient
+
 
 class DeviceManager:
     def __init__(self):
