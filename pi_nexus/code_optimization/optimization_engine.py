@@ -1,6 +1,7 @@
 # code_optimization/optimization_engine.py
 import ast
 
+
 class OptimizationEngine:
     def __init__(self):
         self.optimization_rules = OptimizationRules()
