@@ -1,8 +1,11 @@
 # tests/test_miner.py
 import unittest
+
 from miner import Miner
-from blockchain import Blockchain
 from wallet import Wallet
+
+from blockchain import Blockchain
+
 
 class TestMiner(unittest.TestCase):
     def test_mine_new_block(self):
@@ -12,5 +15,6 @@ class TestMiner(unittest.TestCase):
         block = miner.mine_new_block([])
         self.assertIsNotNone(block)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()
