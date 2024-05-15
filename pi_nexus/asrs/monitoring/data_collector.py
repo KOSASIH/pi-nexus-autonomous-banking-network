@@ -1,5 +1,6 @@
 import logging
 
+
 class DataCollector:
     def __init__(self, config):
         self.config = config
@@ -10,6 +11,7 @@ class DataCollector:
         self.logger.info("Collecting data...")
         # Implement data collection logic here
 
+
 class MetricsCollector:
     def __init__(self, config):
         self.config = config
@@ -19,6 +21,7 @@ class MetricsCollector:
         """Collect metrics from various sources (e.g., Prometheus, Grafana)."""
         self.logger.info("Collecting metrics...")
         # Implement metrics collection logic here
+
 
 class LogCollector:
     def __init__(self, config):
