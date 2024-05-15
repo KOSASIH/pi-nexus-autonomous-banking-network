@@ -1,6 +1,8 @@
 # automl/model_deployment.py
 import joblib
+
 from .model_training import ModelTraining
+
 
 class ModelDeployment:
     def __init__(self):
