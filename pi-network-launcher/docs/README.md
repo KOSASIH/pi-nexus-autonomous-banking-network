@@ -64,6 +64,4 @@ To use the launcher, navigate to the pi-network-launcher directory and run the s
 
 This will start the launcher and display the user interface. You can now interact with the Pi-Nexus Autonomous Banking Network by opening and closing wallets, making transactions, and managing accounts.
 
-
                                                      Pi to the moon .. 🚀
-
