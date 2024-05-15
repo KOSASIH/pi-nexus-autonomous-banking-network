@@ -1,18 +1,21 @@
 # Pi Nexus OS
-import os
 import hashlib
-import tensorflow as tf
-from sklearn.neural_network import MLPClassifier
-import quantum
-import hologram
-import sound
-import vr
+import os
+
 import ar
-import blockchain
-import ai
-import iot
-import  fifthg
+import fifthg
+import hologram
 import nano
+import quantum
+import sound
+import tensorflow as tf
+import vr
+from sklearn.neural_network import MLPClassifier
+
+import ai
+import blockchain
+import iot
+
 
 class PiNexusOS:
     def __init__(self, device):
@@ -69,6 +72,7 @@ class PiNexusOS:
         # Analisis data waktu nyata menggunakan prosesor jaringan saraf
         analysis = self.nn_processor.predict(data)
         return analysis
+
 
 # Contoh penggunaan
 os = PiNexusOS("Raspberry Pi")
