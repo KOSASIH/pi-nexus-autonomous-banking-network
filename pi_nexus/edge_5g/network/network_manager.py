@@ -1,6 +1,7 @@
 # edge_5g/network/network_manager.py
 import time
 
+
 class NetworkManager:
     def __init__(self):
         self.edge_computing = EdgeComputing()
