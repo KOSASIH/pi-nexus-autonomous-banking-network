@@ -1,7 +1,8 @@
-import os
 import json
+import os
 import random
-from typing import List, Dict, Any, Union
+from typing import Any, Dict, List, Union
+
 
 class GameBuilder:
     """
@@ -42,7 +43,9 @@ class GameBuilder:
         """
         valid_difficulties = ["easy", "medium", "hard"]
         if difficulty not in valid_difficulties:
-            raise ValueError(f"Invalid difficulty: {difficulty}. Valid difficulties are: {', '.join(valid_difficulties)}")
+            raise ValueError(
+                f"Invalid difficulty: {difficulty}. Valid difficulties are: {', '.join(valid_difficulties)}"
+            )
         self.game_config["difficulty"] = difficulty
 
     def set_game_assets(self, assets: List[str]) -> None:
@@ -59,7 +62,9 @@ class GameBuilder:
 
         :return: The game configuration.
         """
-        self.game_config["randomized_aspect"] = random.choice(["day/night cycle", "weather system", "dynamic soundtrack"])
+        self.game_config["randomized_aspect"] = random.choice(
+            ["day/night cycle", "weather system", "dynamic soundtrack"]
+        )
         self.game_config["game_id"] = os.urandom(16).hex()
         return self.game_config
 
@@ -72,7 +77,9 @@ class GameBuilder:
         with open(os.path.join(self.asset_path, f"{file_name}.json"), "w") as f:
             json.dump(self.game_config, f, indent=4)
 
-    def load_game_config(self, file_name: str) -> Dict[str, Union[str, List[str], Dict[str, Any]]]:
+    def load_game_config(
+        self, file_name: str
+    ) -> Dict[str, Union[str, List[str], Dict[str, Any]]]:
         """
         Load a game configuration from a JSON file.
 
@@ -82,6 +89,7 @@ class GameBuilder:
         """
         with open(os.path.join(self.asset_path, f"{file_name}.json"), "r") as f:
             return json.load(f)
+
 
 # Example usage:
 game_builder = GameBuilder()
