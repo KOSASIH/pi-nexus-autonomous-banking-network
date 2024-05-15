@@ -1,5 +1,7 @@
 import logging
+
 from sklearn.ensemble import RandomForestRegressor
+
 
 class PredictiveMaintenance:
     def __init__(self, config):
