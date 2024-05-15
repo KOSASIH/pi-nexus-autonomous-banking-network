@@ -1,5 +1,6 @@
 import time
 
+
 class Client:
     def __init__(self, load_balancer):
         self.load_balancer = load_balancer
@@ -8,6 +9,7 @@ class Client:
         server = self.load_balancer.route_request(request_id)
         response = server.handle_request(request_id)
         print(f"Client received response {response}")
+
 
 if __name__ == "__main__":
     load_balancer = LoadBalancer(10)
