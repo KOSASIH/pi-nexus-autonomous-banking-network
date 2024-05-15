@@ -1,8 +1,10 @@
 # Pi Nexus OS
-import os
 import hashlib
+import os
+
 import tensorflow as tf
 from sklearn.neural_network import MLPClassifier
+
 
 class PiNexusOS:
     def __init__(self, device):
@@ -35,6 +37,7 @@ class PiNexusOS:
         # Analisis data waktu nyata menggunakan prosesor jaringan saraf
         analysis = self.nn_processor.predict(data)
         return analysis
+
 
 # Contoh penggunaan
 os = PiNexusOS("Raspberry Pi")
