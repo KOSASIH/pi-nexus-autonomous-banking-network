@@ -1,6 +1,7 @@
 # documentation/documentation_engine.py
-import inspect
 import ast
+import inspect
+
 
 class DocumentationEngine:
     def __init__(self):
