@@ -1,6 +1,8 @@
 import os
-import requests
 import zipfile
+
+import requests
+
 
 def auto_upgrader(repo_url: str, local_path: str) -> None:
     """
