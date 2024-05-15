@@ -1,14 +1,16 @@
 # Import required libraries and frameworks
-import os
 import json
+import os
 from datetime import datetime
+
 from cryptography.fernet import Fernet
-from flask import Flask, request, jsonify
+from flask import Flask, jsonify, request
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///licensing_db.db"
 db = SQLAlchemy(app)
+
 
 # Define a model for business entities
 class BusinessEntity(db.Model):
@@ -18,9 +20,11 @@ class BusinessEntity(db.Model):
     license_expiration = db.Column(db.DateTime, nullable=False)
     legalization_status = db.Column(db.Boolean, default=False)
 
+
 # Define a function to generate a unique license number
 def generate_license_number():
     return Fernet.generate_key().decode("utf-8")[:50]
+
 
 # Define a function to automate licensing and legalization
 def resolve_licensing_legalization(entity_name):
@@ -41,10 +45,13 @@ def resolve_licensing_legalization(entity_name):
         return entity.license_number
     else:
         # Create a new business entity and generate a license number
-        entity = BusinessEntity(name=entity_name, license_number=generate_license_number())
+        entity = BusinessEntity(
+            name=entity_name, license_number=generate_license_number()
+        )
         db.session.add(entity)
         db.session.commit()
         return entity.license_number
+
 
 # Define a Flask API endpoint to receive business entity requests
 @app.route("/resolve_licensing_legalization", methods=["POST"])
@@ -53,6 +60,7 @@ def resolve_licensing_legalization_endpoint():
     entity_name = data["entity_name"]
     license_number = resolve_licensing_legalization(entity_name)
     return jsonify({"license_number": license_number})
+
 
 if __name__ == "__main__":
     app.run(debug=True)
