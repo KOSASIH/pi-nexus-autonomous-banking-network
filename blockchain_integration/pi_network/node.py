@@ -1,8 +1,11 @@
 # node.py
 import socket
 import threading
-from blockchain import Blockchain
+
 from wallet import Wallet
+
+from blockchain import Blockchain
+
 
 class Node:
     def __init__(self, wallet: Wallet, blockchain: Blockchain):
@@ -41,7 +44,7 @@ class Node:
             message (str): The message to send.
         """
         for peer in self.peers:
-            self.socket.sendto(message.encode('utf-8'), peer)
+            self.socket.sendto(message.encode("utf-8"), peer)
 
     def _listen_for_messages(self) -> None:
         """
