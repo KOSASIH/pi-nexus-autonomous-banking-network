@@ -1,0 +1,7 @@
+stages:
+  - test
+
+test:
+  stage: test
+  script:
+    - python testing_ci/test_runner.py
