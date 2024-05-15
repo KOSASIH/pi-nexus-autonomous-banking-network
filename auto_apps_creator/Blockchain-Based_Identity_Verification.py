@@ -1,5 +1,7 @@
 import hashlib
+
 from ecdsa import SigningKey, VerifyingKey
+
 
 class IdentityVerifier:
     def __init__(self):
