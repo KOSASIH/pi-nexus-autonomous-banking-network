@@ -1,6 +1,7 @@
 # autoscaling_load_balancing/load_balancing_engine.py
 import subprocess
 
+
 class LoadBalancingEngine:
     def __init__(self):
         self.kubernetes = Kubernetes()
