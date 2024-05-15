@@ -33,7 +33,7 @@ def launch_mainnet():
         print(f"Error launching mainnet: {e}")
 
 # Function to auto-launch mainnet at a specified time
-def auto_launch_mainnet(launch_time): 1 June 2024
+def auto_launch_mainnet(launch_time):  `2024-06-01 00:00:00` (YYYY-MM-DD HH:MM:SS format).
     schedule.every().day.at(launch_time.strftime("%H:%M")).do(launch_mainnet)
     while True:
         schedule.run_pending()
