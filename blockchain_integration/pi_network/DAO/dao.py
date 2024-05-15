@@ -1,6 +1,7 @@
 from abc import ABC, abstractmethod
 from typing import Any
 
+
 class DAO(ABC):
     @abstractmethod
     def create(self, entity: Any) -> Any:
