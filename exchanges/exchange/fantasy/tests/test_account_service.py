@@ -1,7 +1,9 @@
 # tests/test_account_service.py
 import unittest
 from unittest.mock import MagicMock
+
 from services.account_service import AccountService
+
 
 class TestAccountService(unittest.TestCase):
     def setUp(self):
