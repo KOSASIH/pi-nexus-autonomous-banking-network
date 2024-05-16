@@ -1,104 +1,82 @@
-# business/business.py
-
 import logging
-from abc import ABC, abstractmethod
-from dataclasses import dataclass
-from typing import List, Dict, Any
-
-# Configuration
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
-
-@dataclass
-class Customer:
-    id: int
-    name: str
-    email: str
-    balance: float = 0.0
-
-class BankAccount(ABC):
-    def __init__(self, customer: Customer):
-        self.customer = customer
-        self.transactions: List[Dict[str, Any]] = []
-
-    @abstractmethod
-    def deposit(self, amount: float) -> None:
-        pass
-
-    @abstractmethod
-    def withdraw(self, amount: float) -> None:
-        pass
-
-    def get_balance(self) -> float:
-        return self.customer.balance
-
-    def get_transactions(self) -> List[Dict[str, Any]]:
-        return self.transactions
-
-class CheckingAccount(BankAccount):
-    def deposit(self, amount: float) -> None:
-        self.customer.balance += amount
-        self.transactions.append({"type": "deposit", "amount": amount})
-
-    def withdraw(self, amount: float) -> None:
-        if amount > self.customer.balance:
-            logger.warning("Insufficient funds")
-            return
-        self.customer.balance -= amount
-        self.transactions.append({"type": "withdrawal", "amount": amount})
-
-class SavingsAccount(BankAccount):
-    def deposit(self, amount: float) -> None:
-        self.customer.balance += amount
-        self.transactions.append({"type": "deposit", "amount": amount})
-
-    def withdraw(self, amount: float) -> None:
-        if amount > self.customer.balance:
-            logger.warning("Insufficient funds")
-            return
-        self.customer.balance -= amount
-        self.transactions.append({"type": "withdrawal", "amount": amount})
+from typing import List, Dict, Any, Optional, Union
+from datetime import datetime
+from account import Account
+from customer import Customer
 
 class Business:
     def __init__(self):
-        self.customers: Dict[int, Customer] = {}
-        self.accounts: Dict[int, BankAccount] = {}
+        self.customers: Dict[str, Customer] = {}
+        self.accounts: Dict[str, Account] = {}
 
-    def create_customer(self, name: str, email: str) -> int:
-        customer_id = len(self.customers) + 1
-        customer = Customer(customer_id, name, email)
-        self.customers[customer_id] = customer
+    def create_customer(self, name: str, email: str, address: str, phone_number: str) -> str:
+        """Create a new customer and return the customer ID.
+
+        Args:
+            name (str): The name of the customer.
+            email (str): The email address of the customer.
+            address (str): The address of the customer.
+            phone_number (str): The phone number of the customer.
+
+        Returns:
+            str: The customer ID.
+        """
+        customer_id = str(uuid4())[:8]
+        self.customers[customer_id] = Customer(customer_id, name, email, address, phone_number)
         return customer_id
 
-    def create_account(self, customer_id: int, account_type: str) -> int:
+    def create_account(self, customer_id: str, account_type: str) -> str:
+        """Create a new account for a customer and return the account number.
+
+        Args:
+            customer_id (str): The customer ID.
+            account_type (str): The type of account to create.
+
+        Returns:
+            str: The account number.
+        """
         if customer_id not in self.customers:
-            logger.error("Customer not found")
-            return None
-        account_id = len(self.accounts) + 1
-        if account_type == "checking":
-            account = CheckingAccount(self.customers[customer_id])
-        elif account_type == "savings":
-            account = SavingsAccount(self.customers[customer_id])
-        else:
-            logger.error("Invalid account type")
-            return None
-        self.accounts[account_id] = account
-        return account_id
+            raise ValueError("Customer not found")
 
-    def deposit(self, account_id: int, amount: float) -> None:
-        if account_id not in self.accounts:
-            logger.error("Account not found")
-            return
-        self.accounts[account_id].deposit(amount)
+        account = Account(account_type=account_type, balance=0.0)
+        self.accounts[account.account_number] = account
 
-    def withdraw(self, account_id: int, amount: float) -> None:
-        if account_id not in self.accounts:
-            logger.error("Account not found")
-            return
-        self.accounts[account_id].withdraw(amount)
+        self.customers[customer_id].accounts.append(account.account_number)
+        return account.account_number
 
-    def get_customer(self, customer_id: int) -> Customer:
+    def get_account(self, account_number: str) -> Optional[Account]:
+        """Get an account by account number.
+
+        Args:
+            account_number (str): The account number.
+
+        Returns:
+            Optional[Account]: The account, or None if not found.
+"""
+        return self.accounts.get(account_number)
+
+    def get_customer(self, customer_id: str) -> Optional[Customer]:
+        """Get a customer by customer ID.
+
+        Args:
+            customer_id (str): The customer ID.
+
+        Returns:
+            Optional[Customer]: The customer, or None if not found.
+        """
         return self.customers.get(customer_id)
 
-    def get_account(self, account_id: int) -> BankAccount:
-        return self.accounts.get(account_id)
+    def process_transaction(self, account_number: str, transaction_type: str, amount: float):
+        """Process a transaction for an account.
+
+        Args:
+            account_number (str): The account number.
+            transaction_type (str): The type of transaction.
+            amount (float): The amount of the transaction.
+        """
+        account = self.get_account(account_number)
+        if account is None:
+            raise ValueError("Account not found")
+
+        transaction = Transaction(account, transaction_type, amount)
+        transaction.process()
