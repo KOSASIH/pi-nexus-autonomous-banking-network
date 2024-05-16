@@ -1,5 +1,6 @@
 from models.account import Account
 
+
 class AccountService:
     def __init__(self):
         self.accounts = []  # Initialize an empty list of accounts
