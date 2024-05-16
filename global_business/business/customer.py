@@ -1,5 +1,6 @@
-from uuid import uuid4
 from dataclasses import dataclass
+from uuid import uuid4
+
 
 @dataclass
 class Customer:
