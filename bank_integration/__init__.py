@@ -2,6 +2,7 @@
 from .bank_api import BankAPI
 from .transaction_processor import TransactionProcessor
 
+
 # bank_integration/bank_api.py
 class BankAPI:
     def __init__(self, api_key: str):
@@ -10,6 +11,7 @@ class BankAPI:
     def get_account_balance(self, account_number: str) -> float:
         # implementation
         pass
+
 
 # bank_integration/transaction_processor.py
 class TransactionProcessor:
