@@ -1,6 +1,7 @@
 # account_repository.py
 from models.account import Account
 
+
 class AccountRepository:
     def __init__(self, db):
         self.db = db
