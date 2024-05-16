@@ -1,10 +1,11 @@
 # Import required libraries
-import requests
 import json
-from datetime import datetime
-import time
 import logging
+import time
+from datetime import datetime
 from typing import Dict, List
+
+import requests
 
 # Set up logging
 logging.basicConfig(level=logging.INFO)
@@ -106,8 +107,9 @@ pi_coin: Dict[str, any] = {
     "symbol": "PIC",
     "listed_date": PI_COIN_LISTED_DATE,
     "initial_value": PI_COIN_INITIAL_VALUE,
-    "exchanges": exchanges
+    "exchanges": exchanges,
 }
+
 
 # Function to fetch current prices from exchanges
 def fetch_prices(exchange: Dict[str, str]) -> str:
@@ -120,6 +122,7 @@ def fetch_prices(exchange: Dict[str, str]) -> str:
         logger.error(f"Error fetching price from {exchange['name']}: {e}")
         return "N/A"
 
+
 # Function to list PI Coin on exchanges
 def list_pi_coin(pi_coin: Dict[str, any]) -> None:
     logger.info("Listing PI Coin on exchanges:")
@@ -129,6 +132,7 @@ def list_pi_coin(pi_coin: Dict[str, any]) -> None:
         if exchange["name"] == "Indodax":
             list_on_indodax(exchange["listing_url"], exchange["listing_params"])
         time.sleep(60 / exchange["api_rate_limit"])  # Rate limit delay
+
 
 # Function to list PI Coin on Indodax
 def list_on_indodax(listing_url: str, listing_params: Dict[str, any]) -> None:
@@ -140,6 +144,7 @@ def list_on_indodax(listing_url: str, listing_params: Dict[str, any]) -> None:
     except requests.exceptions.RequestException as e:
         logger.error(f"Error listing on Indodax: {e}")
 
+
 # Main function
 def main() -> None:
     logger.info("PI Coin Auto Lister")
@@ -147,6 +152,7 @@ def main() -> None:
     logger.info(f"PI Coin listed on {PI_COIN_LISTED_DATE.strftime('%Y-%m-%d')}")
     logger.info(f"Initial value: ${PI_COIN_INITIAL_VALUE:.2f}")
     list_pi_coin(pi_coin)
+
 
 if __name__ == "__main__":
     main()
