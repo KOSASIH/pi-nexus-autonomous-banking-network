@@ -4,8 +4,8 @@ package main
 import (
 	"log"
 
-	"github.com/KOSASIH/pi-nexus-autonomous-banking-network/config"
 	"github.com/KOSASIH/pi-nexus-autonomous-banking-network/coin"
+	"github.com/KOSASIH/pi-nexus-autonomous-banking-network/config"
 	"github.com/KOSASIH/pi-nexus-autonomous-banking-network/db"
 )
 
