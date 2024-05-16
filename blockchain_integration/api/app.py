@@ -1,10 +1,12 @@
 # api/app.py
 from fastapi import FastAPI, HTTPException
+
 from blockchain_integration.blockchain import Blockchain
 
 app = FastAPI()
 
 blockchain = Blockchain("https://mainnet.infura.io/v3/YOUR_PROJECT_ID")
+
 
 @app.get("/balance/{address}")
 async def get_balance(address: str):
