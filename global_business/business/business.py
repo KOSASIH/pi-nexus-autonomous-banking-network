@@ -1,15 +1,19 @@
 import logging
-from typing import List, Dict, Any, Optional, Union
 from datetime import datetime
+from typing import Any, Dict, List, Optional, Union
+
 from account import Account
 from customer import Customer
+
 
 class Business:
     def __init__(self):
         self.customers: Dict[str, Customer] = {}
         self.accounts: Dict[str, Account] = {}
 
-    def create_customer(self, name: str, email: str, address: str, phone_number: str) -> str:
+    def create_customer(
+        self, name: str, email: str, address: str, phone_number: str
+    ) -> str:
         """Create a new customer and return the customer ID.
 
         Args:
@@ -22,7 +26,9 @@ class Business:
             str: The customer ID.
         """
         customer_id = str(uuid4())[:8]
-        self.customers[customer_id] = Customer(customer_id, name, email, address, phone_number)
+        self.customers[customer_id] = Customer(
+            customer_id, name, email, address, phone_number
+        )
         return customer_id
 
     def create_account(self, customer_id: str, account_type: str) -> str:
@@ -52,7 +58,7 @@ class Business:
 
         Returns:
             Optional[Account]: The account, or None if not found.
-"""
+        """
         return self.accounts.get(account_number)
 
     def get_customer(self, customer_id: str) -> Optional[Customer]:
@@ -66,7 +72,9 @@ class Business:
         """
         return self.customers.get(customer_id)
 
-    def process_transaction(self, account_number: str, transaction_type: str, amount: float):
+    def process_transaction(
+        self, account_number: str, transaction_type: str, amount: float
+    ):
         """Process a transaction for an account.
 
         Args:
