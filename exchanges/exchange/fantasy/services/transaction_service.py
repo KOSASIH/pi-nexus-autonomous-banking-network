@@ -2,6 +2,7 @@
 from inject import inject
 from models.transaction import Transaction
 
+
 class TransactionService:
     @inject
     def __init__(self, transaction_repository):
