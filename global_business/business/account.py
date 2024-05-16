@@ -1,6 +1,7 @@
-from uuid import uuid4
 from dataclasses import dataclass
 from datetime import datetime
+from uuid import uuid4
+
 
 @dataclass
 class Account:
@@ -15,20 +16,24 @@ class Account:
 
     def deposit(self, amount: float):
         self.balance += amount
-        self.transactions.append({
-            "type": "deposit",
-            "amount": amount,
-            "balance": self.balance,
-            "timestamp": datetime.now()
-        })
+        self.transactions.append(
+            {
+                "type": "deposit",
+                "amount": amount,
+                "balance": self.balance,
+                "timestamp": datetime.now(),
+            }
+        )
 
     def withdraw(self, amount: float):
         if self.balance < amount:
             raise ValueError("Insufficient funds")
         self.balance -= amount
-        self.transactions.append({
-            "type": "withdrawal",
-            "amount": amount,
-            "balance": self.balance,
-            "timestamp": datetime.now()
-        })
+        self.transactions.append(
+            {
+                "type": "withdrawal",
+                "amount": amount,
+                "balance": self.balance,
+                "timestamp": datetime.now(),
+            }
+        )
