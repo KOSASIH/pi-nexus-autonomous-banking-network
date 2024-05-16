@@ -3,11 +3,12 @@
 import logging
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
-from typing import List, Dict, Any
+from typing import Any, Dict, List
 
 # Configuration
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
+
 
 @dataclass
 class Customer:
@@ -15,6 +16,7 @@ class Customer:
     name: str
     email: str
     balance: float = 0.0
+
 
 class BankAccount(ABC):
     def __init__(self, customer: Customer):
@@ -35,6 +37,7 @@ class BankAccount(ABC):
     def get_transactions(self) -> List[Dict[str, Any]]:
         return self.transactions
 
+
 class CheckingAccount(BankAccount):
     def deposit(self, amount: float) -> None:
         self.customer.balance += amount
@@ -47,6 +50,7 @@ class CheckingAccount(BankAccount):
         self.customer.balance -= amount
         self.transactions.append({"type": "withdrawal", "amount": amount})
 
+
 class SavingsAccount(BankAccount):
     def deposit(self, amount: float) -> None:
         self.customer.balance += amount
@@ -58,6 +62,7 @@ class SavingsAccount(BankAccount):
             return
         self.customer.balance -= amount
         self.transactions.append({"type": "withdrawal", "amount": amount})
+
 
 class Business:
     def __init__(self):
