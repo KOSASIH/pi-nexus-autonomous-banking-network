@@ -1,7 +1,9 @@
-from flask_security import Security, SQLAlchemyUserDatastore, User, Role, RoleUser
-from config import encrypt_data, decrypt_data
+from flask_security import Role, RoleUser, Security, SQLAlchemyUserDatastore, User
+
+from config import decrypt_data, encrypt_data
 
 # ...
+
 
 class Nexus(Flask):
     # ...
@@ -16,7 +18,7 @@ class Nexus(Flask):
         self.accounts = {
             account_id: {
                 "balance": encrypt_data(str(balance)),
-                "transactions": encrypt_data(json.dumps(transactions))
+                "transactions": encrypt_data(json.dumps(transactions)),
             }
             for account_id, (balance, transactions) in accounts.items()
         }
