@@ -2,6 +2,7 @@
 from inject import inject
 from models.account import Account
 
+
 class AccountService:
     @inject
     def __init__(self, account_repository):
