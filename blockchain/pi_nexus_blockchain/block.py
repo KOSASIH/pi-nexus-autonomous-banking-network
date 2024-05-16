@@ -2,14 +2,21 @@
 
 import hashlib
 import time
-from typing import List, Dict
+from typing import Dict, List
+
 
 class Block:
     """
     A single block in the blockchain, representing a unit of data and its associated metadata.
     """
 
-    def __init__(self, index: int, previous_hash: str, transactions: List[Dict], timestamp: float = None):
+    def __init__(
+        self,
+        index: int,
+        previous_hash: str,
+        transactions: List[Dict],
+        timestamp: float = None,
+    ):
         """
         Initialize a new block.
 
@@ -43,5 +50,5 @@ class Block:
             "previous_hash": self.previous_hash,
             "transactions": self.transactions,
             "timestamp": self.timestamp,
-            "hash": self.hash
+            "hash": self.hash,
         }
