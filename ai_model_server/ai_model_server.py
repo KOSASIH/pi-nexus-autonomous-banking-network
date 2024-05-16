@@ -1,24 +1,23 @@
 # ai_model_server.py
 import asyncio
+
 import torch
-from torch import nn, optim
-from sklearn.preprocessing import StandardScaler
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
+from sklearn.preprocessing import StandardScaler
+from torch import nn, optim
 
 app = FastAPI()
+
 
 class DataPoint(BaseModel):
     features: List[float]
     label: float
 
+
 async def train_model(data: List[DataPoint]):
     # Create a PyTorch neural network model
-    model = nn.Sequential(
-        nn.Linear(10, 128),
-        nn.ReLU(),
-        nn.Linear(128, 1)
-    )
+    model = nn.Sequential(nn.Linear(10, 128), nn.ReLU(), nn.Linear(128, 1))
 
     # Define a custom loss function and optimizer
     criterion = nn.MSELoss()
@@ -50,6 +49,7 @@ async def train_model(data: List[DataPoint]):
     # Return the trained model
     return model
 
+
 @app.post("/predict")
 async def predict(data: List[DataPoint]):
     # Train the model using the provided data
@@ -64,6 +64,8 @@ async def predict(data: List[DataPoint]):
     # Return the predictions
     return {"predictions": predictions}
 
+
 if __name__ == "__main__":
     import uvicorn
+
     uvicorn.run(app, host="0.0.0.0", port=8000)
