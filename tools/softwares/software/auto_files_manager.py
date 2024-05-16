@@ -1,12 +1,15 @@
 # Import required modules
-import os
-import shutil
 import datetime
 import logging
+import os
+import shutil
 
 # Set up logging
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+logging.basicConfig(
+    level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s"
+)
 logger = logging.getLogger(__name__)
+
 
 class AutoFileManager:
     def __init__(self, root_dir: str, file_types: dict = None, backup_dir: str = None):
@@ -19,12 +22,12 @@ class AutoFileManager:
         """
         self.root_dir = root_dir
         self.file_types = file_types or {
-            'images': ['jpg', 'jpeg', 'png', 'gif', 'bmp'],
-            'videos': ['mp4', 'avi', 'mov', 'wmv'],
-            'documents': ['docx', 'doc', 'pdf', 'txt'],
-            'audio': ['mp3', 'wav', 'ogg']
+            "images": ["jpg", "jpeg", "png", "gif", "bmp"],
+            "videos": ["mp4", "avi", "mov", "wmv"],
+            "documents": ["docx", "doc", "pdf", "txt"],
+            "audio": ["mp3", "wav", "ogg"],
         }
-        self.backup_dir = backup_dir or os.path.join(self.root_dir, 'backup')
+        self.backup_dir = backup_dir or os.path.join(self.root_dir, "backup")
 
     def organize_files(self):
         """
@@ -84,6 +87,7 @@ class AutoFileManager:
         self.clean_up_empty_dirs()
         self.backup_files()
 
-if __name__ == '__main__':
-    manager = AutoFileManager('/path/to/root/directory')
+
+if __name__ == "__main__":
+    manager = AutoFileManager("/path/to/root/directory")
     manager.run()
