@@ -1,8 +1,10 @@
 # tests/test_blockchain.py
 
 import pytest
+
 from .block import Block
 from .blockchain import Blockchain
+
 
 def test_blockchain_initialization():
     """
@@ -14,13 +16,19 @@ def test_blockchain_initialization():
     assert blockchain.chain[0].transactions == []
     assert blockchain.chain[0].hash is not None
 
+
 def test_blockchain_add_transaction():
     """
     Test the addition of a new transaction to the blockchain.
     """
     blockchain = Blockchain()
     blockchain.add_transaction({"sender": "Alice", "recipient": "Bob", "amount": 100})
-    assert blockchain.pending_transactions[0] == {"sender": "Alice", "recipient": "Bob", "amount": 100}
+    assert blockchain.pending_transactions[0] == {
+        "sender": "Alice",
+        "recipient": "Bob",
+        "amount": 100,
+    }
+
 
 def test_blockchain_mine_block():
     """
@@ -31,17 +39,23 @@ def test_blockchain_mine_block():
     blockchain.mine_block()
     assert blockchain.chain[-1].index == 1
     assert blockchain.chain[-1].previous_hash == blockchain.chain[0].hash
-    assert blockchain.chain[-1].transactions == [{"sender": "Alice", "recipient": "Bob", "amount": 100}]
+    assert blockchain.chain[-1].transactions == [
+        {"sender": "Alice", "recipient": "Bob", "amount": 100}
+    ]
     assert blockchain.chain[-1].hash is not None
+
 
 def test_blockchain_proof_of_work():
     """
     Test the proof-of-work (PoW) algorithm.
     """
     blockchain = Blockchain()
-    block = Block(1, "previous_hash", [{"sender": "Alice", "recipient": "Bob", "amount": 100}])
+    block = Block(
+        1, "previous_hash", [{"sender": "Alice", "recipient": "Bob", "amount": 100}]
+    )
     block_hash = blockchain.proof_of_work(block)
     assert block_hash.startswith("0" * blockchain.difficulty)
+
 
 def test_blockchain_validate_chain():
     """
@@ -50,6 +64,7 @@ def test_blockchain_validate_chain():
     blockchain = Blockchain()
     blockchain.mine_block()
     assert blockchain.validate_chain() is True
+
 
 def test_blockchain_to_dict():
     """
@@ -62,6 +77,7 @@ def test_blockchain_to_dict():
     assert blockchain_dict["chain"][0]["transactions"] == []
     assert blockchain_dict["chain"][0]["hash"] is not None
     assert blockchain_dict["pending_transactions"] == []
+
 
 def test_blockchain_save_to_file():
     """
@@ -78,6 +94,7 @@ def test_blockchain_save_to_file():
     assert blockchain_dict["chain"][1]["hash"] is not None
     assert blockchain_dict["pending_transactions"] == []
     os.remove("test_blockchain.json")
+
 
 def test_blockchain_load_from_file():
     """
