@@ -1,9 +1,10 @@
 # Import required libraries
-import requests
 import json
-from datetime import datetime
-import os
 import logging
+import os
+from datetime import datetime
+
+import requests
 from ratelimit import limits, sleep_and_retry
 
 # Define constants
@@ -16,6 +17,7 @@ RATE_LIMIT_PERIOD = 60  # in seconds
 # Set up logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
+
 
 # Define functions
 @sleep_and_retry
@@ -34,6 +36,7 @@ def get_exchanges():
         logger.error(f"Error fetching exchanges: {e}")
         return []
 
+
 @sleep_and_retry
 @limits(calls=RATE_LIMIT_CALLS, period=RATE_LIMIT_PERIOD)
 def get_coins():
@@ -50,6 +53,7 @@ def get_coins():
         logger.error(f"Error fetching coins: {e}")
         return []
 
+
 def auto_list_coins(exchanges, coins):
     """
     Auto list coins on global exchanges
@@ -62,10 +66,12 @@ def auto_list_coins(exchanges, coins):
             # Replace with actual API call to list coin on exchange
             logger.info("Coin listed successfully!")
 
+
 def main():
     exchanges = get_exchanges()
     coins = get_coins()
     auto_list_coins(exchanges, coins)
+
 
 if __name__ == "__main__":
     main()
