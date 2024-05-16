@@ -2,8 +2,11 @@ import hashlib
 import json
 import time
 
+
 class Block:
-    def __init__(self, index, previous_hash, timestamp, transactions, difficulty_target, hash):
+    def __init__(
+        self, index, previous_hash, timestamp, transactions, difficulty_target, hash
+    ):
         self.index = index
         self.previous_hash = previous_hash
         self.timestamp = timestamp
@@ -50,11 +53,13 @@ class Block:
         block_dict["hash"] = self.hash
         return json.dumps(block_dict)
 
+
 def create_genesis_block(difficulty_target):
     # Create the genesis block of the blockchain
     transactions = []
     timestamp = int(time.time())
     return Block(0, None, timestamp, transactions, difficulty_target, None)
+
 
 def create_block(previous_block, transactions, difficulty_target):
     # Create a new block in the blockchain
@@ -62,6 +67,7 @@ def create_block(previous_block, transactions, difficulty_target):
     previous_hash = previous_block.hash
     timestamp = int(time.time())
     return Block(index, previous_hash, timestamp, transactions, difficulty_target, None)
+
 
 class Blockchain:
     def __init__(self, difficulty_target):
@@ -84,6 +90,7 @@ class Blockchain:
             if not current_block.validate():
                 return False
         return True
+
 
 class Transaction:
     def __init__(self, sender, recipient, amount, fee=1):
@@ -123,6 +130,7 @@ class Transaction:
         transaction_dict["hash"] = self.hash
         return json.dumps(transaction_dict)
 
+
 class Wallet:
     def __init__(self):
         self.private_key = None
@@ -132,12 +140,14 @@ class Wallet:
     def create_wallet(self):
         # Create a new digital wallet
         import rsa
+
         (self.private_key, self.public_key) = rsa.newkeys(2048)
         self.address = self.public_key.n.to_bytes(32, "big").hex()
 
     def import_private_key(self, private_key):
         # Import a private key into the digital wallet
         import rsa
+
         self.private_key = rsa.PrivateKey.load_pkcs1(private_key.encode())
         self.public_key = self.private_key.publickey()
         self.address = self.public_key.n.to_bytes(32, "big").hex()
@@ -157,6 +167,7 @@ class Wallet:
         transaction.hash = transaction.calculate_hash()
         return transaction
 
+
 class Miner:
     def __init__(self, blockchain, difficulty_target):
         self.blockchain = blockchain
@@ -175,6 +186,7 @@ class Miner:
         block.transactions.append(transaction)
         self.mine_block(block)
         self.blockchain.add_block(block)
+
 
 class Network:
     def __init__(self):
@@ -200,6 +212,7 @@ class Network:
             node = Node(node_url)
             node.broadcast_transaction(transaction)
 
+
 class Node:
     def __init__(self, url):
         self.url = url
@@ -212,9 +225,11 @@ class Node:
         # Broadcast a new transaction to the peer-to-peer network
         pass
 
+
 def parse_arguments():
     # Parse command-line arguments
     import argparse
+
     parser = argparse.ArgumentParser()
     parser.add_argument("--create-wallet", action="store_true")
     parser.add_argument("--import-private-key", action="store_true")
@@ -227,6 +242,7 @@ def parse_arguments():
     parser.add_argument("--mine-transaction", action="store_true")
     parser.add_argument("--validate-blockchain", action="store_true")
     return parser.parse_args()
+
 
 def main():
     # Main function
@@ -283,6 +299,7 @@ def main():
             print("The blockchain is valid.")
         else:
             print("The blockchain is invalid.")
+
 
 if __name__ == "__main__":
     main()
