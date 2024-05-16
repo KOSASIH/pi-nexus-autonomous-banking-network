@@ -1,5 +1,6 @@
 from datetime import datetime
 
+
 class Transaction:
     def __init__(self, account: "Account", transaction_type: str, amount: float):
         self.account = account
