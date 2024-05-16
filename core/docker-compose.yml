@@ -1,0 +1,40 @@
+version: '3'
+services:
+  account-service:
+    build: ./account-service
+    ports:
+      - "5001:5001"
+    depends_on:
+      - db
+    environment:
+      - DATABASE_URL=postgres://user:password@db:5432/database
+  transaction-service:
+    build: ./transaction-service
+    ports:
+      - "5002:5002"
+    depends_on:
+      - db
+    environment:
+      - DATABASE_URL=postgres://user:password@db:5432/database
+  authentication-service:
+    build: ./authentication-service
+    ports:
+      - "5003:5003"
+    depends_on:
+      - db
+    environment:
+      - DATABASE_URL=postgres://user:password@db:5432/database
+  notification-service:
+    build: ./notification-service
+    ports:
+      - "5004:5004"
+    depends_on:
+      - db
+    environment:
+      - DATABASE_URL=postgres://user:password@db:5432/database
+  db:
+    image: postgres
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=database
