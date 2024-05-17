@@ -1,10 +1,6 @@
 # Import required libraries
-import requests
 import json
-from datetime import datetime
-import logging
-import time
-from ratelimit import limits, sleep_and_retry
+
 
 # Define constants
 PI_COIN_SYMBOL = "PI"
@@ -21,22 +17,7 @@ EXCHANGES = [
     # Add more exchanges as needed
 ]
 
-# Define Pi Coin listing
-PI_COIN_LISTING = {
-    "symbol": PI_COIN_SYMBOL,
-    "name": PI_COIN_NAME,
-    "listing_date": LISTING_DATE.isoformat(),
-    "initial_value": INITIAL_VALUE
-}
 
-# Set up logging
-logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
-logger = logging.getLogger(__name__)
-
-# Function to fetch exchange data with rate limiting
-@sleep_and_retry
-@limits(calls=1, period=1)
-def fetch_exchange_data(exchange):
     try:
         response = requests.get(exchange["api_url"], timeout=10)
         response.raise_for_status()
@@ -62,12 +43,14 @@ def list_pi_coin_on_exchanges():
         else:
             logger.error(f"Failed to fetch data from {exchange['name']}")
 
+
 # Main function
 def main():
     logger.info("Pi Coin Lister v1.0")
     logger.info("Listing Pi Coin on global exchanges...")
     list_pi_coin_on_exchanges()
     logger.info("Pi Coin listing complete!")
+
 
 if __name__ == "__main__":
     main()
