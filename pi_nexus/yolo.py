@@ -3,6 +3,7 @@
 import cv2
 import numpy as np
 
+
 def detect_objects(image, yolo_model):
     # Load the image
     img = cv2.imread(image)
