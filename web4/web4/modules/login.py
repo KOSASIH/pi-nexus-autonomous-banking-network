@@ -1,5 +1,6 @@
 # Login class for the web4 project
 
+
 class Login:
     # Initialize the login object
     def __init__(self, username, password):
