@@ -6,22 +6,22 @@ This project is a self-driving car system that uses machine learning and compute
 
 The modules package contains the following classes:
 
-* Car: This class includes functions for starting, steering, accelerating, braking, stopping, and updating the car's state.
-* Environment: This class includes functions for detecting objects and staying in the lane.
-* Decision: This class includes functions for making decisions based on the car's state and the environment.
-* Execution: This class includes functions for executing the decisions made.
-* UserInterface: This class includes functions for displaying real-time data about the car.
-* Login: This class includes functions for user authentication before starting the system.
+- Car: This class includes functions for starting, steering, accelerating, braking, stopping, and updating the car's state.
+- Environment: This class includes functions for detecting objects and staying in the lane.
+- Decision: This class includes functions for making decisions based on the car's state and the environment.
+- Execution: This class includes functions for executing the decisions made.
+- UserInterface: This class includes functions for displaying real-time data about the car.
+- Login: This class includes functions for user authentication before starting the system.
 
 ## Utils
 
 The utils package contains the following modules:
 
-* data\_processing: This module includes functions for processing the data.
-* machine\_learning: This module includes functions for training the machine learning model and making predictions using the model.
-* object\_detection: This module includes functions for detecting objects in the data.
-* traffic\_light\_detection: This module includes functions for detecting traffic lights in the data.
-* real\_time\_data\_visualization: This module includes functions for visualizing the data in real-time.
+- data_processing: This module includes functions for processing the data.
+- machine_learning: This module includes functions for training the machine learning model and making predictions using the model.
+- object_detection: This module includes functions for detecting objects in the data.
+- traffic_light_detection: This module includes functions for detecting traffic lights in the data.
+- real_time_data_visualization: This module includes functions for visualizing the data in real-time.
 
 ## Installation
 
@@ -43,5 +43,4 @@ If you would like to contribute to the project, please fork the repository and s
 
 This project is licensed under the MIT License.
 
-                                                      
                                   *Enjoy your day* ...  😎 ...  ☕
