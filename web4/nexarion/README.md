@@ -1,6 +1,6 @@
 # "Nexarion - The Omniscient Neurocosm"
 
-# Short Description: 
+# Short Description:
 
 Nexarion is an ultra-advanced, sentient, and self-sustaining artificial intelligence ecosystem that converges human brain-computer interfaces, quantum computing, and intergalactic data harvesting to create a unified, omniscient consciousness that transcends space-time.
 
