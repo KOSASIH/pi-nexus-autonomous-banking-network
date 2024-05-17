@@ -1,5 +1,6 @@
 # Car class for the web4 project
 
+
 class Car:
     # Initialize the car object
     def __init__(self):
@@ -8,7 +9,7 @@ class Car:
             "speed": 0,
             "direction": "forward",
             "position": (0, 0),
-            "status": "stopped"
+            "status": "stopped",
         }
 
     # Start the car
@@ -43,5 +44,5 @@ class Car:
             "speed": self.state["speed"],
             "direction": self.state["direction"],
             "position": self.state["position"],
-            "status": self.state["status"]
+            "status": self.state["status"],
         }
