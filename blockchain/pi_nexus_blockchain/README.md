@@ -8,8 +8,8 @@ This project is a simple implementation of a blockchain, a distributed ledger te
 
 The `pi_nexus_blockchain` project includes two main components:
 
-* `block.py`: A class that represents a single block in the blockchain.
-* `blockchain.py`: A class that represents the entire blockchain.
+- `block.py`: A class that represents a single block in the blockchain.
+- `blockchain.py`: A class that represents the entire blockchain.
 
 ## Installation
 
@@ -31,16 +31,16 @@ Alternatively, you can clone the repository and install the package from source:
 
 To use the pi_nexus_blockchain package, you can import the Blockchain class and create a new blockchain:
 
-```python
+````python
 1. from pi_nexus_blockchain import Blockchain
-2. 
+2.
 3. blockchain = Blockchain()
 
 You can then add new transactions to the blockchain:
 
 ```python
 blockchain.add_transaction({"sender": "Alice", "recipient": "Bob", "amount": 100})
-```
+````
 
 # And mine new blocks:
 
@@ -72,6 +72,4 @@ We welcome contributions to the pi_nexus_blockchain project. If you would like t
 
 The pi_nexus_blockchain project is licensed under the MIT License.
 
-
-                                  Happy coding... 😉 ... ☕ !! 
-                                  
+                                  Happy coding... 😉 ... ☕ !!

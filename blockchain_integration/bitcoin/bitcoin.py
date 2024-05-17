@@ -4,10 +4,16 @@ from collections import namedtuple
 from typing import List, Optional
 
 # Define a named tuple for transaction data
-Transaction = namedtuple('Transaction', 'sender, receiver, amount, timestamp')
+Transaction = namedtuple("Transaction", "sender, receiver, amount, timestamp")
+
 
 class Block:
-    def __init__(self, index: int, transactions: List[Transaction], previous_hash: Optional[str] = None):
+    def __init__(
+        self,
+        index: int,
+        transactions: List[Transaction],
+        previous_hash: Optional[str] = None,
+    ):
         self.index = index
         self.transactions = transactions
         self.timestamp = int(time.time())
@@ -17,19 +23,22 @@ class Block:
 
     def calculate_hash(self) -> str:
         """Calculate the SHA-256 hash of the block."""
-        block_string = str(self.index) + \
-                       str(self.previous_hash) + \
-                       str(self.timestamp) + \
-                       str(self.nonce) + \
-                       str(self.transactions)
+        block_string = (
+            str(self.index)
+            + str(self.previous_hash)
+            + str(self.timestamp)
+            + str(self.nonce)
+            + str(self.transactions)
+        )
         return hashlib.sha256(block_string.encode()).hexdigest()
 
     def mine_block(self, difficulty: int) -> None:
         """Mine the block by incrementing the nonce until the hash meets the difficulty requirement."""
-        target = '0' * difficulty
+        target = "0" * difficulty
         while self.hash[0:difficulty] != target:
             self.nonce += 1
             self.hash = self.calculate_hash()
+
 
 class Blockchain:
     def __init__(self):
@@ -52,7 +61,9 @@ class Blockchain:
     def mine_pending_transactions(self) -> None:
         """Mine the pending transactions and add a new block to the chain."""
         latest_block = self.get_latest_block()
-        new_block = Block(latest_block.index + 1, self.pending_transactions, latest_block.hash)
+        new_block = Block(
+            latest_block.index + 1, self.pending_transactions, latest_block.hash
+        )
         new_block.mine_block(self.difficulty)
         self.chain.append(new_block)
         self.pending_transactions = []

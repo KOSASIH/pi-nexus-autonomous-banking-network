@@ -1,6 +1,6 @@
 # setup.py
 
-from setuptools import setup, find_packages
+from setuptools import find_packages, setup
 
 # Project metadata
 NAME = "pi_nexus_blockchain"
