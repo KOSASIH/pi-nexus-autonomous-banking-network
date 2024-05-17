@@ -47,4 +47,4 @@ PiNexusOS is released under the MIT License. See the LICENSE file for more infor
 
 # Acknowledgments
 
-PiNexusOS was created by [KOSASIH]. Thanks to the Raspberry Pi community for their support and inspiration.
+PiNexusOS was created by [KOSASIH](https://www.linkedin.com/in/kosasih-81b46b5a). Thanks to the Raspberry Pi community for their support and inspiration.
