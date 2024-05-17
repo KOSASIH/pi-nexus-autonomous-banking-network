@@ -1,6 +1,7 @@
 import streamlit as st
 import thunkable
 
+
 class PiNexusWebCreator:
     def __init__(self):
         self.thunkable_project = thunkable.Project()
@@ -20,7 +21,9 @@ class PiNexusWebCreator:
         dashboard_screen.add_component(thunkable.ListView("Transactions"))
 
         # Add a transaction details screen with transaction information
-        transaction_details_screen = self.thunkable_project.add_screen("Transaction Details")
+        transaction_details_screen = self.thunkable_project.add_screen(
+            "Transaction Details"
+        )
         transaction_details_screen.add_component(thunkable.Label("Transaction ID"))
         transaction_details_screen.add_component(thunkable.Label("Transaction Date"))
         transaction_details_screen.add_component(thunkable.Label("Transaction Amount"))
@@ -36,7 +39,9 @@ class PiNexusWebCreator:
         # Add features to the app, such as biometric authentication or push notifications
         for feature in features:
             if feature == "biometric_authentication":
-                self.thunkable_project.add_component(thunkable.BiometricAuthentication())
+                self.thunkable_project.add_component(
+                    thunkable.BiometricAuthentication()
+                )
             elif feature == "push_notifications":
                 self.thunkable_project.add_component(thunkable.PushNotifications())
 
@@ -59,16 +64,21 @@ class PiNexusWebCreator:
 
         if self.streamlit_app.button("Login"):
             # Use the Thunkable API to simulate the login process
-            thunkable_response = self.thunkable_project.simulate_screen("Login Screen", {"Username": username, "Password": password})
+            thunkable_response = self.thunkable_project.simulate_screen(
+                "Login Screen", {"Username": username, "Password": password}
+            )
             if thunkable_response.status_code == 200:
                 self.streamlit_app.write("Login successful!")
                 self.streamlit_app.write(thunkable_response.json()["Transactions"])
             else:
                 self.streamlit_app.write("Login failed. Please check your credentials.")
 
+
 # Example usage:
 creator = PiNexusWebCreator()
-creator.create_app("PiNexus Web Banking", "Web banking app for Pi-Nexus Autonomous Banking Network")
+creator.create_app(
+    "PiNexus Web Banking", "Web banking app for Pi-Nexus Autonomous Banking Network"
+)
 creator.add_features(["biometric_authentication", "push_notifications"])
 creator.customize_design(["primary_color", "font"])
 creator.build_streamlit_app()
