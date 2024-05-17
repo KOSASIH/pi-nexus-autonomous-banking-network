@@ -1,6 +1,7 @@
 # utils.py
-import os
 import logging
+import os
+
 
 def create_directory(directory: str) -> None:
     """
@@ -12,8 +13,9 @@ def create_directory(directory: str) -> None:
     if not os.path.exists(directory):
         os.makedirs(directory)
 
+
 def setup_logging() -> None:
     """
     Set up logging for the application.
     """
-    logging.basicConfig(filename='app.log', level=logging.INFO)
+    logging.basicConfig(filename="app.log", level=logging.INFO)
