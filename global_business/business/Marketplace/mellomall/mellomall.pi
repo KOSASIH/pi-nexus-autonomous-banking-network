@@ -1,0 +1,169 @@
+# Import necessary libraries and frameworks
+import os
+import json
+import requests
+from flask import Flask, request, jsonify
+from flask_sqlalchemy import SQLAlchemy
+from flask_marshmallow import Marshmallow
+from flask_jwt_extended import JWTManager, jwt_required, create_access_token
+from flask_socketio import SocketIO, emit
+from tensorflow.keras.models import load_model
+from transformers import AutoModelForSequenceClassification, AutoTokenizer
+from sklearn.ensemble import RandomForestClassifier
+from scipy.spatial import distance
+from cryptography.fernet import Fernet
+
+# Initialize Flask app
+app = Flask(__name__)
+
+# Configure database connection
+app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://user:password@localhost/mellomall"
+db = SQLAlchemy(app)
+ma = Marshmallow(app)
+
+# Define models for marketplace entities
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(80), unique=True, nullable=False)
+    email = db.Column(db.String(120), unique=True, nullable=False)
+    password = db.Column(db.String(120), nullable=False)
+    bio = db.Column(db.String(500), nullable=True)
+    avatar = db.Column(db.String(200), nullable=True)
+    reputation = db.Column(db.Float, default=0.0)
+
+class Product(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(120), nullable=False)
+    description = db.Column(db.String(500), nullable=False)
+    price = db.Column(db.Float, nullable=False)
+    seller_id = db.Column(db.Integer, db.ForeignKey("user.id"))
+    seller = db.relationship("User", backref="products")
+    category = db.Column(db.String(50), nullable=False)
+    subcategory = db.Column(db.String(50), nullable=True)
+    tags = db.Column(db.String(200), nullable=True)
+    images = db.Column(db.String(200), nullable=True)
+    videos = db.Column(db.String(200), nullable=True)
+    reviews = db.relationship("Review", backref="product", lazy=True)
+
+class Review(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    product_id = db.Column(db.Integer, db.ForeignKey("product.id"))
+    user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
+    rating = db.Column(db.Float, nullable=False)
+    review_text = db.Column(db.String(500), nullable=False)
+    timestamp = db.Column(db.DateTime, nullable=False, default=db.func.current_timestamp())
+
+class Order(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    buyer_id = db.Column(db.Integer, db.ForeignKey("user.id"))
+    buyer = db.relationship("User", backref="orders")
+    product_id = db.Column(db.Integer, db.ForeignKey("product.id"))
+    product = db.relationship("Product", backref="orders")
+    order_date = db.Column(db.DateTime, nullable=False, default=db.func.current_timestamp())
+    shipment_date = db.Column(db.DateTime, nullable=True)
+    delivery_date = db.Column(db.DateTime, nullable=True)
+    status = db.Column(db.String(50), nullable=False, default="pending")
+
+# Define AI models for recommendation and sentiment analysis
+recommender_model = load_model("recommender_model.h5")
+sentiment_analysis_model = AutoModelForSequenceClassification.from_pretrained("sentiment-analysis-model")
+tokenizer = AutoTokenizer.from_pretrained("sentiment-analysis-model")
+
+# Define socket.io for real-time updates
+socketio = SocketIO(app, cors_allowed_origins="*")
+
+# Define encryption for secure transactions
+fernet = Fernet(os.environ["SECRET_KEY"])
+
+# Define API endpoints
+@app.route("/register", methods=["POST"])
+def register_user():
+    # Register a new user
+    data = request.get_json()
+    user = User(username=data["username"], email=data["email"], password=data["password"])
+    db.session.add(user)
+    db.session.commit()
+    return jsonify({"message": "User created successfully"})
+
+@app.route("/login", methods=["POST"])
+def login_user():
+    # Login an existing user
+    data = request.get_json()
+    user = User.query.filter_by(username=data["username"], password=data["password"]).first()
+    if user:
+        access_token = create_access_token(identity=user.id)
+        return jsonify({"access_token": access_token})
+    return jsonify({"message": "Invalid credentials"}), 401
+
+@app.route("/products", methods=["GET"])
+@jwt_required
+def get_products():
+    # Retrieve all products
+    products = Product.query.all()
+    return jsonify([{"id": p.id, "name": p.name, "description": p.description, "price": p.price} for p in products])
+
+@app.route("/products/<int:product_id>", methods=["GET"])
+@jwt_required
+def get_product(product_id):
+    # Retrieve a single product
+    product = Product.query.get(product_id)
+    if product:
+        return jsonify({"id": product.id, "name": product.name, "description": product.description, "price": product.price,
+                        "category": product.category, "subcategory": product.subcategory, "tags": product.tags,
+                        "images": product.images, "videos": product.videos})
+    return jsonify({"message": "Product not found"}), 404
+
+@app.route("/orders", methods=["POST"])
+@jwt_required
+def create_order():
+    # Create a new order
+    data = request.get_json()
+    order = Order(buyer_id=data["buyer_id"], product_id=data["product_id"])
+    db.session.add(order)
+    db.session.commit()
+    # Send real-time update to seller
+    socketio.emit("new_order", {"order_id": order.id, "buyer_id": order.buyer_id, "product_id": order.product_id},
+                  room=str(order.product.seller_id))
+    return jsonify({"message": "Order created successfully"})
+
+@app.route("/orders/<int:order_id>", methods=["GET"])
+@jwt_required
+def get_order(order_id):
+    # Retrieve a single order
+    order = Order.query.get(order_id)
+    if order:
+        return jsonify({"id": order.id, "buyer_id": order.buyer_id, "product_id": order.product_id,
+                        "order_date": order.order_date, "shipment_date": order.shipment_date,
+                        "delivery_date": order.delivery_date, "status": order.status})
+    return jsonify({"message": "Order not found"}), 404
+
+@app.route("/recommendations", methods=["POST"])
+@jwt_required
+def get_recommendations():
+    # Get product recommendations based on user preferences
+    data = request.get_json()
+    user_id = data["user_id"]
+    user_preferences = data["preferences"]
+    recommended_products = recommender_model.predict(user_preferences)
+    return jsonify([{"id": p.id, "name": p.name, "description": p.description, "price": p.price} for p in recommended_products])
+
+@app.route("/sentiment-analysis", methods=["POST"])
+def analyze_sentiment():
+    # Analyze sentiment of a given text
+    data = request.get_json()
+    text = data["text"]
+    input_ids = tokenizer.encode(text, return_tensors="pt")
+    output = sentiment_analysis_model(input_ids)
+    scores = output[0][0].detach().numpy()
+    sentiment = "positive" if scores[0] > 0.5 else "negative"
+    return jsonify({"sentiment": sentiment})
+
+@socketio.on("new_order")
+def handle_new_order(data):
+    # Handle new order event for real-time updates
+    order_id = data["order_id"]
+    product_id = data["product_id"]
+    socketio.emit("new_order", {"order_id": order_id, "product_id": product_id}, room=str(product.seller_id))
+
+if __name__ == "__main__":
+    app.run(debug=True)
