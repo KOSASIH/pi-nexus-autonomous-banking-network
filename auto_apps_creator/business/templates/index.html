@@ -1,45 +1,45 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
+  <head>
     <title>Business Proposal Generator</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Business Proposal Generator</h1>
     <form action="" method="post">
-        {{ form.hidden_tag() }}
-        <label for="company_name">Company Name:</label>
-        <br>
-        {{ form.company_name(size=20) }}
-        <br>
-        <label for="proposal_title">Proposal Title:</label>
-        <br>
-        {{ form.proposal_title(size=20) }}
-        <br>
-        <label for="proposal_description">Proposal Description:</label>
-        <br>
-        {{ form.proposal_description(size=40) }}
-        <br>
-        <label for="target_market">Target Market:</label>
-        <br>
-        {{ form.target_market(size=20) }}
-        <br>
-        <label for="competitive_advantage">Competitive Advantage:</label>
-        <br>
-        {{ form.competitive_advantage(size=20) }}
-        <br>
-        <label for="financial_projections">Financial Projections:</label>
-        <br>
-        {{ form.financial_projections(size=20) }}
-        <br>
-        <label for="team_members">Team Members:</label>
-        <br>
-        {{ form.team_members(size=20) }}
-        <br>
-        <label for="technology_stack">Technology Stack:</label>
-        <br>
-        {{ form.technology_stack(size=20) }}
-        <br>
-        <input type="submit" value="Generate Proposal">
+      {{ form.hidden_tag() }}
+      <label for="company_name">Company Name:</label>
+      <br />
+      {{ form.company_name(size=20) }}
+      <br />
+      <label for="proposal_title">Proposal Title:</label>
+      <br />
+      {{ form.proposal_title(size=20) }}
+      <br />
+      <label for="proposal_description">Proposal Description:</label>
+      <br />
+      {{ form.proposal_description(size=40) }}
+      <br />
+      <label for="target_market">Target Market:</label>
+      <br />
+      {{ form.target_market(size=20) }}
+      <br />
+      <label for="competitive_advantage">Competitive Advantage:</label>
+      <br />
+      {{ form.competitive_advantage(size=20) }}
+      <br />
+      <label for="financial_projections">Financial Projections:</label>
+      <br />
+      {{ form.financial_projections(size=20) }}
+      <br />
+      <label for="team_members">Team Members:</label>
+      <br />
+      {{ form.team_members(size=20) }}
+      <br />
+      <label for="technology_stack">Technology Stack:</label>
+      <br />
+      {{ form.technology_stack(size=20) }}
+      <br />
+      <input type="submit" value="Generate Proposal" />
     </form>
-</body>
+  </body>
 </html>

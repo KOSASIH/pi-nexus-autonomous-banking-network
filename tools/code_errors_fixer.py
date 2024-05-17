@@ -1,5 +1,6 @@
 import ast
 
+
 def find_syntax_errors(code: str) -> list:
     """
     Finds syntax errors in a string of Python code.

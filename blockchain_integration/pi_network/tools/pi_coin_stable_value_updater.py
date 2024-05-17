@@ -11,6 +11,7 @@ EXCHANGES = [
     {"name": "Binance", "api_url": "https://api.binance.com/api/v3"},
     {"name": "Kraken", "api_url": "https://api.kraken.com/0/public"},
     {"name": "Huobi", "api_url": "https://api.huobi.pro/market"},
+
     # Add more exchanges as needed
 ]
 

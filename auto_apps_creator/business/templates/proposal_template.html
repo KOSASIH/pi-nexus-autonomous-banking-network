@@ -1,14 +1,14 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
+  <head>
     <title>{{ company_name }} - {{ proposal_title }}</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
+      body {
+        font-family: Arial, sans-serif;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <h1>{{ company_name }} - {{ proposal_title }}</h1>
     <h2>Executive Summary</h2>
     <p>{{ proposal_description }}</p>
@@ -20,16 +20,16 @@
     <p>{{ financial_projections }}</p>
     <h2>Team Members</h2>
     <ul>
-        {% for member in team_members %}
-            <li>{{ member }}</li>
-        {% endfor %}
+      {% for member in team_members %}
+      <li>{{ member }}</li>
+      {% endfor %}
     </ul>
     <h2>Technology Stack</h2>
     <ul>
-        {% for technology in technology_stack %}
-            <li>{{ technology }}</li>
-        {% endfor %}
+      {% for technology in technology_stack %}
+      <li>{{ technology }}</li>
+      {% endfor %}
     </ul>
     <p>Date: {{ date }}</p>
-</body>
+  </body>
 </html>

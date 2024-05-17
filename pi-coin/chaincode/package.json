@@ -1,0 +1,18 @@
+{
+  "name": "pi-coin",
+  "version": "1.0.0",
+  "description": "Pi Coin Chaincode",
+  "main": "fabcar.js",
+  "scripts": {
+    "test": "mocha -r ts-node/register fabcar.test.js"
+  },
+  "dependencies": {
+    "fabric-contract-api": "^2.2.0",
+    "fabric-shim": "^2.2.0"
+  },
+  "devDependencies": {
+    "mocha": "^9.1.2",
+    "ts-node": "^10.4.0"
+  },
+  "engine": "node >=10.0.0"
+}

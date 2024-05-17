@@ -11,7 +11,7 @@ This project is an autonomous banking network that integrates various banks and 
 
 1. Clone the repository:
 
-`1. git clone https://github.com/yourusername/autonomous-banking-network.git`
+`1. git clone https://github.com/KOSASIH/autonomous-banking-network.git`
 
 2. Build the Docker image:
 
