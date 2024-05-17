@@ -1,6 +1,7 @@
 # blockchain_integration/blockchain.py
 import web3
 
+
 class Blockchain:
     def __init__(self, provider_url: str):
         self.web3 = web3.Web3(web3.providers.Web3Provider(provider_url))
