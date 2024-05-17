@@ -1,6 +1,7 @@
 import hashlib
 import json
 
+
 class Transaction:
     def __init__(self, sender, recipient, amount, fee=1):
         self.sender = sender

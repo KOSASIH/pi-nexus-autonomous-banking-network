@@ -1,6 +1,8 @@
 import json
+
 import pytest
 from pi_nexus_blockchain.transaction import Transaction
+
 
 def test_transaction_initialization():
     # Test the initialization of a new transaction
@@ -8,6 +10,7 @@ def test_transaction_initialization():
     assert transaction.sender == "Alice"
     assert transaction.recipient == "Bob"
     assert transaction.amount == 100
+
 
 def test_transaction_to_json():
     # Test the conversion of a transaction to a JSON string
@@ -18,6 +21,7 @@ def test_transaction_to_json():
     assert transaction_dict["recipient"] == "Bob"
     assert transaction_dict["amount"] == 100
 
+
 def test_transaction_equality():
     # Test the equality of two transactions
     transaction1 = Transaction("Alice", "Bob", 100)
@@ -25,6 +29,7 @@ def test_transaction_equality():
     transaction3 = Transaction("Alice", "Charlie", 100)
     assert transaction1 == transaction2
     assert transaction1 != transaction3
+
 
 def test_transaction_validation():
     # Test the validation of a transaction
