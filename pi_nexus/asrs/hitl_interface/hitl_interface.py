@@ -1,5 +1,6 @@
 import logging
 
+
 class HITLInterface:
     def __init__(self, config):
         self.config = config
