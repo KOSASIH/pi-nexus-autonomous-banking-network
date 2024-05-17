@@ -1,5 +1,6 @@
 # UserInterface class for the web4 project
 
+
 class UserInterface:
     # Initialize the user interface object
     def __init__(self):
