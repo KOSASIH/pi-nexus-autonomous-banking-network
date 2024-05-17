@@ -1,5 +1,8 @@
 import datetime
+import time
+
 import pytz
+import schedule
 from twilio.rest import Client
 
 # Twilio account credentials
@@ -12,6 +15,7 @@ event_date = datetime.datetime(2024, 6, 1, 0, 0, 0, tzinfo=pytz.UTC)
 
 # Set the message to be sent
 message = "Congratulations from KOSASIH (Pi Nexus Owner) on the launch of Pi Network Open Mainet on 1 June 2024!"
+
 
 # Function to send automatic announcements
 def send_announcement():
@@ -27,11 +31,10 @@ def send_announcement():
         for user in users:
             # Use Twilio to send an SMS or WhatsApp message
             message = client.messages.create(
-                body=message,
-                from_="your_twilio_number",
-                to=user["phone_number"]
+                body=message, from_="your_twilio_number", to=user["phone_number"]
             )
             print(f"Message sent to {user['name']} ({user['phone_number']})")
+
 
 # Function to get global users (replace with your own implementation)
 def get_global_users():
@@ -42,12 +45,13 @@ def get_global_users():
         # Add more users here
     ]
 
+
 # Schedule the announcement to be sent at the event date and time
-import schedule
-import time
+
 
 def job():
     send_announcement()
+
 
 schedule.every().day.at("00:00").do(job)  # Run the job daily at 12:00 AM
 
