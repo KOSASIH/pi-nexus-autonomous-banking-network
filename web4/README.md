@@ -27,7 +27,10 @@ The utils package contains the following modules:
 
 To install the project, clone the repository and install the required packages using pip:
 
-`1. git clone https://github.com/KOSASIH/web4.git cd web4 pip install -r requirements.txt`
+```
+1. git clone https://github.com/KOSASIH/web4.git 
+2. cd web4 pip install -r requirements.txt
+```
 
 ## Usage
 
