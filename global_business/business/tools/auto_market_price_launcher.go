@@ -20,13 +20,13 @@ import (
 
 // PiCoin struct represents the cryptocurrency
 type PiCoin struct {
-	ID        string `json:"id"`
-	Name      string `json:"name"`
-	Symbol    string `json:"symbol"`
-	TotalSupply  *big.Int `json:"total_supply"`
-	MarketCap  *big.Int `json:"market_cap"`
-	PriceUSD  *big.Float `json:"price_usd"`
-	LaunchDate time.Time `json:"launch_date"`
+	ID          string     `json:"id"`
+	Name        string     `json:"name"`
+	Symbol      string     `json:"symbol"`
+	TotalSupply *big.Int   `json:"total_supply"`
+	MarketCap   *big.Int   `json:"market_cap"`
+	PriceUSD    *big.Float `json:"price_usd"`
+	LaunchDate  time.Time  `json:"launch_date"`
 }
 
 // GlobalPiCoin instance
@@ -41,13 +41,13 @@ func init() {
 
 	// Initialize PiCoin instance
 	GlobalPiCoin = PiCoin{
-		ID:        "pi-coin",
-		Name:      "Pi Coin",
-		Symbol:    "π",
-		TotalSupply: big.NewInt(1000000000), // 1 billion coins
-		MarketCap: big.NewInt(314159000000), // $314.159 billion
-		PriceUSD: big.NewFloat(314.159),
-		LaunchDate: time.Date(2024, 6, 1, 0, 0, 0, 0, time.UTC),
+		ID:          "pi-coin",
+		Name:        "Pi Coin",
+		Symbol:      "π",
+		TotalSupply: big.NewInt(1000000000),   // 1 billion coins
+		MarketCap:   big.NewInt(314159000000), // $314.159 billion
+		PriceUSD:    big.NewFloat(314.159),
+		LaunchDate:  time.Date(2024, 6, 1, 0, 0, 0, 0, time.UTC),
 	}
 }
 
