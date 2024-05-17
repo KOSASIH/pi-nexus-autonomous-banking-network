@@ -1,6 +1,7 @@
 # blockchain/blockchain.py
 from typing import List
 
+
 class Blockchain:
     def __init__(self):
         self.chain = [self.create_genesis_block()]
