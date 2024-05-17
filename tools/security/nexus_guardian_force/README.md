@@ -35,4 +35,4 @@ Run the script by executing the following command:
 
 The Nexus Guardian Force is released under the MIT License. Please see the LICENSE file for more information.
 
-*Happy Coding* ..  ☺ ..  ☕
+_Happy Coding_ .. ☺ .. ☕
