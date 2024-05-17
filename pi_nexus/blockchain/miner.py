@@ -3,6 +3,7 @@ import logging
 
 logger = logging.getLogger(__name__)
 
+
 class Miner:
     def __init__(self, blockchain):
         self.blockchain = blockchain
