@@ -1,9 +1,10 @@
-import os
-import json
 import hashlib
+import json
+import os
 import time
 from datetime import datetime
-from typing import List, Dict, Any
+from typing import Any, Dict, List
+
 
 class Wallet:
     """
@@ -32,10 +33,10 @@ class Wallet:
         """
 
         transaction = {
-            'sender': self.public_key,
-            'recipient': recipient,
-            'amount': amount,
-            'timestamp': int(time.time()),
+            "sender": self.public_key,
+            "recipient": recipient,
+            "amount": amount,
+            "timestamp": int(time.time()),
         }
 
         return transaction
@@ -48,7 +49,7 @@ class Wallet:
         :return: The signed transaction.
         """
 
-        transaction['signature'] = self.sign(transaction)
+        transaction["signature"] = self.sign(transaction)
 
         return transaction
 
@@ -78,7 +79,9 @@ class Wallet:
         signature_bytes = bytes.fromhex(signature)
         public_key_bytes = bytes.fromhex(self.public_key)
 
-        return hashlib.sha256(message + self.private_key.encode()).hexdigest() == signature
+        return (
+            hashlib.sha256(message + self.private_key.encode()).hexdigest() == signature
+        )
 
     def add_balance(self, amount: float) -> None:
         """
@@ -108,7 +111,9 @@ class Wallet:
         if not self.private_key or not self.public_key:
             return False
 
-        if not self.verify_signature({'public_key': self.public_key}, self.sign({'public_key': self.public_key})):
+        if not self.verify_signature(
+            {"public_key": self.public_key}, self.sign({"public_key": self.public_key})
+        ):
             return False
 
         return True
