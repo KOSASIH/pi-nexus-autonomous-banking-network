@@ -25,5 +25,3 @@
 Embark on this ambitious project, and you'll be pushing the boundaries of human innovation, artificial intelligence, and our understanding of the universe itself!
 
                  Enjoy your journey in the new world ... ☺ ... ☕
-
-         
