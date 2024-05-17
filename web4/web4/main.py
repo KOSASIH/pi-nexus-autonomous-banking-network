@@ -4,20 +4,20 @@ import time
 
 # Import the car, environment, decision, execution, and user interface modules
 from modules.car import Car
-from modules.environment import Environment
 from modules.decision import Decision
+from modules.environment import Environment
 from modules.execution import Execution
-from modules.user_interface import UserInterface
 
 # Import the login module
 from modules.login import Login
+from modules.user_interface import UserInterface
 
 # Import the data processing, machine learning, object detection, traffic light detection, and real-time data visualization modules
 from utils.data_processing import DataProcessing
 from utils.machine_learning import MachineLearning
 from utils.object_detection import ObjectDetection
-from utils.traffic_light_detection import TrafficLightDetection
 from utils.real_time_data_visualization import RealTimeDataVisualization
+from utils.traffic_light_detection import TrafficLightDetection
 
 # Initialize the car, environment, decision, execution, and user interface modules
 car = Car()
