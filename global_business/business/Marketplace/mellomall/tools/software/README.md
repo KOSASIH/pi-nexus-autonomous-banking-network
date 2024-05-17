@@ -90,8 +90,8 @@ Response:
 {
     "token": "string"
 }
-GET /protected: Access a protected resource.
 ```
+GET /protected: Access a protected resource.
 
 Response:
 
