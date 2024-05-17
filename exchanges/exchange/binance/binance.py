@@ -1,5 +1,6 @@
 import requests
 
+
 class Binance:
     def __init__(self, api_key=None, api_secret=None):
         self.base_url = "https://api.binance.com"
@@ -18,7 +19,7 @@ class Binance:
             headers["X-MBX-APIKEY-TIMESTAMP"] = timestamp
             order_string = f"symbol={symbol}&timestamp={timestamp}"
             message = order_string + self.api_secret
-            signature = hashlib.sha256(message.encode('utf-8')).hexdigest()
+            signature = hashlib.sha256(message.encode("utf-8")).hexdigest()
             headers["X-MBX-APIKEY-SIGN"] = signature
 
         response = requests.get(url, headers=headers)
