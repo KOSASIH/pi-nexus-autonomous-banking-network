@@ -1,5 +1,6 @@
 # Decision class for the web4 project
 
+
 class Decision:
     # Initialize the decision object
     def __init__(self):
