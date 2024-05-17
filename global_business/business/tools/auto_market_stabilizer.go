@@ -6,16 +6,16 @@ import (
 
 // PiCoin struct to hold Pi Coin information
 type PiCoin struct {
-	Price     float64
-	Launched  bool
+	Price      float64
+	Launched   bool
 	LaunchDate time.Time
 }
 
 func main() {
 	// Create new Pi Coin
 	piCoin := &PiCoin{
-		Price:     314.159,
-		Launched:  false,
+		Price:      314.159,
+		Launched:   false,
 		LaunchDate: time.Date(2024, 6, 1, 0, 0, 0, 0, time.UTC),
 	}
 
