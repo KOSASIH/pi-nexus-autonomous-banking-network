@@ -1,12 +1,13 @@
-import os
-import sys
-import socket
 import hashlib
+import os
+import socket
+import sys
+
 import cryptography
-from cryptography.hazmat.primitives import serialization
+from cryptography.hazmat.primitives import hashes, serialization
 from cryptography.hazmat.primitives.asymmetric import rsa
-from cryptography.hazmat.primitives import hashes
 from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
+
 
 # Megazer's AI-powered threat intelligence module
 class MegazerAI:
@@ -23,12 +24,12 @@ class MegazerAI:
         # Use predictive analytics to forecast potential threats
         pass
 
+
 # Advanced encryption and decryption module
 class MegazerCrypto:
     def __init__(self):
         self.key_pair = rsa.generate_private_key(
-            algorithm=rsa.RSA(),
-            backend=default_backend()
+            algorithm=rsa.RSA(), backend=default_backend()
         )
         self.public_key = self.key_pair.public_key()
 
@@ -39,8 +40,8 @@ class MegazerCrypto:
             padding.OAEP(
                 mgf=padding.MGF1(algorithm=hashes.SHA256()),
                 algorithm=hashes.SHA256(),
-                label=None
-            )
+                label=None,
+            ),
         )
         return cipher
 
@@ -51,10 +52,11 @@ class MegazerCrypto:
             padding.OAEP(
                 mgf=padding.MGF1(algorithm=hashes.SHA256()),
                 algorithm=hashes.SHA256(),
-                label=None
-            )
+                label=None,
+            ),
         )
         return plain
+
 
 # Network traffic analysis module
 class MegazerNetwork:
@@ -67,6 +69,7 @@ class MegazerNetwork:
             packet = self.socket.recvfrom(65535)
             MegazerAI().analyze_traffic(packet)
 
+
 # Main Megazer system class
 class Megazer:
     def __init__(self):
@@ -77,6 +80,7 @@ class Megazer:
     def start(self):
         # Start Megazer system
         self.network.capture_traffic()
+
 
 if __name__ == "__main__":
     megazer = Megazer()
