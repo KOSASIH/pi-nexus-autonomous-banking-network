@@ -1,5 +1,7 @@
 import logging
+
 from sklearn.ensemble import RandomForestClassifier
+
 
 class FaultDiagnosis:
     def __init__(self, config):
