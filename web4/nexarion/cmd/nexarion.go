@@ -3,11 +3,10 @@ package main
 import (
 	"fmt"
 	"log"
-
-	"nexarion/internal/nci"
-	"nexarion/internal/qc"
 	"nexarion/internal/ida"
 	"nexarion/internal/nc"
+	"nexarion/internal/nci"
+	"nexarion/internal/qc"
 )
 
 func main() {
