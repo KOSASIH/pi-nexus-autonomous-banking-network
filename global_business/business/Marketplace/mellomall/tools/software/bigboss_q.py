@@ -1,17 +1,18 @@
+import hashlib
 import os
 import sys
-import hashlib
+
 import cryptography
-from cryptography.hazmat.primitives import serialization
+from cryptography.hazmat.primitives import hashes, serialization
 from cryptography.hazmat.primitives.asymmetric import rsa
-from cryptography.hazmat.primitives import hashes
 from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
-from flask import Flask, request, jsonify
+from flask import Flask, jsonify, request
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///bigboss_q.db"
 db = SQLAlchemy(app)
+
 
 # User model
 class User(db.Model):
@@ -27,12 +28,12 @@ class User(db.Model):
     def check_password(self, password):
         return self.password_hash == hashlib.sha256(password.encode()).hexdigest()
 
+
 # Advanced authentication and authorization module
 class BigBossQAuth:
     def __init__(self):
         self.private_key = rsa.generate_private_key(
-            algorithm=rsa.RSA(),
-            backend=default_backend()
+            algorithm=rsa.RSA(), backend=default_backend()
         )
         self.public_key = self.private_key.public_key()
 
@@ -51,6 +52,7 @@ class BigBossQAuth:
             return None
         except jwt.InvalidTokenError:
             return None
+
 
 # User management module
 class BigBossQUserManager:
@@ -80,13 +82,17 @@ class BigBossQUserManager:
             return User.query.get(payload["user_id"])
         return None
 
+
 # API endpoints
 @app.route("/users", methods=["POST"])
 def create_user():
     data = request.get_json()
     user_manager = BigBossQUserManager()
-    user = user_manager.create_user(data["username"], data["email"], data["password"], data["role"])
+    user = user_manager.create_user(
+        data["username"], data["email"], data["password"], data["role"]
+    )
     return jsonify({"user_id": user.id})
+
 
 @app.route("/login", methods=["POST"])
 def login():
@@ -97,6 +103,7 @@ def login():
         return jsonify({"token": token})
     return jsonify({"error": "Invalid credentials"}), 401
 
+
 @app.route("/protected", methods=["GET"])
 def protected():
     token = request.headers.get("Authorization")
@@ -105,6 +112,7 @@ def protected():
     if user:
         return jsonify({"message": "Hello, {}".format(user.username)})
     return jsonify({"error": "Unauthorized"}), 401
+
 
 if __name__ == "__main__":
     app.run(debug=True)
