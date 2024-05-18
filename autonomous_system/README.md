@@ -11,7 +11,7 @@ This project is an autonomous banking network that integrates various banks and 
 
 1. Clone the repository:
 
-`1. git clone https://github.com/yourusername/autonomous-banking-network.git`
+`1. git clone https://github.com/KOSASIH/autonomous-banking-network.git`
 
 2. Build the Docker image:
 
@@ -19,6 +19,7 @@ This project is an autonomous banking network that integrates various banks and 
 1. cd autonomous-banking-network
 2. docker build -t autonomous-banking-network .
 ```
+
 3. Run the Docker container:
 
 ```
@@ -44,6 +45,7 @@ To run the tests, use the following command:
 This project is licensed under the MIT License.
 
 # Acknowledgements
+
 This project was created using the following libraries:
 
 1. NumPy
@@ -52,4 +54,4 @@ This project was created using the following libraries:
 4. Flask
 5. Pytest
 
-Happy coding ..  ☕ 
+Happy coding .. ☕

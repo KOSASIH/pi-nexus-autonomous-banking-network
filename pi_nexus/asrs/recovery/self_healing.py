@@ -1,5 +1,6 @@
 import logging
 
+
 class SelfHealing:
     def __init__(self, config):
         self.config = config
