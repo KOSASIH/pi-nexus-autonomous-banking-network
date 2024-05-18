@@ -11,16 +11,16 @@ type Fine struct {
 }
 
 type FineX struct {
-	Fines    map[string]*big.Int
+	Fines      map[string]*big.Int
 	TotalFines *big.Int
-	TotalPaid *big.Int
+	TotalPaid  *big.Int
 }
 
 func NewFineX() *FineX {
 	return &FineX{
-		Fines:    make(map[string]*big.Int),
+		Fines:      make(map[string]*big.Int),
 		TotalFines: big.NewInt(0),
-		TotalPaid: big.NewInt(0),
+		TotalPaid:  big.NewInt(0),
 	}
 }
 
@@ -30,7 +30,7 @@ func (fx *FineX) IssueFine(offender string, amount *big.Int) {
 }
 
 func (fx *FineX) PayFine(offender string, amount *big.Int) error {
-	if _, ok := fx.Fines[offender];!ok {
+	if _, ok := fx.Fines[offender]; !ok {
 		return fmt.Errorf("offender %s has no fines to pay", offender)
 	}
 	if amount.Cmp(fx.Fines[offender]) > 0 {
@@ -61,9 +61,9 @@ func main() {
 	fx.IssueFine("Alice", big.NewInt(100))
 	fx.IssueFine("Bob", big.NewInt(200))
 	fmt.Println(fx.GetFineBalance("Alice")) // Output: 100
-	fmt.Println(fx.GetFineBalance("Bob")) // Output: 200
-	fmt.Println(fx.GetTotalFines()) // Output: 300
+	fmt.Println(fx.GetFineBalance("Bob"))   // Output: 200
+	fmt.Println(fx.GetTotalFines())         // Output: 300
 	fx.PayFine("Alice", big.NewInt(50))
 	fmt.Println(fx.GetFineBalance("Alice")) // Output: 50
-	fmt.Println(fx.GetTotalPaid()) // Output: 50
+	fmt.Println(fx.GetTotalPaid())          // Output: 50
 }
