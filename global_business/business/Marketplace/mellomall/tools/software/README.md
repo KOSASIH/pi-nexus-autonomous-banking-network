@@ -21,7 +21,6 @@ Install the required dependencies:
 
 Run the following command to create the database:
 
-
 ```python
 
 1. >>> from bigboss_q import db
@@ -71,34 +70,33 @@ Response:
 2.    "user_id": "integer"
 3. }
 ```
+
 POST /login: Authenticate a user and generate a JWT.
 
 Request body:
 
 ```json
-
 {
-    "username": "string",
-    "password": "string"
+  "username": "string",
+  "password": "string"
 }
 ```
 
 Response:
 
 ```json
-
 {
-    "token": "string"
+  "token": "string"
 }
 ```
+
 GET /protected: Access a protected resource.
 
 Response:
 
 ```json
-
 {
-    "message": "string"
+  "message": "string"
 }
 ```
 
