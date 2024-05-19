@@ -1,5 +1,7 @@
-import requests
 from typing import Dict, Union
+
+import requests
+
 
 class IndodaxExchange:
     def __init__(self, api_key: str, api_secret: str):
@@ -9,10 +11,14 @@ class IndodaxExchange:
 
     def _get_signed_request_headers(self, endpoint: str) -> Dict[str, str]:
         """Returns the signed request headers for a given endpoint."""
-        nonce = str(int(requests.get("https://api.indodax.com/v1/time").json()["server_time"]))
+        nonce = str(
+            int(requests.get("https://api.indodax.com/v1/time").json()["server_time"])
+        )
         message = f"{nonce}{endpoint}"
         secret_key = self.api_secret.encode("utf-8")
-        signature = requests.hmac.new(secret_key, message.encode("utf-8"), hashlib.sha512).hexdigest()
+        signature = requests.hmac.new(
+            secret_key, message.encode("utf-8"), hashlib.sha512
+        ).hexdigest()
         return {
             "Key": self.api_key,
             "Sign": signature,
@@ -30,7 +36,9 @@ class IndodaxExchange:
                 exchange_rates["IDR"] = float(rate["last_price"]) * -1
         return exchange_rates
 
-    def place_order(self, order: Dict[str, Union[str, float]]) -> Dict[str, Union[str, float]]:
+    def place_order(
+        self, order: Dict[str, Union[str, float]]
+    ) -> Dict[str, Union[str, float]]:
         """Places an order on Indodax."""
         url = f"{self.base_url}/order/book"
         headers = self._get_signed_request_headers(url)
