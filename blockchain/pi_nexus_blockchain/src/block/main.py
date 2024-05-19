@@ -1,5 +1,6 @@
 from blockchain import Blockchain
 
+
 def main():
     blockchain = Blockchain()
 
@@ -13,6 +14,7 @@ def main():
     # Print the blockchain
     for block in blockchain.get_blockchain():
         print(block)
+
 
 if __name__ == "__main__":
     main()
