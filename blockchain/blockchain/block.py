@@ -1,6 +1,7 @@
-from typing import Any
 from datetime import datetime
 from hashlib import sha256
+from typing import Any
+
 
 class Block:
     """
