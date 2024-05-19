@@ -50,11 +50,11 @@ Access the application at http://127.0.0.1:5000/
 3. Order management
 4. Token-based API for order management
 5. API Documentation
-The API documentation can be found at http://127.0.0.1:5000/apidocs/.
+   The API documentation can be found at http://127.0.0.1:5000/apidocs/.
 6. Security
-Silkroad includes basic security measures, such as password hashing and token-based authentication. However, additional security measures should be implemented for a production environment.
+   Silkroad includes basic security measures, such as password hashing and token-based authentication. However, additional security measures should be implemented for a production environment.
 7. Error Handling
-Error handling is included in the application, but it should be expanded and customized for a production environment.
+   Error handling is included in the application, but it should be expanded and customized for a production environment.
 
 ## Contributing
 
