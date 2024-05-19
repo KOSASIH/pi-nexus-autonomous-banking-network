@@ -1,5 +1,7 @@
-import requests
 from typing import Dict, Union
+
+import requests
+
 
 class CoinbaseExchange:
     def __init__(self, api_key: str, api_secret: str):
@@ -9,10 +11,14 @@ class CoinbaseExchange:
 
     def _get_signed_request_headers(self, endpoint: str) -> Dict[str, str]:
         """Returns the signed request headers for a given endpoint."""
-        timestamp = str(int(requests.get("https://api.coinbase.com/v2/time").json()["seconds"]))
+        timestamp = str(
+            int(requests.get("https://api.coinbase.com/v2/time").json()["seconds"])
+        )
         message = f"{timestamp}{endpoint}"
         secret_key = self.api_secret.encode("utf-8")
-        signature = requests.hmac.new(secret_key, message.encode("utf-8"), hashlib.sha256).hexdigest()
+        signature = requests.hmac.new(
+            secret_key, message.encode("utf-8"), hashlib.sha256
+        ).hexdigest()
         return {
             "CB-ACCESS-KEY": self.api_key,
             "CB-ACCESS-SIGN": signature,
@@ -29,7 +35,9 @@ class CoinbaseExchange:
                 exchange_rates[rate["base"]] = float(rate["amount"])
         return exchange_rates
 
-    def place_order(self, order: Dict[str, Union[str, float]]) -> Dict[str, Union[str, float]]:
+    def place_order(
+        self, order: Dict[str, Union[str, float]]
+    ) -> Dict[str, Union[str, float]]:
         """Places an order on Coinbase."""
         url = f"{self.base_url}/v2/orders"
         headers = self._get_signed_request_headers(url)
