@@ -29,14 +29,13 @@ The script will output the ticket information and whether the payment was succes
 # Classes and Functions
 
 - TicketSystem: A class that handles ticket creation, payment, and status updates.
-   
-   - init_db: Initializes the SQLite database.
-   - generate_ticket_id: Generates a unique ticket ID.
-   - create_ticket: Creates a new ticket.
-   - get_pi_coin_balance: Retrieves the user's PI Coin balance.
-   - pay_ticket: Processes a payment for a ticket.
-   - get_ticket: Retrieves a ticket by ID.
-   - update_ticket_status: Updates a ticket's status.
+  - init_db: Initializes the SQLite database.
+  - generate_ticket_id: Generates a unique ticket ID.
+  - create_ticket: Creates a new ticket.
+  - get_pi_coin_balance: Retrieves the user's PI Coin balance.
+  - pay_ticket: Processes a payment for a ticket.
+  - get_ticket: Retrieves a ticket by ID.
+  - update_ticket_status: Updates a ticket's status.
 
 # Error Handling
 
@@ -61,6 +60,5 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 # License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
-
 
                                       " Happy coding ... ☺ ...  ☕ "
