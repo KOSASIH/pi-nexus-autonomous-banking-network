@@ -1,5 +1,7 @@
-import requests
 from typing import Dict, Union
+
+import requests
+
 
 class PiNetworkMarketplace:
     def __init__(self, base_url: str):
@@ -24,7 +26,9 @@ class PiNetworkMarketplace:
             }
         return products
 
-    def place_order(self, order: Dict[str, Union[str, float]]) -> Dict[str, Union[str, float]]:
+    def place_order(
+        self, order: Dict[str, Union[str, float]]
+    ) -> Dict[str, Union[str, float]]:
         """Places an order on the Pi Network marketplace."""
         url = f"{self.base_url}/orders"
         response = requests.post(url, json=order, headers=self._get_request_headers())
