@@ -1,6 +1,8 @@
 import pytest
+
 from blockchain import Blockchain
 from blockchain.block import Block
+
 
 def test_create_genesis_block():
     """Test the creation of the genesis block."""
@@ -11,6 +13,7 @@ def test_create_genesis_block():
     assert genesis_block.previous_hash == "0"
     assert genesis_block.data == "Genesis Block"
 
+
 def test_add_block():
     """Test adding blocks to the blockchain."""
     blockchain = Blockchain()
@@ -20,6 +23,7 @@ def test_add_block():
     assert len(blockchain.chain) == 3
     assert blockchain.chain[1].data == "First block"
     assert blockchain.chain[2].data == "Second block"
+
 
 def test_is_valid():
     """Test the integrity of the blockchain."""
