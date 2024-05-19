@@ -1,6 +1,8 @@
 import json
 from pathlib import Path
+
 from block_model import Block
+
 
 class BlockRepository:
     """
