@@ -1,15 +1,16 @@
-from flask import request, jsonify
+from flask import jsonify, request
 from flask_login import login_required
 
-from . import api_bp
 from ..models import Transaction
 from ..schemas import TransactionSchema
+from . import api_bp
 
 # Initialize the transaction schema
 transaction_schema = TransactionSchema()
 transactions_schema = TransactionSchema(many=True)
 
-@api_bp.route('/transactions', methods=['GET'])
+
+@api_bp.route("/transactions", methods=["GET"])
 @login_required
 def get_transactions():
     """
@@ -18,7 +19,8 @@ def get_transactions():
     transactions = Transaction.query.all()
     return transactions_schema.jsonify(transactions)
 
-@api_bp.route('/transactions/<int:transaction_id>', methods=['GET'])
+
+@api_bp.route("/transactions/<int:transaction_id>", methods=["GET"])
 @login_required
 def get_transaction(transaction_id):
     """
@@ -27,7 +29,8 @@ def get_transaction(transaction_id):
     transaction = Transaction.query.get_or_404(transaction_id)
     return transaction_schema.jsonify(transaction)
 
-@api_bp.route('/transactions', methods=['POST'])
+
+@api_bp.route("/transactions", methods=["POST"])
 @login_required
 def create_transaction():
     """
@@ -39,7 +42,8 @@ def create_transaction():
     db.session.commit()
     return transaction_schema.jsonify(transaction), 201
 
-@api_bp.route('/transactions/<int:transaction_id>', methods=['PUT'])
+
+@api_bp.route("/transactions/<int:transaction_id>", methods=["PUT"])
 @login_required
 def update_transaction(transaction_id):
     """
@@ -51,7 +55,8 @@ def update_transaction(transaction_id):
     db.session.commit()
     return transaction_schema.jsonify(transaction)
 
-@api_bp.route('/transactions/<int:transaction_id>', methods=['DELETE'])
+
+@api_bp.route("/transactions/<int:transaction_id>", methods=["DELETE"])
 @login_required
 def delete_transaction(transaction_id):
     """
@@ -60,4 +65,4 @@ def delete_transaction(transaction_id):
     transaction = Transaction.query.get_or_404(transaction_id)
     db.session.delete(transaction)
     db.session.commit()
-    return '', 204
+    return "", 204
