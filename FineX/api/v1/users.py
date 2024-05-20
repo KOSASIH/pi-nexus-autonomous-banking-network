@@ -1,15 +1,16 @@
-from flask import request, jsonify
+from flask import jsonify, request
 from flask_login import login_required
 
-from . import api_bp
 from ..models import User
 from ..schemas import UserSchema
+from . import api_bp
 
 # Initialize the user schema
 user_schema = UserSchema()
 users_schema = UserSchema(many=True)
 
-@api_bp.route('/users', methods=['GET'])
+
+@api_bp.route("/users", methods=["GET"])
 @login_required
 def get_users():
     """
@@ -18,7 +19,8 @@ def get_users():
     users = User.query.all()
     return users_schema.jsonify(users)
 
-@api_bp.route('/users/<int:user_id>', methods=['GET'])
+
+@api_bp.route("/users/<int:user_id>", methods=["GET"])
 @login_required
 def get_user(user_id):
     """
@@ -27,7 +29,8 @@ def get_user(user_id):
     user = User.query.get_or_404(user_id)
     return user_schema.jsonify(user)
 
-@api_bp.route('/users', methods=['POST'])
+
+@api_bp.route("/users", methods=["POST"])
 @login_required
 def create_user():
     """
@@ -39,7 +42,8 @@ def create_user():
     db.session.commit()
     return user_schema.jsonify(user), 201
 
-@api_bp.route('/users/<int:user_id>', methods=['PUT'])
+
+@api_bp.route("/users/<int:user_id>", methods=["PUT"])
 @login_required
 def update_user(user_id):
     """
@@ -51,7 +55,8 @@ def update_user(user_id):
     db.session.commit()
     return user_schema.jsonify(user)
 
-@api_bp.route('/users/<int:user_id>', methods=['DELETE'])
+
+@api_bp.route("/users/<int:user_id>", methods=["DELETE"])
 @login_required
 def delete_user(user_id):
     """
@@ -60,4 +65,4 @@ def delete_user(user_id):
     user = User.query.get_or_404(user_id)
     db.session.delete(user)
     db.session.commit()
-    return '', 204
+    return "", 204
