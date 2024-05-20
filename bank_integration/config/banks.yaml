@@ -1,0 +1,15 @@
+banks:
+  bank_of_america:
+    api_key: <your_bank_of_america_api_key>
+    api_secret: <your_bank_of_america_api_secret>
+    base_url: <your_bank_of_america_base_url>
+
+  chase_bank:
+    api_key: <your_chase_bank_api_key>
+    api_secret: <your_chase_bank_api_secret>
+    base_url: <your_chase_bank_base_url>
+
+  wells_fargo:
+    api_key: <your_wells_fargo_api_key>
+    api_secret: <your_wells_fargo_api_secret>
+    base_url: <your_wells_fargo_base_url>
