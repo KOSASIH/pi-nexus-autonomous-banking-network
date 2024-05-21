@@ -1,8 +1,9 @@
 # main.py
 import os
-import chase_bank
+
 import bank_of_america
 import capital_one
+import chase_bank
 
 api_key = os.getenv("API_KEY")
 
@@ -18,4 +19,6 @@ chase_transactions = chase.get_transactions(chase_accounts[0]["id"])
 boa_transactions = boa.get_transactions(boa_accounts[0]["id"])
 capitalone_transactions = capitalone.get_transactions(capitalone_accounts[0]["id"])
 
-transfer_result = chase.transfer_funds(chase_accounts[0]["id"], boa_accounts[0]["id"], 100)
+transfer_result = chase.transfer_funds(
+    chase_accounts[0]["id"], boa_accounts[0]["id"], 100
+)
