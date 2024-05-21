@@ -1,6 +1,8 @@
 # china_construction_bank.py
-import requests
 import json
+
+import requests
+
 
 class ChinaConstructionBank:
     def __init__(self, api_key):
@@ -21,11 +23,14 @@ class ChinaConstructionBank:
 
     def transfer_funds(self, from_account_id, to_account_id, amount):
         url = f"{self.base_url}/v1/transfers"
-        headers = {"Authorization": f"Bearer {self.api_key}", "Content-Type": "application/json"}
+        headers = {
+            "Authorization": f"Bearer {self.api_key}",
+            "Content-Type": "application/json",
+        }
         data = {
             "fromAccountId": from_account_id,
             "toAccountId": to_account_id,
-            "amount": amount
+            "amount": amount,
         }
         response = requests.post(url, headers=headers, data=json.dumps(data))
         return json.loads(response.text)
