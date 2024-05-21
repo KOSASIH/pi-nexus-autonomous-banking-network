@@ -18,8 +18,9 @@ class Swap:
         # Code for removing swap space
         pass
 
+
 if __name__ == "__main__":
-    swap = Swap(512) # Create a swap space of 512 MB
+    swap = Swap(512)  # Create a swap space of 512 MB
     swap.create()
     swap.enable()
     # Use the swap space
