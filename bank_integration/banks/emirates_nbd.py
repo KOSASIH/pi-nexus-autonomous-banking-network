@@ -1,11 +1,15 @@
-import requests
 import json
+
+import requests
+
 
 class EmiratesNBD:
     def __init__(self, api_key, api_secret):
         self.api_key = api_key
         self.api_secret = api_secret
-        self.base_url = "https://api.sandbox.emiratesnbd.com/open-banking/v3.1/open-banking"
+        self.base_url = (
+            "https://api.sandbox.emiratesnbd.com/open-banking/v3.1/open-banking"
+        )
 
     def make_request(self, endpoint, method="GET", data=None, headers=None):
         url = f"{self.base_url}/{endpoint}"
@@ -35,7 +39,9 @@ class EmiratesNBD:
         response = requests.post(f"{self.base_url}/{endpoint}", data=data)
 
         if response.status_code != 200:
-            raise Exception(f"Failed to get access token with status code {response.status_code}")
+            raise Exception(
+                f"Failed to get access token with status code {response.status_code}"
+            )
 
         response_data = response.json()
         return response_data["access_token"]
