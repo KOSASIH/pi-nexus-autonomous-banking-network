@@ -2,7 +2,7 @@
 // A Rust file to implement a bridge between different blockchain networks
 //! Cross-chain bridge for interoperability
 
-use hyperbridge::{Hyperbridge, Chain, Config};
+use hyperbridge::{Chain, Config, Hyperbridge};
 
 pub struct ChainBridge {
     bridge: Hyperbridge,
@@ -29,4 +29,4 @@ impl ChainBridge {
     ) -> Result<(), &'static str> {
         self.bridge.transfer_assets(from_chain, to_chain, amount)
     }
-  }
+}
