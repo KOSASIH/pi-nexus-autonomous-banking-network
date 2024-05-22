@@ -4,6 +4,7 @@ import pytest
 from hyperbridge import Hyperbridge
 from hyperbridge.chain import Chain
 
+
 def test_transfer_assets():
     # Initialize the bridge with a configuration
     config = Config()
@@ -21,6 +22,7 @@ def test_transfer_assets():
 
     # Verify that the assets were transferred successfully
     assert chain2.balance == amount
+
 
 if __name__ == "__main__":
     pytest.main([__file__])
