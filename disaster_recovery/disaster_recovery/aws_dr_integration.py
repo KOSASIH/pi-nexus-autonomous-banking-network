@@ -1,5 +1,6 @@
-import boto3
 import time
+
+import boto3
 
 # Set AWS credentials
 aws_access_key_id = "your_aws_access_key_id"
@@ -10,10 +11,12 @@ dr_client = boto3.client(
     "drs",
     aws_access_key_id=aws_access_key_id,
     aws_secret_access_key=aws_secret_access_key,
-    region_name="us-west-2"
+    region_name="us-west-2",
 )
 
 # Define function to create a DRaaS replication job
+
+
 def create_replication_job(source_server_id, destination_server_id):
     # Set DRaaS replication job parameters
     job_params = {
@@ -23,8 +26,8 @@ def create_replication_job(source_server_id, destination_server_id):
             "ReplicationServerID": "your_replication_server_id",
             "RecoveryPointTags": [
                 {"Key": "Name", "Value": "Pi-Nexus-DRaaS-Replication"}
-            ]
-        }
+            ],
+        },
     }
 
     # Create DRaaS replication job
@@ -44,6 +47,7 @@ def create_replication_job(source_server_id, destination_server_id):
             break
 
         time.sleep(60)
+
 
 # Example usage
 source_server_id = "your_source_server_id"
