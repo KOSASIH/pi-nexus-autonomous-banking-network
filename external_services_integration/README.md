@@ -7,7 +7,7 @@ The following external services are currently integrated with the Pi-Nexus Auton
 1. Twilio: A cloud communications platform that enables the sending and receiving of SMS messages and phone calls. This service is used to provide notifications and alerts to users of the banking network.
 2. Stripe: A payment processing platform that allows for the acceptance of payments in various forms, such as credit cards and digital wallets. This service is used to facilitate transactions within the banking network.
 3. Google Maps: A mapping and navigation service that provides location-based information and functionality. This service is used to enable users to locate and navigate to ATMs and branches of the banking network.
-Setup
+   Setup
 
 ## To set up the external services integration, follow these steps:
 
@@ -30,8 +30,7 @@ Setup
 
 To use the external services integration, follow these steps:
 
-1..Import the necessary modules in your code, such as twilio, stripe, and googlemaps.
-2. Use the provided functions and classes to interact with the external services, such as send_sms, process_payment, and get_location.
+1..Import the necessary modules in your code, such as twilio, stripe, and googlemaps. 2. Use the provided functions and classes to interact with the external services, such as send_sms, process_payment, and get_location.
 
 ## Contributing
 
