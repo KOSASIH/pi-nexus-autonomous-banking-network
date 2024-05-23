@@ -1,11 +1,11 @@
-const { Client } = require('pg');
+const { Client } = require("pg");
 
 // Set up PostgreSQL connection
 const client = new Client({
-  user: 'your_user',
-  host: 'your_host',
-  database: 'your_database',
-  password: 'your_password',
+  user: "your_user",
+  host: "your_host",
+  database: "your_database",
+  password: "your_password",
   port: 5432,
 });
 
@@ -13,7 +13,7 @@ const client = new Client({
 client.connect();
 
 // Set up replication slot
-const slotName = 'your_slot_name';
+const slotName = "your_slot_name";
 const createSlotQuery = `
   SELECT * FROM pg_create_logical_replication_slot(
     '${slotName}',
