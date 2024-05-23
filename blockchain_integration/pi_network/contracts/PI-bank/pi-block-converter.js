@@ -4,8 +4,8 @@
  * @param {number} decimal - The decimal number to convert.
  * @returns {string} The hexadecimal string representation of the decimal number.
  */
-function decimalToHex(decimal) {
-  return decimal.toString(16);
+function decimalToHex (decimal) {
+  return decimal.toString(16)
 }
 
 /**
@@ -14,8 +14,8 @@ function decimalToHex(decimal) {
  * @param {string} hex - The hexadecimal string to convert.
  * @returns {number} The decimal number representation of the hexadecimal string.
  */
-function hexToDecimal(hex) {
-  return parseInt(hex, 16);
+function hexToDecimal (hex) {
+  return parseInt(hex, 16)
 }
 
 /**
@@ -24,8 +24,8 @@ function hexToDecimal(hex) {
  * @param {number} blockNumber - The decimal block number to convert.
  * @returns {string} The hexadecimal string representation of the block number.
  */
-function decimalBlockNumberToHex(blockNumber) {
-  return decimalToHex(blockNumber).padStart(64, '0');
+function decimalBlockNumberToHex (blockNumber) {
+  return decimalToHex(blockNumber).padStart(64, '0')
 }
 
 /**
@@ -34,8 +34,8 @@ function decimalBlockNumberToHex(blockNumber) {
  * @param {string} hexBlockNumber - The hexadecimal block number to convert.
  * @returns {number} The decimal number representation of the block number.
  */
-function hexBlockNumberToDecimal(hexBlockNumber) {
-  return hexToDecimal(hexBlockNumber);
+function hexBlockNumberToDecimal (hexBlockNumber) {
+  return hexToDecimal(hexBlockNumber)
 }
 
 /**
@@ -44,8 +44,8 @@ function hexBlockNumberToDecimal(hexBlockNumber) {
  * @param {string} transactionHash - The transaction hash to convert.
  * @returns {string} The hexadecimal string representation of the transaction hash.
  */
-function transactionHashToHex(transactionHash) {
-  return transactionHash.padStart(64, '0');
+function transactionHashToHex (transactionHash) {
+  return transactionHash.padStart(64, '0')
 }
 
 /**
@@ -56,5 +56,5 @@ module.exports = {
   hexToDecimal,
   decimalBlockNumberToHex,
   hexBlockNumberToDecimal,
-  transactionHashToHex,
-};
+  transactionHashToHex
+}
