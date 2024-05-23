@@ -1,0 +1,72 @@
+{
+  "properties": {
+    "displayName": "RBAC for Disaster Recovery",
+    "description": "Role-Based Access Control for Disaster Recovery using Azure Policy",
+    "policyType": "Custom",
+    "mode": "All",
+    "parameters": {
+      "builtInRoles": {
+        "type": "Array",
+        "metadata": {
+          "description": "Built-in roles for Disaster Recovery"
+        }
+      },
+      "roleName": {
+        "type": "String",
+        "metadata": {
+          "description": "Name of the custom role"
+        }
+      }
+    },
+    "policyRule": {
+      "if": {
+        "field": "type",
+        "equals": "Microsoft.Authorization/roleDefinitions"
+      },
+      "then": {
+        "effect": "auditIfNotExists",
+        "details": {
+          "type": "Microsoft.Authorization/roleAssignments",
+          "existenceCondition": {
+            "allOf": [
+              {
+                "field": "roleDefinitionId",
+                "in": "[parameters('builtInRoles')]"
+              },
+              {
+                "field": "principalId",
+                "equals": "[parameters('principalId')]"
+              }
+            ]
+          },
+          "roleDefinitionIds": [
+            "[resourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleName'))]"
+          ],
+          "deployment": {
+            "properties": {
+              "mode": "incremental",
+              "template": {
+                "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+                "contentVersion": "1.0.0.0",
+                "parameters": {},
+                "variables": {},
+                "resources": [
+                  {
+                    "type": "Microsoft.Authorization/roleAssignments",
+                    "apiVersion": "2018-09-01-preview",
+                    "name": "[concat('ra-', uniqueString(resourceGroup().id))]",
+                    "properties": {
+                      "roleDefinitionId": "[resourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleName'))]",
+                      "principalId": "[parameters('principalId')]",
+                      "scope": "[resourceGroup().id]"
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
