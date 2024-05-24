@@ -1,5 +1,5 @@
 // controllers/TransactionController.js
-const Transaction = require('../models/Transaction');
+const Transaction = require("../models/Transaction");
 
 const trackTransaction = async (req, res) => {
   // Implement logic to track the transaction
@@ -7,10 +7,10 @@ const trackTransaction = async (req, res) => {
   const transaction = new Transaction(req.body);
   try {
     await transaction.save();
-    res.status(201).send({ message: 'Transaction tracked successfully' });
+    res.status(201).send({ message: "Transaction tracked successfully" });
   } catch (error) {
     console.error(error);
-    res.status(500).send({ message: 'Error tracking transaction' });
+    res.status(500).send({ message: "Error tracking transaction" });
   }
 };
 
