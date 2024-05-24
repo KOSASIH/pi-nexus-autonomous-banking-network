@@ -1,4 +1,4 @@
-import { generateRandomToken } from './utils';
+import { generateRandomToken } from "./utils";
 
 class TwoFactorAuth {
   constructor(user) {
