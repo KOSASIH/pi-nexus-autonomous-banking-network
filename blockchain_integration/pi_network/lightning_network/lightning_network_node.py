@@ -1,10 +1,10 @@
 import asyncio
-import base58
 import hashlib
 import os
 import struct
 import time
 
+import base58
 import lnprototest
 
 # Set up the node configuration
@@ -71,6 +71,7 @@ connection_manager = lnprototest.ConnectionManager(
 # Set up the node's event loop
 event_loop = asyncio.get_event_loop()
 
+
 # Start the node
 async def start_node():
     # Start the connection manager
@@ -88,6 +89,7 @@ async def start_node():
     # Start the channels
     for channel in channels:
         await channel.start()
+
 
 # Run the node
 event_loop.run_until_complete(start_node())
