@@ -1,6 +1,6 @@
 // controllers/GamificationController.js
-const GamificationService = require('../services/GamificationService');
-const User = require('../models/User');
+const GamificationService = require("../services/GamificationService");
+const User = require("../models/User");
 
 const saveMoney = async (req, res) => {
   const user = req.user;
@@ -8,14 +8,14 @@ const saveMoney = async (req, res) => {
   // Calculate points earned based on amount saved
   const points = Math.floor(amount / 100);
   await GamificationService.earnPoints(user, points);
-  res.send({ message: 'Points earned!' });
+  res.send({ message: "Points earned!" });
 };
 
 const budgetSuccessfully = async (req, res) => {
   const user = req.user;
   // Unlock budgeting achievement badge
-  await GamificationService.unlockBadge(user, 'budgetingAchievement');
-  res.send({ message: 'Badge unlocked!' });
+  await GamificationService.unlockBadge(user, "budgetingAchievement");
+  res.send({ message: "Badge unlocked!" });
 };
 
 const makeLowCarbonTransaction = async (req, res) => {
@@ -23,7 +23,7 @@ const makeLowCarbonTransaction = async (req, res) => {
   // Calculate points earned based on low-carbon transaction
   const points = Math.floor(req.body.amount / 10);
   await GamificationService.earnPoints(user, points);
-  res.send({ message: 'Points earned!' });
+  res.send({ message: "Points earned!" });
 };
 
 const redeemReward = async (req, res) => {
@@ -31,10 +31,15 @@ const redeemReward = async (req, res) => {
   const rewardId = req.body.rewardId;
   const reward = await Reward.findById(rewardId);
   if (await GamificationService.redeemReward(user, reward)) {
-    res.send({ message: 'Reward redeemed!' });
+    res.send({ message: "Reward redeemed!" });
   } else {
-    res.status(400).send({ message: 'Insufficient points' });
+    res.status(400).send({ message: "Insufficient points" });
   }
 };
 
-module.exports = { saveMoney, budgetSuccessfully, makeLowCarbonTransaction, redeemReward };
+module.exports = {
+  saveMoney,
+  budgetSuccessfully,
+  makeLowCarbonTransaction,
+  redeemReward,
+};
