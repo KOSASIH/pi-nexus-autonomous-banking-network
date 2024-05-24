@@ -1,11 +1,11 @@
-import { validatePaymentRequest } from './payment-validator';
+import { validatePaymentRequest } from "./payment-validator";
 
 class PSD2Compliance {
   async validatePaymentRequest(request) {
     // Validate payment request against PSD2 regulations
     const isValid = validatePaymentRequest(request);
     if (!isValid) {
-      throw new Error('Payment request is not PSD2 compliant');
+      throw new Error("Payment request is not PSD2 compliant");
     }
   }
 
