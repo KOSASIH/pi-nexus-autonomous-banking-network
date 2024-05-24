@@ -1,5 +1,5 @@
 // services/SmartCardAuth.js
-const smartCard = require('smartcard');
+const smartCard = require("smartcard");
 
 const generateToken = async (user) => {
   // Implement logic to generate a smart card token for the user
@@ -11,7 +11,10 @@ const generateToken = async (user) => {
 const verifyToken = async (user, verificationCode) => {
   // Implement logic to verify the smart card token
   // For example, using a smart card reader API
-  const isValid = await smartCard.verifyToken(user.smartCardId, verificationCode);
+  const isValid = await smartCard.verifyToken(
+    user.smartCardId,
+    verificationCode,
+  );
   return isValid;
 };
 
