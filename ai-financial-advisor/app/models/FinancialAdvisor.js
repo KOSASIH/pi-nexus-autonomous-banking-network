@@ -1,10 +1,10 @@
-import { MachineLearningModel } from 'ml-model';
-import { Transaction } from './Transaction';
-import { FinancialGoal } from './FinancialGoal';
+import { MachineLearningModel } from "ml-model";
+import { Transaction } from "./Transaction";
+import { FinancialGoal } from "./FinancialGoal";
 
 class FinancialAdvisor {
   constructor() {
-    this.model = new MachineLearningModel('financial_advisor_model');
+    this.model = new MachineLearningModel("financial_advisor_model");
   }
 
   async train() {
@@ -12,7 +12,9 @@ class FinancialAdvisor {
     const financialGoals = await FinancialGoal.find().exec();
     const trainingData = transactions.map((transaction) => ({
       input: transaction.amount,
-      output: financialGoals.find((goal) => goal.category === transaction.category).targetAmount
+      output: financialGoals.find(
+        (goal) => goal.category === transaction.category,
+      ).targetAmount,
     }));
     this.model.train(trainingData);
   }
