@@ -1,0 +1,16 @@
+{
+  "name": "ai-financial-advisor",
+  "version": "1.0.0",
+  "description": "AI-powered financial advisor mobile app with machine learning-based financial advisor and NLP integration",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.12.13",
+    "nodemon": "^2.0.13"
+  }
+}
