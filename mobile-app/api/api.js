@@ -1,16 +1,16 @@
-import axios from 'axios';
+import axios from "axios";
 
 const API = axios.create({
-  baseURL: 'https://api.example.com',
+  baseURL: "https://api.example.com",
   timeout: 10000,
   headers: {
-    'Content-Type': 'application/json',
+    "Content-Type": "application/json",
   },
 });
 
 API.interceptors.request.use(
   (config) => {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem("token");
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
     }
@@ -18,7 +18,7 @@ API.interceptors.request.use(
   },
   (error) => {
     return Promise.reject(error);
-  }
+  },
 );
 
 API.interceptors.response.use(
@@ -27,21 +27,21 @@ API.interceptors.response.use(
   },
   (error) => {
     if (error.response.status === 401) {
-      localStorage.removeItem('token');
+      localStorage.removeItem("token");
       // Redirect to login screen
     }
     return Promise.reject(error);
-  }
+  },
 );
 
 export const authenticate = (username, password) => {
-  return API.post('/authenticate', { username, password });
+  return API.post("/authenticate", { username, password });
 };
 
 export const getAccounts = () => {
-  return API.get('/accounts');
+  return API.get("/accounts");
 };
 
 export const getTransactions = () => {
-  return API.get('/transactions');
+  return API.get("/transactions");
 };
