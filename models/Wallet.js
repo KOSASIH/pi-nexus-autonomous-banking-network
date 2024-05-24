@@ -1,10 +1,10 @@
 // models/Wallet.js
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const walletSchema = new mongoose.Schema({
   user: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
+    ref: "User",
   },
   balance: {
     type: Number,
@@ -13,9 +13,9 @@ const walletSchema = new mongoose.Schema({
   transactions: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'Transaction',
+      ref: "Transaction",
     },
   ],
 });
 
-module.exports = mongoose.model('Wallet', walletSchema);
+module.exports = mongoose.model("Wallet", walletSchema);
