@@ -1,9 +1,11 @@
 // services/BudgetService.js
-const Budget = require('../models/Budget');
-const MachineLearningModel = require('../models/MachineLearningModel');
+const Budget = require("../models/Budget");
+const MachineLearningModel = require("../models/MachineLearningModel");
 
 const predictExpenses = async (budget) => {
-  const mlModel = await MachineLearningModel.findOne({ type: 'expensePrediction' });
+  const mlModel = await MachineLearningModel.findOne({
+    type: "expensePrediction",
+  });
   const predictedExpenses = mlModel.predict(budget.income, budget.expenses);
   return predictedExpenses;
 };
