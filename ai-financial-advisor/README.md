@@ -6,11 +6,11 @@ This mobile app provides users with a personalized financial advisor that offers
 
 ## Features
 
-* Biometric authentication (fingerprint, facial recognition) for secure login
-* Personalized financial advisor with machine learning-based investment advice and budgeting suggestions
-* NLP-powered chat and voice command interface
-* Transaction history and financial goal tracking
-* Secure and reliable API integration
+- Biometric authentication (fingerprint, facial recognition) for secure login
+- Personalized financial advisor with machine learning-based investment advice and budgeting suggestions
+- NLP-powered chat and voice command interface
+- Transaction history and financial goal tracking
+- Secure and reliable API integration
 
 ## Getting Started
 
@@ -33,5 +33,5 @@ This project is licensed under the MIT License.
 
 ## Acknowledgments
 
-* readme-ai for generating this README file
-* The team behind e2b for providing the Awesome List of AI Agents
+- readme-ai for generating this README file
+- The team behind e2b for providing the Awesome List of AI Agents
