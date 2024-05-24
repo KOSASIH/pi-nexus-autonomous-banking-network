@@ -1,13 +1,13 @@
-import jwt from 'jsonwebtoken';
-import { SECRET_KEY } from '../config';
+import jwt from "jsonwebtoken";
+import { SECRET_KEY } from "../config";
 
 export const generateToken = (user) => {
   const payload = {
     _id: user._id,
     email: user.email,
-    role: user.role
+    role: user.role,
   };
-  const token = jwt.sign(payload, SECRET_KEY, { expiresIn: '1h' });
+  const token = jwt.sign(payload, SECRET_KEY, { expiresIn: "1h" });
   return token;
 };
 
