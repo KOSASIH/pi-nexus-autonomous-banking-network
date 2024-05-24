@@ -1,5 +1,5 @@
-import { Platform } from 'react-native';
-import WearableDeviceService from './WearableDeviceService';
+import { Platform } from "react-native";
+import WearableDeviceService from "./WearableDeviceService";
 
 class WearableDeviceController {
   constructor() {
@@ -12,7 +12,7 @@ class WearableDeviceController {
       // Initialize data synchronization
       this.startDataSync(device);
     } catch (error) {
-      console.error('Error connecting to device:', error);
+      console.error("Error connecting to device:", error);
     }
   }
 
@@ -22,24 +22,33 @@ class WearableDeviceController {
       // Stop data synchronization
       this.stopDataSync(device);
     } catch (error) {
-      console.error('Error disconnecting from device:', error);
+      console.error("Error disconnecting from device:", error);
     }
   }
 
   async readDataFromDevice(device, service, characteristic) {
     try {
-      const data = await this.wearableDeviceService.readDataFromDevice(device, service, characteristic);
+      const data = await this.wearableDeviceService.readDataFromDevice(
+        device,
+        service,
+        characteristic,
+      );
       return data;
     } catch (error) {
-      console.error('Error reading data from device:', error);
+      console.error("Error reading data from device:", error);
     }
   }
 
   async writeDataToDevice(device, service, characteristic, data) {
     try {
-      await this.wearableDeviceService.writeDataToDevice(device, service, characteristic, data);
+      await this.wearableDeviceService.writeDataToDevice(
+        device,
+        service,
+        characteristic,
+        data,
+      );
     } catch (error) {
-      console.error('Error writing data to device:', error);
+      console.error("Error writing data to device:", error);
     }
   }
 
