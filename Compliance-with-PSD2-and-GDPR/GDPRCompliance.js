@@ -1,4 +1,4 @@
-import { encryptData } from './encryption';
+import { encryptData } from "./encryption";
 
 class GDPRCompliance {
   async handlePersonalData(data) {
