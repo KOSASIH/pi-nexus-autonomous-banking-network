@@ -1,0 +1,9 @@
+{
+  "hello": "Hallo",
+  "welcome": "Willkommen in unserer Anwendung",
+  "login": "Anmelden",
+  "username": "Benutzername",
+  "password": "Passwort",
+  "forgotPassword": "Passwort vergessen?",
+  "register": "Registrieren"
+}
