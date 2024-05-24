@@ -1,46 +1,48 @@
-const ethers = require('ethers');
-const Avalanche = require('avalanche').Avalanche;
-require('dotenv').config();
+const ethers = require('ethers')
+const Avalanche = require('avalanche').Avalanche
+require('dotenv').config()
 
-const privateKey = process.env.PRIVATEKEY;
-const nodeURL = "https://api.avax-test.network/ext/bc/C/rpc";
-const HTTPSProvider = new ethers.providers.JsonRpcProvider(nodeURL);
-const chainId = 43113;
+const privateKey = process.env.PRIVATEKEY
+const nodeURL = 'https://api.avax-test.network/ext/bc/C/rpc'
+const HTTPSProvider = new ethers.providers.JsonRpcProvider(nodeURL)
+const chainId = 43113
 const avalanche = new Avalanche(
-  "api.avax-test.network",
+  'api.avax-test.network',
   undefined,
-"https",
+  'https',
   chainId
-);
-const cchain = avalanche.CChain();
-const wallet = new ethers.Wallet(privateKey);
-const address = wallet.address;
+)
+const cchain = avalanche.CChain()
+const wallet = new ethers.Wallet(privateKey)
+const address = wallet.address
 
-async function calcFeeData() {
-  const baseFee = await cchain.getBaseFee(1);
-  const maxFee = baseFee.mul(125).div(100);
-  const maxPriorityFee = baseFee.mul(50).div(100);
+async function calcFeeData () {
+  const baseFee = await cchain.getBaseFee(1)
+  const maxFee = baseFee.mul(125).div(100)
+  const maxPriorityFee = baseFee.mul(50).div(100)
   return {
     baseFee: ethers.utils.formatUnits(baseFee, 'gwei'),
     maxFee: ethers.utils.formatUnits(maxFee, 'gwei'),
     maxPriorityFee: ethers.utils.formatUnits(maxPriorityFee, 'gwei')
-  };
+  }
 }
 
-async function sendAvax(amount, to, maxFee, maxPriorityFee, nonce) {
-  const feeData = await calcFeeData();
+async function sendAvax (amount, to, maxFee, maxPriorityFee, nonce) {
+  const feeData = await calcFeeData()
   const tx = {
-    to: to,
+    to,
     value: ethers.utils.parseEther(amount),
     gasLimit: 21000,
     maxFeePerGas: ethers.utils.parseUnits(maxFee, 'gwei'),
     maxPriorityFeePerGas: ethers.utils.parseUnits(maxPriorityFee, 'gwei'),
-    nonce: nonce
-  };
-  const signedTx = await wallet.sign(tx);
-  const txHash = await HTTPSProvider.sendTransaction(signedTx);
-  console.log(`Transaction sent with hash: ${txHash}`);
-  console.log(`View transaction with nonce ${nonce}: https://testnet.snowtrace.io/tx/${txHash}`);
+    nonce
+  }
+  const signedTx = await wallet.sign(tx)
+  const txHash = await HTTPSProvider.sendTransaction(signedTx)
+  console.log(`Transaction sent with hash: ${txHash}`)
+  console.log(
+    `View transaction with nonce ${nonce}: https://testnet.snowtrace.io/tx/${txHash}`
+  )
 }
 
 // Example usage:
@@ -48,4 +50,4 @@ async function sendAvax(amount, to, maxFee, maxPriorityFee, nonce) {
 
 module.exports = {
   sendAvax
-};
+}
