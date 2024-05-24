@@ -1,5 +1,5 @@
 // models/PartnerMerchant.js
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const partnerMerchantSchema = new mongoose.Schema({
   name: {
@@ -13,9 +13,9 @@ const partnerMerchantSchema = new mongoose.Schema({
   rewards: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'Reward',
+      ref: "Reward",
     },
   ],
 });
 
-module.exports = mongoose.model('PartnerMerchant', partnerMerchantSchema);
+module.exports = mongoose.model("PartnerMerchant", partnerMerchantSchema);
