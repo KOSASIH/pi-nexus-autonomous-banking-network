@@ -1,7 +1,7 @@
 // services/GamificationService.js
-const User = require('../models/User');
-const Reward = require('../models/Reward');
-const PartnerMerchant = require('../models/PartnerMerchant');
+const User = require("../models/User");
+const Reward = require("../models/Reward");
+const PartnerMerchant = require("../models/PartnerMerchant");
 
 const earnPoints = async (user, points) => {
   user.gamification.points += points;
