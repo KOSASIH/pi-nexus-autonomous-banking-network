@@ -1,0 +1,111 @@
+{
+  "name": "my-high-tech-app",
+  "version": "1.0.0",
+  "description": "A super advanced high-tech app",
+  "main": "dist/index.js",
+  "scripts": {
+    "start": "concurrently \"nodemon --exec babel-node src/index.js\" \"cd client && npm start\"",
+    "build": "babel src --out-dir dist",
+    "test": "jest",
+    "lint": "eslint . --ext .js,.jsx",
+    "coverage": "jest --coverage",
+    "deploy": "gh-pages -d dist"
+  },
+  "dependencies": {
+    "@apollo/client": "^3.5.9",
+    "@auth0/auth0-react": "^1.10.0",
+    "@web3-react/core": "^6.2.0",
+    "@web3-react/providers": "^6.2.0",
+    "apollo-cache-inmemory": "^1.6.6",
+    "apollo-client": "^2.6.10",
+    "apollo-link": "^1.2.14",
+    "apollo-link-http": "^1.5.17",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^10.1.0",
+    "babel-jest": "^27.4.5",
+    "babel-loader": "^8.2.3",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "concurrently": "^6.4.0",
+    "css-loader": "^6.5.1",
+    "dotenv": "^10.0.0",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb": "^19.0.2",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-jest": "^26.5.2",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-react": "^7.29.4",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "file-loader": "^6.2.0",
+    "gh-pages": "^3.2.3",
+    "graphql": "^16.3.0",
+    "graphql-tag": "^2.12.6",
+    "jest": "^27.4.5",
+    "nodemon": "^2.0.15",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-i18next": "^11.16.4",
+    "react-router-dom": "^6.2.1",
+    "react-scripts": "^4.0.3",
+    "redux": "^4.2.0",
+    "redux-devtools-extension": "^2.13.9",
+    "redux-thunk": "^2.4.1",
+    "style-loader": "^3.3.1",
+    "web3": "^1.7.0",
+    "xstate": "^4.24.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.16.7",
+    "@babel/preset-env": "^7.16.5",
+    "@babel/preset-react": "^7.16.0",
+    "@types/jest": "^27.4.1",
+    "@types/react": "^17.0.39",
+    "@types/react-dom": "^17.0.11",
+    "@types/react-router-dom": "^5.3.3",
+    "@types/react-scripts": "^4.0.11",
+    "@types/webpack-env": "^1.16.0",
+    "babel-jest": "^27.4.5",
+    "babel-loader": "^8.2.3",
+    "css-loader": "^6.5.1",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb": "^19.0.2",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-jest": "^26.5.2",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-react": "^7.29.4",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "file-loader": "^6.2.0",
+    "gh-pages": "^3.2.3",
+    "jest": "^27.4.5",
+    "nodemon": "^2.0.15",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.73.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.7.4"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.(js|jsx)$": "babel-jest"
+    },
+    "moduleNameMapper": {
+      "\\.(css|scss)$": "identity-obj-proxy"
+    }
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react"
+    ]
+  },
+  "eslintConfig": {
+    "extends": [
+      "airbnb",
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+  }
