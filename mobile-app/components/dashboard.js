@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { View, Text, FlatList } from 'react-native';
-import { API } from '../api';
+import React, { useState, useEffect } from "react";
+import { View, Text, FlatList } from "react-native";
+import { API } from "../api";
 
 const Dashboard = () => {
   const [accounts, setAccounts] = useState([]);
