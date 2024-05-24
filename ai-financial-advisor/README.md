@@ -35,5 +35,3 @@ This project is licensed under the MIT License.
 
 - readme-ai for generating this README file
 - The team behind e2b for providing the Awesome List of AI Agents
-
-                                  Happy coding  ... ☺  ☕ !!
