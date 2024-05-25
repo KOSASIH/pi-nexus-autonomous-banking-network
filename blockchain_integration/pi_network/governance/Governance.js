@@ -14,7 +14,7 @@ class Governance {
     // Vote on a proposal using the wallet
     const tx = await this.wallet.sendTransaction({
       from: this.wallet.address,
-      to: '0xGOVERNANCE_CONTRACT_ADDRESS',
+      to: "0xGOVERNANCE_CONTRACT_ADDRESS",
       data: `vote(${proposalId}, ${vote})`,
     });
     return tx;
@@ -24,7 +24,7 @@ class Governance {
     // Create a new proposal using the wallet
     const tx = await this.wallet.sendTransaction({
       from: this.wallet.address,
-      to: '0xGOVERNANCE_CONTRACT_ADDRESS',
+      to: "0xGOVERNANCE_CONTRACT_ADDRESS",
       data: `createProposal(${proposal})`,
     });
     return tx;
