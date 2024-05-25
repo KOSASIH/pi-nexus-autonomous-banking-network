@@ -1,1 +1,6 @@
 python-dotenv
+web3.py==5.24.0
+eth-sig-util==2.1.0
+cryptography==3.4.7
+bandit==1.7.4
+safety==1.10.3
