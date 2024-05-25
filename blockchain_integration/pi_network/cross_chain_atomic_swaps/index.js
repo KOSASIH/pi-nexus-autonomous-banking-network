@@ -1,22 +1,30 @@
 // Import necessary libraries and frameworks
-import { Web3 } from 'web3';
-import { ethers } from 'ethers';
-import { Swap } from './Swap';
+import { Web3 } from "web3";
+import { ethers } from "ethers";
+import { Swap } from "./Swap";
 
 // Set up the Web3 provider
-const web3 = new Web3(new Web3.providers.HttpProvider('https://mainnet.infura.io/v3/YOUR_PROJECT_ID'));
+const web3 = new Web3(
+  new Web3.providers.HttpProvider(
+    "https://mainnet.infura.io/v3/YOUR_PROJECT_ID",
+  ),
+);
 
 // Set up the Ethereum wallet
-const wallet = new ethers.Wallet('0x1234567890abcdef', web3);
+const wallet = new ethers.Wallet("0x1234567890abcdef", web3);
 
 // Implement the cross-chain atomic swaps controller
 class CrossChainAtomicSwapsController {
   async createSwap(alicePubkey, bobPubkey, locktime) {
     // Create a new swap instance
-    const swapInstance = new Swap('bcoin', 'testnet');
+    const swapInstance = new Swap("bcoin", "testnet");
 
     // Generate the redeem script
-    const redeemScript = swapInstance.getRedeemScript(alicePubkey, bobPubkey, locktime);
+    const redeemScript = swapInstance.getRedeemScript(
+      alicePubkey,
+      bobPubkey,
+      locktime,
+    );
 
     // Generate the secret and public keys
     const secret = swapInstance.getSecret();
@@ -40,9 +48,24 @@ class CrossChainAtomicSwapsController {
     return false;
   }
 
-  async signInput(mtx, index, redeemScript, value, privateKey, sigHashType, version_or_flags) {
+  async signInput(
+    mtx,
+    index,
+    redeemScript,
+    value,
+    privateKey,
+    sigHashType,
+    version_or_flags,
+  ) {
     // Sign the input using the TX module
-    return mtx.signature(index, redeemScript, value, privateKey, sigHashType, version_or_flags);
+    return mtx.signature(
+      index,
+      redeemScript,
+      value,
+      privateKey,
+      sigHashType,
+      version_or_flags,
+    );
   }
 }
 
