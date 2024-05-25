@@ -26,10 +26,10 @@ class InteroperabilityController {
     return {
       ...transaction,
       from: this.wallet.address,
-      gasLimit: '0x5208',
-      gasPrice: '0x3b9aca00',
+      gasLimit: "0x5208",
+      gasPrice: "0x3b9aca00",
       nonce: this.web3.eth.getTransactionCount(this.wallet.address),
-      value: this.web3.utils.toWei(transaction.value, 'ether'),
+      value: this.web3.utils.toWei(transaction.value, "ether"),
     };
   }
 }
