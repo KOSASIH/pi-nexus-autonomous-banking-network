@@ -1,22 +1,26 @@
 // Import necessary libraries and frameworks
-import { Web3 } from 'web3';
-import { ethers } from 'ethers';
-import { MultiSignatureWallet } from './MultiSignatureWallet';
-import { WalletBackupAndRecovery } from './WalletBackupAndRecovery';
-import { LightningNetwork } from './LightningNetwork';
-import { DeFiApplications } from './DeFiApplications';
-import { TransactionPrivacy } from './TransactionPrivacy';
-import { HardwareWalletIntegration } from './HardwareWalletIntegration';
-import { CrossChainAtomicSwaps } from './CrossChainAtomicSwaps';
-import { Interoperability } from './Interoperability';
-import { BlockchainGovernance } from './BlockchainGovernance';
-import { SmartContracts } from './SmartContracts';
+import { Web3 } from "web3";
+import { ethers } from "ethers";
+import { MultiSignatureWallet } from "./MultiSignatureWallet";
+import { WalletBackupAndRecovery } from "./WalletBackupAndRecovery";
+import { LightningNetwork } from "./LightningNetwork";
+import { DeFiApplications } from "./DeFiApplications";
+import { TransactionPrivacy } from "./TransactionPrivacy";
+import { HardwareWalletIntegration } from "./HardwareWalletIntegration";
+import { CrossChainAtomicSwaps } from "./CrossChainAtomicSwaps";
+import { Interoperability } from "./Interoperability";
+import { BlockchainGovernance } from "./BlockchainGovernance";
+import { SmartContracts } from "./SmartContracts";
 
 // Set up the Web3 provider
-const web3 = new Web3(new Web3.providers.HttpProvider('https://mainnet.infura.io/v3/YOUR_PROJECT_ID'));
+const web3 = new Web3(
+  new Web3.providers.HttpProvider(
+    "https://mainnet.infura.io/v3/YOUR_PROJECT_ID",
+  ),
+);
 
 // Set up the Ethereum wallet
-const wallet = new ethers.Wallet('0x1234567890abcdef', web3);
+const wallet = new ethers.Wallet("0x1234567890abcdef", web3);
 
 // Initialize the multi-signature wallet
 const multiSignatureWallet = new MultiSignatureWallet(wallet);
