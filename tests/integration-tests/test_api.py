@@ -1,5 +1,7 @@
 import unittest
+
 from api import app
+
 
 class TestAPI(unittest.TestCase):
     def test_user_authentication(self):
