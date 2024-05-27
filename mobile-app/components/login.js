@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity } from 'react-native';
-import { BiometricAuth } from 'expo-biometrics';
-import { API } from '../api';
+import React, { useState } from "react";
+import { View, Text, TextInput, TouchableOpacity } from "react-native";
+import { BiometricAuth } from "expo-biometrics";
+import { API } from "../api";
 
 const Login = ({ navigation }) => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const [biometricAuth, setBiometricAuth] = useState(false);
 
   const handleLogin = async () => {
@@ -13,20 +13,24 @@ const Login = ({ navigation }) => {
       const result = await BiometricAuth.authenticateAsync();
       if (result.success) {
         const token = result.token;
-        API.authenticate(token).then((response) => {
-          navigation.navigate('Dashboard');
-        }).catch((error) => {
-          console.error(error);
-        });
+        API.authenticate(token)
+          .then((response) => {
+            navigation.navigate("Dashboard");
+          })
+          .catch((error) => {
+            console.error(error);
+          });
       } else {
-        console.error('Biometric authentication failed');
+        console.error("Biometric authentication failed");
       }
     } else {
-      API.authenticate(username, password).then((response) => {
-        navigation.navigate('Dashboard');
-      }).catch((error) => {
-        console.error(error);
-      });
+      API.authenticate(username, password)
+        .then((response) => {
+          navigation.navigate("Dashboard");
+        })
+        .catch((error) => {
+          console.error(error);
+        });
     }
   };
 
@@ -42,7 +46,7 @@ const Login = ({ navigation }) => {
         placeholder="Password"
         value={password}
         onChangeText={(text) => setPassword(text)}
-        secureTextEntry={true}
+        secureTextEntry
       />
       {biometricAuth ? (
         <TouchableOpacity onPress={handleLogin}>
