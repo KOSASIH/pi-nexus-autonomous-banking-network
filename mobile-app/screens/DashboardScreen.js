@@ -1,6 +1,6 @@
-import React from 'react';
-import { View, Text } from 'react-native';
-import { Dashboard } from '../components';
+import React from "react";
+import { View, Text } from "react-native";
+import { Dashboard } from "../components";
 
 const DashboardScreen = () => {
   return (
