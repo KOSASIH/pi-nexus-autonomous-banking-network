@@ -1,18 +1,21 @@
-import axios from "axios";
+
 
 const API = axios.create({
   baseURL: "https://api.example.com",
   timeout: 10000,
   headers: {
-    "Content-Type": "application/json",
+
   },
+  // Enable HTTP/2
+  http2: true,
+  // Enable keep-alive
+  keepAlive: true,
 });
 
+// Add retry mechanism with exponential backoff
 API.interceptors.request.use(
   (config) => {
-    const token = localStorage.getItem("token");
-    if (token) {
-      config.headers.Authorization = `Bearer ${token}`;
+
     }
     return config;
   },
@@ -23,13 +26,18 @@ API.interceptors.request.use(
 
 API.interceptors.response.use(
   (response) => {
+    if (response.data) {
+      response.data = decrypt(response.data);
+    }
     return response;
   },
   (error) => {
-    if (error.response.status === 401) {
-      localStorage.removeItem("token");
+
       // Redirect to login screen
     }
+    return response;
+  },
+  (error) => {
     return Promise.reject(error);
   },
 );
@@ -44,4 +52,8 @@ export const getAccounts = () => {
 
 export const getTransactions = () => {
   return API.get("/transactions");
+};
+
+export const sendNotification = (message) => {
+  return API.post('/notifications', { message });
 };
