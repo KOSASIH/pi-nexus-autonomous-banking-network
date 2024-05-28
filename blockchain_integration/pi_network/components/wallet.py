@@ -1,5 +1,6 @@
 from typing import Optional
 
+
 class Wallet:
     def __init__(self, api_client):
         self.api_client = api_client
@@ -8,6 +9,8 @@ class Wallet:
         # Implement Pi Network wallet API call to get balance
         pass
 
-    def send_transaction(self, sender: str, receiver: str, amount: float) -> Optional[Transaction]:
+    def send_transaction(
+        self, sender: str, receiver: str, amount: float
+    ) -> Optional[Transaction]:
         # Implement Pi Network wallet API call to send transaction
         pass
