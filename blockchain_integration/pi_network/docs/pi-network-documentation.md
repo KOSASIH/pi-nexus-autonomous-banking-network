@@ -5,17 +5,17 @@
 1.1. Import the necessary libraries:
 
 ```javascript
-const PiNetwork = require('pi-network-javascript');
-const walletIntegration = require('./pi-network-wallet-integration');
-const rateLimiter = require('./pi-network-rate-limiter');
+const PiNetwork = require("pi-network-javascript");
+const walletIntegration = require("./pi-network-wallet-integration");
+const rateLimiter = require("./pi-network-rate-limiter");
 ```
 
 1.2. Set up the Pi Network API connection:
 
 ```javascript
 const piNetwork = new PiNetwork({
-  network: 'mainnet', // or 'testnet'
-  apiKey: 'YOUR_API_KEY'
+  network: "mainnet", // or 'testnet'
+  apiKey: "YOUR_API_KEY",
 });
 ```
 
@@ -29,7 +29,7 @@ async function getBalance() {
   console.log(`Your Pi balance: ${balance}`);
 }
 ```
-  
+
 2.2. Send Pi:
 
 ```javascrip
@@ -48,15 +48,15 @@ Edit
 Run
 Copy code
 async function receivePi() {
-  const transactions = await walletIntegration.receivePi();
-  console.log(`Received Pi transactions: ${transactions}`);
+const transactions = await walletIntegration.receivePi();
+console.log(`Received Pi transactions: ${transactions}`);
 }
 
 ## Rate Limiter
 
 3.1. Implement rate limiting for Pi Network API requests:
 
-```javascript
+````javascript
 async function makeApiRequest(endpoint, params) {
   const limit = await limiter.get();
   if (limit.remaining === 0) {
@@ -92,14 +92,14 @@ async function participateInConsensus() {
 
   console.log('Consensus result:', result);
 }
-```
-  
+````
+
 4.2. Run the consensus algorithm every 10 seconds:
 
 ```javascrip
 setInterval(participateInConsensus, 10000);
 ```
-  
+
 4.3. Start the server:
 
 ```javascrip
