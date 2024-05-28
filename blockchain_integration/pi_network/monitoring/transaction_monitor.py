@@ -1,12 +1,16 @@
 # transaction_monitor.py
 
-import requests
 import json
 import logging
 from typing import Dict, List
 
+import requests
+
+
 class TransactionMonitor:
-    def __init__(self, pi_network_api_key: str, pi_network_api_base_url: str, webhook_url: str):
+    def __init__(
+        self, pi_network_api_key: str, pi_network_api_base_url: str, webhook_url: str
+    ):
         self.pi_network_api_key = pi_network_api_key
         self.pi_network_api_base_url = pi_network_api_base_url
         self.webhook_url = webhook_url
@@ -15,9 +19,11 @@ class TransactionMonitor:
     def get_transactions(self) -> List[Dict]:
         headers = {
             "Authorization": f"Bearer {self.pi_network_api_key}",
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
         }
-        response = requests.get(f"{self.pi_network_api_base_url}/transactions", headers=headers)
+        response = requests.get(
+            f"{self.pi_network_api_base_url}/transactions", headers=headers
+        )
         response.raise_for_status()
         return response.json()
 
@@ -41,20 +47,18 @@ class TransactionMonitor:
             self.send_webhook_notification(transaction_id, "failed")
 
     def send_webhook_notification(self, transaction_id: str, status: str) -> None:
-        payload = {
-            "transaction_id": transaction_id,
-            "status": status
-        }
-        headers = {
-            "Content-Type": "application/json"
-        }
+        payload = {"transaction_id": transaction_id, "status": status}
+        headers = {"Content-Type": "application/json"}
         response = requests.post(self.webhook_url, headers=headers, json=payload)
         response.raise_for_status()
+
 
 if __name__ == "__main__":
     config = Config()
     pi_network_api_key = config.get_pi_network_api_key()
     pi_network_api_base_url = config.get_pi_network_api_base_url()
     webhook_url = "https://example.com/webhook"
-    transaction_monitor = TransactionMonitor(pi_network_api_key, pi_network_api_base_url, webhook_url)
+    transaction_monitor = TransactionMonitor(
+        pi_network_api_key, pi_network_api_base_url, webhook_url
+    )
     transaction_monitor.monitor_transactions()
