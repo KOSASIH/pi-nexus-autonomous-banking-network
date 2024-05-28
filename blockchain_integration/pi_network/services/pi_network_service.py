@@ -1,5 +1,7 @@
 from typing import Optional
+
 from components.pi_network import PiNetwork
+
 
 class PiNetworkService:
     def __init__(self, config: dict):
@@ -16,5 +18,7 @@ class PiNetworkService:
     def get_account_balance(self, address: str) -> Optional[float]:
         return self.pi_network.get_account_balance(address)
 
-    def submit_transaction(self, sender: str, receiver: str, amount: float) -> Optional[Transaction]:
+    def submit_transaction(
+        self, sender: str, receiver: str, amount: float
+    ) -> Optional[Transaction]:
         return self.pi_network.submit_transaction(sender, receiver, amount)
