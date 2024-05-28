@@ -72,7 +72,7 @@
 
 4.1. Implement the SCP algorithm:
 
-```javascrip
+```javascript
 1. async function participateInConsensus() {
 2.  // Create a list of quorum slices
 3.  const quorumSlices = trustedNodes.map(node => ({
@@ -92,13 +92,13 @@
   
 4.2. Run the consensus algorithm every 10 seconds:
 
-```javascrip
+```javascript
 1. setInterval(participateInConsensus, 10000);
 ```
   
 4.3. Start the server:
 
-```javascrip
+```javascript
 1. const app = require('express')();
 2. 
 3. // Expose the rate-limited API request function
