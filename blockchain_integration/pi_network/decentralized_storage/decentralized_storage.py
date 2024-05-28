@@ -1,15 +1,18 @@
 # decentralized_storage.py
 
-import os
-import json
 import hashlib
+import json
+import os
 from typing import Dict, List
 
 import ipfshttpclient
 
+
 class DecentralizedStorage:
     def __init__(self, ipfs_api_url: str, ipfs_api_port: int):
-        self.ipfs_client = ipfshttpclient.connect(f"/ip4/{ipfs_api_url}/tcp/{ipfs_api_port}/http")
+        self.ipfs_client = ipfshttpclient.connect(
+            f"/ip4/{ipfs_api_url}/tcp/{ipfs_api_port}/http"
+        )
         self.logger = logging.getLogger(__name__)
 
     def add_file(self, file_path: str) -> str:
@@ -30,7 +33,9 @@ class DecentralizedStorage:
     def add_directory(self, directory_path: str) -> str:
         # Add a directory to IPFS
         directory_hash = self.ipfs_client.add(directory_path, recursive=True)
-        self.logger.info(f"Added directory {directory_path} to IPFS with hash {directory_hash}")
+        self.logger.info(
+            f"Added directory {directory_path} to IPFS with hash {directory_hash}"
+        )
         return directory_hash
 
     def get_directory(self, directory_hash: str) -> List[str]:
@@ -48,6 +53,7 @@ class DecentralizedStorage:
         # Unpin a file from IPFS to allow it to be garbage collected
         self.ipfs_client.pin.rm(file_hash)
         self.logger.info(f"Unpinned file with hash {file_hash} from IPFS")
+
 
 if __name__ == "__main__":
     config = Config()
