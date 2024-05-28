@@ -1,7 +1,9 @@
 # pi_network_api.py
 
-import requests
 import json
+
+import requests
+
 
 class PiNetworkAPI:
     def __init__(self, api_key):
@@ -32,13 +34,14 @@ class PiNetworkAPI:
         payload = {
             "from_address": from_address,
             "to_address": to_address,
-            "amount": amount
+            "amount": amount,
         }
         response = requests.post(url, headers=headers, json=payload)
         if response.status_code == 200:
             return response.json()["tx_id"]
         else:
             raise Exception(f"Error submitting transaction: {response.status_code}")
+
 
 # usage
 api = PiNetworkAPI("your_api_key_here")
