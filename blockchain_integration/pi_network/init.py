@@ -1,6 +1,8 @@
-import os
 import json
+import os
+
 from pi_network.api import PiNetworkAPI
+
 
 class PiNetwork:
     def __init__(self, api_key, api_secret):
@@ -27,6 +29,7 @@ class PiNetwork:
         # Return the balance
         return response.json()["balance"]
 
+
 class RateLimiter:
     def __init__(self, max_requests, time_window):
         self.max_requests = max_requests
@@ -49,6 +52,7 @@ class RateLimiter:
         self.requests.append(time.time())
 
         return True
+
 
 class MobileAppIntegration:
     def __init__(self):
