@@ -23,7 +23,7 @@
 
 2.1. Get the balance:
 
-```javascrip
+```javascript
 1. async function getBalance() {
 2.  const balance = await walletIntegration.getBalance();
 3.  console.log(`Your Pi balance: ${balance}`);
@@ -32,7 +32,7 @@
   
 2.2. Send Pi:
 
-```javascrip
+```javascript
 1. async function sendPi(recipient, amount) {
 2.  const transaction = await walletIntegration.sendPi(recipient, amount);
 3.  console.log(`Transaction ID: ${transaction.id}`);
@@ -41,11 +41,12 @@
 
 2.3. Receive Pi:
 
-```javascrip
+```javascript
 1. async function receivePi() {
 2.  const transactions = await walletIntegration.receivePi();
 3.  console.log(`Received Pi transactions: ${transactions}`);
 4. }
+```
 
 ## Rate Limiter
 
@@ -66,7 +67,7 @@
 12.    console.error('API request failed:', error);
 13.  }
 14. }
-
+```
 ## Consensus Algorithm
 
 4.1. Implement the SCP algorithm:
