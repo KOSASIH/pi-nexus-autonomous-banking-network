@@ -1,0 +1,18 @@
+# config.yaml
+
+pi_network:
+  api_key: "YOUR_PI_NETWORK_API_KEY"
+  api_base_url: "https://api.pi.network/v1"
+  wallet_address: "YOUR_WALLET_ADDRESS"
+
+database:
+  host: "localhost"
+  port: 5432
+  username: "postgres"
+  password: "YOUR_DB_PASSWORD"
+  database: "pi_network_db"
+
+logging:
+  level: "DEBUG"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  filename: "pi_network.log"
