@@ -12,7 +12,10 @@ type Coin struct {
 func AutoCoinLister(coin Coin, startDate time.Time) {
 	currentTime := time.Now()
 	targetDate := time.Date(2024, 6, 1, 0, 0, 0, 0, time.UTC)
+	
+	targetPciceGCV := 314000
 
+	
 	if currentTime.After(targetDate) {
 		ListCoin(coin)
 	} else {
