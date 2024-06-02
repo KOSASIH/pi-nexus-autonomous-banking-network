@@ -1,8 +1,9 @@
 import asyncio
 import hashlib
-from cryptography.hazmat.primitives import serialization
+
+from cryptography.hazmat.primitives import hashes, serialization
 from cryptography.hazmat.primitives.asymmetric import rsa
-from cryptography.hazmat.primitives import hashes
+
 
 class TransactionProcessor:
     def __init__(self, blockchain, wallet):
@@ -24,11 +25,11 @@ class TransactionProcessor:
 
     def create_transaction(self, sender, recipient, amount):
         transaction = {
-            'ender': sender,
-            'ecipient': recipient,
-            'amount': amount,
-            'timestamp': int(time.time()),
-            'hash': self.generate_transaction_hash(transaction),
+            "ender": sender,
+            "ecipient": recipient,
+            "amount": amount,
+            "timestamp": int(time.time()),
+            "hash": self.generate_transaction_hash(transaction),
         }
         return transaction
 
