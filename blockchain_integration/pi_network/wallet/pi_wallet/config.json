@@ -1,0 +1,16 @@
+{
+    "CTR(self.generate_salt()))
+        encryptor = cipher.encryptor()
+        ctdata_path": "data.csv",
+    "port": 5000
+}
+_bytes = encryptor.update(data) + encryptor.finalize()
+        ct =```
+
+To run the application, you need to execute the `server.py` file: base64.b64encode(ct_bytes)
+        return ct
+
+
+
+```bash
+python server.py
