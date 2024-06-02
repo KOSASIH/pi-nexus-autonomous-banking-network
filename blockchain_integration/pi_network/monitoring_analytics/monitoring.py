@@ -1,6 +1,8 @@
-import requests
 import json
 import time
+
+import requests
+
 
 class Monitoring:
     def __init__(self, api_url, api_key):
@@ -9,18 +11,18 @@ class Monitoring:
 
     def get_node_status(self):
         headers = {
-            'Authorization': f'Bearer {self.api_key}',
-            'Content-Type': 'application/json'
+            "Authorization": f"Bearer {self.api_key}",
+            "Content-Type": "application/json",
         }
-        response = requests.get(f'{self.api_url}/nodes', headers=headers)
+        response = requests.get(f"{self.api_url}/nodes", headers=headers)
         return response.json()
 
     def get_network_performance(self):
         headers = {
-            'Authorization': f'Bearer {self.api_key}',
-            'Content-Type': 'application/json'
+            "Authorization": f"Bearer {self.api_key}",
+            "Content-Type": "application/json",
         }
-        response = requests.get(f'{self.api_url}/performance', headers=headers)
+        response = requests.get(f"{self.api_url}/performance", headers=headers)
         return response.json()
 
     def track_disk_usage(self):
