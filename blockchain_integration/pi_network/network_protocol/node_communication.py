@@ -1,6 +1,8 @@
 import asyncio
+
 import aiohttp
 from aiohttp import web
+
 
 class NodeCommunication:
     def __init__(self, node_id, ip, port):
@@ -8,8 +10,12 @@ class NodeCommunication:
         self.ip = ip
         self.port = port
         self.app = web.Application()
-        self.app.add_routes([web.post("/connect", self.handle_connect),
-                             web.post("/message", self.handle_message)])
+        self.app.add_routes(
+            [
+                web.post("/connect", self.handle_connect),
+                web.post("/message", self.handle_message),
+            ]
+        )
 
     async def handle_connect(self, request):
         # Handle incoming connection requests
@@ -45,6 +51,7 @@ class NodeCommunication:
         # Start the node communication server
         web.run_app(self.app, host=self.ip, port=self.port)
         print(f"Node communication server started at {self.ip}:{self.port}")
+
 
 # Example usage
 node_id = "Node-1234"
