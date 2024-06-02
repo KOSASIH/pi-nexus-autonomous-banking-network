@@ -1,3 +1,7 @@
-from.models import PortfolioModel, AIInvestmentAdvisor
-from.data_loader import DataLoader
-from.utils import plot_data, calculate_portfolio_performance, print_portfolio_performance
+from .data_loader import DataLoader
+from .models import AIInvestmentAdvisor, PortfolioModel
+from .utils import (
+    calculate_portfolio_performance,
+    plot_data,
+    print_portfolio_performance,
+)
