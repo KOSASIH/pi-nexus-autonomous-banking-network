@@ -1,9 +1,9 @@
 // transaction_analytics.js
-const { Kafka } = require('kafka-node');
+const { Kafka } = require("kafka-node");
 
 const kafka = new Kafka({
-  clientId: 'pi-network',
-  brokers: ['localhost:9092'],
+  clientId: "pi-network",
+  brokers: ["localhost:9092"],
 });
 
 async function processTransaction(transaction) {
@@ -12,7 +12,7 @@ async function processTransaction(transaction) {
   // Send analytics data to Kafka topic
   kafka.producer.send([
     {
-      topic: 'pi-network-analytics',
+      topic: "pi-network-analytics",
       messages: [analyticsData],
     },
   ]);
