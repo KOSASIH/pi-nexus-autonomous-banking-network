@@ -23,6 +23,7 @@ ETHEREUM_NETWORK_API_URL = "https://api.ethereum.network/v1"
 # Wallet types
 WALLET_TYPES = ["bitcoin", "ethereum", "pi_coin"]
 
+
 # Wallet integration class
 class WalletIntegration:
     def __init__(self, wallet_type: str, private_key: str, public_key: str):
@@ -62,7 +63,9 @@ class WalletIntegration:
         :return: The digital signature
         """
         private_key = load_pem_private_key(self.private_key.encode(), password=None)
-        signature = private_key.sign(message.encode(), padding=0, algorithm=hashlib.sha256)
+        signature = private_key.sign(
+            message.encode(), padding=0, algorithm=hashlib.sha256
+        )
         return signature.hex()
 
     def get_wallet_balance(self) -> float:
@@ -83,9 +86,13 @@ class WalletIntegration:
         :param amount: The amount to send
         :return: The transaction ID
         """
-        headers = {"Authorization": f"Bearer {self.generate_signature('send_transaction')}"}
+        headers = {
+            "Authorization": f"Bearer {self.generate_signature('send_transaction')}"
+        }
         data = {"recipient": recipient, "amount": amount}
-        response = requests.post(f"{self.api_url}/wallet/transaction", headers=headers, json=data)
+        response = requests.post(
+            f"{self.api_url}/wallet/transaction", headers=headers, json=data
+        )
         return response.json()["transaction_id"]
 
     def get_transaction_history(self) -> List[Dict]:
@@ -94,13 +101,18 @@ class WalletIntegration:
 
         :return: A list of transaction objects
         """
-        headers = {"Authorization": f"Bearer {self.generate_signature('get_transaction_history')}"}
+        headers = {
+            "Authorization": f"Bearer {self.generate_signature('get_transaction_history')}"
+        }
         response = requests.get(f"{self.api_url}/wallet/transactions", headers=headers)
         return response.json()["transactions"]
+
 
 # Example usage
 wallet_integration = WalletIntegration("pi_coin", "private_key_here", "public_key_here")
 
 print(wallet_integration.get_wallet_balance())  # Get the current balance
-print(wallet_integration.send_transaction("recipient_address", 10.0))  # Send a transaction
+print(
+    wallet_integration.send_transaction("recipient_address", 10.0)
+)  # Send a transaction
 print(wallet_integration.get_transaction_history())  # Get the transaction history
