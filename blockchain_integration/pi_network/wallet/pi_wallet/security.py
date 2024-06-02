@@ -1,10 +1,11 @@
+import base64
 import hashlib
 import hmac
-import base64
-from cryptography.hazmat.primitives import serialization
+
+from cryptography.hazmat.primitives import hashes, serialization
 from cryptography.hazmat.primitives.asymmetric import rsa
-from cryptography.hazmat.primitives import hashes
 from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
+
 
 class SecurityManager:
     def __init__(self, user_id, password):
@@ -49,6 +50,7 @@ class SecurityManager:
     def biometric_authenticate(self, biometric_data):
         # Implement biometric authentication using a library such as FaceRecognition or FingerprintRecognition
         pass
+
 
 class MultiFactorAuthenticator:
     def __init__(self, user_id, password):
