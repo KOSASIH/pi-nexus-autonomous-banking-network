@@ -1,6 +1,7 @@
 import requests
 from pi_network_wallet import Wallet
 
+
 class PINetworkWalletIntegration:
     def __init__(self, wallet_address, private_key):
         self.wallet_address = wallet_address
@@ -9,7 +10,9 @@ class PINetworkWalletIntegration:
 
     def get_transaction_history(self):
         # Use the PI Network API to retrieve the transaction history
-        response = requests.get(f"https://api.pi.network/transactions/{self.wallet_address}")
+        response = requests.get(
+            f"https://api.pi.network/transactions/{self.wallet_address}"
+        )
         if response.status_code == 200:
             return response.json()
         else:
@@ -25,11 +28,14 @@ class PINetworkWalletIntegration:
 
     def send_transaction(self, recipient, amount):
         # Use the PI Network API to send a transaction
-        response = requests.post(f"https://api.pi.network/transactions", json={
-            "sender": self.wallet_address,
-            "recipient": recipient,
-            "amount": amount
-        })
+        response = requests.post(
+            f"https://api.pi.network/transactions",
+            json={
+                "sender": self.wallet_address,
+                "recipient": recipient,
+                "amount": amount,
+            },
+        )
         if response.status_code == 200:
             return response.json()
         else:
