@@ -1,7 +1,9 @@
 import asyncio
 import json
-from cryptography.hazmat.primitives import serialization
+
 from cryptography.hazmat.backends import default_backend
+from cryptography.hazmat.primitives import serialization
+
 
 class NodeManager:
     def __init__(self, node_registry):
@@ -40,12 +42,22 @@ class NodeManager:
     async def process_node_creation(self):
         while True:
             node_data = await self.node_creation_queue.get()
-            await self.create_node(node_data["node_id"], node_data["ip"], node_data["port"], node_data["public_key"])
+            await self.create_node(
+                node_data["node_id"],
+                node_data["ip"],
+                node_data["port"],
+                node_data["public_key"],
+            )
 
     async def process_node_update(self):
         while True:
             node_data = await self.node_update_queue.get()
-            await self.update_node(node_data["node_id"], node_data["ip"], node_data["port"], node_data["public_key"])
+            await self.update_node(
+                node_data["node_id"],
+                node_data["ip"],
+                node_data["port"],
+                node_data["public_key"],
+            )
 
     async def process_node_deletion(self):
         while True:
@@ -58,6 +70,7 @@ class NodeManager:
         asyncio.create_task(self.process_node_update())
         asyncio.create_task(self.process_node_deletion())
         print("Node manager started")
+
 
 # Example usage
 node_registry = NodeRegistry()
