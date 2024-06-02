@@ -1,18 +1,21 @@
-import pandas as pd
 import numpy as np
+import pandas as pd
+from keras.layers import LSTM, Dense
+from keras.models import Sequential
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LinearRegression
-from sklearn.metrics import mean_squared_error, accuracy_score
+from sklearn.metrics import accuracy_score, mean_squared_error
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
-from keras.models import Sequential
-from keras.layers import Dense, LSTM
+
 
 class PortfolioModel:
     def __init__(self, data, target):
         self.data = data
         self.target = target
-        self.X_train, self.X_test, self.y_train, self.y_test = train_test_split(data.drop(target, axis=1), data[target], test_size=0.2, random_state=42)
+        self.X_train, self.X_test, self.y_train, self.y_test = train_test_split(
+            data.drop(target, axis=1), data[target], test_size=0.2, random_state=42
+        )
         self.scaler = StandardScaler()
         self.X_train_scaled = self.scaler.fit_transform(self.X_train)
         self.X_test_scaled = self.scaler.transform(self.X_test)
@@ -33,13 +36,26 @@ class PortfolioModel:
 
     def lstm_model(self):
         lstm_model = Sequential()
-        lstm_model.add(LSTM(units=50, return_sequences=True, input_shape=(self.X_train_scaled.shape[1], 1)))
+        lstm_model.add(
+            LSTM(
+                units=50,
+                return_sequences=True,
+                input_shape=(self.X_train_scaled.shape[1], 1),
+            )
+        )
         lstm_model.add(Dense(1))
-        lstm_model.compile(loss='mean_squared_error', optimizer='adam')
-        lstm_model.fit(self.X_train_scaled, self.y_train, epochs=50, batch_size=32, validation_data=(self.X_test_scaled, self.y_test))
+        lstm_model.compile(loss="mean_squared_error", optimizer="adam")
+        lstm_model.fit(
+            self.X_train_scaled,
+            self.y_train,
+            epochs=50,
+            batch_size=32,
+            validation_data=(self.X_test_scaled, self.y_test),
+        )
         y_pred = lstm_model.predict(self.X_test_scaled)
         mse = mean_squared_error(self.y_test, y_pred)
         return lstm_model, mse
+
 
 class AIInvestmentAdvisor:
     def __init__(self, data, target):
