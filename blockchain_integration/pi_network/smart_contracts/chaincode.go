@@ -7,8 +7,7 @@ import (
 	"github.com/hyperledger/fabric-chaincode-go/stub"
 )
 
-type PINetworkChaincode struct {
-}
+type PINetworkChaincode struct{}
 
 func (c *PINetworkChaincode) Init(stub shim.ChaincodeStubInterface) []byte {
 	fmt.Println("PINetworkChaincode Init")
@@ -18,7 +17,7 @@ func (c *PINetworkChaincode) Init(stub shim.ChaincodeStubInterface) []byte {
 func (c *PINetworkChaincode) Invoke(stub shim.ChaincodeStubInterface) ([]byte, error) {
 	fmt.Println("PINetworkChaincode Invoke")
 	args := stub.GetArgs()
-	if len(args)!= 2 {
+	if len(args) != 2 {
 		return nil, fmt.Errorf("Invalid number of arguments. Expecting 2")
 	}
 
