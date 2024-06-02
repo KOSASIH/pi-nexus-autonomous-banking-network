@@ -1,4 +1,4 @@
-pip==21.2.4
+pip==23.3
 setuptools==57.4.0
 wheel==0.37.1
 cryptography==3.4.8
