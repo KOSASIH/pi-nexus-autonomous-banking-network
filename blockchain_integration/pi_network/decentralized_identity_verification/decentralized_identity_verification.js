@@ -1,5 +1,5 @@
 // decentralized_identity_verification.js
-const { IdentityManager } = require('erc-725');
+const { IdentityManager } = require("erc-725");
 
 const identityManager = new IdentityManager();
 
