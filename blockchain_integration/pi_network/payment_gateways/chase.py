@@ -1,6 +1,7 @@
 # payment_gateways/chase.py
 import requests
 
+
 class ChasePaymentGateway:
     def __init__(self, client_id, client_secret):
         self.client_id = client_id
@@ -10,13 +11,12 @@ class ChasePaymentGateway:
     def make_payment(self, amount, recipient_account_number):
         headers = {
             "Authorization": f"Bearer {self.client_id}",
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
         }
-        data = {
-            "amount": amount,
-            "recipient_account_number": recipient_account_number
-        }
-        response = requests.post(f"{self.base_url}/payments", headers=headers, json=data)
+        data = {"amount": amount, "recipient_account_number": recipient_account_number}
+        response = requests.post(
+            f"{self.base_url}/payments", headers=headers, json=data
+        )
         if response.status_code == 200:
             return response.json()
         else:
