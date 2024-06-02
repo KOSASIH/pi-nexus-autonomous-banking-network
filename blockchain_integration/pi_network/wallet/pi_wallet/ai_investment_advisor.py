@@ -2,6 +2,7 @@ import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 
+
 class AIPoweredInvestmentAdvisor:
     def __init__(self, user_data, market_data):
         self.user_data = user_data
@@ -12,7 +13,9 @@ class AIPoweredInvestmentAdvisor:
         df = pd.concat([self.user_data, self.market_data], axis=1)
 
         # Split data into training and testing sets
-        X_train, X_test, y_train, y_test = train_test_split(df.drop('target', axis=1), df['target'], test_size=0.2, random_state=42)
+        X_train, X_test, y_train, y_test = train_test_split(
+            df.drop("target", axis=1), df["target"], test_size=0.2, random_state=42
+        )
 
         # Train a random forest classifier model
         model = RandomForestClassifier(n_estimators=100, random_state=42)
@@ -27,9 +30,15 @@ class AIPoweredInvestmentAdvisor:
         # Return a list of recommended investments
         return predictions
 
+
 # Example usage
-user_data = pd.DataFrame({'risk_tolerance': [3], 'investment_goals': ['long_term']})
-market_data = pd.DataFrame({'stock_prices': [100, 200, 300], 'market_trends': ['bullish', 'bearish', 'neutral']})
+user_data = pd.DataFrame({"risk_tolerance": [3], "investment_goals": ["long_term"]})
+market_data = pd.DataFrame(
+    {
+        "stock_prices": [100, 200, 300],
+        "market_trends": ["bullish", "bearish", "neutral"],
+    }
+)
 
 advisor = AIPoweredInvestmentAdvisor(user_data, market_data)
 model = advisor.train_model()
