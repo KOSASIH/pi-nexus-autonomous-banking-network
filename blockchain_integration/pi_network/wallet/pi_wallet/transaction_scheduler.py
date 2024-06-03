@@ -1,6 +1,7 @@
 import datetime
 import time
 
+
 class TransactionScheduler:
     def __init__(self):
         self.scheduled_transactions = []
@@ -18,6 +19,7 @@ class TransactionScheduler:
                     self.scheduled_transactions.remove((transaction, timestamp))
             time.sleep(1)
 
+
 # Example usage:
 scheduler = TransactionScheduler()
 
@@ -26,6 +28,8 @@ timestamp1 = int(time.time()) + 60  # Schedule in 1 minute
 scheduler.schedule_transaction(transaction1, timestamp1)
 
 transaction2 = "Send 0.5 ETH to Jane"
-timestamp2 = int(time.time()) + 120  # Schedule in 2 minutesscheduler.schedule_transaction(transaction2, timestamp2)
+timestamp2 = (
+    int(time.time()) + 120
+)  # Schedule in 2 minutesscheduler.schedule_transaction(transaction2, timestamp2)
 
 scheduler.process_scheduled_transactions()
