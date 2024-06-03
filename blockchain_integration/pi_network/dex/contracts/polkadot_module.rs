@@ -1,7 +1,7 @@
-use substrate::{decl_module, decl_storage, decl_event, ensure};
-use substrate::traits::{OnInitialize, OnFinalize};
-use substrate::storage::{StorageValue, StorageMap};
-use substrate::dispatch::{DispatchResult, DispatchError};
+use substrate::dispatch::{DispatchError, DispatchResult};
+use substrate::storage::{StorageMap, StorageValue};
+use substrate::traits::{OnFinalize, OnInitialize};
+use substrate::{decl_event, decl_module, decl_storage, ensure};
 
 pub trait Trait: substrate::Trait {
     type Event: From<Event<Self>> + Into<<Self as substrate::Trait>::Event>;
@@ -32,8 +32,8 @@ decl_storage! {
 }
 
 decl_event! {
-    pub enum Event<T> where AccountId = <T as substrate::Trait>::AccountId {
-        Deposit(AccountId, u128),
-        Withdrawal(AccountId, u128),
-    }
-      }
+pub enum Event<T> where AccountId = <T as substrate::Trait>::AccountId {
+    Deposit(AccountId, u128),
+    Withdrawal(AccountId, u128),
+}
+  }
