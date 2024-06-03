@@ -1,6 +1,8 @@
-import os
 import json
+import os
+
 from cryptography.fernet import Fernet
+
 
 class BackupAndRecovery:
     def __init__(self, wallet_data):
@@ -40,7 +42,8 @@ class BackupAndRecovery:
         decrypted_backup = f.decrypt(encrypted_backup).decode()
         return decrypted_backup
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     wallet_data = {"accounts": [{"id": 1, "balance": 100}]}
     backup_and_recovery = BackupAndRecovery(wallet_data)
     backup_and_recovery.create_backup()
