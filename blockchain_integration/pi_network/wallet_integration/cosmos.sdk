@@ -1,0 +1,32 @@
+use cosmian::crypto::ed25519::Ed25519PrivateKey;
+use cosmian::crypto::ed25519::Ed25519PublicKey;
+use cosmian::crypto::secp256k1::Secp256k1PrivateKey;
+use cosmian::crypto::secp256k1::Secp256k1PublicKey;
+use cosmian::crypto::KeyPair;
+use cosmian::crypto::Signature;
+use cosmian::crypto::PublicKey;
+use cosmian::crypto::EncryptionKey;
+use cosmian::crypto::DecryptionKey;
+use cosmian::crypto::Crypto;
+use cosmian::crypto::EncryptionAlgorithm;
+use cosmian::crypto::DecryptionAlgorithm;
+use cosmian::crypto::Error;
+
+fn main() -> Result<(), Error> {
+    // Generate a new key pair
+    let key_pair = KeyPair::<Ed25519PrivateKey, Ed25519PublicKey>::generate()?;
+
+    // Get the public key from the key pair
+    let public_key = key_pair.public_key();
+
+    // Get the private key from the key pair
+    let private_key = key_pair.private_key();
+
+    // Print the public key
+    println!("Public Key: {:?}", public_key);
+
+    // Print the private key
+    println!("Private Key: {:?}", private_key);
+
+    Ok(())
+}
