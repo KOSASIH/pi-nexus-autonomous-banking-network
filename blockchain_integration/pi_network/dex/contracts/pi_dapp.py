@@ -1,29 +1,30 @@
 # pi_dapp.py
 
 import web3
-from pi_oracle import PIOracle
+from pi_bank import PIBank
+from pi_exchange import PIExchange
 from pi_insurance import PIInsurance
 from pi_nft import PINFT
-from pi_exchange import PIExchange
-from pi_bank import PIBank
+from pi_oracle import PIOracle
+
 
 class PIDApp:
     def __init__(self, web3: web3.Web3, contract_addresses: dict):
         self.web3 = web3
-        self.oracle = PIOracle(web3, contract_addresses['oracle'])
-        self.insurance = PIInsurance(web3, contract_addresses['insurance'])
-        self.nft = PINFT(web3, contract_addresses['nft'])
-        self.exchange = PIExchange(web3, contract_addresses['exchange'])
-        self.bank = PIBank(web3, contract_addresses['bank'])
+        self.oracle = PIOracle(web3, contract_addresses["oracle"])
+        self.insurance = PIInsurance(web3, contract_addresses["insurance"])
+        self.nft = PINFT(web3, contract_addresses["nft"])
+        self.exchange = PIExchange(web3, contract_addresses["exchange"])
+        self.bank = PIBank(web3, contract_addresses["bank"])
 
     def get_abi(self) -> dict:
         # Load the ABI for each contract
         abi = {
-            'oracle': self.oracle.get_abi(),
-            'insurance': self.insurance.get_abi(),
-            'nft': self.nft.get_abi(),
-            'exchange': self.exchange.get_abi(),
-            'bank': self.bank.get_abi()
+            "oracle": self.oracle.get_abi(),
+            "insurance": self.insurance.get_abi(),
+            "nft": self.nft.get_abi(),
+            "exchange": self.exchange.get_abi(),
+            "bank": self.bank.get_abi(),
         }
         return abi
 
