@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext, useRef } from 'react';
 import Web3 from 'web3';
 import { useWeb3React } from '@web3-react/core';
 import { Contract } from 'web3/eth/contract';
@@ -10,6 +10,9 @@ import './PI_Nexus_Dashboard.css';
 import { Chart } from 'react-chartjs-2';
 import { LineChart, Line, CartesianGrid, XAxis, YAxis } from 'recharts';
 import { useMediaQuery } from 'react-responsive';
+import { useInterval } from 'react-use';
+import { debounce } from 'lodash';
+import { toast } from 'react-toastify';
 
 const PI_NEXUS_CONTRACT_ADDRESS = '0x...'; // Replace with actual contract address
 
@@ -25,6 +28,9 @@ const PI_Nexus_Dashboard = () => {
   const [borrowingRequests, setBorrowingRequests] = useState([]);
   const [chartData, setChartData] = useState([]);
   const [isMobile] = useMediaQuery({ query: '(max-width: 768px)' });
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const chartRef = useRef(null);
 
   useEffect(() => {
     if (active && library && !piNexusContract) {
@@ -83,52 +89,68 @@ const PI_Nexus_Dashboard = () => {
     notify(`Approved borrowing request ${requestId}`);
   };
 
+  const handleChartClick = (event) => {
+    const { x, y } = event.nativeEvent.offsetX;
+    const dataPoint = chartRef.current.getDatasetAtEvent(event)[0];
+    if (dataPoint) {
+      toast(`Clicked on data point: ${dataPoint.label} - ${dataPoint.value}`);
+    }
+  };
+
+  useInterval(() => {
+    piNexusContract.methods.getChartData().call().then(data => {
+      setChartData(data);
+    });
+  }, 10000);
+
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
   return (
-    <div className={`PI_Nexus_Dashboard ${theme}`}>
-      <h1>PI Nexus Autonomous Banking Network</h1>
-      <h2>Governance Proposals</h2>
-      {governanceProposals.map(proposal => (
-        <div key={proposal[0]} className="proposal">
-          <p>ID: {proposal[0]}</p>
-          <p>Description: {proposal[1]}</p>
-          <p>Votes: {proposal[2]}</p>
-          <button onClick={() => voteOnGovernanceProposal(proposal[0], true)}>Vote In Favor</button>
-          <button onClick={() => voteOnGovernanceProposal(proposal[0], false)}>Vote Against</button>
-        </div>
-      ))}
-      <h2>Rewards</h2>
-      {rewards.map(reward => (
-        <div key={reward[0]} className="reward">
-          <p>Address: {reward[0]}</p>
-          <p>Amount: {reward[1]}</p>
-        </div>
-      ))}
-      <h2>Liquidity</h2>
-      <p>Liquidity: {liquidity}</p>
-      <button onClick={distributeRewards}>Distribute Rewards</button>
-      <button onClick={() => addLiquidity(100)}>Add Liquidity</button>
-      <h2>Borrowing Requests</h2>
-      {borrowingRequests.map(request => (
-        <div key={request[0]} className="request">
-          <p>ID: {request[0]}</p>
-          <p>Address: {request[1]}</p>
-          <p>Amount: {request[2]}</p>
-          <button onClick={() => approveBorrowingRequest(request[0])}>Approve</button>
-        </div>
-      ))}
-      <h2>Chart</h2>
-      {isMobile? (
-        <LineChart width={300} height={200} data={chartData}>
-          <Line type="monotone" dataKey="value" stroke="#8884d8" />
-          <CartesianGrid stroke="#ccc" />
-          <XAxis dataKey="date" />
-          <YAxis />
-        </LineChart>
-      ) : (
-        <Chart type="line" data={chartData} />
-      )}
+    <div className="Dashboard">
+      <div className="Governance">
+        <h2>Governance</h2>
+        <ul>
+          {governanceProposals.map((proposal, index) => (
+            <li key={index}>
+              <h3>{proposal.description}</h3>
+              <p>Status: {proposal.status}</p>
+              <button onClick={() => voteOnGovernanceProposal(index, true)}>Approve</button>
+              <button onClick={() => voteOnGovernanceProposal(index, false)}>Reject</button>
+            </li>
+          ))}
+        </ul>
+        <button onClick={distributeRewards}>Distribute Rewards</button>
+      </div>
+      <div className="Liquidity">
+        <h2>Liquidity</h2>
+        <p>Total liquidity: {liquidity} wei</p>
+        <button onClick={() => addLiquidity(100000000000000000)}>Add Liquidity</button>
+      </div>
+      <div className="Borrowing">
+        <h2>Borrowing</h2>
+        <ul>
+          {borrowingRequests.map((request, index) => (
+            <li key={index}>
+              <h3>{request.amount} wei</h3>
+              <p>Status: {request.status}</p>
+              <button onClick={() => approveBorrowingRequest(index)}>Approve</button>
+            </li>
+          ))}
+        </ul>
+        <button onClick={() => requestBorrowing(100000000000000000)}>Request Borrowing</button>
+      </div>
+      <div className="Chart">
+        <h2>Liquidity Pool</h2>
+        <Line ref={chartRef} data={chartData} onClick={handleChartClick} />
+      </div>
     </div>
   );
 };
 
-export default PI_Nexus_Dashboard;
+export default Dashboard;
