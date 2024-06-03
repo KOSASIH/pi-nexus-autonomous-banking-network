@@ -1,12 +1,12 @@
-import { AIModel } from '@tensorflow/tfjs';
-import { QuantumResistantCrypto } from 'lattice-crypto';
-import { BlockchainInteroperability } from 'cosmos-sdk';
-import { DecentralizedIdentity } from 'uport-identity';
-import { RiskManagement } from 'gaussian-processes';
-import { TradingEngine } from 'apache-kafka';
-import { IntelligentContractAutomation } from 'openlaw';
-import { MultiChainNFT } from 'nft-protocol';
-import { QuantumInspiredOptimization } from 'qaoa';
+import { AIModel } from "@tensorflow/tfjs";
+import { QuantumResistantCrypto } from "lattice-crypto";
+import { BlockchainInteroperability } from "cosmos-sdk";
+import { DecentralizedIdentity } from "uport-identity";
+import { RiskManagement } from "gaussian-processes";
+import { TradingEngine } from "apache-kafka";
+import { IntelligentContractAutomation } from "openlaw";
+import { MultiChainNFT } from "nft-protocol";
+import { QuantumInspiredOptimization } from "qaoa";
 
 interface OmniDeFiGateway {
   aiModel: AIModel;
