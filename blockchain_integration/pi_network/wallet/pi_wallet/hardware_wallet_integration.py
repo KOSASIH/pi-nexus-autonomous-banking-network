@@ -5,9 +5,10 @@ import os
 import time
 from typing import Dict, List, Tuple
 
+import keepkey
 import ledger
 import trezorlib
-import keepkey
+
 
 class HardwareWalletIntegration:
     def __init__(self, wallet_type: str, device_path: str):
@@ -32,7 +33,9 @@ class HardwareWalletIntegration:
         elif self.wallet_type == "keepkey":
             return self.device.get_public_key(derivation_path)
 
-    def sign_transaction(self, transaction: Dict[str, str], derivation_path: str) -> str:
+    def sign_transaction(
+        self, transaction: Dict[str, str], derivation_path: str
+    ) -> str:
         if self.wallet_type == "ledger":
             return self.device.sign_transaction(transaction, derivation_path)
         elif self.wallet_type == "trezor":
@@ -50,13 +53,18 @@ class HardwareWalletIntegration:
 
     def get_balance(self, address: str) -> int:
         # Use a blockchain API to get the balance
-        response = requests.get(f"https://api.blockchain.com/v3/{self.wallet_type}/balance/{address}")
+        response = requests.get(
+            f"https://api.blockchain.com/v3/{self.wallet_type}/balance/{address}"
+        )
         return int(response.json()["balance"])
 
     def get_transaction_history(self, address: str) -> List[Dict[str, str]]:
         # Use a blockchain API to get the transaction history
-        response = requests.get(f"https://api.blockchain.com/v3/{self.wallet_type}/transactions/{address}")
+        response = requests.get(
+            f"https://api.blockchain.com/v3/{self.wallet_type}/transactions/{address}"
+        )
         return response.json()["transactions"]
+
 
 def main():
     # Example usage
@@ -74,7 +82,7 @@ def main():
         "to": "0xfedcba9876543210",
         "value": "1.0",
         "gas": "20000",
-        "gasPrice": "20"
+        "gasPrice": "20",
     }
     signed_transaction = hw_wallet.sign_transaction(transaction, derivation_path)
     print(f"Signed Transaction: {signed_transaction}")
@@ -87,6 +95,7 @@ def main():
 
     transaction_history = hw_wallet.get_transaction_history(address)
     print(f"Transaction History: {transaction_history}")
+
 
 if __name__ == "__main__":
     main()
