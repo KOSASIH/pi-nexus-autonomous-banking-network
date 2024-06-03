@@ -1,6 +1,7 @@
 import smtplib
 from email.mime.text import MIMEText
 
+
 class NotificationSystem:
     def __init__(self, smtp_server, smtp_port, sender_email, sender_password):
         self.smtp_server = smtp_server
@@ -21,13 +22,16 @@ class NotificationSystem:
         server.sendmail(self.sender_email, recipient_email, msg.as_string())
         server.quit()
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     smtp_server = "smtp.gmail.com"
     smtp_port = 465
     sender_email = "your_email@gmail.com"
     sender_password = "your_password"
 
-    notification_system = NotificationSystem(smtp_server, smtp_port, sender_email, sender_password)
+    notification_system = NotificationSystem(
+        smtp_server, smtp_port, sender_email, sender_password
+    )
     recipient_email = "recipient_email@gmail.com"
     subject = "Wallet Notification"
     message = "This is a notification from your wallet app."
