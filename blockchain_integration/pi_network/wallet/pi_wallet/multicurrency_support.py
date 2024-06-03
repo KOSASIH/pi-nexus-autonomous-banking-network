@@ -1,6 +1,8 @@
 import requests
 from bitcoinlib.keys import HDKey
+
 from ethereum import utils
+
 
 def process_transaction(amount, currency, recipient):
     if currency == "BTC":
@@ -16,18 +18,20 @@ def process_transaction(amount, currency, recipient):
             "to": recipient,
             "value": int(amount * 1e18),
             "gas": 20000,
-            "gasPrice": 20
+            "gasPrice": 20,
         }
         signed_tx = utils.sign_transaction(tx, private_key)
         return signed_tx
     elif currency == "XRP":
         # Use ripple-python to create a Ripple transaction
-        from ripple import Wallet, Transaction
+        from ripple import Transaction, Wallet
+
         wallet = Wallet("seed_here")
         tx = Transaction(wallet, recipient, int(amount * 1e6))
         return tx.to_xdr()
     else:
         return "Unsupported currency"
+
 
 def get_exchange_rate(currency):
     # Use an API to get the current exchange rate
