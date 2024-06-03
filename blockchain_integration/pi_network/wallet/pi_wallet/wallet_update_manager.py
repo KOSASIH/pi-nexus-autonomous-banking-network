@@ -1,9 +1,11 @@
-import requests
 import json
 from hashlib import sha256
-from cryptography.hazmat.primitives import serialization, hashes
-from cryptography.hazmat.primitives.asymmetric import rsa, padding
+
+import requests
 from cryptography.hazmat.backends import default_backend
+from cryptography.hazmat.primitives import hashes, serialization
+from cryptography.hazmat.primitives.asymmetric import padding, rsa
+
 
 class UpdateManager:
     def __init__(self, wallet_version, private_key_path, public_key_path):
@@ -33,7 +35,9 @@ class UpdateManager:
     def verify_update(self, update_package):
         # Verify the update package using RSA signature verification
         with open(self.public_key_path, "rb") as f:
-            public_key = serialization.load_ssh_public_key(f.read(), backend=default_backend())
+            public_key = serialization.load_ssh_public_key(
+                f.read(), backend=default_backend()
+            )
         signature = update_package[:256]
         update_data = update_package[256:]
         try:
@@ -42,9 +46,9 @@ class UpdateManager:
                 update_data,
                 padding.PSS(
                     mgf=padding.MGF1(hashes.SHA256()),
-                    salt_length=padding.PSS.MAX_LENGTH
+                    salt_length=padding.PSS.MAX_LENGTH,
                 ),
-                hashes.SHA256()
+                hashes.SHA256(),
             )
             return update_data
         except ValueError:
@@ -55,7 +59,8 @@ class UpdateManager:
         # TO DO: implement update application logic
         pass
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     wallet_version = "1.0.0"
     private_key_path = "private_key.pem"
     public_key_path = "public_key.pem"
