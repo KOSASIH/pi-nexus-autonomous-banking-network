@@ -1,7 +1,8 @@
+import numpy as np
 import pandas as pd
 from sklearn.ensemble import IsolationForest
 from sklearn.metrics import accuracy_score
-import numpy as np
+
 
 class WalletMLModelTrainer:
     def __init__(self, transaction_data):
@@ -9,7 +10,7 @@ class WalletMLModelTrainer:
 
     def train_anomaly_detection_model(self):
         # Extract features from transaction data
-        features = self.transaction_data[['amount', 'category', 'location', 'time']]
+        features = self.transaction_data[["amount", "category", "location", "time"]]
 
         # Train isolation forest model
         model = IsolationForest(contamination=0.1)
@@ -19,8 +20,8 @@ class WalletMLModelTrainer:
 
     def train_user_behavior_model(self):
         # Extract features from transaction data
-        features = self.transaction_data[['amount', 'category', 'location', 'time']]
-        labels = self.transaction_data['user_id']
+        features = self.transaction_data[["amount", "category", "location", "time"]]
+        labels = self.transaction_data["user_id"]
 
         # Train random forest classifier
         model = RandomForestClassifier(n_estimators=100)
@@ -28,8 +29,9 @@ class WalletMLModelTrainer:
 
         return model
 
-if __name__ == '__main__':
-    transaction_data = pd.read_csv('transaction_data.csv')
+
+if __name__ == "__main__":
+    transaction_data = pd.read_csv("transaction_data.csv")
     wallet_ml_model_trainer = WalletMLModelTrainer(transaction_data)
 
     anomaly_detection_model = wallet_ml_model_trainer.train_anomaly_detection_model()
