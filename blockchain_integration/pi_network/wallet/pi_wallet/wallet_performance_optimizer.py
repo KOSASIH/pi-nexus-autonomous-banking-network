@@ -1,6 +1,7 @@
-import time
 import gc
+import time
 from concurrent.futures import ThreadPoolExecutor
+
 
 class PerformanceOptimizer:
     def __init__(self, wallet):
@@ -28,7 +29,8 @@ class PerformanceOptimizer:
         # TO DO: implement network request optimization logic
         pass
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     wallet = {"accounts": [{"id": 1, "balance": 100}]}
     performance_optimizer = PerformanceOptimizer(wallet)
     start_time = time.time()
