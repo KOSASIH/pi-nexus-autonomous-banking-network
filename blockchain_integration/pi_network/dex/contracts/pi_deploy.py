@@ -1,20 +1,22 @@
 # pi_deploy.py
 
 import json
-from web3 import Web3, HTTPProvider
+
 from pi_dapp import PIDApp
+from web3 import HTTPProvider, Web3
+
 
 def main():
     # Initialize web3
-    w3 = Web3(HTTPProvider('http://localhost:8545'))
+    w3 = Web3(HTTPProvider("http://localhost:8545"))
 
     # Load contract bytecode and abi from files
-    with open('oracle.json', 'r') as f:
-        oracle_bytecode = json.load(f)['bytecode']
-        oracle_abi = json.load(f)['abi']
-    with open('insurance.json', 'r') as f:
-        insurance_bytecode = json.load(f)['bytecode']
-        insurance_abi = json.load.bank = PIBank(web3, contract_addresses['bank'])
+    with open("oracle.json", "r") as f:
+        oracle_bytecode = json.load(f)["bytecode"]
+        oracle_abi = json.load(f)["abi"]
+    with open("insurance.json", "r") as f:
+        insurance_bytecode = json.load(f)["bytecode"]
+        insurance_abi = json.load.bank = PIBank(web3, contract_addresses["bank"])
 
     def deposit(self, asset: str, amount: int) -> bool:
         # Deposit an asset into the bank
@@ -36,7 +38,9 @@ def main():
         # Set the parameters for an oracle
         return self.oracle.set_oracle_parameters(oracle_id, parameters)
 
-    def create_insurance_product(self, oracle_id: int, premium: int, payout: int) -> bool:
+    def create_insurance_product(
+        self, oracle_id: int, premium: int, payout: int
+    ) -> bool:
         # Create a new insurance product
         return self.insurance.create_insurance_product(oracle_id, premium, payout)
 
