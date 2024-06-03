@@ -1,7 +1,8 @@
 # pi_network.py
-from.config import Config
-from.logger import Logger
-from.error_handler import ErrorHandler
+from .config import Config
+from .error_handler import ErrorHandler
+from .logger import Logger
+
 
 class PiNetwork:
     def __init__(self, config: Config):
