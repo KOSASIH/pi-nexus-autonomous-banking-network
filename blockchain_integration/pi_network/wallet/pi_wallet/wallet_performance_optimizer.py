@@ -1,5 +1,6 @@
 import time
 import gc
+from concurrent.futures import ThreadPoolExecutor
 
 class PerformanceOptimizer:
     def __init__(self, wallet):
@@ -7,9 +8,10 @@ class PerformanceOptimizer:
 
     def optimize_performance(self):
         # Optimize the wallet's performance by reducing latency and improving overall user experience
-        self.optimize_database_queries()
-        self.optimize_memory_usage()
-        self.optimize_network_requests()
+        with ThreadPoolExecutor(max_workers=5) as executor:
+            executor.submit(self.optimize_database_queries)
+            executor.submit(self.optimize_memory_usage)
+            executor.submit(self.optimize_network_requests)
 
     def optimize_database_queries(self):
         # Optimize database queries by indexing and caching
