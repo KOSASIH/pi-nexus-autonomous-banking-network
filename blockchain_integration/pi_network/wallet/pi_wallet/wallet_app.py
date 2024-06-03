@@ -1,11 +1,10 @@
 import tkinter as tk
-from tkinter import ttk
-from tkinter import filedialog
-from tkinter import messagebox
+from tkinter import filedialog, messagebox, ttk
 
 from ui_designer import UIDesigner
-from wallet_personalization_engine import PersonalizationEngine
 from wallet_notification_system import NotificationSystem
+from wallet_personalization_engine import PersonalizationEngine
+
 
 class WalletApp:
     def __init__(self, root):
@@ -24,12 +23,16 @@ class WalletApp:
         self.smtp_port = 465
         self.sender_email = "your_email@gmail.com"
         self.sender_password = "your_password"
-        self.notification_system = NotificationSystem(self.smtp_server, self.smtp_port, self.sender_email, self.sender_password)
+        self.notification_system = NotificationSystem(
+            self.smtp_server, self.smtp_port, self.sender_email, self.sender_password
+        )
 
         # Set up user interaction methods
         self.ui_designer.settings_option.bind("<<ComboboxSelected>>", self.change_theme)
         self.ui_designer.upload_button.configure(command=self.upload_transaction_data)
-        self.ui_designer.transaction_treeview.bind("<<TreeviewSelect>>", self.view_transaction_details)
+        self.ui_designer.transaction_treeview.bind(
+            "<<TreeviewSelect>>", self.view_transaction_details
+        )
 
     def change_theme(self, event):
         # Change the theme of the wallet app
@@ -55,7 +58,8 @@ class WalletApp:
 
         messagebox.showinfo("Transaction Details", transaction_details.to_string())
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     root = tk.Tk()
     wallet_app = WalletApp(root)
     root.mainloop()
