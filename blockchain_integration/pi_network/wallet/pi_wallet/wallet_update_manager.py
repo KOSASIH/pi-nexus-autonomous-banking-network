@@ -1,5 +1,7 @@
-import requests
 import json
+
+import requests
+
 
 class UpdateManager:
     def __init__(self, wallet_version):
@@ -29,7 +31,8 @@ class UpdateManager:
         # TO DO: implement update application logic
         pass
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     wallet_version = "1.0.0"
     update_manager = UpdateManager(wallet_version)
     update_data = update_manager.check_for_updates()
