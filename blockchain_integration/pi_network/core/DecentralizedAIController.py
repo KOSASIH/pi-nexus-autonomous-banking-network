@@ -1,11 +1,13 @@
-import os
 import json
+import os
+
 import tensorflow as tf
 from kafka import KafkaConsumer
 from matplotlib import pyplot as plt
-from tensorflow.keras.wrappers.scikit_learn import KerasClassifier
-from sklearn.model_selection import GridSearchCV
 from sklearn.metrics import accuracy_score
+from sklearn.model_selection import GridSearchCV
+from tensorflow.keras.wrappers.scikit_learn import KerasClassifier
+
 
 class DecentralizedAIController:
     def __init__(self, kafka_topic, blockchain_network):
@@ -18,15 +20,21 @@ class DecentralizedAIController:
         X, y = self.preprocess_data(data)
 
         # Define the decentralized AI decision-making framework
-        model = KerasClassifier(build_fn=self.decentralized_ai_model, epochs=10, batch_size=32, verbose=0)
+        model = KerasClassifier(
+            build_fn=self.decentralized_ai_model, epochs=10, batch_size=32, verbose=0
+        )
 
         # Define the hyperparameter tuning space
-        param_grid = {'learning_rate': [0.001, 0.01, 0.1],
-                      'batch_size': [16, 32, 64],
-                      'number_of_hidden_layers': [1, 2, 3]}
+        param_grid = {
+            "learning_rate": [0.001, 0.01, 0.1],
+            "batch_size": [16, 32, 64],
+            "number_of_hidden_layers": [1, 2, 3],
+        }
 
         # Perform hyperparameter tuning using GridSearchCV
-        grid_search = GridSearchCV(estimator=model, param_grid=param_grid, cv=3, scoring='accuracy')
+        grid_search = GridSearchCV(
+            estimator=model, param_grid=param_grid, cv=3, scoring="accuracy"
+        )
         grid_search.fit(X, y)
 
         # Print the best hyperparameters and the corresponding accuracy
@@ -38,25 +46,30 @@ class DecentralizedAIController:
 
     def decentralized_ai_model(self):
         # Define the decentralized AI model architecture
-        model = tf.keras.models.Sequential([
-            tf.keras.layers.Dense(64, activation='relu', input_shape=(10,)),
-            tf.keras.layers.Dense(32, activation='relu'),
-            tf.keras.layers.Dense(10, activation='softmax')
-        ])
+        model = tf.keras.models.Sequential(
+            [
+                tf.keras.layers.Dense(64, activation="relu", input_shape=(10,)),
+                tf.keras.layers.Dense(32, activation="relu"),
+                tf.keras.layers.Dense(10, activation="softmax"),
+            ]
+        )
 
         # Compile the model
-        model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
+        model.compile(
+            optimizer="adam", loss="categorical_crossentropy", metrics=["accuracy"]
+        )
 
         return model
 
     def visualize_performance(self, cv_results):
         # Visualize the optimization metrics using Matplotlib
-        plt.plot(cv_results['mean_test_score'], label='Test Accuracy')
-        plt.xlabel('Hyperparameter Tuning Iterations')
-        plt.ylabel('Accuracy')
-        plt.title('Decentralized AI Optimization')
+        plt.plot(cv_results["mean_test_score"], label="Test Accuracy")
+        plt.xlabel("Hyperparameter Tuning Iterations")
+        plt.ylabel("Accuracy")
+        plt.title("Decentralized AI Optimization")
         plt.legend()
         plt.show()
+
 
 if __name__ == "__main__":
     # Initialize the Decentralized AI Controller
