@@ -1,9 +1,11 @@
-import requests
 import json
 from hashlib import sha256
 from cryptography.hazmat.primitives import serialization, hashes
 from cryptography.hazmat.primitives.asymmetric import rsa, padding
 from cryptography.hazmat.backends import default_backend
+
+import requests
+
 
 class UpdateManager:
     def __init__(self, wallet_version, private_key_path, public_key_path):
@@ -55,7 +57,8 @@ class UpdateManager:
         # TO DO: implement update application logic
         pass
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     wallet_version = "1.0.0"
     private_key_path = "private_key.pem"
     public_key_path = "public_key.pem"
