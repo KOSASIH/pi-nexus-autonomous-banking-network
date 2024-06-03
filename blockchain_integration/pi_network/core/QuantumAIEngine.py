@@ -1,14 +1,18 @@
-import os
 import json
+import os
+
+from cryptography.hazmat.primitives import serialization
 from qiskit import QuantumCircuit, execute
 from tensorflow.keras.models import load_model
-from cryptography.hazmat.primitives import serialization
+
 
 class QuantumAIEngine:
     def __init__(self, quantum_backend, ai_model):
         self.quantum_backend = quantum_backend
         self.ai_model = ai_model
-        self.cryptography_framework = serialization.load_pem_private_key("private_key.pem")
+        self.cryptography_framework = serialization.load_pem_private_key(
+            "private_key.pem"
+        )
 
     def optimize_smart_contract(self, contract_code):
         # Optimize the smart contract using quantum computing
@@ -46,6 +50,7 @@ class QuantumAIEngine:
         encrypted_message = qkd.encrypt(message)
         return encrypted_message
 
+
 if __name__ == "__main__":
     # Initialize the Quantum AI Engine
     qae = QuantumAIEngine("ibmq_qasm_simulator", load_model("ai_model.h5"))
@@ -53,7 +58,9 @@ if __name__ == "__main__":
     optimized_abi = qae.optimize_smart_contract({"abi": [...], "bytecode": [...]})
     print(f"Optimized ABI: {optimized_abi}")
     # Detect anomalies
-    anomaly_detected = qae.detect_anomalies({"from": "0x...SenderId...", "to": "0x...ReceiverId...", "amount": 1.0})
+    anomaly_detected = qae.detect_anomalies(
+        {"from": "0x...SenderId...", "to": "0x...ReceiverId...", "amount": 1.0}
+    )
     print(f"Anomaly detected: {anomaly_detected}")
     # Secure communication
     encrypted_message = qae.secure_communication("Hello, PI-Nexus!")
