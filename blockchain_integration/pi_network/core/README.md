@@ -52,4 +52,4 @@ Contributions are welcome! To contribute, follow these steps:
 
 # License
 
-This project is licensed under the MIT License and PiOS. 
+This project is licensed under the MIT License and PiOS.
