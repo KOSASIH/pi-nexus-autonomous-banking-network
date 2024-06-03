@@ -1,6 +1,8 @@
 # test_pi_network.py
 import unittest
+
 from pi_network.core.pi_network import PiNetwork
+
 
 class TestPiNetwork(unittest.TestCase):
     def test_start(self):
