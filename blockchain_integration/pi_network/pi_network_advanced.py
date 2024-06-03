@@ -1,10 +1,10 @@
 import tensorflow as tf
+from d3 import D3
+from flink import Flink
+from kafka import KafkaProducer
+from ntru import NTRU
 from tensorflow import keras
 from uport import Uport
-from ntru import NTRU
-from kafka import KafkaProducer
-from flink import Flink
-from d3 import D3
 
 # AI-powered decision making
 model = keras.Sequential([...])
