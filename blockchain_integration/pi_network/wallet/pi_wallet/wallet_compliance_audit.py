@@ -1,5 +1,6 @@
 import pandas as pd
 
+
 class ComplianceAudit:
     def __init__(self, audit_data):
         self.audit_data = audit_data
@@ -14,7 +15,8 @@ class ComplianceAudit:
         # TO DO: implement risk mitigation strategies
         pass
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     audit_data = pd.read_csv("audit_data.csv")
     compliance_audit = ComplianceAudit(audit_data)
 
