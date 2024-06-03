@@ -1,7 +1,8 @@
 import web3
 from web3.contract import Contract
-from web3.providers import HTTPProvider
 from web3.middleware import geth_poa_middleware
+from web3.providers import HTTPProvider
+
 
 class SmartContractInterface:
     def __init__(self, provider_url, contract_address, abi):
@@ -48,6 +49,7 @@ class SmartContractInterface:
     def get_transaction_receipt(self, tx_hash):
         return self.web3.eth.get_transaction_receipt(tx_hash)
 
+
 # Example usage:
 provider_url = "https://mainnet.infura.io/v3/YOUR_PROJECT_ID"
 contract_address = "0x..."
@@ -71,5 +73,7 @@ print(tx_hash)
 # Interact with a dApp
 dapp_address = "0x..."
 function_name = "vote"
-tx_hash = smart_contract_interface.interact_with_dapp(dapp_address, function_name, "0x...", 1)
+tx_hash = smart_contract_interface.interact_with_dapp(
+    dapp_address, function_name, "0x...", 1
+)
 print(tx_hash)
