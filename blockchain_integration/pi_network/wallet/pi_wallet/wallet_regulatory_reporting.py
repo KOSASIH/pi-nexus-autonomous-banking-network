@@ -1,5 +1,7 @@
-import pandas as pd
 from datetime import datetime
+
+import pandas as pd
+
 
 class RegulatoryReporting:
     def __init__(self, report_data):
@@ -35,7 +37,8 @@ class RegulatoryReporting:
         # TO DO: implement report submission to relevant authority
         pass
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     report_data = pd.read_csv("report_data.csv")
     regulatory_reporting = RegulatoryReporting(report_data)
 
