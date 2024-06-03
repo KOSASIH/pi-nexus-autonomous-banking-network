@@ -51,4 +51,3 @@ Contributions are welcome! To contribute, follow these steps:
 5. Open a pull request
 
 # License
-
