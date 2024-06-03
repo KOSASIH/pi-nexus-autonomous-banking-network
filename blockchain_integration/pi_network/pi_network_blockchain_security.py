@@ -1,6 +1,8 @@
-import cryptography
 import hashlib
 import secrets
+
+import cryptography
+
 
 class PiNetworkBlockchainSecurity:
     def __init__(self):
@@ -8,12 +10,12 @@ class PiNetworkBlockchainSecurity:
 
     def monitor_suspicious_activity(self, data):
         # Monitor for suspicious activity using cryptography and hashlib
-        #...
+        # ...
         return suspicious_activity
 
     def prevent_attacks(self, data):
         # Prevent attacks using cryptography and hashlib
-        #...
+        # ...
         return prevented_attacks
 
     def implement_multi_factor_authentication(self, user_data):
