@@ -1,12 +1,43 @@
 import os
 import json
-from cryptography.fernet import Fernet
+from cryptography.hazmat.primitives import serialization, hashes
+from cryptography.hazmat.primitives.asymmetric import rsa, padding
+from cryptography.hazmat.backends import default_backend
+import base64
+from hashlib import sha256
 
 class BackupAndRecovery:
-    def __init__(self, wallet_data):
+    def __init__(self, wallet_data, private_key_path, public_key_path):
         self.wallet_data = wallet_data
+        self.private_key_path = private_key_path
+        self.public_key_path = public_key_path
         self.backup_dir = "backups"
-        self.recovery_key = Fernet.generate_key()
+        self.recovery_key = self.generate_recovery_key()
+
+    def generate_recovery_key(self):
+        # Generate a recovery key using RSA
+        private_key = rsa.generate_private_key(
+            public_exponent=65537,
+            key_size=2048,
+            backend=default_backend()
+        )
+        private_pem = private_key.private_bytes(
+            encoding=serialization.Encoding.PEM,
+            format=serialization.PrivateFormat.PKCS8,
+            encryption_algorithm=serialization.NoEncryption()
+        )
+        with open(self.private_key_path, "wb") as f:
+            f.write(private_pem)
+
+        public_key = private_key.public_key()
+        public_pem = public_key.public_bytes(
+            encoding=serialization.Encoding.OpenSSH,
+            format=serialization.PublicFormat.OpenSSH
+        )
+        with open(self.public_key_path, "wb") as f:
+            f.write(public_pem)
+
+        return private_key
 
     def create_backup(self):
         # Create a backup of the wallet data
@@ -15,9 +46,15 @@ class BackupAndRecovery:
         self.save_backup(encrypted_backup)
 
     def encrypt_backup(self, backup_data):
-        # Encrypt the backup data using Fernet
-        f = Fernet(self.recovery_key)
-        encrypted_backup = f.encrypt(backup_data.encode())
+        # Encrypt the backup data using RSA-OAEP
+        encrypted_backup = self.recovery_key.encrypt(
+            backup_data.encode(),
+            padding.OAEP(
+                mgf=padding.MGF1(algorithm=hashes.SHA256()),
+                algorithm=hashes.SHA256(),
+                label=None
+            )
+        )
         return encrypted_backup
 
     def save_backup(self, encrypted_backup):
@@ -35,14 +72,22 @@ class BackupAndRecovery:
         self.wallet_data = json.loads(decrypted_backup)
 
     def decrypt_backup(self, encrypted_backup):
-        # Decrypt the backup data using Fernet
-        f = Fernet(self.recovery_key)
-        decrypted_backup = f.decrypt(encrypted_backup).decode()
-        return decrypted_backup
+        # Decrypt the backup data using RSA-OAEP
+        decrypted_backup = self.recovery_key.decrypt(
+            encrypted_backup,
+            padding.OAEP(
+                mgf=padding.MGF1(algorithm=hashes.SHA256()),
+                algorithm=hashes.SHA256(),
+                label=None
+            )
+        )
+        return decrypted_backup.decode()
 
 if __name__ == '__main__':
     wallet_data = {"accounts": [{"id": 1, "balance": 100}]}
-    backup_and_recovery = BackupAndRecovery(wallet_data)
+    private_key_path = "private_key.pem"
+    public_key_path = "public_key.pem"
+    backup_and_recovery = BackupAndRecovery(wallet_data, private_key_path, public_key_path)
     backup_and_recovery.create_backup()
     backup_and_recovery.recover_backup()
     print("Recovered wallet data:", wallet_data)
