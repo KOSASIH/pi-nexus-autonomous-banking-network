@@ -1,7 +1,8 @@
 import numpy as np
 from sklearn.cluster import KMeans
-from sklearn.preprocessing import StandardScaler
 from sklearn.decomposition import PCA
+from sklearn.preprocessing import StandardScaler
+
 
 class NodeClustering:
     def __init__(self, node_data):
@@ -34,6 +35,7 @@ class NodeClustering:
         plt.ylabel("Feature 2")
         plt.title("Node Clusters")
         plt.show()
+
 
 node_data = ...  # load node data
 node_clustering = NodeClustering(node_data)
