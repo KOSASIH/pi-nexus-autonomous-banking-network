@@ -1,6 +1,7 @@
 # biometric_auth.py
 import face_recognition
 
+
 class BiometricAuth:
     def __init__(self, face_recognition_model):
         self.face_recognition_model = face_recognition_model
