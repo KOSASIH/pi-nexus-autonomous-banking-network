@@ -1,0 +1,5 @@
+{
+    "pi_network_api_endpoint": "https://api.pi.network/v1",
+    "pi_network_api_key": "your_api_key",
+    "pi_network_api_secret": "your_api_secret"
+}
