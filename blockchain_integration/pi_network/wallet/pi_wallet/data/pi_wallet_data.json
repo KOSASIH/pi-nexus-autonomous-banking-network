@@ -1,0 +1,6 @@
+{
+    "account_address": "your_account_address",
+    "private_key": "your_private_key",
+    "public_key": "your_public_key",
+    "wallet_password": "your_wallet_password"
+}
