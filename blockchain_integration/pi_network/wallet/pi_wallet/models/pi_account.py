@@ -1,4 +1,5 @@
 class PiAccount:
+
     def __init__(self, address):
         self.address = address
         self.private_key = None
