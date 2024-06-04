@@ -14,5 +14,10 @@ func main() {
 		"bridge-2",
 	)
 
-	//...
+	if err!= nil {
+		log.Fatal(err)
+	}
+
+	// Start the bridge
+	bridgeInstance.Start()
 }
