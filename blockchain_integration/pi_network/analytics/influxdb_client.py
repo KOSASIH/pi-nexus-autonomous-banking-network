@@ -1,5 +1,6 @@
 import influxdb
 
+
 class InfluxDBClient:
     def __init__(self, host, port, username, password, database):
         self.host = host
@@ -15,12 +16,13 @@ class InfluxDBClient:
     def query(self, query):
         return self.client.query(query)
 
+
 influxdb_client = InfluxDBClient("localhost", 8086, "root", "root", "pi_network")
 points = [
     {
         "measurement": "node_activity",
         "tags": {"node_id": "node-1"},
-        "fields": {"activity": 10}
+        "fields": {"activity": 10},
     }
 ]
 influxdb_client.write_points(points)
