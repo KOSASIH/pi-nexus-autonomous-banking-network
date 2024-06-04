@@ -1,10 +1,15 @@
 import facenet
 
-# Load FaceNet model
-model = facenet.FaceNet()
+class FacialRecognition:
+    def __init__(self, model_path):
+        self.model = facenet.FaceNet(model_path)
 
-# Load face embeddings
-face_embeddings =...
+    def verify_face(self, face_embedding, user_id):
+        # Verify face using FaceNet model
+        pass
 
-# Verify a face
-verified = model.verify(face_embeddings, "user-1")
+facial_recognition = FacialRecognition("path/to/model")
+face_embedding =...  # load face embedding
+user_id = "user-1"
+verified = facial_recognition.verify_face(face_embedding, user_id)
+print("Verified:", verified)
