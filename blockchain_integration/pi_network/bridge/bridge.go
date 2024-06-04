@@ -13,8 +13,7 @@ func main() {
 		"bridge-1",
 		"bridge-2",
 	)
-
-	if err!= nil {
+	if err != nil {
 		log.Fatal(err)
 	}
 
