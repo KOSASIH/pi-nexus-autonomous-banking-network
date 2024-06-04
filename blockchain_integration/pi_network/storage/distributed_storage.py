@@ -1,6 +1,7 @@
 # distributed_storage.py
 import ipfshttpclient
 
+
 class DistributedStorage:
     def __init__(self, ipfs_client):
         self.ipfs_client = ipfs_client
