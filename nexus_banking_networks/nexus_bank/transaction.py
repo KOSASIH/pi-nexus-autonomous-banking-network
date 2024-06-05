@@ -1,4 +1,5 @@
 class Transaction:
+
     def __init__(self, transaction_id, account_id, amount, attributes):
         self.transaction_id = transaction_id
         self.account_id = account_id
