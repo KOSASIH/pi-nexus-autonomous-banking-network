@@ -1,6 +1,8 @@
 import scapy
 
+
 class IntrusionDetection:
+
     def __init__(self, network_interface):
         self.network_interface = network_interface
         self.sniffer = scapy.sniff(iface=self.network_interface)
