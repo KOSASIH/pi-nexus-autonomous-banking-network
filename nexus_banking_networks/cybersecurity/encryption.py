@@ -1,6 +1,8 @@
 import cryptography
 
+
 class Encryption:
+
     def __init__(self, key):
         self.key = key
         self.cipher = cryptography.fernet.Fernet(self.key)
