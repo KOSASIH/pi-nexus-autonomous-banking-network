@@ -1,6 +1,8 @@
 import Kubernetes
 
+
 class ContinuousDeployment:
+
     def __init__(self, kubernetes_url, deployment_name):
         self.kubernetes_url = kubernetes_url
         self.deployment_name = deployment_name
