@@ -1,3 +1,3 @@
-from.bank import Bank
-from.account import Account
-from.transaction import Transaction
+from .account import Account
+from .bank import Bank
+from .transaction import Transaction
