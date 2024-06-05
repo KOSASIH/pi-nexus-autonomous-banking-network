@@ -14,8 +14,8 @@ export default {
   props: {
     account: {
       type: Object,
-      required: true
-    }
-  }
-}
+      required: true,
+    },
+  },
+};
 </script>
