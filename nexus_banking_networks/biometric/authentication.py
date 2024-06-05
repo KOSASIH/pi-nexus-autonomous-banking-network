@@ -1,6 +1,8 @@
 import face_recognition
 
+
 class BiometricAuthentication:
+
     def __init__(self, biometric_data):
         self.biometric_data = biometric_data
 
