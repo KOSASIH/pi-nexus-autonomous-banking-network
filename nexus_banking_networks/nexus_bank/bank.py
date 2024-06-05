@@ -1,4 +1,5 @@
 class Bank:
+
     def __init__(self, bank_id, name, attributes):
         self.bank_id = bank_id
         self.name = name
