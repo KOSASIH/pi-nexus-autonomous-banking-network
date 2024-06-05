@@ -15,16 +15,16 @@
 </template>
 
 <script>
-import AccountCard from '../components/AccountCard.vue'
+import AccountCard from "../components/AccountCard.vue";
 
 export default {
   components: {
-    AccountCard
+    AccountCard,
   },
   computed: {
     accounts() {
-      return this.$store.state.account.accounts
-    }
-  }
-}
+      return this.$store.state.account.accounts;
+    },
+  },
+};
 </script>
