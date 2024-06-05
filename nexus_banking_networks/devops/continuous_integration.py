@@ -1,6 +1,8 @@
 import Jenkins
 
+
 class ContinuousIntegration:
+
     def __init__(self, jenkins_url, job_name):
         self.jenkins_url = jenkins_url
         self.job_name = job_name
