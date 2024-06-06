@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: banking-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: banking-app
+  template:
+    metadata:
+      labels:
+        app: banking-app
+    spec:
+      containers:
+      - name: banking-app
+        image: kosasih/banking-app:latest
+        ports:
+        - containerPort: 8080
+        env:
+        - name: DATABASE_URL
+          value: 'postgresql://user:password@database:5432/banking'
+        - name: API_KEY
+          value: 'your-api-key'
