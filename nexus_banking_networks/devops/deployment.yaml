@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nexus-banking-network
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nexus-banking-network
+  template:
+    metadata:
+      labels:
+        app: nexus-banking-network
+    spec:
+      containers:
+      - name: nexus-banking-network
+        image: kosasih/nexus-banking-network:latest
+        ports:
+        - containerPort: 8080
+        env:
+        - name: DATABASE_URL
+          value: "postgresql://user:password@host:port/dbname"
+        - name: API_KEY
+          value: "your_api_key_here"
