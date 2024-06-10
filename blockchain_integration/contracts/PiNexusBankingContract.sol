@@ -8,7 +8,7 @@ contract PiNexusBankingContract is ERC20 {
 
     constructor() public {
         _owner = msg.sender;
-        _totalSupply = 100000000000; // Initial token supply
+        _totalSupply = 1000000000; // Initial token supply
     }
 
     function mint(address _to, uint256 _amount) public onlyOwner {
