@@ -7,7 +7,7 @@ class PiNetworkAPI:
         self.api_secret = api_secret
         self.web3 = Web3(Web3.HTTPProvider('https://mainnet.infura.io/v3/YOUR_PROJECT_ID'))
 
-def get_user_data(self, user_id):
+    def get_user_data(self, user_id):
         response = requests.get(f'https://pi-network.io/api/v1/users/{user_id}', headers={'Authorization': f'Bearer {self.api_key}'})
         return response.json()
 
@@ -29,4 +29,12 @@ def get_user_data(self, user_id):
 
     def transfer_token(self, user_id, recipient, amount):
         response = requests.post(f'https://pi-network.io/api/v1/tokens/{user_id}/transfer', headers={'Authorization': f'Bearer {self.api_key}'}, json={'recipient': recipient, 'amount': amount})
+        return response.json()
+
+    def stake_token(self, user_id, amount):
+        response = requests.post(f'https://pi-network.io/api/v1/tokens/{user_id}/stake', headers={'Authorization': f'Bearer {self.api_key}'}, json={'amount': amount})
+        return response.json()
+
+    def lend_token(self, user_id, borrower, amount):
+        response = requests.post(f'https://pi-network.io/api/v1/tokens/{user_id}/lend', headers={'Authorization': f'Bearer {self.api_key}'}, json={'borrower': borrower, 'amount': amount})
         return response.json()
