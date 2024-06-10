@@ -23,3 +23,14 @@ class MultiChainManager:
         contract = chain.eth.contract(address=contract_address, abi=contract_code['abi'])
         tx_hash = contract.functions[function_name](*args).transact({'from': '0xYourAddress', 'gas': 200000, 'gasPrice': Web3.utils.to_wei(20, 'gwei')})
         return tx_hash
+
+    def get_contract_data(self, chain_name, contract_address):
+        chain = self.get_chain(chain_name)
+        contract = chain.eth.contract(address=contract_address, abi=contract_code['abi'])
+        contract_data = {
+            'address': contract_address,
+            'abi': contract_code['abi'],
+            'bytecode': contract_code['bytecode'],
+            'functions': contract.all_functions()
+        }
+        return contract_data
