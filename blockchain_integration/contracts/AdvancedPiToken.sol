@@ -2,6 +2,7 @@ pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/utils/Counters.sol";
 
 contract AdvancedPiToken is ERC20, Ownable {
     // Advanced features:
@@ -10,6 +11,8 @@ contract AdvancedPiToken is ERC20, Ownable {
     // 3. Token freezing
     // 4. Token voting
     // 5. Token delegation
+    // 6. Token staking
+    // 7. Token lending
 
     // Mapping of token holders to their balances
     mapping (address => uint256) public balances;
@@ -19,6 +22,12 @@ contract AdvancedPiToken is ERC20, Ownable {
 
     // Mapping of token holders to their voting power
     mapping (address => uint256) public votingPower;
+
+    // Mapping of token holders to their staked balances
+    mapping (address => uint256) public stakedBalances;
+
+    // Mapping of token holders to their lent balances
+    mapping (address => uint256) public lentBalances;
 
     // Event emitted when tokens are transferred
     event Transfer(address indexed from, address indexed to, uint256 value);
@@ -40,6 +49,12 @@ contract AdvancedPiToken is ERC20, Ownable {
 
     // Event emitted when tokens are delegated
     event Delegate(address indexed delegator, address indexed delegatee, uint256 value);
+
+    // Event emitted when tokens are staked
+    event Stake(address indexed staker, uint256 value);
+
+    // Event emitted when tokens are lent
+    event Lend(address indexed lender, address indexed borrower, uint256 value);
 
     // Constructor function
     constructor() public {
@@ -122,10 +137,34 @@ contract AdvancedPiToken is ERC20, Ownable {
         // Check if the sender has enough tokens
         require(balances[msg.sender] >= amount, "Insufficient balance");
 
-        // Update the voting power
+        // Updatethe voting power
         votingPower[delegatee] += amount;
 
         // Emit the Delegate event
         emit Delegate(msg.sender, delegatee, amount);
+    }
+
+    // Function to stake
+    function stake(uint256 amount) public {
+        // Check if the sender has enough tokens
+        require(balances[msg.sender] >= amount, "Insufficient balance");
+
+        // Update the staked balances
+        stakedBalances[msg.sender] += amount;
+
+        // Emit the Stake event
+        emit Stake(msg.sender, amount);
+    }
+
+    // Function to lend
+    function lend(address borrower, uint256 amount) public {
+        // Check if the sender has enough tokens
+        require(balances[msg.sender] >= amount, "Insufficient balance");
+
+        // Update the lent balances
+        lentBalances[msg.sender] += amount;
+
+        // Emit the Lend event
+        emit Lend(msg.sender, borrower, amount);
     }
 }
