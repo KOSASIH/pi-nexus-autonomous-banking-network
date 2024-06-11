@@ -1,0 +1,11 @@
+{
+    "name": "pi-dapp",
+    "version": "1.0.0",
+    "scripts": {
+        "start": "node src/index.js"
+    },
+    "dependencies": {
+        "express": "^4.17.1",
+        "web3": "^1.3.4"
+    }
+}
