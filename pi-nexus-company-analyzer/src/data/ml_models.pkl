@@ -1,0 +1,10 @@
+# ml_models.pkl
+
+import pickle
+
+ml_models = {
+    'random_forest': RandomForestClassifier(n_estimators=100, random_state=42)
+}
+
+with open('ml_models.pkl', 'wb') as f:
+    pickle.dump(ml_models, f)
