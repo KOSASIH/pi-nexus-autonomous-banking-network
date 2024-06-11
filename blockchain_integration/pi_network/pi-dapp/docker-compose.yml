@@ -1,0 +1,15 @@
+version: '3'
+services:
+  pi-dapp:
+    build: .
+    ports:
+      - "8080:8080"
+    depends_on:
+      - pi-network
+    environment:
+      - RPC_ENDPOINT=https://go.getblock.io/307538472a884879b4cfd275a0d12b1c
+
+  pi-network:
+    image: kosasih/pi-nexus-autonomous-banking-network:latest
+    ports:
+      - "8545:8545"
