@@ -1,105 +1,56 @@
-# github_config.py
+# github_api.py
+import requests
 
-import os
-import json
-from cryptography.fernet import Fernet
+def get_contributors(repo_owner, repo_name):
+    url = f"https://api.github.com/repos/{repo_owner}/{repo_name}/contributors"
+    response = requests.get(url)
+    contributors = response.json()
+    return contributors
 
-class GithubConfig:
-    def __init__(self):
-        self.config_file = 'github_config.json'
-        self.credential_file = 'github_credentials.json'
-        self.encrypted_file = 'github_credentials.encrypted'
-        self.api_url = 'https://api.github.com'
-        self.api_version = 'v3'
-        self.user_agent = 'Pi-Nexus-Company-Analyzer'
-        self.rate_limit = 5000  # 5000 requests per hour
-        self.rate_limit_window = 3600  # 1 hour window
+# nlp.py
+import spacy
 
-    def load_config(self):
-        if os.path.exists(self.config_file):
-            with open(self.config_file, 'r') as f:
-                config = json.load(f)
-            return config
-        else:
-            return {}
+nlp = spacy.load("en_core_web_sm")
 
-    def save_config(self, config):
-        with open(self.config_file, 'w') as f:
-            json.dump(config, f, indent=4)
+def extract_entities(text):
+    doc = nlp(text)
+    entities = [(entity.text, entity.label_) for entity in doc.ents]
+    return entities
 
-    def load_credentials(self):
-        if os.path.exists(self.credential_file):
-            with open(self.credential_file, 'r') as f:
-                credentials = json.load(f)
-            return credentials
-        else:
-            return {}
+# ml.py
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.feature_extraction.text import TfidfVectorizer
 
-    def save_credentials(self, credentials):
-        with open(self.credential_file, 'w') as f:
-            json.dump(credentials, f, indent=4)
+def train_company_classifier(companies, descriptions):
+    vectorizer = TfidfVectorizer()
+    X = vectorizer.fit_transform(descriptions)
+    y = [company["category"] for company in companies]
+    clf = RandomForestClassifier(n_estimators=100)
+    clf.fit(X, y)
+    return clf
 
-    def encrypt_credentials(self, credentials):
-        key = Fernet.generate_key()
-        cipher_suite = Fernet(key)
-        encrypted_credentials = cipher_suite.encrypt(json.dumps(credentials).encode())
-        with open(self.encrypted_file, 'wb') as f:
-            f.write(encrypted_credentials)
-        return key
+# web_scraping.py
+import requests
+from bs4 import BeautifulSoup
 
-    def decrypt_credentials(self, key):
-        cipher_suite = Fernet(key)
-        with open(self.encrypted_file, 'rb') as f:
-            encrypted_credentials = f.read()
-        decrypted_credentials = cipher_suite.decrypt(encrypted_credentials)
-        return json.loads(decrypted_credentials.decode())
+def scrape_company_profile(company_name):
+    url = f"https://www.linkedin.com/company/{company_name}"
+    response = requests.get(url)
+    soup = BeautifulSoup(response.content, "html.parser")
+    profile = {}
+    # Extract company information from the page
+    return profile
 
-    def get_api_token(self):
-        config = self.load_config()
-        if 'api_token' in config:
-            return config['api_token']
-        else:
-            return None
+# visualization.py
+import networkx as nx
+import matplotlib.pyplot as plt
 
-    def set_api_token(self, api_token):
-        config = self.load_config()
-        config['api_token'] = api_token
-        self.save_config(config)
-
-    def get_username(self):
-        config = self.load_config()
-        if 'username' in config:
-            return config['username']
-        else:
-            return None
-
-    def set_username(self, username):
-        config = self.load_config()
-        config['username'] = username
-        self.save_config(config)
-
-    def get_password(self):
-        config = self.load_config()
-        if 'password' in config:
-            return config['password']
-        else:
-            return None
-
-    def set_password(self, password):
-        config = self.load_config()
-        config['password'] = password
-        self.save_config(config)
-
-    def get_oauth_token(self):
-        config = self.load_config()
-        if 'oauth_token' in config:
-            return config['oauth_token']
-        else:
-            return None
-
-    def set_oauth_token(self, oauth_token):
-        config = self.load_config()
-        config['oauth_token'] = oauth_token
-        self.save_config(config)
-
-github_config = GithubConfig()
+def visualize_company_network(companies, contributors):
+    G = nx.Graph()
+    for company in companies:
+        G.add_node(company["name"])
+    for contributor in contributors:
+        G.add_node(contributor["login"])
+        G.add_edge(contributor["login"], contributor["company"])
+    nx.draw(G, with_labels=True)
+    plt.show()
