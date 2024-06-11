@@ -1,0 +1,10 @@
+# nlp_models.pkl
+
+import pickle
+
+nlp_models = {
+    'bert-base-uncased': BertForSequenceClassification(BertModel.from_pretrained('bert-base-uncased'), 8)
+}
+
+with open('nlp_models.pkl', 'wb') as f:
+    pickle.dump(nlp_models, f)
