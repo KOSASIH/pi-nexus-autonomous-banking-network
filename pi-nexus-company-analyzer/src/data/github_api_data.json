@@ -1,0 +1,13 @@
+{
+    "data": [
+        {
+            "text": "This is a sample text",
+            "label": 0
+        },
+        {
+            "text": "This is another sample text",
+            "label": 1
+        },
+        ...
+    ]
+}
