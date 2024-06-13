@@ -3,7 +3,7 @@ pragma solidity ^0.8.0;
 import "https://github.com/aragon/osx/contracts/dao/DAO.sol";
 import "https://github.com/aragon/osx/contracts/token/ERC20.sol";
 
-contract MyDAO is DAO {
+contract Revolutination is DAO {
     // ERC20 token contract
     ERC20 public token;
 
