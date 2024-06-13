@@ -6,7 +6,7 @@ import "https://github.com/OpenZeppelin/openzeppelin-solidity/contracts/utils/Re
 import "https://github.com/OpenZeppelin/openzeppelin-solidity/contracts/utils/Counters.sol";
 import "https://github.com/OpenZeppelin/openzeppelin-solidity/contracts/math/SafeMath.sol";
 
-contract Nexarion {
+contract NexarionDAO {
     using SafeERC20 for IERC20;
     using Counters for Counters.Counter;
     using SafeMath for uint256;
