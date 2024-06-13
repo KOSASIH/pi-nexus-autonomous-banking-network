@@ -1,0 +1,16 @@
+version: '3'
+services:
+  pi-browser:
+    build:.
+    ports:
+      - "8080:8080"
+    depends_on:
+      - pi-network
+    environment:
+      - PI_NETWORK_URL=http://pi-network:8080
+  pi-network:
+    build:.
+    ports:
+      - "8081:8081"
+    environment:
+      - BLOCKCHAIN_DB_URL=postgres://user:password@host:port/db
