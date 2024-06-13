@@ -9,7 +9,7 @@ To get started with the PI-Nexus Autonomous Banking Network, follow these steps:
 1. Clone the repository to your local machine:
 
 ```bash
-1git clone https://github.com/KOSASIH/pi-nexus-autonomous-banking-network.git
+1. git clone https://github.com/KOSASIH/pi-nexus-autonomous-banking-network.git
 ```
 
 2. Install Docker and Docker Compose on your local machine.
@@ -17,7 +17,7 @@ To get started with the PI-Nexus Autonomous Banking Network, follow these steps:
 Build the Docker image and run the containers using the docker-compose.yml file:
 
 ```bash
-docker-compose up --build
+1. docker-compose up --build
 ```
 
 4. Access the web interface for the banking network at http://localhost:8080.
@@ -37,13 +37,13 @@ To build and run the Pi-Nexus Autonomous Banking Network, follow these steps:
 1. Clone the repository to each Raspberry Pi device:
 
 ```bash
-git clone https://github.com/KOSASIH/pi-nexus-autonomous-banking-network.git
+1. git clone https://github.com/KOSASIH/pi-nexus-autonomous-banking-network.git
 ```
 
 2. On each Raspberry Pi device, build the Docker image and run the containers using the docker-compose.yml file:
 
 ```bash
-docker-compose up --build
+1. docker-compose up --build
 ```
 
 3. Access the web interface for each node in the network at <http://<node_ip>:8080>.
