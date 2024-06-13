@@ -1,0 +1,94 @@
+{
+  "contractName": "Governance",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_user",
+          "type": "address"
+        },
+        {
+          "name": "_role",
+          "type": "uint256"
+        }
+      ],
+      "name": "updateUserRole",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_role",
+          "type": "uint256"
+        },
+        {
+          "name": "_permissions",
+          "type": "uint256"
+        }
+      ],
+      "name": "updateRolePermissions",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_user",
+          "type": "address"
+        }
+      ],
+      "name": "getUserRole",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_role",
+          "type": "uint256"
+        }
+      ],
+      "name": "getRolePermissions",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x608060405234801561001057600080fd5b50600436106100375760003560e01c806306fdde0361004857806318160ddd61005857806323b872dd610068578063313ce5676100785780635c6321b16100885780636d4ce63c6100985780638da5cb5b6100a857806395d89b416100b8578063a9059cbb6100c8578063c04364e86100d8578063e64987b26100e8578063f355423d6100f8576000396000f3006080604052600436106101005760003560e01c806306fdde0361012c57806318160ddd61013c57806323b872dd61014c578063313ce56761015c5780635c6321b161016c5780636d4ce63c61017c5780638da5cb5b61018c57806395d89b4161019c578063a9059cbb6101ac578063c04364e86101b8578063e64987b26101c8578063f355423d6101d8576000396000f3006080604052600436106101f05760003560e01c806306fdde0361021c57806318160ddd61022c57806323b872dd61023c578063313ce56761024c5780635c6321b161025c5780636d4ce63c61026c5780638da5cb5b61027c57806395d89b4161028c578063a9059cbb61029c578063c04364e86102a8578063e64987b26102b8578063f355423d6102c8576000396000f3006080604052600"
+}
