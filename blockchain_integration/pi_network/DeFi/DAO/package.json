@@ -10,7 +10,7 @@
     "deploy": "truffle deploy"
   },
   "keywords": [],
-  "author": "Your Name",
+  "author": "KOSASIH",
   "license": "MIT",
   "dependencies": {
     "truffle": "^5.3.0",
