@@ -1,0 +1,52 @@
+.gamification {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #f7f7f7;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.gamification h2 {
+  margin-top: 0;
+  font-weight: bold;
+  color: #333;
+}
+
+.gamification.rewards {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.gamification.rewards:last-child {
+  border-bottom: none;
+}
+
+.gamification.rewards.name {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+.gamification.rewards.points-required {
+  font-size: 16px;
+  color: #666;
+}
+
+.gamification button {
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.gamification button:hover {
+  background-color: #3e8e41;
+}
