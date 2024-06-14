@@ -1,0 +1,21 @@
+{
+  "apps": [
+    {
+      "id": "pi_ticket",
+      "name": "Pi Ticket",
+      "description": "Decentralized ticketing app",
+      "icon": "pi_ticket_icon.png",
+      "url": "/pi_ticket",
+      "contractAddress": "0x...PiTicketContractAddress..."
+    },
+    {
+      "id": "app2",
+      "name": "App 2",
+      "description": "App 2 description",
+      "icon": "app2_icon.png",
+      "url": "/app2",
+      "contractAddress": "0x...App2ContractAddress..."
+    },
+   ...
+  ]
+}
