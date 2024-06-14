@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Pi Wallet",
+    "description": "Pi Wallet is a decentralized wallet for Pi Network",
+    "icon": "https://pi.network/assets/icons/pi-wallet.png",
+    "category": "wallet",
+    "url": "https://pi-wallet.com",
+    "api_url": "https://pi-wallet.com/api"
+  },
+  {
+    "name": "Pi Browser",
+    "description": "Pi Browser is a decentralized browser for Pi Network",
+    "icon": "https://pi.network/assets/icons/pi-browser.png",
+    "category": "browser",
+    "url": "https://pi-browser.com",
+    "api_url": "https://pi-browser.com/api"
+  },
+  {
+    "name": "Pi Genesis",
+    "description": "Pi Genesis is a decentralized app for Pi Network",
+    "icon": "https://pi.network/assets/icons/pi-genesis.png",
+    "category": "genesis",
+    "url": "https://pi-genesis.com",
+    "api_url": "https://pi-genesis.com/api"
+  }
+]
