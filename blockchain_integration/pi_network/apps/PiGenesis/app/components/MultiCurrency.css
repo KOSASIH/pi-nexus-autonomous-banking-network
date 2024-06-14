@@ -1,0 +1,96 @@
+.multi-currency {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #f7f7f7;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.multi-currency h2 {
+  margin-top: 0;
+  font-weight: bold;
+  color: #333;
+}
+
+.multi-currency .currencies {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.multi-currency .currencies:last-child {
+  border-bottom: none;
+}
+
+.multi-currency .currencies .currency {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.multi-currency .currencies .currency .code {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+.multi-currency .currencies .currency .name {
+  font-size: 16px;
+  color: #666;
+}
+
+.multi-currency .exchange-rates {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.multi-currency .exchange-rates h3 {
+  margin-top: 0;
+  font-weight: bold;
+  color: #333;
+}
+
+.multi-currency .exchange-rates ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.multi-currency .exchange-rates li {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.multi-currency .exchange-rates li:last-child {
+  border-bottom: none;
+}
+
+.multi-currency .exchange-rates .exchange-rate {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.multi-currency .exchange-rates .exchange-rate .from {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+.multi-currency .exchange-rates .exchange-rate .to {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+.multi-currency .exchange-rates .exchange-rate .rate {
+  font-size: 16px;
+  color: #666;
+}
