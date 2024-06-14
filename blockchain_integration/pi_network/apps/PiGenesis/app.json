@@ -1,0 +1,31 @@
+{
+  "name": "PiGenesis",
+  "description": "PiGenesis is a simple web app that displays a list of popular GitHub repositories.",
+  "version": "1.0.0",
+  "author": "KOSASIH",
+  "license": "MIT",
+  "repository": "https://github.com/KOSASIH/PiGenesis",
+  "homepage": "https://pi-genesis.kosasih.com", // Add a homepage URL
+  "keywords": ["github", "repositories", "web app", "development", "productivity", "open source"], // Add more keywords
+  "categories": ["development", "productivity", "utilities"], // Add more categories
+  "icon": "https://raw.githubusercontent.com/KOSASIH/PiGenesis/master/icon.png",
+  "screenshots": [
+    "https://raw.githubusercontent.com/KOSASIH/PiGenesis/master/screenshot1.png",
+    "https://raw.githubusercontent.com/KOSASIH/PiGenesis/master/screenshot2.png"
+  ],
+  "dependencies": {
+    "node": "14.x",
+    "npm": "6.x" // Add npm version dependency
+  },
+  "env": {
+    "PORT": "3000"
+  },
+  "script": {
+    "start": "node index.js"
+  },
+  "systemRequirements": { // Add system requirements
+    "os": ["linux", "windows", "macos"],
+    "cpu": "x86_64",
+    "memory": "512MB"
+  }
+}
