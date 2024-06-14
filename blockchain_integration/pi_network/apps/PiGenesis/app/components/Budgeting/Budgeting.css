@@ -1,0 +1,94 @@
+.budgeting {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #f7f7f7;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.budgeting h2 {
+  margin-top: 0;
+  font-weight: bold;
+  color: #333;
+}
+
+.budgeting .budget {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.budgeting .budget:last-child {
+  border-bottom: none;
+}
+
+.budgeting .budget .amount {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+.budgeting .budget .category {
+  font-size: 16px;
+  color: #666;
+}
+
+.budgeting .budget .percentage {
+  font-size: 14px;
+  color: #999;
+}
+
+.budgeting .expenses {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.budgeting .expenses h3 {
+  margin-top: 0;
+  font-weight: bold;
+  color: #333;
+}
+
+.budgeting .expenses ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.budgeting .expenses li {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.budgeting .expenses li:last-child {
+  border-bottom: none;
+}
+
+.budgeting .expenses .expense {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.budgeting .expenses .expense .amount {
+  font-size: 18px;
+  font-weight:bold;
+  color: #333;
+}
+
+.budgeting .expenses .expense .description {
+  font-size: 16px;
+  color: #666;
+}
+
+.budgeting .expenses .expense .date {
+  font-size: 14px;
+  color: #999;
+}
