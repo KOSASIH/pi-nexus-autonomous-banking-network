@@ -1,0 +1,66 @@
+.customer-support {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #f7f7f7;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.customer-support h2 {
+  margin-top: 0;
+  font-weight: bold;
+  color: #333;
+}
+
+.customer-support .chatbot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.customer-support .chatbot:last-child {
+  border-bottom: none;
+}
+
+.customer-support .chatbot .message {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+.customer-support .chatbot .response {
+  font-size: 16px;
+  color: #666;
+}
+
+.customer-support input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+.customer-support input[type="text"]:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.customer-support button {
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.customer-support button:hover {
+  background-color: #3e8e41;
+}
