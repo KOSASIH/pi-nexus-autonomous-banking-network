@@ -1,0 +1,18 @@
+{
+    "kyc_aml_api": "https://kyc-aml-api.example.com",
+    "travel_rule_api": "https://travel-rule-api.example.com",
+    "sanctions_list_api": "https://sanctions-list-api.example.com",
+    "transaction_monitoring_api": "https://transaction-monitoring-api.example.com",
+    "data_protection_api": "https://data-protection-api.example.com",
+    "licensed_entities_api": "https://licensed-entities-api.example.com",
+    "securities_regulations_api": "https://securities-regulations-api.example.com",
+    "auditing_certification_api": "https://auditing-certification-api.example.com",
+    "tax_regulations_api": "https://tax-regulations-api.example.com",
+    "regulatory_sandbox_api": "https://regulatory-sandbox-api.example.com",
+    "pci_dss_api": "https://pci-dss-api.example.com",
+    "information_sharing_api": "https://information-sharing-api.example.com",
+    "aml_watchlist_api": "https://aml-watchlist-api.example.com",
+    "fraud_detection_api": "https://fraud-detection-api.example.com",
+    "customer_due_diligence_api": "https://customer-due-diligence-api.example.com",
+    "continuous_monitoring_api": "https://continuous-monitoring-api.example.com"
+}
