@@ -1,0 +1,34 @@
+defmodule PiNetworkConsensus do
+  use GenServer
+
+  def start_link(_) do
+    GenServer.start_link(__MODULE__, %{}, name: __MODULE__)
+  end
+
+  def init(state) do
+    state = %{
+      network: Network,
+      blockchain: [],
+      mempool: [],
+      node_id: PublicKey
+    }
+
+    {:ok, state}
+  end
+
+  def verify_block(block)do
+    # Verify block validity and add to blockchain
+  end
+
+  def verify_transaction(tx) do
+    # Verify transaction validity and add to mempool
+  end
+
+  def get_block_by_hash(hash) do
+    # Return block by hash
+  end
+
+  def get_transaction_by_id(tx_id) do
+    # Return transaction by ID
+  end
+end
