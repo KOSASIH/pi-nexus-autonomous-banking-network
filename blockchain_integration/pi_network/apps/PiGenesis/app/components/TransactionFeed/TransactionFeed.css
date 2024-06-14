@@ -1,0 +1,53 @@
+.transaction-feed {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #f7f7f7;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.transaction-feed h2 {
+  margin-top: 0;
+  font-weight: bold;
+  color: #333;
+}
+
+.transaction-feed ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.transaction-feed li {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.transaction-feed li:last-child {
+  border-bottom: none;
+}
+
+.transaction-feed .transaction {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.transaction-feed .transaction .amount {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+.transaction-feed .transaction .description {
+  font-size: 16px;
+  color: #666;
+}
+
+.transaction-feed .transaction .date {
+  font-size: 14px;
+  color: #999;
+}
