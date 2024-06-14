@@ -1,0 +1,22 @@
+.data-analytics {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #f7f7f7;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.data-analytics h2 {
+  margin-top: 0;
+  font-weight: bold;
+  color: #333;
+}
+
+.data-analytics .chart {
+  width: 100%;
+  height: 400px;
+  margin-top: 20px;
+}
