@@ -1,0 +1,44 @@
+.wearable-integration {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #f7f7f7;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.wearable-integration h2 {
+  margin-top: 0;
+  font-weight: bold;
+  color: #333;
+}
+
+.wearable-integration.data {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.wearable-integration.data:last-child {
+  border-bottom: none;
+}
+
+.wearable-integration.data.type {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+.wearable-integration.data.value {
+  font-size: 16px;
+  color: #666;
+}
+
+.wearable-integration.data.unit {
+  font-size:14px;
+  color: #999;
+}
