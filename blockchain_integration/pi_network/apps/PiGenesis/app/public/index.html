@@ -1,0 +1,105 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PiGenesis | Autonomous Banking Network</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#dashboard">Dashboard</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#staking">Staking</a></li>
+        <li><a href="#rewards">Rewards</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Dashboard -->
+    <section id="dashboard">
+      <h1>Dashboard</h1>
+      <div class="dashboard-grid">
+        <div class="card">
+          <h2>Balance</h2>
+          <p id="balance">$0.00</p>
+        </div>
+        <div class="card">
+          <h2>Transactions</h2>
+          <ul id="transactions"></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio -->
+    <section id="portfolio">
+      <h1>Portfolio</h1>
+      <div class="portfolio-grid">
+        <div class="card">
+          <h2>Assets</h2>
+          <ul id="assets"></ul>
+        </div>
+        <div class="card">
+          <h2>Staked Assets</h2>
+          <ul id="staked-assets"></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Staking -->
+    <section id="staking">
+      <h1>Staking</h1>
+      <div class="staking-grid">
+        <div class="card">
+          <h2>Stake</h2>
+          <form id="stake-form">
+            <input type="number" id="stake-amount" placeholder="Enter amount">
+            <button id="stake-btn">Stake</button>
+          </form>
+        </div>
+        <div class="card">
+          <h2>Unstake</h2>
+          <form id="unstake-form">
+            <input type="number" id="unstake-amount" placeholder="Enter amount">
+            <button id="unstake-btn">Unstake</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Rewards -->
+    <section id="rewards">
+      <h1>Rewards</h1>
+      <div class="rewards-grid">
+        <div class="card">
+          <h2>Reward Balance</h2>
+          <p id="reward-balance">$0.00</p>
+        </div>
+        <div class="card">
+          <h2>Claim Rewards</h2>
+          <button id="claim-rewards-btn">Claim Rewards</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2023 PiGenesis Autonomous Banking Network</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/web3@1.5.0/dist/web3.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@metamask/detect-provider@1.2.0/dist/detect-provider.min.js"></script>
+  <script src="index.js"></script>
+</body>
+</html>
