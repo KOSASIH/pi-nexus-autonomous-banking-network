@@ -1,0 +1,2 @@
+class ComplianceFrameworkException(Exception):
+    pass
