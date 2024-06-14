@@ -1,0 +1,34 @@
+{
+  "name": "PiGenesis",
+  "version": "1.0.0",
+  "description": "Pi Nexus Autonomous Banking Network - PiGenesis Application",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "jest"
+  },
+  "keywords": [
+    "banking",
+    "pi-network",
+    "blockchain"
+  ],
+  "author": "KOSASIH",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.3",
+    "body-parser": "^1.19.1",
+    "cors": "^2.8.5",
+    "(*other dependencies)"
+  },
+  "devDependencies": {
+    "jest": "^27.4.5",
+    "jest-environment-node": "^27.4.5",
+    "babel-jest": "^27.4.5"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "transform": {
+      "^.+\\.(js|jsx)$": "babel-jest"
+    }
+  }
+}
