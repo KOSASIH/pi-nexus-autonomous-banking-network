@@ -34,4 +34,14 @@ contract PIWallet {
         balances[_to] = balances[_to].add(_amount);
         emit Transfer(msg.sender, _to, _amount);
     }
+
+     function withdrawTo(address _to, uint256 _amount) public onlyOwner {
+        require(_to != address(0), "Invalid address");
+        require(_amount > 0, "Invalid amount");
+
+        _to.transfer(_amount);
+
+        emit Withdrawal(msg.sender, _to, _amount);
+     }
+
 }
