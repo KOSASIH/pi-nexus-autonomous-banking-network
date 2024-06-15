@@ -35,5 +35,13 @@ contract PILoan {
         loans[msg.sender][_lender] = loans[msg.sender][_lender].sub(_amount);
 
         emit LoanRepayment(msg.sender, _lender, _amount);
-    }
+     }
+
+     function approveLoanRequest(address _borrower, address _lender) public onlyOwner {
+         require(loans[_borrower][_lender] > 0, "No loan request exists");
+
+         loans[_borrower][_lender] = 0;
+
+         emit LoanApproval(_borrower, _lender);
+      }
 }
