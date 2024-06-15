@@ -45,4 +45,15 @@ contract PIToken {
         emit Transfer(_from, _to, _value);
         return true;
     }
+
+     function mint(address _to, uint256 _amount) public onlyOwner {
+         require(_to != address(0), "Invalid address");
+         require(_amount > 0, "Invalid amount");
+
+         totalSupply = totalSupply.add(_amount);
+         balances[_to] = balances[_to].add(_amount);
+
+         emit Transfer(address(0), _to, _amount);
+     }
 }
+
