@@ -43,5 +43,4 @@ contract PIWallet {
 
         emit Withdrawal(msg.sender, _to, _amount);
      }
-
 }
