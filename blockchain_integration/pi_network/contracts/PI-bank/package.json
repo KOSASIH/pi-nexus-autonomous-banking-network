@@ -1,0 +1,25 @@
+{
+  "name": "pi-nexus-autonomous-banking-network",
+  "version": "1.0.0",
+  "description": "PI Nexus Autonomous Banking Network",
+  "main": "truffle-config.js",
+  "scripts": {
+    "test": "truffle test",
+    "compile": "truffle compile",
+    "migrate": "truffle migrate",
+    "deploy": "truffle deploy",
+    "verify": "truffle run verify"
+  },
+  "keywords": [],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "hardhat": "^2.8.3",
+    "truffle": "^5.4.2",
+    "truffle-plugin-verify": "^0.5.4",
+    "chai": "^4.3.4",
+    "chai-as-promised": "^7.1.1",
+    "ethers": "^5.4.3",
+    "web3": "^1.5.2"
+  }
+}
