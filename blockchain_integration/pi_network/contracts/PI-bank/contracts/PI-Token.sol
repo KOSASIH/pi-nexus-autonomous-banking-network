@@ -9,7 +9,7 @@ contract PIToken {
 
     string public name = "PI Token";
     string public symbol = "PI";
-    uint256 public totalSupply = 100000000000 * (10**18); // 100 million tokens
+    uint256 public totalSupply = 100000000 * (10**18); // 100 million tokens
     uint256 public decimals = 18;
 
     mapping (address => uint256) public balances;
