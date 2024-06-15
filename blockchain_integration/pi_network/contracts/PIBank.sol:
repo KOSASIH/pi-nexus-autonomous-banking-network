@@ -1,0 +1,43 @@
+pragma solidity ^0.8.0;
+
+import "https://github.com/OpenZeppelin/openzeppelin-solidity/contracts/math/SafeMath.sol";
+import "https://github.com/OpenZeppelin/openzeppelin-solidity/contracts/access/Ownable.sol";
+import "./PIBankLib.sol";
+
+contract PIBank is Ownable {
+    using SafeMath for uint256;
+
+    // Mapping of user accounts
+    mapping (address => Account) public accounts;
+
+    // Event emitted when a new account is created
+    event NewAccount(address indexed user, uint256 balance);
+
+    // Event emitted when a transaction is processed
+    event TransactionProcessed(address indexed from, address indexed to, uint256 amount);
+
+    // Create a new account
+    function createAccount(address user) public onlyOwner {
+        require(accounts[user] == 0, "Account already exists");
+        accounts[user] = Account(0, 0);
+        emit NewAccount(user, 0);
+    }
+
+    // Process a transaction
+    function processTransaction(address from, address to, uint256 amount) public {
+        require(accounts[from].balance >= amount, "Insufficient balance");
+        accounts[from].balance = accounts[from].balance.sub(amount);
+        accounts[to].balance = accounts[to].balance.add(amount);
+        emit TransactionProcessed(from, to, amount);
+    }
+
+    // Get account balance
+    function getBalance(address user) public view returns (uint256) {
+        return accounts[user].balance;
+    }
+}
+
+struct Account {
+    uint256 balance;
+    uint256 transactionCount;
+}
