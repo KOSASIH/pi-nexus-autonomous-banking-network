@@ -124,4 +124,23 @@ contract PIBank {
         gamificationAddress.claimReward(amount);
         emit GamificationReward(msg.sender, amount);
     }
+
+     struct Bank {
+     address bankAddress;
+     uint256 totalDeposits;
+     }
+
+      mapping (address => Bank) public banks;
+
+      function addBank(address _bankAddress) public onlyOwner {
+          require(_bankAddress != address(0), "Invalid address");
+
+          Bank memory newBank;
+          newBank.bankAddress = _bankAddress;
+          newBank.totalDeposits = 0;
+
+          banks[_bankAddress] = newBank;
+
+          emit BankAdded(_bankAddress);
+     }
 }
