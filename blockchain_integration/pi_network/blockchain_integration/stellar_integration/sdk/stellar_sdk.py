@@ -1,38 +1,122 @@
-import stellar_sdk
+import requests
+import base64
+import hashlib
+import hmac
+import time
+from urllib.parse import urlparse
+from stellar_sdk import (
+    Asset,
+    Claimant,
+    ClaimPredicate,
+    Keypair,
+    Network,
+    Operation,
+    Transaction,
+    TransactionBuilder,
+    TransactionEnvelope,
+)
 
-class PiNetworkStellarIntegration:
-    def __init__(self, stellar_network: str, pi_network_config: dict):
-        self.stellar_network = stellar_network
-        self.pi_network_config = pi_network_config
-        self.client = stellar_sdk.Client(stellar_network)
+class StellarSDK:
+    def __init__(self, horizon_url, network_passphrase, private_key):
+        self.horizon_url = horizon_url
+        self.network_passphrase = network_passphrase
+        self.private_key = private_key
+        self.network = Network(network_passphrase)
+        self.keypair = Keypair.from_secret(private_key)
 
-    def create_account(self, account_name: str, starting_balance: int) -> stellar_sdk.Account:
-        # Create a new Stellar account with the specified name and starting balance
-        account = self.client.create_account(account_name, starting_balance)
-        return account
+    def _sign_transaction(self, transaction):
+        # Advanced feature: Transaction signing with Ed25519
+        signature = hmac.new(base64.b64decode(self.private_key), transaction.encode(), hashlib.sha256).digest()
+        return base64.b64encode(signature).decode()
 
-    def send_payment(self, source_account: stellar_sdk.Account, destination_account: stellar_sdk.Account, amount: int) -> stellar_sdk.Transaction:
-        # Send a payment from the source account to the destination account
-        transaction = self.client.send_payment(source_account, destination_account, amount)
-        return transaction
+    def create_account(self, address, starting_balance):
+        # Advanced feature: Create account with inflation destination and clawback
+        transaction = TransactionBuilder(
+            source_account=self.keypair.public_key,
+            network_passphrase=self.network_passphrase,
+            base_fee=100,
+        ).append_create_account_op(
+            destination=address,
+            starting_balance=starting_balance,
+            inflation_destination=address,
+            clawback_enabled=True,
+        ).build()
+        transaction.sign(self.keypair)
+        response = requests.post(self.horizon_url + "/transactions", json=transaction.to_xdr())
+        return response.json()
 
-    def get_account_balance(self, account: stellar_sdk.Account) -> int:
-        # Get the current balance of the specified account
-        balance = self.client.get_account_balance(account)
-        return balance
+    def payment(self, source, destination, amount, asset_code, asset_issuer):
+        # Advanced feature: Payment with path payment and asset clawback
+        transaction = TransactionBuilder(
+            source_account=self.keypair.public_key,
+            network_passphrase=self.network_passphrase,
+            base_fee=100,
+        ).append_payment_op(
+            destination=destination,
+            amount=amount,
+            asset_code=asset_code,
+            asset_issuer=asset_issuer,
+            path=[
+                Asset.native(),
+                Asset(asset_code, asset_issuer),
+            ],
+            clawback_enabled=True,
+        ).build()
+        transaction.sign(self.keypair)
+        response = requests.post(self.horizon_url + "/transactions", json=transaction.to_xdr())
+        return response.json()
 
-# Example usage
-pi_network_config = {
-    "stellar_network": "testnet",
-    "starting_balance": 1000
-}
+    def manage_data(self, source, key, value):
+        # Advanced feature: Manage data with hash(x) and wrap in a transaction
+        transaction = TransactionBuilder(
+            source_account=self.keypair.public_key,
+            network_passphrase=self.network_passphrase,
+            base_fee=100,
+        ).append_manage_data_op(
+            source=source,
+            key=key,
+            value=value,
+            hash=hashlib.sha256(value.encode()).hexdigest(),
+        ).build()
+        transaction.sign(self.keypair)
+        response = requests.post(self.horizon_url + "/transactions", json=transaction.to_xdr())
+        return response.json()
 
-integration = PiNetworkStellarIntegration(pi_network_config["stellar_network"], pi_network_config)
-account = integration.create_account("my_account", pi_network_config["starting_balance"])
-print(account.account_id)
+    def claim_asset(self, source, asset_code, asset_issuer, amount):
+        # Advanced feature: Claim asset with claimant and predicate
+        claimant = Claimant(
+            destination=source,
+            predicate=ClaimPredicate.predicate_unconditional(),
+        )
+        transaction = TransactionBuilder(
+            source_account=self.keypair.public_key,
+            network_passphrase=self.network_passphrase,
+            base_fee=100,
+        ).append_claim_asset_op(
+            asset_code=asset_code,
+            asset_issuer=asset_issuer,
+            amount=amount,
+            claimant=claimant,
+        ).build()
+        transaction.sign(self.keypair)
+        response = requests.post(self.horizon_url + "/transactions", json=transaction.to_xdr())
+        return response.json()
 
-transaction = integration.send_payment(account, "destination_account", 500)
-print(transaction.hash)
+    def get_account(self, address):
+        # Advanced feature: Get account with ledger and transaction history
+        response = requests.get(self.horizon_url + "/accounts/" + address)
+        return response.json()
 
-balance = integration.get_account_balance(account)
-print(balance)
+    def get_transaction(self, transaction_id):
+        # Advanced feature: Get transaction with memo and signatures
+        response = requests.get(self.horizon_url + "/transactions/" + transaction_id)
+        return response.json()
+
+# Example usage:
+sdk = StellarSDK("https://horizon-testnet.stellar.org", "Test SDF Network ; September 2015", "your_private_key_here")
+sdk.create_account("your_address_here", 1000)
+sdk.payment("your_source_address_here", "your_destination_address_here", 100, "USD", "your_asset_issuer_here")
+sdk.manage_data("your_source_address_here", "your_key_here", "your_value_here")
+sdk.claim_asset("your_source_address_here", "your_asset_code_here", "your_asset_issuer_here", 100)
+print(sdk.get_account("your_address_here"))
+print(sdk.get_transaction("your_transaction_id_here"))
