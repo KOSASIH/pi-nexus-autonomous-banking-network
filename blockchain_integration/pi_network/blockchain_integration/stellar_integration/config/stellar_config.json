@@ -1,0 +1,8 @@
+{
+  "stellar_network": "testnet",
+  "horizon_url": "https://horizon-testnet.stellar.org",
+  "network_passphrase": "Test SDF Network ; September 2015",
+  "wallet_secret_key": "SBFZCHU5645VXmjaiyUJRLQW47NT7Z5nohDqtJT6XWV",
+  "wallet_public_key": "GCEZWKCA5VLDNRLN3RPRJMRZOX3Z6G5CHVG2NIX",
+  "transaction_fee": 100
+}
