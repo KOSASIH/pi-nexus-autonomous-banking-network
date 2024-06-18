@@ -1,0 +1,7 @@
+"Transaction Date","Transaction Amount","Account Balance","Account Holder"
+"2022-01-01",0.1,0.5,"John Doe"
+"2022-01-02",0.05,0.45,"Jane Doe"
+"2022-01-03",0.2,0.65,"John Doe"
+"2022-01-04",0.075,0.575,"Jane Doe"
+"2022-01-05",0.3,0.85,"John Doe"
+...
