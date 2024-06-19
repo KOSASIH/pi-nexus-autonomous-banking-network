@@ -1,27 +1,41 @@
 {
-  "name": "logistics-app",
+  "name": "smartship",
   "version": "1.0.0",
-  "description": "A logistics management application",
-  "main": "app.js",
+  "description": "A decentralized logistic system for managing shipments and transactions",
+  "main": "index.js",
   "scripts": {
-    "start": "node app.js",
-    "dev": "nodemon app.js",
-    "test": "jest"
+    "start": "nodemon index.js",
+    "test": "mocha test/**/*.test.js"
   },
-  "keywords": [],
-  "author": "KOSASIH",
-  "license": "MIT",
   "dependencies": {
-    "express": "^4.17.1",
-    "cors": "^2.8.5",
-    "helmet": "^4.6.0",
-    "mongoose": "^5.10.18",
+    "apollo-server-express": "^3.6.2",
     "bcrypt": "^5.0.1",
-    "jsonwebtoken": "^8.5.1",
+    "body-parser": "^1.19.1",
+    "cors": "^2.8.5",
+    "date-fns": "^2.23.0",
+    "express": "^4.17.2",
+    "graphql": "^15.5.0",
+    "mongoose": "^6.0.14",
+    "nodemon": "^2.0.13",
     "uuid": "^8.3.2",
-    "jest": "^26.6.3"
+    "web3": "^1.5.2"
   },
   "devDependencies": {
-    "nodemon": "^2.0.7"
-  }
+    "chai": "^4.3.4",
+    "mocha": "^9.1.2",
+    "sinon": "^12.0.1",
+    "sinon-chai": "^3.5.0"
+  },
+  "author": "KOSASIH",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KOSASIH/pi-nexus-autonomous-banking-network.git"
+  },
+  "keywords": [
+    "blockchain",
+    "logistics",
+    "decentralized",
+    "smartship"
+  ]
 }
