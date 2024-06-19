@@ -33,7 +33,7 @@ class EthereumChain:
     async def get_balance(self, address):
         try:
             response = requests.post(self.rpc_url, json={"jsonrpc": "2.0", "method": "eth_getBalance", "params": [address], "id": 1})
-            return response.json()['result']
+            return Web3.fromWei(response.json()['result'], 'ether')
         except requests.exceptions.RequestException as e:
             logger.error(f"Error fetching balance for {address}: {e}")
             return None
@@ -55,7 +55,7 @@ class BinanceSmartChain:
     async def get_balance(self, address):
         try:
             response = requests.post(self.rpc_url, json={"jsonrpc": "2.0", "method": "eth_getBalance", "params": [address], "id": 1})
-            return response.json()['result']
+            return Web3.fromWei(response.json()['result'], 'ether')
         except requests.exceptions.RequestException as e:
             logger.error(f"Error fetching balance for {address}: {e}")
             return None
@@ -79,7 +79,7 @@ class SolanaChain:
     async def get_balance(self, address):
         try:
             response = requests.post(self.rpc_url, json={"jsonrpc": "2.0", "method": "getBalance", "params": [address], "id": 1})
-            return response.json()['result']
+            return response.json()['result']['value']
         except requests.exceptions.RequestException as e:
             logger.error(f"Error fetching balance for {address}: {e}")
             return None
