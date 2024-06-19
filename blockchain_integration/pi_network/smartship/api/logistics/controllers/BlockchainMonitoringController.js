@@ -11,3 +11,5 @@ class BlockchainMonitoringController {
       const analyzedTransactions = analyzeTransactions(transactions);
       res.json({ analyzedTransactions });
     });
+}
+}
