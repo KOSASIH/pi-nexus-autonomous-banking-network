@@ -1,6 +1,6 @@
-# Decentralized Logistic System
+# SmartShip Decentralized Logistic System
 
-Welcome to the Decentralized Logistic System, a blockchain-based solution for logistics management. This system utilizes smart contracts to facilitate secure, transparent, and efficient logistics operations.
+Welcome to the SmartShip Decentralized Logistic System, a blockchain-based solution for logistics management. This system utilizes smart contracts to facilitate secure, transparent, and efficient logistics operations.
 
 ## Features
 
