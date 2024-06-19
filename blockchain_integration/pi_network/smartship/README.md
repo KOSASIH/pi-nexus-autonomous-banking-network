@@ -12,7 +12,7 @@ Welcome to the SmartShip Decentralized Logistic System, a blockchain-based solut
 
 ## Installation
 
-To install the Decentralized Logistic System, follow these steps:
+To install the SmartShip Decentralized Logistic System, follow these steps:
 
 1. Clone the repository: `git clone https://github.com/KOSASIH/pi-nexus-autonomous-banking-network.git`
 2. Install the dependencies: `npm install`
@@ -22,7 +22,7 @@ To install the Decentralized Logistic System, follow these steps:
 
 ## Usage
 
-To use the Decentralized Logistic System, follow these steps:
+To use the SmartShip Decentralized Logistic System, follow these steps:
 
 1. Create a new shipment: `curl -X POST -H "Content-Type: application/json" -d '{"shipmentData": {"from": "New York", "to": "Los Angeles", "weight": 10}}' http://localhost:3000/api/shipments`
 2. Track a shipment: `curl -X GET http://localhost:3000/api/shipments/:id`
@@ -30,7 +30,7 @@ To use the Decentralized Logistic System, follow these steps:
 
 ## Contributing
 
-Contributions are welcome! To contribute to the Decentralized Logistic System, follow these steps:
+Contributions are welcome! To contribute to the SmartShip Decentralized Logistic System, follow these steps:
 
 1. Fork the repository: `git fork https://github.com/KOSASIH/pi-nexus-autonomous-banking-network.git`
 2. Create a new branch: `git checkout -b my-feature`
@@ -40,7 +40,7 @@ Contributions are welcome! To contribute to the Decentralized Logistic System, f
 
 ## License
 
-The Decentralized Logistic System is licensed under the MIT License.
+The Decentralized Logistic System is licensed under the MIT License PiOS.
 
 ## Authors
 
