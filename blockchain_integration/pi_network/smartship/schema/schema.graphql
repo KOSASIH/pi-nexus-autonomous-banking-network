@@ -1,0 +1,58 @@
+# Define the schema
+schema {
+  query: Query
+  mutation: Mutation
+}
+
+# Define the Query type
+type Query {
+  # Get an account by address
+  account(address: String!): Account
+
+  # Get a transaction by hash
+  transaction(hash: String!): Transaction
+
+  # Get a list of all accounts
+  accounts: [Account]
+
+  # Get a list of all transactions
+  transactions: [Transaction]
+}
+
+# Define the Mutation type
+type Mutation {
+  # Create a new account
+  createAccount(address: String!, initialBalance: Int!): Account
+
+  # Send a transaction
+  sendTransaction(from: String!, to: String!, amount: Int!): Transaction
+
+  # Update an account balance
+  updateAccountBalance(address: String!, newBalance: Int!): Account
+}
+
+# Define the Account type
+type Account {
+  address: String!
+  balance: Int!
+  transactionHistory: [Transaction]
+}
+
+# Define the Transaction type
+type Transaction {
+  hash: String!
+  from: String!
+  to: String!
+  amount: Int!
+  timestamp: DateTime!
+}
+
+# Define a custom scalar type for DateTime
+scalar DateTime
+
+# Define a custom enum type for TransactionStatus
+enum TransactionStatus {
+  PENDING
+  CONFIRMED
+  REJECTED
+}
