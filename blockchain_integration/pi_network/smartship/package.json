@@ -8,7 +8,7 @@
     "dev": "nodemon app.js",
     "test": "jest"
   },
-  "keywords": [SmartShip, Logistic],
+  "keywords": [],
   "author": "KOSASIH",
   "license": "MIT",
   "dependencies": {
