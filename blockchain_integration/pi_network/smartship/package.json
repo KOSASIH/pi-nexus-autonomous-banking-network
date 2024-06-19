@@ -1,0 +1,27 @@
+{
+  "name": "logistics-app",
+  "version": "1.0.0",
+  "description": "A logistics management application",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "cors": "^2.8.5",
+    "helmet": "^4.6.0",
+    "mongoose": "^5.10.18",
+    "bcrypt": "^5.0.1",
+    "jsonwebtoken": "^8.5.1",
+    "uuid": "^8.3.2",
+    "jest": "^26.6.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
