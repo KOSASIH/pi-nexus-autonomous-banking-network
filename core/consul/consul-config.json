@@ -1,0 +1,21 @@
+// consul-config.json
+{
+  "datacenter": "dc1",
+  "data_dir": "/var/consul",
+  "encrypt": "dGhlIHN0cmluZyBmb3IgZW5jcnlwdGlvbiA=",
+  "retry_join": ["localhost:8301"],
+  "service": {
+    "name": "pi-nexus-autonomous-banking-network",
+    "port": 8080,
+    "check": {
+      "name": "HTTP API on port 8080",
+      "http": "http://localhost:8080/health",
+      "interval": "10s"
+    }
+  },
+  "kv": {
+    "store": {
+      "path": "/var/consul/kv"
+    }
+  }
+}
