@@ -1,20 +1,32 @@
-from stellar_sdk import Server, Network, Keypair
+import hashlib
+import base64
+from stellar_sdk import Server, TransactionBuilder, Asset, Keypair
 
-def get_stellar_client(stellar_network: str):
-    """Return a Stellar SDK server instance for the specified network"""
-    if stellar_network == "testnet":
-        server = Server("https://horizon-testnet.stellar.org")
-    elif stellar_network == "mainnet":
-        server = Server("https://horizon.stellar.org")
-    else:
-        raise ValueError(f"Invalid Stellar network: {stellar_network}")
-    return server
+def generate_keypair():
+    return Keypair.random()
 
-def get_account_sequence(account_id: str, stellar_client):
-    """Return the sequence number of the specified Stellar account"""
-    account = stellar_client.account(account_id)
-    return account.sequence
+def get_account_info(account_id):
+    server = Server(horizon_url="https://horizon.stellar.org")
+    account = server.accounts().account_id(account_id).call()
+    return account
 
-def get_keypair_from_seed(seed: str):
-    """Return a Stellar SDK keypair instance from the specified seed"""
-    return Keypair.from_seed(seed)
+def create_transaction(source, destination, asset, amount):
+    transaction = TransactionBuilder(
+        source_account=source,
+        network_passphrase=network_passphrase,
+        base_fee=fee
+    ).append_payment_op(
+        destination=destination,
+        asset_code=asset,
+        amount=str(amount)
+    ).build()
+    return transaction
+
+def sign_transaction(transaction, keypair):
+    transaction.sign(keypair)
+    return transaction
+
+def submit_transaction(transaction):
+    server = Server(horizon_url="https://horizon.stellar.org")
+    response = server.submit_transaction(transaction)
+    return response
