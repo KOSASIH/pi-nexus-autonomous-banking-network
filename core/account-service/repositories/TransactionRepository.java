@@ -1,29 +1,53 @@
 // TransactionRepository.java
-import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.cloud.stream.annotation.EnableBinding;
+import org.springframework.cloud.stream.annotation.StreamListener;
+import org.springframework.cloud.stream.messaging.Sink;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+import io.opentracing.Tracer;
 
 @Repository
+@EnableBinding(Sink.class)
 public class TransactionRepository {
     private final TransactionDAO transactionDAO;
-    private final KafkaTemplate<String, TransactionEvent> kafkaTemplate;
+    private final Sink sink;
+    private final Tracer tracer;
 
-    public TransactionRepository(TransactionDAO transactionDAO, KafkaTemplate<String, TransactionEvent> kafkaTemplate) {
+    public TransactionRepository(TransactionDAO transactionDAO, Sink sink, Tracer tracer) {
         this.transactionDAO = transactionDAO;
-        this.kafkaTemplate = kafkaTemplate;
+        this.sink = sink;
+        this.tracer = tracer;
     }
 
     @Transactional
+    @StreamListener
     public void createTransaction(Transaction transaction) {
-        transactionDAO.createTransaction(transaction);
-        TransactionEvent event = new TransactionEvent(transaction);
-        kafkaTemplate.send("transactions", event);
+        Span span = tracer.buildSpan("createTransaction").start();
+        try {
+            transactionDAO.createTransaction(transaction);
+            sink.input().send(MessageBuilder.withPayload(new TransactionEvent(transaction)).build());
+            span.setTag("success", true);
+        } catch (Exception e) {
+            span.setTag("success", false);
+            span.log(e.getMessage());
+        } finally {
+            span.finish();
+        }
     }
 
     @Transactional
+    @StreamListener
     public void updateTransaction(Transaction transaction) {
-        transactionDAO.updateTransaction(transaction);
-        TransactionEvent event = new TransactionEvent(transaction);
-        kafkaTemplate.send("transactions", event);
+        Span span = tracer.buildSpan("updateTransaction").start();
+        try {
+            transactionDAO.updateTransaction(transaction);
+            sink.input().send(MessageBuilder.withPayload(new TransactionEvent(transaction)).build());
+            span.setTag("success", true);
+        } catch (Exception e) {
+            span.setTag("success", false);
+            span.log(e.getMessage());
+        } finally {
+            span.finish();
+        }
     }
-}
+            }
