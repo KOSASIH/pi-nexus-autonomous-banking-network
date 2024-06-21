@@ -1,0 +1,4 @@
+[stellar]
+horizon_url = "https://horizon.stellar.org"
+network_passphrase = "Public Global Stellar Network ; September 2015"
+fee = 100
