@@ -1,37 +1,47 @@
-import torch
-import torch.nn as nn
-import torch.optim as optim
-from torch_geometric.nn import GCNConv
-from torch_geometric.data import Data
+import pandas as pd
+import numpy as np
+from sklearn.preprocessing import StandardScaler
+from keras.models import Sequential
+from keras.layers import Dense, Dropout
 
-class FraudDetector(nn.Module):
-    def __init__(self, num_layers, hidden_dim):
-        super(FraudDetector, self).__init__()
-        self.conv_layers = nn.ModuleList([GCNConv(hidden_dim, hidden_dim) for _ in range(num_layers)])
+class FraudDetector:
+  def __init__(self, data):
+    self.data = data
+    self.scaler = StandardScaler()
+    self.model = self.create_model()
 
-    def forward(self, x, edge_index):
-        for conv in self.conv_layers:
-            x = torch.relu(conv(x, edge_index))
-        return x
+  def create_model(self):
+    model = Sequential()
+    model.add(Dense(64, activation='relu', input_shape=(self.data.shape[1],)))
+    model.add(Dropout(0.2))
+    model.add(Dense(32, activation='relu'))
+    model.add(Dropout(0.2))
+    model.add(Dense(1, activation='sigmoid'))
+    model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
+    return model
 
-# Load the graph data
-data = Data(x=torch.tensor([[1, 2], [3, 4], [5, 6]]), edge_index=torch.tensor([[0, 1], [1, 2], [2, 0]]))
+  def train_model(self):
+    X = self.data.drop(['is_fraud'], axis=1)
+    y = self.data['is_fraud']
+    X_scaled = self.scaler.fit_transform(X)
+    self.model.fit(X_scaled, y, epochs=10, batch_size=32, validation_split=0.2)
 
-# Create the fraud detector model
-model = FraudDetector(num_layers=2, hidden_dim=16)
+  def predict_fraud(self, transaction):
+    X = pd.DataFrame([transaction], columns=self.data.columns[:-1])
+    X_scaled = self.scaler.transform(X)
+    prediction = self.model.predict(X_scaled)
+    return prediction[0]
+
+# Load the data
+data = pd.read_csv('fraud_data.csv')
+
+# Create the fraud detector
+fraud_detector = FraudDetector(data)
 
 # Train the model
-criterion = nn.CrossEntropyLoss()
-optimizer = optim.Adam(model.parameters(), lr=0.01)
+fraud_detector.train_model()
 
-for epoch in range(100):
-    optimizer.zero_grad()
-    output = model(data.x, data.edge_index)
-    loss = criterion(output, torch.tensor([0, 1, 0]))
-    loss.backward()
-    optimizer.step()
-    print(f'Epoch {epoch+1}, Loss: {loss.item()}')
-
-# Use the trained model to detect fraud
-output = model(data.x, data.edge_index)
-print(output)
+# Use the trained model to predict fraud
+transaction = {'amount': 1000, 'country': 'USA', 'card_type': 'VISA'}
+prediction = fraud_detector.predict_fraud(transaction)
+print(f'Fraud prediction: {prediction}')
