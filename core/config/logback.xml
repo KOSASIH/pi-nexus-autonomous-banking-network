@@ -1,0 +1,12 @@
+<!-- logback.xml -->
+<configuration>
+  <appender name="KAFKA" class="ch.qos.logback.more.appenders.KafkaAppender">
+    <topic>pi-nexus-autonomous-banking-network-logs</topic>
+    <bootstrap.servers>localhost:9092</bootstrap.servers>
+    <key.serializer>org.springframework.kafka.support.serializer.StringSerializer</key.serializer>
+    <value.serializer>org.springframework.kafka.support.serializer.StringSerializer</value.serializer>
+  </appender>
+  <root level="INFO">
+    <appender-ref ref="KAFKA" />
+  </root>
+</configuration>
