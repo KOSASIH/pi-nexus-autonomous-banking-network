@@ -1,39 +1,15 @@
-import stellar_sdk
+import unittest
+from pi_network.pi_network import PiNetwork
+from stellar_integration.stellar_integration import StellarIntegration
 
-class StellarIntegration:
-    def __init__(self):
-        self.stellar_sdk = stellar_sdk.Client()
+class TestIntegration(unittest.TestCase):
+    def test_pi_network_stellar_integration(self):
+        pn = PiNetwork()
+        si = StellarIntegration()
+        pn.set_stellar_integration(si)
+        account_id = "GA...123"
+        balance = pn.get_account_balance(account_id)
+        self.assertIsNotNone(balance)
 
-    def get_account_balance(self, account_id):
-        try:
-            account = self.stellar_sdk.account(account_id)
-            balance = account.balances[0].balance
-            return balance
-        except stellar_sdk.exceptions.NotFoundError:
-            logging.error(f"Account not found: {account_id}")
-            return None
-        except stellar_sdk.exceptions.RequestError as e:
-            logging.error(f"Error fetching account balance: {e}")
-            return None
-
-    def send_transaction(self, source_account_id, dest_account_id, amount, memo):
-        try:
-            tx = self.stellar_sdk.Transaction(
-                source_account=source_account_id,
-                destination_account=dest_account_id,
-                amount=amount,
-                memo=memo
-            )
-            tx_hash = tx.hash
-            return tx_hash
-        except stellar_sdk.exceptions.RequestError as e:
-            logging.error(f"Error sending transaction: {e}")
-            return None
-
-    def get_transaction_history(self, account_id):
-        try:
-            tx_history = self.stellar_sdk.transactions(account_id)
-            return tx_history
-        except stellar_sdk.exceptions.RequestError as e:
-            logging.error(f"Error fetching transaction history: {e}")
-            return None
+if __name__ == '__main__':
+    unittest.main()
