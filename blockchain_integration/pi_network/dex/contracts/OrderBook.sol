@@ -39,4 +39,35 @@ contract OrderBook {
         emit NewOrder(msg.sender, _amount, _price);
     }
 
-   
+   /**
+     * @dev Fills an order on the order book
+     * @param _user The user who placed the order
+     * @param _amount The amount of tokens to fill
+     * @param _price The price of the tokens
+     */
+    function fillOrder(address _user, uint256 _amount, uint256 _price) public {
+        Order storage order = orders[_user][_amount];
+        require(order.amount == _amount && order.price == _price, "Invalid order");
+        delete orders[_user][_amount];
+        emit FillOrder(_user, _amount, _price);
+    }
+
+    /**
+     * @dev Cancels an order on the order book
+     * @param _amount The amount of tokens to cancel
+     */
+    function cancelOrder(uint256 _amount) public {
+        delete orders[msg.sender][_amount];
+        emit CancelOrder(msg.sender, _amount);
+    }
+
+    /**
+     * @dev Off-chain matching function to match buy and sell orders
+     * @param _buyOrders The buy orders to match
+     * @param _sellOrders The sell orders to match
+     */
+    function matchOrders(Order[] memory _buyOrders, Order[] memory _sellOrders) public {
+        // Off-chain matching logic goes here
+        //...
+    }
+}
