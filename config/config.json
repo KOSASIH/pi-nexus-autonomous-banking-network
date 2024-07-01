@@ -1,0 +1,18 @@
+{
+  "network": {
+    "nodes": 5,
+    "node_ip": "192.168.1.100"
+  },
+  "docker": {
+    "image": "pi-nexus-autonomous-banking-network",
+    "container_name": "pi-nexus-autonomous-banking-network"
+  },
+  "blockchain": {
+    "network_id": 1234,
+    "gas_price": 20
+  },
+  "machine_learning": {
+    "model": "random_forest",
+    "training_data": "data/training_data.csv"
+  }
+}
