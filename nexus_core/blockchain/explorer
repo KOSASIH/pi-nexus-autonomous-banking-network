@@ -1,0 +1,15 @@
+import web3 from './blockchain';
+
+const explorer = {
+  async getBlockByNumber(blockNumber) {
+    const block = await web3.eth.getBlock(blockNumber);
+    return block;
+  },
+
+  async getTransactionByHash(txHash) {
+    const tx = await web3.eth.getTransaction(txHash);
+    return tx;
+  },
+};
+
+export default explorer;
