@@ -1,14 +1,14 @@
 // expert_system.js
-import * as expertSystem from 'expert-system';
+import * as expertSystem from "expert-system";
 
 const knowledgeBase = [
   {
-    condition: 'temperature > 30',
-    action: 'turn on air conditioner',
+    condition: "temperature > 30",
+    action: "turn on air conditioner",
   },
   {
-    condition: 'temperature < 20',
-    action: 'turn on heater',
+    condition: "temperature < 20",
+    action: "turn on heater",
   },
 ];
 
