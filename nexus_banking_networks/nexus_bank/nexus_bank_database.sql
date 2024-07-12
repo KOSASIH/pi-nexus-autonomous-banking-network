@@ -1,0 +1,12 @@
+CREATE TABLE transactions (
+  id SERIAL PRIMARY KEY,
+  account_number VARCHAR(255) NOT NULL,
+  amount DECIMAL(10, 2) NOT NULL,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE accounts (
+  id SERIAL PRIMARY KEY,
+  account_number VARCHAR(255) NOT NULL,
+  balance DECIMAL(10, 2) NOT NULL DEFAULT 0.00
+);
