@@ -14,10 +14,10 @@ import (
 
 type BlockchainTransaction struct {
 	TransactionID string
-	Amount       int
-	Timestamp    time.Time
-	Sender       string
-	Receiver     string
+	Amount        int
+	Timestamp     time.Time
+	Sender        string
+	Receiver      string
 }
 
 func (t *BlockchainTransaction) Serialize() []byte {
@@ -56,10 +56,10 @@ func main() {
 	// Create a new transaction
 	transaction := &BlockchainTransaction{
 		TransactionID: "1",
-		Amount:       100,
-		Timestamp:    time.Now(),
-		Sender:       "Alice",
-		Receiver:     "Bob",
+		Amount:        100,
+		Timestamp:     time.Now(),
+		Sender:        "Alice",
+		Receiver:      "Bob",
 	}
 
 	// Hash the transaction
