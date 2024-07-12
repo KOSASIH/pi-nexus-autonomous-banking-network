@@ -1,9 +1,11 @@
 # natural_language_processing.py
 import nltk
-from nltk.tokenize import word_tokenize
 from nltk.sentiment import SentimentIntensityAnalyzer
+from nltk.tokenize import word_tokenize
+
 
 class NaturalLanguageProcessing:
+
     def __init__(self):
         self.sia = SentimentIntensityAnalyzer()
 
