@@ -2,9 +2,11 @@
 import hashlib
 import hmac
 
+
 class CyberSecurity:
+
     def __init__(self):
-        self.secret_key = b'secret_key'
+        self.secret_key = b"secret_key"
 
     def generate_hash(self, data):
         return hashlib.sha256(data.encode()).hexdigest()
@@ -16,4 +18,4 @@ class CyberSecurity:
         return data.encode() + self.secret_key
 
     def decrypt_data(self, encrypted_data):
-        return encrypted_data[:-len(self.secret_key)].decode()
+        return encrypted_data[: -len(self.secret_key)].decode()
