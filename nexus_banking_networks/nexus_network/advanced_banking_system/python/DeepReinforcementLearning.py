@@ -1,8 +1,10 @@
 # DeepReinforcementLearning.py
-import tensorflow as tf
 import numpy as np
+import tensorflow as tf
+
 
 class DeepReinforcementLearning:
+
     def __init__(self, state_dim, action_dim, learning_rate):
         self.state_dim = state_dim
         self.action_dim = action_dim
