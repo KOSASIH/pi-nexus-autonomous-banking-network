@@ -11,7 +11,7 @@ func main() {
 	// Generate a random key
 	key := make([]byte, 32)
 	_, err := rand.Read(key)
-	if err!= nil {
+	if err != nil {
 		fmt.Println(err)
 		return
 	}
