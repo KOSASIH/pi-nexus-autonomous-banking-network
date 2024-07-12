@@ -9,9 +9,9 @@ import (
 )
 
 type Transaction struct {
-	From     string
-	To       string
-	Amount   int
+	From      string
+	To        string
+	Amount    int
 	Signature []byte
 }
 
@@ -23,9 +23,9 @@ func main() {
 	}
 
 	tx := Transaction{
-		From:     "Alice",
-		To:       "Bob",
-		Amount:   10,
+		From:      "Alice",
+		To:        "Bob",
+		Amount:    10,
 		Signature: nil,
 	}
 
