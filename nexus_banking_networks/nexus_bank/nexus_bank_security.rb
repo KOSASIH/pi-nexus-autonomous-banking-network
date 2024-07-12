@@ -1,4 +1,4 @@
-require 'bcrypt'
+require "bcrypt"
 
 class Security
   def self.hash_password(password)
