@@ -1,20 +1,24 @@
-const tf = require('@tensorflow/tfjs');
+const tf = require("@tensorflow/tfjs");
 
 class MachineLearning {
-    constructor() {
-        this.model = tf.sequential();
-        this.model.add(tf.layers.dense({ units: 10, inputShape: [784] }));
-        this.model.add(tf.layers.dense({ units: 10 }));
-        this.model.compile({ optimizer: tf.optimizers.adam(), loss: 'categoricalCrossentropy', metrics: ['accuracy'] });
-    }
+  constructor() {
+    this.model = tf.sequential();
+    this.model.add(tf.layers.dense({ units: 10, inputShape: [784] }));
+    this.model.add(tf.layers.dense({ units: 10 }));
+    this.model.compile({
+      optimizer: tf.optimizers.adam(),
+      loss: "categoricalCrossentropy",
+      metrics: ["accuracy"],
+    });
+  }
 
-    train(X, y) {
-        this.model.fit(X, y, { epochs: 10 });
-    }
+  train(X, y) {
+    this.model.fit(X, y, { epochs: 10 });
+  }
 
-    predict(X) {
-        return this.model.predict(X);
-    }
+  predict(X) {
+    return this.model.predict(X);
+  }
 }
 
 const ml = new MachineLearning();
