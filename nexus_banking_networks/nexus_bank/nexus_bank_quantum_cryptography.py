@@ -1,8 +1,10 @@
 import numpy as np
-from qiskit import QuantumCircuit, execute
 from cryptography.hazmat.primitives import serialization
+from qiskit import QuantumCircuit, execute
+
 
 class QuantumCryptography:
+
     def __init__(self, num_qubits):
         self.num_qubits = num_qubits
         self.circuit = QuantumCircuit(num_qubits)
@@ -18,6 +20,7 @@ class QuantumCryptography:
     def decrypt(self, ciphertext, key):
         # Decrypt the ciphertext using the quantum key
         pass
+
 
 qc = QuantumCryptography(4)
 key = qc.generate_key()
