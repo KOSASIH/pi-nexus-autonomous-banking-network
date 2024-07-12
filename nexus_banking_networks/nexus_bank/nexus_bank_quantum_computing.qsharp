@@ -1,0 +1,55 @@
+namespace NexusBank.QuantumComputing {
+    open Microsoft.Quantum.Canon;
+    open Microsoft.Quantum.Intrinsic;
+
+    operation QuantumSimulation(
+        numQubits: Int,
+        numIterations: Int,
+        hamiltonian: Microsoft.Quantum.Simulation.Hamiltonian
+    ) : Result {
+        using (qubits = Qubit[numQubits]) {
+            // Initialize the qubits
+            ApplyToEach(H, qubits);
+
+            // Evolve the system under the Hamiltonian
+            for (i in 1..numIterations) {
+                ApplyHamiltonian(hamiltonian, qubits, i);
+            }
+
+            // Measure the qubits
+            let results = Measure(qubits);
+            Reset(qubits);
+            return results;
+        }
+    }
+
+    operation ApplyHamiltonian(
+        hamiltonian: Microsoft.Quantum.Simulation.Hamiltonian,
+        qubits: Qubit[],
+        iteration: Int
+    ) : Unit {
+        // Apply the Hamiltonian to the qubits
+        for (term in hamiltonian_TERMS) {
+            ApplyPauli(term.Pauli, qubits, term.Coefficient);
+        }
+    }
+
+    operation ApplyPauli(
+        pauli: Microsoft.Quantum.Simulation.Pauli,
+        qubits: Qubit[],
+        coefficient: Double
+    ) : Unit {
+        // Apply the Pauli operator to the qubits
+        switch (pauli) {
+            case PauliX:
+                ApplyX(qubits);
+                break;
+            case PauliY:
+                ApplyY(qubits);
+                break;
+            case PauliZ:
+                ApplyZ(qubits);
+                break;
+        }
+    }
+}
