@@ -3,6 +3,7 @@ import pennylane as qml
 import torch
 from torch import nn
 
+
 class QuantumAIModel(nn.Module):
     def __init__(self, num_qubits, num_classes):
         super(QuantumAIModel, self).__init__()
@@ -19,5 +20,6 @@ class QuantumAIModel(nn.Module):
     def fc(self, x):
         x = torch.nn.Linear(x.shape[1], self.num_classes)(x)
         return x
+
 
 model = QuantumAIModel(4, 2)
