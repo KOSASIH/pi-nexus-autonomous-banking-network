@@ -2,6 +2,7 @@
 import face_recognition
 import numpy as np
 
+
 class BiometricAuthentication:
     def __init__(self):
         self.known_faces = []
@@ -12,5 +13,7 @@ class BiometricAuthentication:
 
     def authenticate(self, image):
         unknown_face_encoding = face_recognition.face_encodings(image)[0]
-        results = face_recognition.compare_faces(self.known_faces, unknown_face_encoding)
+        results = face_recognition.compare_faces(
+            self.known_faces, unknown_face_encoding
+        )
         return results
