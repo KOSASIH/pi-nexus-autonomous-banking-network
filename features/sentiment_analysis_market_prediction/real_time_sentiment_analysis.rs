@@ -8,6 +8,8 @@ struct RealTimeSentimentAnalysis {
 impl RealTimeSentimentAnalysis {
     fn new() -> Self {
         // Implement real-time sentiment analysis and market prediction using streaming data here
-        Self { sd: StreamingData::new() }
+        Self {
+            sd: StreamingData::new(),
+        }
     }
 }
