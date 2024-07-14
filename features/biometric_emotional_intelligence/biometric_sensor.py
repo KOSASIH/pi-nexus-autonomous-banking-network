@@ -1,10 +1,13 @@
 # biometric_sensor.py
+import numpy as np
 import pyserial
 from pyserial import Serial
+from sklearn.ensemble import RandomForestClassifier
+
 
 def biometric_sensor():
     # Initialize the biometric sensor
-    ser = Serial('COM3', 9600)
+    ser = Serial("COM3", 9600)
 
     # Collect emotional intelligence data
     data = []
@@ -14,9 +17,9 @@ def biometric_sensor():
 
     return data
 
+
 # emotional_intelligence.py
-import numpy as np
-from sklearn.ensemble import RandomForestClassifier
+
 
 def emotional_intelligence(data):
     # Train a random forest classifier
