@@ -1,24 +1,27 @@
 # smc_protocol.py
+import bitcoinlib
 import mpy
+from bitcoinlib.keys import HDKey
 from mpy import MPC
+
 
 def smc_protocol(input_data):
     # Initialize the SMPC protocol
     mpc = MPC()
 
     # Define the secure computation
-    mpc.add_input('input_data', input_data)
-    mpc.add_computation('secure_computation', 'input_data', 'output_data')
-    mpc.add_output('output_data')
+    mpc.add_input("input_data", input_data)
+    mpc.add_computation("secure_computation", "input_data", "output_data")
+    mpc.add_output("output_data")
 
     # Run the SMPC protocol
     mpc.run()
 
-    return mpc.get_output('output_data')
+    return mpc.get_output("output_data")
+
 
 # transaction_handler.py
-import bitcoinlib
-from bitcoinlib.keys import HDKey
+
 
 def transaction_handler(input_data):
     # Initialize the transaction handler
