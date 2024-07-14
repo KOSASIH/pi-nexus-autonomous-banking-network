@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 function FinancialAdvisory() {
-  const [userInput, setUserInput] = useState('');
-  const [advice, setAdvice] = useState('');
+  const [userInput, setUserInput] = useState("");
+  const [advice, setAdvice] = useState("");
 
   useEffect(() => {
     const fetchAdvice = async () => {
-      const response = await axios.post('/api/advice', { userInput });
+      const response = await axios.post("/api/advice", { userInput });
       setAdvice(response.data);
     };
     fetchAdvice();
