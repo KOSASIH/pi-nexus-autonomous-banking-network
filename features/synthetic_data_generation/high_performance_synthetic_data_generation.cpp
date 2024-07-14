@@ -3,7 +3,8 @@
 
 class HighPerformanceSyntheticDataGeneration {
 public:
-    HighPerformanceSyntheticDataGeneration() {
-        // Implement high-performance synthetic data generation using distributed computing here
-    }
+  HighPerformanceSyntheticDataGeneration() {
+    // Implement high-performance synthetic data generation using distributed
+    // computing here
+  }
 };
