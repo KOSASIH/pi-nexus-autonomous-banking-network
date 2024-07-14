@@ -3,7 +3,7 @@
 
 class RealTimeFraudDetection {
 public:
-    RealTimeFraudDetection() {
-        // Implement real-time fraud detection using edge AI here
-    }
+  RealTimeFraudDetection() {
+    // Implement real-time fraud detection using edge AI here
+  }
 };
