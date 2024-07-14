@@ -8,6 +8,8 @@ struct SecureMultipartyComputation {
 impl SecureMultipartyComputation {
     fn new() -> Self {
         // Implement secure multiparty computation using homomorphic encryption here
-        Self { he: HomomorphicEncryption::new() }
+        Self {
+            he: HomomorphicEncryption::new(),
+        }
     }
 }
