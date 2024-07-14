@@ -3,7 +3,8 @@
 
 class HighPerformanceVirtualAugmentedReality {
 public:
-    HighPerformanceVirtualAugmentedReality() {
-        // Implement high-performance virtual augmented reality using GPU acceleration here
-    }
+  HighPerformanceVirtualAugmentedReality() {
+    // Implement high-performance virtual augmented reality using GPU
+    // acceleration here
+  }
 };
