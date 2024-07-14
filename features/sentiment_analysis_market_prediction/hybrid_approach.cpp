@@ -3,7 +3,8 @@
 
 class HybridApproach {
 public:
-    HybridApproach() {
-        // Implement hybrid approach to sentiment analysis and market prediction using evolutionary algorithms here
-    }
+  HybridApproach() {
+    // Implement hybrid approach to sentiment analysis and market prediction
+    // using evolutionary algorithms here
+  }
 };
