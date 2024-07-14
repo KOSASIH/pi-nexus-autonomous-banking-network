@@ -8,6 +8,8 @@ struct AnomalyDetection {
 impl AnomalyDetection {
     fn new() -> Self {
         // Implement anomaly detection using graph neural networks here
-        Self { gnn: GraphNeuralNetwork::new() }
+        Self {
+            gnn: GraphNeuralNetwork::new(),
+        }
     }
 }
