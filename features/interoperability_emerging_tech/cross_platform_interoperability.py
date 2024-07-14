@@ -1,6 +1,7 @@
 # File name: cross_platform_interoperability.py
 import requests
 
+
 class CrossPlatformInteroperability:
     def __init__(self):
         self.api_url = "https://example.com/api"
