@@ -3,7 +3,8 @@
 
 class HighPerformanceSecureMultipartyComputation {
 public:
-    HighPerformanceSecureMultipartyComputation() {
-        // Implement high-performance secure multiparty computation using GPU acceleration here
-    }
+  HighPerformanceSecureMultipartyComputation() {
+    // Implement high-performance secure multiparty computation using GPU
+    // acceleration here
+  }
 };
