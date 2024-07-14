@@ -3,6 +3,7 @@ import cv2
 import numpy as np
 from sklearn.ensemble import RandomForestClassifier
 
+
 class DefectDetector:
     def __init__(self, model_path):
         self.model = cv2.dnn.readNetFromDarknet(model_path, "yolov3.cfg")
@@ -10,7 +11,9 @@ class DefectDetector:
 
     def detect_defects(self, image):
         height, width, channels = image.shape
-        blob = cv2.dnn.blobFromImage(image, 0.00392, (416, 416), (0, 0, 0), True, crop=False)
+        blob = cv2.dnn.blobFromImage(
+            image, 0.00392, (416, 416), (0, 0, 0), True, crop=False
+        )
         self.model.setInput(blob)
         outs = self.model.forward(self.model.getUnconnectedOutLayersNames())
         defects = []
@@ -30,13 +33,16 @@ class DefectDetector:
                     defects.append((x, y, w, h, defect_type))
         return defects
 
+
 defect_detector = DefectDetector("defect_detection_model.weights")
 image = cv2.imread("image.jpg")
 defects = defect_detector.detect_defects(image)
 for defect in defects:
     x, y, w, h, defect_type = defect
     cv2.rectangle(image, (x, y), (x + w, y + h), (0, 255, 0), 2)
-    cv2.putText(image, defect_type, (x, y + 30), cv2.FONT_HERSHEY_PLAIN, 3, (0, 0, 255), 3)
+    cv2.putText(
+        image, defect_type, (x, y + 30), cv2.FONT_HERSHEY_PLAIN, 3, (0, 0, 255), 3
+    )
 cv2.imshow("Defect Detection", image)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
