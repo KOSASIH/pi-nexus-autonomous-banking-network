@@ -2,6 +2,7 @@
 import holostorage
 from sidra_chain_api import SidraChainAPI
 
+
 class SidraChainHolographicDataStorageSystem:
     def __init__(self, sidra_chain_api: SidraChainAPI):
         self.sidra_chain_api = sidra_chain_api
