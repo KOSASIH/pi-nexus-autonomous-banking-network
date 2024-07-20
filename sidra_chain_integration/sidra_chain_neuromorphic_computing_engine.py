@@ -2,6 +2,7 @@
 import nengo
 from sidra_chain_api import SidraChainAPI
 
+
 class SidraChainNeuromorphicComputingEngine:
     def __init__(self, sidra_chain_api: SidraChainAPI):
         self.sidra_chain_api = sidra_chain_api
@@ -11,14 +12,14 @@ class SidraChainNeuromorphicComputingEngine:
         model = nengo.Network()
         model.config[nengo.Ensemble].neuron_type = nengo.LIF()
         model.config[nengo.Connection].synapse = nengo.Alpha(0.1)
-        #...
+        # ...
         return model
 
     def train_neural_network(self, model: nengo.Network, training_data: list):
         # Train the neural network using advanced neuromorphic computing techniques
         simulator = nengo.Simulator(model)
         simulator.run(1000)
-        #...
+        # ...
         return model
 
     def deploy_neural_network(self, model: nengo.Network):
