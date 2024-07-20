@@ -1,17 +1,21 @@
-import React, { useState, useEffect } from 'eact';
-import Web3 from 'web3';
-import { contract } from 'truffle-contract';
+import React, { useState, useEffect } from "eact";
+import Web3 from "web3";
+import { contract } from "truffle-contract";
 
 const IdentityManager = () => {
   const [contractInstance, setContractInstance] = useState(null);
   const [numIdentities, setNumIdentities] = useState(0);
   const [identities, setIdentities] = useState([]);
-  const [newIdentity, setNewIdentity] = useState('');
+  const [newIdentity, setNewIdentity] = useState("");
 
   useEffect(() => {
     const initContract = async () => {
-      const web3 = new Web3(new Web3.providers.HttpProvider('http://localhost:7545'));
-      const contractInstance = await contract('PiNexusIdentityManager').at('0x...ContractAddress...');
+      const web3 = new Web3(
+        new Web3.providers.HttpProvider("http://localhost:7545"),
+      );
+      const contractInstance = await contract("PiNexusIdentityManager").at(
+        "0x...ContractAddress...",
+      );
       setContractInstance(contractInstance);
     };
     initContract();
@@ -20,7 +24,7 @@ const IdentityManager = () => {
   const handleAddIdentity = async () => {
     if (!newIdentity) return;
     await contractInstance.addIdentity(newIdentity);
-    setNewIdentity('');
+    setNewIdentity("");
     updateIdentities();
   };
 
@@ -47,7 +51,7 @@ const IdentityManager = () => {
       <ul>
         {identities.map((identity, index) => (
           <li key={index}>
-            {identity}{' '}
+            {identity}{" "}
             <button onClick={() => handleRemoveIdentity(index)}>Remove</button>
           </li>
         ))}
