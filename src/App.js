@@ -1,5 +1,5 @@
-import React from 'eact';
-import IdentityManager from './IdentityManager';
+import React from "eact";
+import IdentityManager from "./IdentityManager";
 
 function App() {
   return (
