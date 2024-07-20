@@ -2,6 +2,7 @@
 import didkit
 from pi_nexus_autonomous_banking_network import AutonomousBankingNetwork
 
+
 class AutonomousBankingDID:
     def __init__(self, autonomous_banking_network: AutonomousBankingNetwork):
         self.autonomous_banking_network = autonomous_banking_network
@@ -9,9 +10,9 @@ class AutonomousBankingDID:
     def create_did(self, did_config: dict):
         # Create a decentralized identity (DID) for autonomous banking
         did = didkit.DID()
-        did.add_component(didkit.Component('public_key'))
-        did.add_component(didkit.Component('private_key'))
-        #...
+        did.add_component(didkit.Component("public_key"))
+        did.add_component(didkit.Component("private_key"))
+        # ...
         return did
 
     def resolve_did(self, did: didkit.DID):
