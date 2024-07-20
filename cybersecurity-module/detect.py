@@ -4,14 +4,16 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 
 # Load dataset
-dataset = pd.read_csv('threat_data.csv')
+dataset = pd.read_csv("threat_data.csv")
 
 # Preprocess data
-X = dataset.drop(['label'], axis=1)
-y = dataset['label']
+X = dataset.drop(["label"], axis=1)
+y = dataset["label"]
 
 # Split data into training and testing sets
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42
+)
 
 # Train the model
 model = RandomForestClassifier(n_estimators=100, random_state=42)
@@ -19,7 +21,8 @@ model.fit(X_train, y_train)
 
 # Evaluate the model
 accuracy = model.score(X_test, y_test)
-print(f'Model accuracy: {accuracy:.3f}')
+print(f"Model accuracy: {accuracy:.3f}")
+
 
 # Use the model to detect threats
 def detect_threat(data):
