@@ -1,7 +1,8 @@
 # did_module/did_based_autonomous_banking_api.py
 import didkit
-from pi_nexus_autonomous_banking_network import AutonomousBankingNetwork
 from AutonomousBankingSmartContract import AutonomousBankingSmartContract
+from pi_nexus_autonomous_banking_network import AutonomousBankingNetwork
+
 
 class DIDBasedAutonomousBankingAPI:
     def __init__(self, autonomous_banking_network: AutonomousBankingNetwork):
