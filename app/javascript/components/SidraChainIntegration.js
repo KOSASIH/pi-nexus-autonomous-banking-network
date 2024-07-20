@@ -1,15 +1,15 @@
 // app/javascript/components/SidraChainIntegration.js
-import React, { useState, useEffect } from 'react';
-import { useSpree } from 'spree-react';
+import React, { useState, useEffect } from "react";
+import { useSpree } from "spree-react";
 
 const SidraChainIntegration = () => {
   const [sidraChainData, setSidraChainData] = useState({});
 
   useEffect(() => {
     // Fetch Sidra Chain data using Spree API
-    fetch('/api/v2/sidra_chain_data')
-      .then(response => response.json())
-      .then(data => setSidraChainData(data));
+    fetch("/api/v2/sidra_chain_data")
+      .then((response) => response.json())
+      .then((data) => setSidraChainData(data));
   }, []);
 
   return (
