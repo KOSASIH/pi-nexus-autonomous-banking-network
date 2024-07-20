@@ -1,0 +1,13 @@
+// did-module/DIDRegistry.solpragma solidity ^0.8.0;
+
+contract DIDRegistry {
+    mapping (address => string) public dids;
+
+    function registerDID(string memory did) public {
+        dids[msg.sender] = did;
+    }
+
+    function getDID(address owner) public view returns (string memory) {
+        return dids[owner];
+    }
+}
