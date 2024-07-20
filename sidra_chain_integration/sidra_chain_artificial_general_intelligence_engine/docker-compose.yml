@@ -1,0 +1,10 @@
+# docker-compose.yml
+version: '3'
+services:
+  sidra_chain_agi_engine:
+    build:.
+    environment:
+      - API_KEY=your_api_key
+      - API_SECRET=your_api_secret
+    ports:
+      - "8086:8086"
