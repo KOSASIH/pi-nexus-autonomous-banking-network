@@ -4,7 +4,7 @@ import torch.optim as optim
 from model import PiNexusAIModel
 
 # Load dataset
-dataset =...
+dataset = ...
 
 # Initialize model, optimizer, and loss function
 model = PiNexusAIModel()
@@ -18,4 +18,4 @@ for epoch in range(100):
     loss = criterion(outputs, dataset)
     loss.backward()
     optimizer.step()
-    print(f'Epoch {epoch+1}, Loss: {loss.item()}')
+    print(f"Epoch {epoch+1}, Loss: {loss.item()}")
