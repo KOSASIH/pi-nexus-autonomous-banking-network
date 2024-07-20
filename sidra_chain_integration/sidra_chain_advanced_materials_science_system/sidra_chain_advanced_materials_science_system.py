@@ -2,6 +2,7 @@
 import materials
 from sidra_chain_api import SidraChainAPI
 
+
 class SidraChainAdvancedMaterialsScienceSystem:
     def __init__(self, sidra_chain_api: SidraChainAPI):
         self.sidra_chain_api = sidra_chain_api
@@ -9,9 +10,9 @@ class SidraChainAdvancedMaterialsScienceSystem:
     def design_material(self, material_config: dict):
         # Design a material using the Materials library
         material = materials.Material()
-        material.add_component(materials.Component('carbon_nanotubes'))
-        material.add_component(materials.Component('graphene'))
-        #...
+        material.add_component(materials.Component("carbon_nanotubes"))
+        material.add_component(materials.Component("graphene"))
+        # ...
         return material
 
     def simulate_material(self, material: materials.Material):
