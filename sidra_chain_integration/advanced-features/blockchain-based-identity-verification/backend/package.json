@@ -1,4 +1,10 @@
-"scripts": {
-  "start:backend": "node backend/app.js",
-  ...
+{
+  "name": "blockchain-based-identity-verification",
+  "version": "1.0.0",
+  "dependencies": {
+    "express": "^4.17.1",
+    "body-parser": "^1.19.0",
+    "mongoose": "^5.10.18",
+    "web3": "^1.3.4"
+  }
 }
