@@ -1,0 +1,4 @@
+"scripts": {
+  "start:frontend": "node frontend/index.js",
+  ...
+}
