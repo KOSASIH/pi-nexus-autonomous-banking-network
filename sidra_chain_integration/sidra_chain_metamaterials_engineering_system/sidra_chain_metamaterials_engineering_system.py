@@ -2,6 +2,7 @@
 import metamaterials
 from sidra_chain_api import SidraChainAPI
 
+
 class SidraChainMetamaterialsEngineeringSystem:
     def __init__(self, sidra_chain_api: SidraChainAPI):
         self.sidra_chain_api = sidra_chain_api
@@ -9,9 +10,9 @@ class SidraChainMetamaterialsEngineeringSystem:
     def design_metamaterial(self, metamaterial_config: dict):
         # Design a metamaterial using the Metamaterials library
         metamaterial = metamaterials.Metamaterial()
-        metamaterial.add_layer(metamaterials.Layer('Au', 10))
-        metamaterial.add_layer(metamaterials.Layer('SiO2', 5))
-        #...
+        metamaterial.add_layer(metamaterials.Layer("Au", 10))
+        metamaterial.add_layer(metamaterials.Layer("SiO2", 5))
+        # ...
         return metamaterial
 
     def simulate_metamaterial(self, metamaterial: metamaterials.Metamaterial):
