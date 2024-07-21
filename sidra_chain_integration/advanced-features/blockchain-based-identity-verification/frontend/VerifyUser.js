@@ -13,7 +13,9 @@ const VerifyUser = () => {
 
   useEffect(() => {
     const initWeb3 = async () => {
-      const web3 = new Web3(new Web3.providers.HttpProvider('https://sidra-chain-node.com'));
+      const web3 = new Web3(
+        new Web3.providers.HttpProvider('https://sidra-chain-node.com'),
+      );
       setWeb3(web3);
     };
     initWeb3();
@@ -21,26 +23,29 @@ const VerifyUser = () => {
 
   useEffect(() => {
     const initContract = async () => {
-      const contract = new web3.eth.Contract([
-        {
-          constant: true,
-          inputs: [],
-          name: 'getUserAddress',
-          outputs: [{ name: '', type: 'address' }],
-          payable: false,
-          stateMutability: 'view',
-          type: 'function'
-        },
-        {
-          constant: true,
-          inputs: [],
-          name: 'getSignatureHash',
-          outputs: [{ name: '', type: 'string' }],
-          payable: false,
-          stateMutability: 'view',
-          type: 'function'
-        }
-      ], '0x...SidraChainContractAddress...');
+      const contract = new web3.eth.Contract(
+        [
+          {
+            constant: true,
+            inputs: [],
+            name: 'getUserAddress',
+            outputs: [{ name: '', type: 'address' }],
+            payable: false,
+            stateMutability: 'view',
+            type: 'function',
+          },
+          {
+            constant: true,
+            inputs: [],
+            name: 'getSignatureHash',
+            outputs: [{ name: '', type: 'string' }],
+            payable: false,
+            stateMutability: 'view',
+            type: 'function',
+          },
+        ],
+        '0x...SidraChainContractAddress...',
+      );
       setContract(contract);
     };
     initContract();
@@ -54,7 +59,7 @@ const VerifyUser = () => {
         password,
         digiCode,
         web3,
-        contract
+        contract,
       );
       setVerified(authValidation);
     } catch (error) {
@@ -67,16 +72,32 @@ const VerifyUser = () => {
       <h1>Verify User</h1>
       <form>
         <label>Username:</label>
-        <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
+        <input
+          type="text"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
         <br />
         <label>Account Address:</label>
-        <input type="text" value={accountAddress} onChange={(e) => setAccountAddress(e.target.value)} />
+        <input
+          type="text"
+          value={accountAddress}
+          onChange={(e) => setAccountAddress(e.target.value)}
+        />
         <br />
         <label>Password:</label>
-        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
         <br />
         <label>Digi Code:</label>
-        <input type="text" value={digiCode} onChange={(e) => setDigiCode(e.target.value)} />
+        <input
+          type="text"
+          value={digiCode}
+          onChange={(e) => setDigiCode(e.target.value)}
+        />
         <br />
         <button onClick={handleVerify}>Verify</button>
       </form>
