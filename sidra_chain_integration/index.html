@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sidra Lending Platform</title>
+    <title>Sidra Chain Integration</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Sidra Lending Platform</h1>
+    <h1>Sidra Chain Integration</h1>
     <form id="loan-form">
         <label for="credit-score">Credit Score:</label>
         <input type="number" id="credit-score" name="credit-score"><br><br>
@@ -18,6 +18,12 @@
         <button id="apply-button">Apply for Loan</button>
     </form>
     <div id="loan-status"></div>
+
+    <form id="repayment-form">
+        <label for="repayment-amount">Repayment Amount:</label>
+        <input type="number" id="repayment-amount" name="repayment-amount"><br><br>
+        <button id="repay-button">Repay Loan</button>
+    </form>
 
     <script src="script.js"></script>
 </body>
