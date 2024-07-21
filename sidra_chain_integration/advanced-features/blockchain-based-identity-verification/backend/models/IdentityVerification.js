@@ -4,7 +4,10 @@ const identityVerificationSchema = new mongoose.Schema({
   userAddress: String,
   userData: String,
   verified: Boolean,
-  timestamp: Date
+  timestamp: Date,
 });
 
-module.exports = mongoose.model('IdentityVerification', identityVerificationSchema);
+module.exports = mongoose.model(
+  'IdentityVerification',
+  identityVerificationSchema,
+);
