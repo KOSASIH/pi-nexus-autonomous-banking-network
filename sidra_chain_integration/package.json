@@ -1,11 +1,18 @@
 {
-    "name": "autonomous-banking-system",
-    "version": "0.1.0",
-    "dependencies": {
-        "react": "^17.0.2",
-        "react-dom": "^17.0.2"
-    },
-    "scripts": {
-        "start": "react-scripts start"
-    }
+  "name": "sidra-chain-integration",
+  "version": "1.0.0",
+  "description": "Sidra Chain integration for Pi-Nexus Autonomous Banking Network",
+  "main": "index.js",
+  "scripts": {
+    "compile:contract": "node compile-contract.js",
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "KOSASIH",
+  "license": "Apache 2.0",
+  "dependencies": {
+    "@tensorflow/tfjs": "^3.14.0",
+    "web3": "^1.7.0",
+    "solidity-compiler": "^0.8.10"
+  }
 }
