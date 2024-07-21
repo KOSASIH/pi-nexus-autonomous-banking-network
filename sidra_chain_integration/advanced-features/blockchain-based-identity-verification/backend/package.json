@@ -1,0 +1,4 @@
+"scripts": {
+  "start:backend": "node backend/app.js",
+  ...
+}
