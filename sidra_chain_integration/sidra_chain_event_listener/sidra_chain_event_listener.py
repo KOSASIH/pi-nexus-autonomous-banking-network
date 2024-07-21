@@ -1,6 +1,8 @@
 # sidra_chain_event_listener.py
 import asyncio
+
 from sidra_chain_api import SidraChainAPI
+
 
 class SidraChainEventListener:
     def __init__(self, sidra_chain_api: SidraChainAPI):
@@ -8,7 +10,7 @@ class SidraChainEventListener:
 
     async def listen_for_events(self):
         # Listen for events on the Sidra Chain using WebSockets
-        async with websockets.connect('wss://api.sidra.com/events') as ws:
+        async with websockets.connect("wss://api.sidra.com/events") as ws:
             while True:
                 message = await ws.recv()
                 event_data = json.loads(message)
