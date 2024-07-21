@@ -2,6 +2,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
 
+
 class LoanApplication(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     credit_score = db.Column(db.Integer)
