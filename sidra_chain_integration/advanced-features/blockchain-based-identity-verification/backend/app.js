@@ -8,17 +8,27 @@ const machineLearningVerification = require('../machine-learning-identity-verifi
 
 app.use(bodyParser.json());
 
-const web3 = new Web3(new Web3.providers.HttpProvider('https://mainnet.infura.io/v3/YOUR_PROJECT_ID'));
+const web3 = new Web3(
+  new Web3.providers.HttpProvider(
+    'https://mainnet.infura.io/v3/YOUR_PROJECT_ID',
+  ),
+);
 
-const contractInstance = new web3.eth.Contract(contract.abi, contract.networks['5777'].address);
+const contractInstance = new web3.eth.Contract(
+  contract.abi,
+  contract.networks['5777'].address,
+);
 
 app.post('/api/verify', async (req, res) => {
   try {
     const { userAddress, userData } = req.body;
-    const isVerifiedML = await machineLearningVerification.verifyUserML(userData);
+    const isVerifiedML =
+      await machineLearningVerification.verifyUserML(userData);
 
     if (isVerifiedML) {
-      await contractInstance.methods.verifyUser(userAddress).send({ from: '0xYOUR_OWNER_ADDRESS' });
+      await contractInstance.methods
+        .verifyUser(userAddress)
+        .send({ from: '0xYOUR_OWNER_ADDRESS' });
       res.json({ verified: true });
     } else {
       res.json({ verified: false });
