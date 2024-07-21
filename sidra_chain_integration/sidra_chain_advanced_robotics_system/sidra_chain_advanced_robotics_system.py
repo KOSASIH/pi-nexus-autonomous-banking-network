@@ -2,6 +2,7 @@
 import robotics
 from sidra_chain_api import SidraChainAPI
 
+
 class SidraChainAdvancedRoboticsSystem:
     def __init__(self, sidra_chain_api: SidraChainAPI):
         self.sidra_chain_api = sidra_chain_api
@@ -9,9 +10,9 @@ class SidraChainAdvancedRoboticsSystem:
     def design_robot(self, robot_config: dict):
         # Design a robot using the Robotics library
         robot = robotics.Robot()
-        robot.add_component(robotics.Component('arm', 'UR5'))
-        robot.add_component(robotics.Component('sensor', 'Lidar'))
-        #...
+        robot.add_component(robotics.Component("arm", "UR5"))
+        robot.add_component(robotics.Component("sensor", "Lidar"))
+        # ...
         return robot
 
     def simulate_robot(self, robot: robotics.Robot):
