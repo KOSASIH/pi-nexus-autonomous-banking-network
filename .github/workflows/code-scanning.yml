@@ -1,0 +1,18 @@
+name: Code Scanning
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  code-scanning:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Run Code Scanning
+        uses: github/code-scanning@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          sarif-file: results.sarif
