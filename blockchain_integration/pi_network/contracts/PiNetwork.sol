@@ -12,11 +12,6 @@ contract PiNetwork {
         return apiUrl;
     }
 
-    function setupTech() public {
-        // Setup tech configuration
-        // Check ports and ensure history server points to the right files
-    }
-
     function startStellarQuickstart() public {
         // Start Stellar Quickstart
         // Initialize PostgreSQL, Stellar Core, and Horizon
@@ -25,5 +20,10 @@ contract PiNetwork {
     function createPiConsensusContainer() public {
         // Create Pi Consensus container
         // Ensure container is running and not stuck
+    }
+
+    function setupTech() public {
+        // Setup tech configuration
+        // Check ports and ensure history server points to the right files
     }
 }
