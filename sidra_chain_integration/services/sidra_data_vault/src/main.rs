@@ -1,6 +1,6 @@
 // sidra_data_vault/src/main.rs
 use ipfs::{Ipfs, IpfsApi};
-use sodium::{Key, Box_};
+use sodium::{Box_, Key};
 
 struct DataVault {
     ipfs: Ipfs,
