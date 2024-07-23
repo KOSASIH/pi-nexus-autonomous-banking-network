@@ -10,15 +10,23 @@ describe('PiNetworkUI', () => {
   it('updates the from address state when the input value changes', () => {
     const wrapper = shallow(<PiNetworkUI />);
     const input = wrapper.find('input[type="text"]').first();
-    input.simulate('change', { target: { value: '0x1234567890123456789012345678901234567890' } });
-    expect(wrapper.state('fromAddress')).toEqual('0x1234567890123456789012345678901234567890');
+    input.simulate('change', {
+      target: { value: '0x1234567890123456789012345678901234567890' },
+    });
+    expect(wrapper.state('fromAddress')).toEqual(
+      '0x1234567890123456789012345678901234567890',
+    );
   });
 
   it('updates the to address state when the input value changes', () => {
     const wrapper = shallow(<PiNetworkUI />);
     const input = wrapper.find('input[type="text"]').last();
-    input.simulate('change', { target: { value: '0x1234567890123456789012345678901234567890' } });
-    expect(wrapper.state('toAddress')).toEqual('0x1234567890123456789012345678901234567890');
+    input.simulate('change', {
+      target: { value: '0x1234567890123456789012345678901234567890' },
+    });
+    expect(wrapper.state('toAddress')).toEqual(
+      '0x1234567890123456789012345678901234567890',
+    );
   });
 
   it('updates the amount state when the input value changes', () => {
