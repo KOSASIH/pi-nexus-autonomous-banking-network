@@ -1,5 +1,6 @@
 import requests
 
+
 class SidraChain:
     def __init__(self):
         self.base_url = "https://sidra-chain.com/api"
