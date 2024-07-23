@@ -5,8 +5,8 @@ class SidraChainIntegrationWorker
 
   def perform(chain_id, chain_name)
     # Integrate with Sidra Chain API
-    response = HTTParty.post("https://sidra-chain-api.com/integrate", 
-                             body: { chain_id: chain_id, chain_name: chain_name }.to_json, 
+    response = HTTParty.post("https://sidra-chain-api.com/integrate",
+                             body: { chain_id: chain_id, chain_name: chain_name }.to_json,
                              headers: { "Content-Type" => "application/json" })
     if response.success?
       # Process successful response
