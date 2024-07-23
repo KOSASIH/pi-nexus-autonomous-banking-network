@@ -5,9 +5,11 @@ app = FastAPI()
 
 sidra_chain = SidraChain()
 
+
 @app.get("/healthcheck")
 async def healthcheck():
     return {"status": "ok"}
+
 
 @app.post("/transactions")
 async def create_transaction(transaction: dict):
