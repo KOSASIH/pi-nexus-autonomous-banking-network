@@ -1,0 +1,14 @@
+version: "3"
+services:
+  sidra-chain-api:
+    build: .
+    ports:
+      - "8000:8000"
+    depends_on:
+      - sidra-chain-db
+    environment:
+      - DATABASE_URL=sqlite:///sidra_chain.db
+  sidra-chain-db:
+    image: sqlite:latest
+    volumes:
+      - ./sidra_chain.db:/sidra_chain.db
