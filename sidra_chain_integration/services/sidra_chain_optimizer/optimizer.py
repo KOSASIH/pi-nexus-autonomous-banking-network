@@ -1,12 +1,13 @@
 # sidra_chain_optimizer/optimizer.py
 import numpy as np
 from skopt import gp_minimize
-from z3 import Optimize, Int, CheckSatResult
+from z3 import CheckSatResult, Int, Optimize
+
 
 def optimize_smart_contract(contract_code: str) -> str:
     # Define the optimization problem
     opt = Optimize()
-    x = Int('x')
+    x = Int("x")
     opt.add(x >= 0)
     opt.add(x <= 100)
 
@@ -24,6 +25,7 @@ def optimize_smart_contract(contract_code: str) -> str:
     optimized_contract_code = optimize_contract_code(contract_code, optimal_input)
 
     return optimized_contract_code
+
 
 def optimize_contract_code(contract_code: str, optimal_input: int) -> str:
     # Use the optimal input to optimize the smart contract code
