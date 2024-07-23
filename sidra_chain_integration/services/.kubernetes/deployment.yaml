@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sidra-chain-integration
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: sidra-chain-integration
+  template:
+    metadata:
+      labels:
+        app: sidra-chain-integration
+    spec:
+      containers:
+      - name: sidra-chain-integration
+        image: kosasih/sidra-chain-integration:latest
+        ports:
+        - containerPort: 8080
