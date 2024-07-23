@@ -13,7 +13,7 @@ spec:
         app: sidra-chain-api
     spec:
       containers:
-      - name: sidra-chain-api
-        image: sidra-chain-api:latest
-        ports:
-        - containerPort: 8000
+        - name: sidra-chain-api
+          image: sidra-chain-api:latest
+          ports:
+            - containerPort: 8000
