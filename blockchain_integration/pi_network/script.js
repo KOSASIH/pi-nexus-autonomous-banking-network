@@ -1,21 +1,22 @@
-// Get the current Pi coin value
-function getPiCoinValue() {
-  return 314.159; // Replace with API call or other method to get the current value
-}
+const apiEndpoint = 'http://localhost:3000/api';
 
-// Display the Pi coin value on the dashboard
-const piCoinValueElement = document.getElementById('pi-coin-value-text');
-piCoinValueElement.textContent = `$${getPiCoinValue()}`;
+// Get Pi Coin value
+fetch(`${apiEndpoint}/pi-coin/value`)
+  .then(response => response.json())
+  .then(data => {
+    document.getElementById('pi-coin-value').textContent = `$${data.value}`;
+  });
 
-// Add event listener to the vote button
-const voteButton = document.getElementById('vote-button');
-voteButton.addEventListener('click', () => {
-  // Cast a vote with the current Pi coin value
-  castVote(getPiCoinValue());
+// Cast a vote
+document.getElementById('vote-button').addEventListener('click', () => {
+  const option = 'Option A'; // Replace with user input
+  fetch(`${apiEndpoint}/vote`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ option }),
+  })
+  .then(response => response.json())
+  .then(data => {
+    console.log(data);
+  });
 });
-
-// Function to cast a vote
-function castVote(value) {
-  // Implement the voting logic here, e.g., send a request to the backend API
-  console.log(`Vote cast with value: ${value}`);
-}
