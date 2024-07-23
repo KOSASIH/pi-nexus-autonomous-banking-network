@@ -14,7 +14,7 @@ const api = {
   async sendTransaction(data) {
     const response = await network.makeApiRequest('send', 'post', data);
     return response.data;
-  }
+  },
 };
 
 module.exports = api;
