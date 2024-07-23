@@ -1,8 +1,5 @@
-# config.py
-import os
-
 class Config:
-    def __init__(self):
-        self.pi_network_port = int(os.environ.get('PI_NETWORK_PORT', 8080))
-        self.pi_network_host = os.environ.get('PI_NETWORK_HOST', 'localhost')
-        self.blockchain_node_url = os.environ.get('BLOCKCHAIN_NODE_URL', 'https://example.com/blockchain')
+    SECRET_KEY = 'secret_key_here'
+    SQLALCHEMY_DATABASE_URI = 'postgresql://user:password@localhost/pi_nexus_db'
+    BLOCKCHAIN_NODE_URL = 'https://mainnet.infura.io/v3/YOUR_PROJECT_ID'
+    AI_MODEL_PATH = 'pi_network/ai_analytics/models/transaction_prediction.pkl'
