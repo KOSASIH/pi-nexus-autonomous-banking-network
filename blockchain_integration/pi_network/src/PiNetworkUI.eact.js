@@ -11,7 +11,11 @@ const PiNetworkUI = () => {
 
   useEffect(() => {
     async function getTxHash() {
-      const web3 = new Web3(new Web3.providers.HttpProvider('https://mainnet.infura.io/v3/YOUR_PROJECT_ID'));
+      const web3 = new Web3(
+        new Web3.providers.HttpProvider(
+          'https://mainnet.infura.io/v3/YOUR_PROJECT_ID',
+        ),
+      );
       const piNetworkRouterAddress = '0x...'; // Replace with the deployed PiNetworkRouter address
       const piNetworkRouter = new PiNetworkRouter(piNetworkRouterAddress, web3);
 
@@ -22,11 +26,13 @@ const PiNetworkUI = () => {
         value: web3.utils.toWei(amount, 'ether'),
         gas: '20000',
         gasPrice: web3.utils.toWei('20', 'gwei'),
-        nonce: txCount
+        nonce: txCount,
       };
 
       const signedTx = await web3.eth.accounts.signTransaction(tx, '0x...'); // Replace with the sender's private key
-      const receipt = await web3.eth.sendSignedTransaction(signedTx.rawTransaction);
+      const receipt = await web3.eth.sendSignedTransaction(
+        signedTx.rawTransaction,
+      );
 
       setTxHash(receipt.transactionHash);
     }
@@ -56,7 +62,11 @@ const PiNetworkUI = () => {
       <h1>Pi Network UI</h1>
       <form onSubmit={handleSubmit}>
         <label>From Address:</label>
-        <input type="text" value={fromAddress} onChange={handleFromAddressChange} />
+        <input
+          type="text"
+          value={fromAddress}
+          onChange={handleFromAddressChange}
+        />
         <br />
         <label>To Address:</label>
         <input type="text" value={toAddress} onChange={handleToAddressChange} />
