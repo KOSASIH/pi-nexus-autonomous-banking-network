@@ -4,3 +4,13 @@ eth-sig-util==2.1.0
 cryptography==42.0.4
 bandit==1.7.4
 safety==1.10.3
+Flask
+Flask-SQLAlchemy
+OpenZeppelin-Solidity
+pandas
+scikit-learn
+psycopg2
+web3
+uport
+ipfs-http-client
+apache-spark
