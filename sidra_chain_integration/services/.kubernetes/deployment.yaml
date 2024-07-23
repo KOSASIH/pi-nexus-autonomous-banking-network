@@ -13,7 +13,7 @@ spec:
         app: sidra-chain-integration
     spec:
       containers:
-      - name: sidra-chain-integration
-        image: kosasih/sidra-chain-integration:latest
-        ports:
-        - containerPort: 8080
+        - name: sidra-chain-integration
+          image: kosasih/sidra-chain-integration:latest
+          ports:
+            - containerPort: 8080
