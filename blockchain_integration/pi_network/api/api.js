@@ -1,19 +1,20 @@
-const apiUrl = 'https://minepi.com';
-const nodeUrl = 'https://node1.pi.network';
-const walletUrl = 'https://wallet.pi.network';
+const network = require('./network');
 
 const api = {
   async getBalance() {
-    const response = await fetch(`${apiUrl}/api/v1/balance`);
-    return response.json();
+    const response = await network.makeApiRequest('balance', 'get');
+    return response.data;
   },
 
   async getTransactions() {
-    const response = await fetch(`${apiUrl}/api/v1/transactions`);
-    return response.json();
+    const response = await network.makeApiRequest('transactions', 'get');
+    return response.data;
   },
 
-  // ...
+  async sendTransaction(data) {
+    const response = await network.makeApiRequest('send', 'post', data);
+    return response.data;
+  }
 };
 
 module.exports = api;
