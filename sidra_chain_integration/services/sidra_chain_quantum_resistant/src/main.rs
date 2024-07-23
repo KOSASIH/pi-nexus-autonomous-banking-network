@@ -1,6 +1,6 @@
 // sidra_chain_quantum_resistant/src/main.rs
-use lattice_crypto::{Lattice, PublicKey};
 use code_based_crypto::{Code, PrivateKey};
+use lattice_crypto::{Lattice, PublicKey};
 
 struct QuantumResistantCryptography {
     lattice: Lattice,
