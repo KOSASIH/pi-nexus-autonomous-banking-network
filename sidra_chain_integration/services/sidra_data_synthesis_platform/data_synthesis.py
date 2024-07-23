@@ -4,6 +4,7 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 
+
 class DataSynthesisPlatform:
     def __init__(self):
         self.gan = GAN()
@@ -19,20 +20,15 @@ class DataSynthesisPlatform:
         synthesized_data = self.vae.synthesize(input_data)
         return synthesized_data
 
+
 class GAN(nn.Module):
     def __init__(self):
         super(GAN, self).__init__()
         self.generator = nn.Sequential(
-            nn.Linear(100, 128),
-            nn.ReLU(),
-            nn.Linear(128, 784),
-            nn.Sigmoid()
+            nn.Linear(100, 128), nn.ReLU(), nn.Linear(128, 784), nn.Sigmoid()
         )
         self.discriminator = nn.Sequential(
-            nn.Linear(784, 128),
-            nn.ReLU(),
-            nn.Linear(128, 1),
-            nn.Sigmoid()
+            nn.Linear(784, 128), nn.ReLU(), nn.Linear(128, 1), nn.Sigmoid()
         )
 
     def generate(self, input_data):
@@ -43,20 +39,15 @@ class GAN(nn.Module):
         # Discriminate data using discriminator network
         return self.discriminator(input_data)
 
+
 class VAE(nn.Module):
     def __init__(self):
         super(VAE, self).__init__()
         self.encoder = nn.Sequential(
-            nn.Linear(784, 256),
-            nn.ReLU(),
-            nn.Linear(256, 128),
-            nn.ReLU()
+            nn.Linear(784, 256), nn.ReLU(), nn.Linear(256, 128), nn.ReLU()
         )
         self.decoder = nn.Sequential(
-            nn.Linear(128, 256),
-            nn.ReLU(),
-            nn.Linear(256, 784),
-            nn.Sigmoid()
+            nn.Linear(128, 256), nn.ReLU(), nn.Linear(256, 784), nn.Sigmoid()
         )
 
     def synthesize(self, input_data):
