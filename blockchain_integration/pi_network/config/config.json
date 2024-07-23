@@ -1,0 +1,6 @@
+{
+  "api_url": "https://minepi.com",
+  "network_id": "pi_network",
+  "node_url": "https://node1.pi.network",
+  "wallet_url": "https://wallet.pi.network"
+}
