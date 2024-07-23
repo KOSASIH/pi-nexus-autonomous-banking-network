@@ -5,8 +5,8 @@ import (
 	"context"
 	"log"
 
-	"google.golang.org/grpc"
 	"golang.org/x/oauth2"
+	"google.golang.org/grpc"
 )
 
 type IdentityManager struct{}
