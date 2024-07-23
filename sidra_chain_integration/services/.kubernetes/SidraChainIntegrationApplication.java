@@ -7,12 +7,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class SidraChainIntegrationApplication {
 
-    @GetMapping("/sidra-chain-integration")
-    public String getSidraChainIntegration() {
-        return "Sidra Chain Integration Service";
-    }
+  @GetMapping("/sidra-chain-integration")
+  public String getSidraChainIntegration() {
+    return "Sidra Chain Integration Service";
+  }
 
-    public static void main(String[] args) {
-        SpringApplication.run(SidraChainIntegrationApplication.class, args);
-    }
+  public static void main(String[] args) {
+    SpringApplication.run(SidraChainIntegrationApplication.class, args);
+  }
 }
