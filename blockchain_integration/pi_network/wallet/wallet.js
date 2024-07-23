@@ -13,7 +13,7 @@ const wallet = {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         // ...
-      })
+      }),
     });
     return response.json();
   },
