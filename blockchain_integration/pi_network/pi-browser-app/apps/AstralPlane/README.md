@@ -1,3 +1,5 @@
+![Static Badge](https://img.shields.io/badge/%F0%9F%9A%80-AstralPlane-gold)
+
 Astral Plane
 ============
 
