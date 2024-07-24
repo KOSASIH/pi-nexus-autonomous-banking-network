@@ -24,7 +24,9 @@ router.get('/getVotes', async (req, res) => {
     const votes = users.reduce((acc, user) => acc.concat(user.votes), []);
     const voteCount = votes.length;
     const voteAverage = votes.reduce((a, b) => a + b, 0) / voteCount;
-    const voteStandardDeviation = Math.sqrt(votes.reduce((a, b) => a + Math.pow(b - voteAverage, 2), 0) / voteCount);
+    const voteStandardDeviation = Math.sqrt(
+      votes.reduce((a, b) => a + Math.pow(b - voteAverage, 2), 0) / voteCount,
+    );
     res.json({ voteCount, voteAverage, voteStandardDeviation });
   } catch (err) {
     console.error(err);
