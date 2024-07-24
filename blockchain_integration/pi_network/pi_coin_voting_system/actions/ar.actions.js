@@ -3,7 +3,8 @@ import axios from 'axios';
 export const getARDashboardData = () => {
   return (dispatch) => {
     dispatch({ type: 'AR_DATA_LOADING' });
-    axios.get('https://example.com/ar-dashboard-data')
+    axios
+      .get('https://example.com/ar-dashboard-data')
       .then((response) => {
         const data = response.data;
         dispatch({ type: 'AR_DATA_RECEIVED', data });
@@ -17,7 +18,8 @@ export const getARDashboardData = () => {
 export const getARModel = (id) => {
   return (dispatch) => {
     dispatch({ type: 'AR_MODEL_LOADING' });
-    axios.get(`https://example.com/ar-models/${id}`)
+    axios
+      .get(`https://example.com/ar-models/${id}`)
       .then((response) => {
         const model = response.data;
         dispatch({ type: 'AR_MODEL_RECEIVED', model });
@@ -31,7 +33,8 @@ export const getARModel = (id) => {
 export const uploadARModel = (model) => {
   return (dispatch) => {
     dispatch({ type: 'AR_MODEL_UPLOADING' });
-    axios.post('https://example.com/ar-models', model)
+    axios
+      .post('https://example.com/ar-models', model)
       .then((response) => {
         const model = response.data;
         dispatch({ type: 'AR_MODEL_UPLOADED', model });
