@@ -1,17 +1,17 @@
+import * as TensorFlow from '@tensorflow/tfjs';
 import * as brain from 'brain.js';
-import * as tf from '@tensorflow/tfjs';
 
 class AstralPlaneAI {
   constructor() {
+    this.model = TensorFlow.sequential();
     this.net = new brain.NeuralNetwork();
-    this.model = tf.sequential();
   }
 
   async train(data) {
     this.net.train(data);
-    this.model.add(tf.layers.dense({ units: 10, inputShape: [10] }));
-    this.model.add(tf.layers.dense({ units: 10 }));
-    this.model.compile({ optimizer: tf.optimizers.adam(), loss: 'eanSquaredError' });
+    this.model.add(TensorFlow.layers.dense({ units: 10, inputShape: [10] }));
+    this.model.add(TensorFlow.layers.dense({ units: 10 }));
+    this.model.compile({ optimizer: TensorFlow.optimizers.adam(), loss: 'eanSquaredError' });
     await this.model.fit(data, { epochs: 100 });
   }
 
@@ -21,7 +21,7 @@ class AstralPlaneAI {
   }
 
   async generateAsset() {
-    const input = tf.random.normal([1, 10]);
+    const input = TensorFlow.random.normal([1, 10]);
     const output = await this.predict(input);
     const asset = {
       name: `Asset ${Math.random()}`,
@@ -30,6 +30,18 @@ class AstralPlaneAI {
       price: Math.random() * 100,
     };
     return asset;
+  }
+
+  async optimizeAsset(asset) {
+    const input = TensorFlow.tensor2d([asset.price, asset.views, asset.likes], [1, 3]);
+    const output = await this.predict(input);
+    const optimizedAsset = {
+     ...asset,
+      price: output.dataSync()[0],
+      views: output.dataSync()[1],
+      likes: output.dataSync()[2],
+    };
+    return optimizedAsset;
   }
 }
 
