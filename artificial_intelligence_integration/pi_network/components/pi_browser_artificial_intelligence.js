@@ -6,6 +6,9 @@ const PiBrowserArtificialIntelligence = () => {
   const [nlpModel, setNlpModel] = useState(null);
   const [computerVisionModel, setComputerVisionModel] = useState(null);
   const [machineLearningModel, setMachineLearningModel] = useState(null);
+  const [textAnalysisResult, setTextAnalysisResult] = useState('');
+  const [imageRecognitionResult, setImageRecognitionResult] = useState('');
+  const [predictiveModelResult, setPredictiveModelResult] = useState('');
 
   useEffect(() => {
     // Load NLP model
@@ -30,9 +33,55 @@ const PiBrowserArtificialIntelligence = () => {
   const handleTextAnalysis = async (text) => {
     // Perform text analysis using NLP model
     const result = await nlpModel.analyze(text);
-    console.log(result);
+    setTextAnalysisResult(result);
   };
 
   const handleImageRecognition = async (image) => {
     // Perform image recognition using computer vision model
-    const result = await computerVision
+    const result = await computerVisionModel.recognize(image);
+    setImageRecognitionResult(result);
+  };
+
+  const handlePredictiveModel = async (inputData) => {
+    // Perform predictive modeling using machine learning model
+    const result = await machineLearningModel.predict(inputData);
+    setPredictiveModelResult(result);
+  };
+
+  return (
+    <div>
+      <h1>Pi Browser Artificial Intelligence</h1>
+      <section>
+        <h2>Natural Language Processing (NLP)</h2>
+        <input
+          type="text"
+          value={textAnalysisResult}
+          onChange={(e) => handleTextAnalysis(e.target.value)}
+          placeholder="Enter text for analysis"
+        />
+        <p>Text Analysis Result: {textAnalysisResult}</p>
+      </section>
+      <section>
+        <h2>Computer Vision</h2>
+        <input
+          type="file"
+          onChange={(e) => handleImageRecognition(e.target.files[0])}
+          placeholder="Select image for recognition"
+        />
+        <p>Image Recognition Result: {imageRecognitionResult}</p>
+      </section>
+      <section>
+        <h2>Machine Learning and Predictive Modeling</h2>
+        <input
+          type="text"
+          value={predictiveModelResult}
+          onChange={(e) => handlePredictiveModel(e.target.value)}
+          placeholder="Enter input data for predictive modeling"
+        />
+        <p>Predictive Model Result: {predictiveModelResult}</p>
+      </section>
+    </div>
+  );
+};
+
+export default PiBrowserArtificialIntelligence;
