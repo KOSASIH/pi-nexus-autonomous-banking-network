@@ -1,0 +1,17 @@
+{
+  "name": "astral-plane",
+  "version": "1.0.0",
+  "description": "Astral Plane - A Web3-powered VR experience",
+  "main": "script.js",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "keywords": [],
+  "author": "KOSASIH",
+  "license": "MIT",
+  "dependencies": {
+    "parcel": "^2.4.1",
+    "web3": "^1.5.2"
+  }
+}
