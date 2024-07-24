@@ -3,7 +3,7 @@ const initialState = {
   voteAverage: 0,
   voteStandardDeviation: 0,
   isVoting: false,
-  error: null
+  error: null,
 };
 
 export default function voteReducer(state = initialState, action) {
@@ -13,7 +13,12 @@ export default function voteReducer(state = initialState, action) {
     case 'CAST_VOTE_FAILURE':
       return { ...state, error: action.error, isVoting: false };
     case 'GET_VOTES_SUCCESS':
-      return { ...state, voteCount: action.voteCount, voteAverage: action.voteAverage, voteStandardDeviation: action.voteStandardDeviation };
+      return {
+        ...state,
+        voteCount: action.voteCount,
+        voteAverage: action.voteAverage,
+        voteStandardDeviation: action.voteStandardDeviation,
+      };
     case 'GET_VOTES_FAILURE':
       return { ...state, error: action.error };
     case 'RESET_VOTE':
