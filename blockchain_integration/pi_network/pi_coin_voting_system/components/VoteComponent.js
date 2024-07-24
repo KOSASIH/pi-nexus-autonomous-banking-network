@@ -2,7 +2,16 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { castVote, getVotes, resetVote } from '../actions/vote.actions';
 
-const VoteComponent = ({ castVote, getVotes, resetVote, voteCount, voteAverage, voteStandardDeviation, isVoting, error }) => {
+const VoteComponent = ({
+  castVote,
+  getVotes,
+  resetVote,
+  voteCount,
+  voteAverage,
+  voteStandardDeviation,
+  isVoting,
+  error,
+}) => {
   const [voteValue, setVoteValue] = useState(0);
 
   useEffect(() => {
@@ -50,8 +59,10 @@ const mapStateToProps = (state) => {
     voteAverage: state.vote.voteAverage,
     voteStandardDeviation: state.vote.voteStandardDeviation,
     isVoting: state.vote.isVoting,
-    error: state.vote.error
+    error: state.vote.error,
   };
 };
 
-export default connect(mapStateToProps, { castVote, getVotes, resetVote })(VoteComponent);
+export default connect(mapStateToProps, { castVote, getVotes, resetVote })(
+  VoteComponent,
+);
