@@ -1,26 +1,44 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { LineChart } from 'react-native-svg-charts';
+import { LineChart, Grid } from 'react-native-svg-charts';
+import { useDispatch, useSelector } from 'react-redux';
+import { dexActions } from '../../actions';
+import { dexReducer } from '../../reducers';
+import { useWalletConnect } from '../../hooks/useWalletConnect';
 
 const Chart = () => {
-  const data = [
-    { x: 1, y: 10 },
-    { x: 2, y: 20 },
-    { x: 3, y: 30 },
-    { x: 4, y: 40 },
-    { x: 5, y: 50 },
-  ];
+  const dispatch = useDispatch();
+  const chartState = useSelector((state) => state.chart);
+  const [data, setData] = useState([]);
+  const { connectWallet, walletConnected } = useWalletConnect();
+
+  useEffect(() => {
+    if (walletConnected) {
+      dispatch(dexActions.fetchChartData());
+    }
+  }, [walletConnected]);
+
+  useEffect(() => {
+    if (chartState.data) {
+      setData(chartState.data);
+    }
+  }, [chartState]);
 
   return (
     <View style={styles.container}>
       <Text>Chart</Text>
-      <LineChart
-        data={data}
-        xAccessor={({ item }) => item.x}
-        yAccessor={({ item }) => item.y}
-        svg={{ stroke: 'rgb(134, 65, 244)' }}
-        contentInset={{ top: 20, bottom: 20 }}
-      />
+      {data.length > 0 ? (
+        <LineChart
+          style={{ height: 200 }}
+          data={data}
+          svg={{ stroke: 'rgb(134, 65, 244)' }}
+          contentInset={{ top: 20, bottom: 20 }}
+        >
+          <Grid />
+        </LineChart>
+      ) : (
+        <Text>Loading...</Text>
+      )}
     </View>
   );
 };
