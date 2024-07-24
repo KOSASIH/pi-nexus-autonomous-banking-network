@@ -15,9 +15,13 @@ router.post('/register', async (req, res) => {
   }
 });
 
-router.post('/login', passport.authenticate('local', { session: false }), (req, res) => {
-  const token = req.user.generateToken();
-  res.json({ token });
-});
+router.post(
+  '/login',
+  passport.authenticate('local', { session: false }),
+  (req, res) => {
+    const token = req.user.generateToken();
+    res.json({ token });
+  },
+);
 
 module.exports = router;
