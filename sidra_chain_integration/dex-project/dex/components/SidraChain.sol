@@ -1,58 +1,82 @@
 pragma solidity ^0.8.0;
 
 import "https://github.com/OpenZeppelin/openzeppelin-solidity/contracts/token/ERC20/SafeERC20.sol";
-import "https://github.com/OpenZeppelin/openzeppelin-solidity/contracts/access/Roles.sol";
+import "https://github.com/OpenZeppelin/openzeppelin-solidity/contracts/math/SafeMath.sol";
 
 contract SidraChain {
     // Mapping of user addresses to their respective balances
-    mapping (address => uint256) public balances;
+    mapping(address => uint256) public balances;
 
-    // Mapping of asset IDs to their respective details
-    mapping (uint256 => Asset) public assets;
+    // Mapping of user addresses to their respective transaction histories
+    mapping(address => Transaction[]) public transactionHistories;
+
+    // Mapping of asset IDs to their respective metadata
+    mapping(uint256 => AssetMetadata) public assetMetadata;
+
+    // Mapping of user addresses to their respective governance voting power
+    mapping(address => uint256) public governanceVotingPower;
+
+    // Event emitted when a new transaction is created
+    event NewTransaction(address indexed from, address indexed to, uint256 value);
 
     // Event emitted when a new asset is created
-    event NewAsset(uint256 assetId, string assetName, uint256 assetValue);
+    event NewAsset(uint256 indexed assetId, string metadata);
 
-    // Event emitted when a transaction is processed
-    event TransactionProcessed(address from, address to, uint256 amount, uint256 assetId);
+    // Event emitted when a governance vote is cast
+    event GovernanceVote(address indexed voter, uint256 indexed proposalId, bool vote);
 
-    // Role-based access control for administrators
-    Roles.Role private administrators;
+    // Function to create a new transaction
+    function createTransaction(address to, uint256 value) public {
+        // Check if the sender has sufficient balance
+        require(balances[msg.sender] >= value, "Insufficient balance");
 
-    // Constructor function
-    constructor() public {
-        administrators.add(msg.sender);
+        // Update the sender's balance
+        balances[msg.sender] -= value;
+
+        // Update the recipient's balance
+        balances[to] += value;
+
+        // Create a new transaction history entry for the sender
+        transactionHistories[msg.sender].push(Transaction(msg.sender, to, value));
+
+        // Emit a new transaction event
+        emit NewTransaction(msg.sender, to, value);
     }
 
     // Function to create a new asset
-    function createAsset(string memory _assetName, uint256 _assetValue) public {
-        require(administrators.has(msg.sender), "Only administrators can create assets");
-        uint256 assetId = assets.length++;
-        assets[assetId] = Asset(_assetName, _assetValue);
-        emit NewAsset(assetId, _assetName, _assetValue);
+    function createAsset(string memory metadata) public {
+        // Generate a new asset ID
+        uint256 assetId = assetMetadata.length++;
+
+        // Create a new asset metadata entry
+        assetMetadata[assetId] = AssetMetadata(assetId, metadata);
+
+        // Emit a new asset event
+        emit NewAsset(assetId, metadata);
     }
 
-    // Function to process a transaction
-    function processTransaction(address _from, address _to, uint256 _amount, uint256 _assetId) public {
-        require(balances[_from] >= _amount, "Insufficient balance");
-        balances[_from] -= _amount;
-        balances[_to] += _amount;
-        emit TransactionProcessed(_from, _to, _amount, _assetId);
+    // Function to cast a governance vote
+    function castGovernanceVote(uint256 proposalId, bool vote) public {
+        // Check if the voter has sufficient governance voting power
+        require(governanceVotingPower[msg.sender] >= 1, "Insufficient governance voting power");
+
+        // Update the voter's governance voting power
+        governanceVotingPower[msg.sender] -= 1;
+
+        // Emit a governance vote event
+        emit GovernanceVote(msg.sender, proposalId, vote);
     }
 
-    // Function to get the balance of a user
-    function getBalance(address _user) public view returns (uint256) {
-        return balances[_user];
-    }
-
-    // Function to get the details of an asset
-    function getAsset(uint256 _assetId) public view returns (string memory, uint256) {
-        return (assets[_assetId].name, assets[_assetId].value);
-    }
-
-    // Struct to represent an asset
-    struct Asset {
-        string name;
+    // Struct to represent a transaction
+    struct Transaction {
+        address from;
+        address to;
         uint256 value;
+    }
+
+    // Struct to represent asset metadata
+    struct AssetMetadata {
+        uint256 assetId;
+        string metadata;
     }
 }
