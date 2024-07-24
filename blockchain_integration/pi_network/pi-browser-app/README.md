@@ -11,7 +11,7 @@ A high-tech web browser built with React and modern web technologies.
 
 ## Getting Started
 
-1. Clone the repository: `git clone https://github.com/your-username/pi-browser.git`
+1. Clone the repository: `git clone https://github.com/KOSASIH/pi-browser.git`
 2. Install dependencies: `npm install`
 3. Start the development server: `npm start`
 4. Open the browser: `http://localhost:3000`
