@@ -1,38 +1,39 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, Switch, TextInput } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { dexActions } from '../../actions';
 import { dexReducer } from '../../reducers';
-import { useWalletConnect } from '../../hooks/useWalletConnect';
 
 const Settings = () => {
   const dispatch = useDispatch();
   const settingsState = useSelector((state) => state.settings);
-  const [theme, setTheme] = useState('light');
-  const { connectWallet, walletConnected } = useWalletConnect();
+  const [darkMode, setDarkMode] = useState(settingsState.darkMode);
+  const [apiUrl, setApiUrl] = useState(settingsState.apiUrl);
 
-  const handleThemeChange = () => {
-    if (theme === 'light') {
-      setTheme('dark');
-    } else {
-      setTheme('light');
-    }
+  const handleDarkModeChange = (value) => {
+    setDarkMode(value);
+    dispatch(dexActions.updateSettings({ darkMode: value }));
+  };
+
+  const handleApiUrlChange = (text) => {
+    setApiUrl(text);
+    dispatch(dexActions.updateSettings({ apiUrl: text }));
   };
 
   return (
     <View style={styles.container}>
       <Text>Settings</Text>
       <View style={styles.settingContainer}>
-        <Text>Theme:</Text>
-        <TouchableOpacity onPress={handleThemeChange}>
-          <Text>{theme}</Text>
-        </TouchableOpacity>
+        <Text>Dark Mode</Text>
+        <Switch value={darkMode} onValueChange={handleDarkModeChange} />
       </View>
       <View style={styles.settingContainer}>
-        <Text>Wallet:</Text>
-        <TouchableOpacity onPress={connectWallet}>
-          <Text>{walletConnected ? 'Connected' : 'Connect'}</Text>
-        </TouchableOpacity>
+        <Text>API URL</Text>
+        <TextInput
+          style={styles.input}
+          value={apiUrl}
+          onChangeText={handleApiUrlChange}
+        />
       </View>
     </View>
   );
@@ -49,6 +50,13 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     padding: 16,
+  },
+  input: {
+    height: 40,
+    borderColor: 'gray',
+    borderWidth: 1,
+    padding: 10,
+    margin: 10,
   },
 });
 
