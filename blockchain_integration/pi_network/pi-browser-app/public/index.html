@@ -1,13 +1,18 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './containers/App';
-import PiBrowserBlockchainExplorer from './components/PiBrowserBlockchainExplorer';
-
-ReactDOM.render(
-  <React.StrictMode>
-    <App>
-      <PiBrowserBlockchainExplorer />
-    </App>
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pi Browser</title>
+  <link rel="stylesheet" href="styles/app.css">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <meta name="theme-color" content="#337ab7">
+</head>
+<body>
+  <noscript>
+    <h1>JavaScript is required to run this application.</h1>
+  </noscript>
+  <div id="root"></div>
+  <script src="scripts/app.js"></script>
+</body>
+</html>
