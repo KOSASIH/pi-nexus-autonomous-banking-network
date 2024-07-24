@@ -2,7 +2,7 @@ const initialState = {
   data: [],
   model: null,
   loading: false,
-  error: null
+  error: null,
 };
 
 export default (state = initialState, action) => {
