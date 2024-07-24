@@ -1,4 +1,4 @@
-export const login = (username, password) => async dispatch => {
+export const login = (username, password) => async (dispatch) => {
   try {
     const response = await axios.post('/api/login', { username, password });
     const token = response.data.token;
@@ -8,9 +8,13 @@ export const login = (username, password) => async dispatch => {
   }
 };
 
-export const register = (username, password, email) => async dispatch => {
+export const register = (username, password, email) => async (dispatch) => {
   try {
-    const response = await axios.post('/api/register', { username, password, email });
+    const response = await axios.post('/api/register', {
+      username,
+      password,
+      email,
+    });
     dispatch({ type: 'REGISTER_SUCCESS' });
   } catch (err) {
     dispatch({ type: 'REGISTER_FAILURE', error: err.response.data.error });
