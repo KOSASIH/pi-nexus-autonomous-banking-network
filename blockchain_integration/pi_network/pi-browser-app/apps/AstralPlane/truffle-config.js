@@ -17,7 +17,7 @@ module.exports = {
       gasPrice: 20000000000,
     },
     mainnet: {
-      provider: () => new Web3.providers.HttpProvider("https://mainnet.infura.io/v3/YOUR_PROJECT_ID"),
+      provider: () => new Web3.providers.HttpProvider("https://mainnet.infura.io/v3/454c372bb595486f90fc6295b128695c"),
       network_id: 1,
       gas: 6721975,
       gasPrice: 20000000000,
