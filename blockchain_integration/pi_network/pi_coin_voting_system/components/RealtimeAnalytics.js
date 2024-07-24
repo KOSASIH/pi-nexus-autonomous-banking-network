@@ -13,8 +13,8 @@ const RealtimeAnalytics = ({ getAnalytics, analyticsData }) => {
     const wsUrl = 'wss://example.com/analytics-ws';
     const wsOptions = {
       headers: {
-        'Authorization': 'Bearer YOUR_TOKEN'
-      }
+        Authorization: 'Bearer YOUR_TOKEN',
+      },
     };
     const ws = new WebSocket(wsUrl, wsOptions);
     setWs(ws);
@@ -45,7 +45,7 @@ const RealtimeAnalytics = ({ getAnalytics, analyticsData }) => {
     if (analyticsData) {
       const data = analyticsData.map((item) => ({
         time: item.timestamp,
-        value: item.value
+        value: item.value,
       }));
       setChartData(data);
       setLoading(false);
@@ -57,7 +57,7 @@ const RealtimeAnalytics = ({ getAnalytics, analyticsData }) => {
   return (
     <div>
       <h1>Realtime Analytics</h1>
-      {loading? (
+      {loading ? (
         <Spinner color="primary" />
       ) : (
         <LineChart width={800} height={400} data={chartData}>
@@ -74,7 +74,7 @@ const RealtimeAnalytics = ({ getAnalytics, analyticsData }) => {
 
 const mapStateToProps = (state) => {
   return {
-    analyticsData: state.analytics.data
+    analyticsData: state.analytics.data,
   };
 };
 
