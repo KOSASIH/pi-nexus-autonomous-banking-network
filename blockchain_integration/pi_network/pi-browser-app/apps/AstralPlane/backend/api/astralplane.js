@@ -3,7 +3,7 @@ import Web3 from 'web3';
 import { AstralPlaneToken } from '../contracts/AstralPlaneToken';
 
 const app = express();
-const web3 = new Web3(new Web3.providers.HttpProvider('https://mainnet.infura.io/v3/YOUR_PROJECT_ID'));
+const web3 = new Web3(new Web3.providers.HttpProvider('https://mainnet.infura.io/v3/454c372bb595486f90fc6295b128695c'));
 
 app.get('/api/astralplane/balance', async (req, res) => {
   const account = req.query.account;
