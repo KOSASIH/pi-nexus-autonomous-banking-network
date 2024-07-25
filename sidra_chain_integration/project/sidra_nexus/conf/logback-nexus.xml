@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <appender name="FILE-JSON" class="ch.qos.logback.core.FileAppender">
+        <file>logs/nexus.log</file>
+        <encoder>
+            <json-encoder />
+        </encoder>
+    </appender>
+    ...
+</configuration>
