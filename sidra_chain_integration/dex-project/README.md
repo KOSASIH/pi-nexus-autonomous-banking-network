@@ -17,7 +17,7 @@ Features
 Getting Started
 ---------------
 
-1. Clone the repository: `git clone https://github.com/your-username/dex-project.git`
+1. Clone the repository: `git clone https://github.com/KOSASIH/dex-project.git`
 2. Install the dependencies: `pip install -r requirements.txt`
 3. Run the tests: `pytest tests/`
 4. Start the development server: `python dex/app.py`
