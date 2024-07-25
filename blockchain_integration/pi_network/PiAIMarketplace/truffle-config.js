@@ -11,13 +11,13 @@ module.exports = {
       gasPrice: 20000000000,
     },
     ropsten: {
-      provider: () => new Web3.providers.HttpProvider("https://ropsten.infura.io/v3/YOUR_PROJECT_ID"),
+      provider: () => new Web3.providers.HttpProvider("https://ropsten.infura.io/v3/2714773fff384857a79eb88ed89d4017"),
       network_id: 3,
       gas: 8000000,
       gasPrice: 20000000000,
     },
     mainnet: {
-      provider: () => new Web3.providers.HttpProvider("https://mainnet.infura.io/v3/YOUR_PROJECT_ID"),
+      provider: () => new Web3.providers.HttpProvider("https://mainnet.infura.io/v3/2714773fff384857a79eb88ed89d4017"),
       network_id: 1,
       gas: 8000000,
       gasPrice: 20000000000,
