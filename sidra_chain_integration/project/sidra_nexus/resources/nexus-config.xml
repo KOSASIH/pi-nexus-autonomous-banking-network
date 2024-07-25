@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Database Configuration -->
+    <bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource">
+        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
+        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/nexus" />
+        <property name="username" value="root" />
+        <property name="password" value="password" />
+    </bean>
+
+    <!-- Hibernate Configuration -->
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+                <prop key="hibernate.show_sql">true</prop>
+                <prop key="hibernate.hbm2ddl.auto">update</prop>
+            </props>
+        </property>
+        <property name="packagesToScan" value="com.sidra.nexus.model" />
+    </bean>
+
+    <!-- Amazon S3 Configuration -->
+    <bean id="amazonS3" class="com.amazonaws.services.s3.AmazonS3Client">
+        <constructor-arg>
+            <bean class="com.amazonaws.auth.BasicAWSCredentials">
+                <constructor-arg value="accessKey" />
+                <constructor-arg value="secretKey" />
+            </bean>
+        </constructor-arg>
+    </bean>
+
+    <!-- Email Configuration -->
+    <bean id="emailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+        <property name="host" value="smtp.gmail.com" />
+        <property name="port" value="587" />
+        <property name="username" value="username" />
+        <property name="password" value="password" />
+        <property name="javaMailProperties">
+            <props>
+                <prop key="mail.transport.protocol">smtp</prop>
+                <prop key="mail.smtp.auth">true</prop>
+                <prop key="mail.smtp.starttls.enable">true</prop>
+            </props>
+        </property>
+    </bean>
+
+    <!-- Security Configuration -->
+    <bean id="securityConfig" class="com.sidra.nexus.security.SecurityConfig" />
+
+    <!-- API Configuration -->
+    <bean id="apiConfig" class="com.sidra.nexus.api.ApiConfig" />
+</beans>
