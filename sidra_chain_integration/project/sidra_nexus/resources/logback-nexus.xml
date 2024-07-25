@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <appender name="FILE-JSON" class="ch.qos.logback.core.FileAppender">
+        <file>logs/nexus.log</file>
+        <encoder>
+            <json-encoder />
+        </encoder>
+    </appender>
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="FILE-JSON" />
+        <appender-ref ref="CONSOLE" />
+    </root>
+
+    <logger name="com.sidra.nexus" level="DEBUG" />
+
+    <logger name="org.springframework" level="INFO" />
+
+    <logger name="org.hibernate" level="INFO" />
+
+    <logger name="com.amazonaws" level="INFO" />
+</configuration>
