@@ -1,15 +1,21 @@
 package com.sidra.nexus;
 
-import org.eclipse.jetty.server.Server;
-import org.eclipse.jetty.servlet.ServletContextHandler;
-import org.eclipse.jetty.servlet.ServletHolder;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.embedded.jetty.JettyServletWebServerFactory;
+import org.springframework.boot.web.servlet.server.ServletWebServerFactory;
+import org.springframework.context.annotation.Bean;
 
+@SpringBootApplication
 public class NexusApplication {
-    public static void main(String[] args) throws Exception {
-        Server server = new Server(8081);
-        ServletContextHandler context = new ServletContextHandler(server, "/", ServletContextHandler.SESSIONS);
-        context.addServlet(new ServletHolder(new NexusServlet()), "/*");
-        server.start();
-        server.join();
+    public static void main(String[] args) {
+        SpringApplication.run(NexusApplication.class, args);
+    }
+
+    @Bean
+    public ServletWebServerFactory servletWebServerFactory() {
+        JettyServletWebServerFactory factory = new JettyServletWebServerFactory();
+        factory.setPort(8081);
+        return factory;
     }
 }
