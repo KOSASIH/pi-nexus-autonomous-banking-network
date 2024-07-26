@@ -22,3 +22,37 @@ StarlightStation is a cutting-edge, modular space station designed to serve as a
 4. Stepping Stone for Interstellar Travel: Serves as a critical stepping stone for future interstellar missions, enabling the development of new technologies and strategies for deep space exploration.
 
 By combining cutting-edge technology, innovative design, and strategic location, StarlightStation is poised to become a beacon for space exploration, research, and tourism, inspiring humanity to reach for the stars.
+
+# Project Overview
+
+StarlightStation is a modular, orbiting space station for astronomical research, space tourism, and lunar/Mars gateway. This project is part of the Sidra Chain Integration initiative, a comprehensive autonomous banking network for the future of space exploration and development.
+
+# Project Structure
+
+- src/: Source code for the StarlightStation project
+- space_exploration/: Directory for space exploration-related modules and components
+- project/: Directory for project-specific files and documentation
+- StarlightStation/: Directory for StarlightStation project files and documentation
+
+# Getting Started
+
+To get started with the StarlightStation project, please follow these steps:
+
+1. Clone the repository: git clone https://github.com/KOSASIH/pi-nexus-autonomous-banking-network.git
+2. Navigate to the project directory: cd pi-nexus-autonomous-banking-network/tree/main/sidra_chain_integration/src/space_exploration/project/StarlightStation
+3. Review the project structure and documentation
+
+# Contributing
+
+Contributions to the StarlightStation project are welcome! If you're interested in contributing, please follow these steps:
+
+1. Fork the repository: git fork https://github.com/KOSASIH/pi-nexus-autonomous-banking-network.git
+2. Create a new branch: git branch <branch-name>
+3. Make changes and commit: git commit -m "<commit-message>"
+4. Push changes: git push origin <branch-name>
+5. Create a pull request: git request-pull <branch-name>
+
+# License
+
+The StarlightStation project is licensed under the MIT License.
+
