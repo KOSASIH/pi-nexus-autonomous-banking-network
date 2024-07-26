@@ -1,0 +1,186 @@
+[
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "orders",
+    "outputs": [
+      {
+        "name": "",
+        "type": "mapping(address => mapping(uint256 => struct AdvancedOrderContract.Order))"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "name": "user",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "name": "orderId",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "name": "amount",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "name": "price",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "name": "stopLoss",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "name": "takeProfit",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "name": "leverage",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "name": "expiration",
+        "type": "uint256"
+      }
+    ],
+    "name": "OrderPlaced",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "name": "user",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "name": "orderId",
+        "type": "uint256"
+      }
+    ],
+    "name": "OrderCancelled",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "name": "user",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "name": "orderId",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "name": "newPrice",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "name": "newStopLoss",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "name": "newTakeProfit",
+        "type": "uint256"
+      }
+    ],
+    "name": "OrderUpdated",
+    "type": "event"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_amount",
+        "type": "uint256"
+      },
+      {
+        "name": "_price",
+        "type": "uint256"
+      },
+      {
+        "name": "_stopLoss",
+        "type": "uint256"
+      },
+      {
+        "name": "_takeProfit",
+        "type": "uint256"
+      },
+      {
+        "name": "_leverage",
+        "type": "uint256"
+      },
+      {
+        "name": "_expiration",
+        "type": "uint256"
+      }
+    ],
+    "name": "placeOrder",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_orderId",
+        "type": "uint256"
+      }
+    ],
+    "name": "cancelOrder",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_orderId",
+        "type": "uint256"
+      },
+      {
+        "name": "_newPrice",
+        "type": "uint256"
+      },
+      {
+        "name": "_newStopLoss",
+        "type": "uint256"
+      },
+      {
+        "name": "_newTakeProfit",
+        "type": "uint256"
+      }
+    ],
+    "name": "updateOrder",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]
