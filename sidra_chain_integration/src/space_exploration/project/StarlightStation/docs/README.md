@@ -45,7 +45,7 @@ To get started with the StarlightStation project, please follow these steps:
 ## Or: 
 
 1. Clone the repositori: git clone https://github.com/KOSASIH/starlight-station.git
-2. 
+2. Review the project structure and documentation
 
 # Contributing
 
