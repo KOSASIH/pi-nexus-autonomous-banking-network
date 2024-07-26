@@ -59,7 +59,7 @@ Contributions to the StarlightStation project are welcome! If you're interested 
 
 ## Or: 
 
-1. For the repisitory: Git fork https://github.com/KOSASIH/starlight-station.git
+1. For the repository: Git fork https://github.com/KOSASIH/starlight-station.git
 2. Create a new branch: git branch <branch-name>
 3. Make changes and commit: git commit -m "<commit-message>"
 4. Push changes: git push origin <branch-name>
