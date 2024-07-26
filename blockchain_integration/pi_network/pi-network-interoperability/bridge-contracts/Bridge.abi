@@ -1,0 +1,38 @@
+[
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "tokenToBridge",
+    "outputs": [
+      {
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_token",
+        "type": "address"
+      },
+      {
+        "name": "_recipient",
+        "type": "address"
+      },
+      {
+        "name": "_amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "bridgeToken",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]
