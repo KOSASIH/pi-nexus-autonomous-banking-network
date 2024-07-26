@@ -42,6 +42,11 @@ To get started with the StarlightStation project, please follow these steps:
 2. Navigate to the project directory: cd pi-nexus-autonomous-banking-network/tree/main/sidra_chain_integration/src/space_exploration/project/StarlightStation
 3. Review the project structure and documentation
 
+## Or: 
+
+1. Clone the repositori: git clone https://github.com/KOSASIH/starlight-station.git
+2. 
+
 # Contributing
 
 Contributions to the StarlightStation project are welcome! If you're interested in contributing, please follow these steps:
@@ -52,9 +57,17 @@ Contributions to the StarlightStation project are welcome! If you're interested 
 4. Push changes: git push origin <branch-name>
 5. Create a pull request: git request-pull <branch-name>
 
+## Or: 
+
+1. For the repisitory: Git fork https://github.com/KOSASIH/starlight-station.git
+2. Create a new branch: git branch <branch-name>
+3. Make changes and commit: git commit -m "<commit-message>"
+4. Push changes: git push origin <branch-name>
+5. Create a pull request: git request-pull <branch-name>
+
 # License
 
-The StarlightStation project is licensed under the MIT License.
+The StarlightStation project is licensed under the Apache 2.0 License.
 
 # Acknowledgments
 
