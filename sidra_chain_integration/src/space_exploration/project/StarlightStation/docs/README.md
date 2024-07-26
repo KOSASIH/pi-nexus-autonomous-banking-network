@@ -56,3 +56,10 @@ Contributions to the StarlightStation project are welcome! If you're interested 
 
 The StarlightStation project is licensed under the MIT License.
 
+# Acknowledgments
+
+The StarlightStation project is part of the Sidra Chain Integration initiative, a collaborative effort to develop an autonomous banking network for the future of space exploration and development. We acknowledge the contributions of the Sidra Chain community and the open-source software ecosystem.
+
+# Contact
+
+For questions, comments, or concerns, please contact the project maintainers at kosasih@sidrachain.com.
