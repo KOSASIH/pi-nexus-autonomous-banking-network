@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sidra Chain DEX</title>
+  <script src="https://cdn.jsdelivr.net/npm/web3@1.3.4/dist/web3.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/ws@7.4.3/dist/ws.min.js"></script>
+  <script src="index.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    #orders {
+      padding: 20px;
+    }
+    #orders table {
+      border-collapse: collapse;
+    }
+    #orders th, #orders td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+  <h1>Sidra Chain DEX</h1>
+  <div id="orders">
+    <h2>Orders</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Amount</th>
+          <th>Price</th>
+          <th>Side</th>
+        </tr>
+      </thead>
+      <tbody id="orders-list">
+        <!-- orders will be rendered here -->
+      </tbody>
+    </table>
+  </div>
+  <div id="user-balance">
+    <h2>User Balance</h2>
+    <p id="balance"></p>
+  </div>
+  <div id="place-order">
+    <h2>Place Order</h2>
+    <form>
+      <label for="amount">Amount:</label>
+      <input type="number" id="amount" value="1">
+      <br>
+      <label for="price">Price:</label>
+      <input type="number" id="price" value="100">
+      <br>
+      <label for="side">Side:</label>
+      <select id="side">
+        <option value="0">Buy</option>
+        <option value="1">Sell</option>
+      </select>
+      <br>
+      <button id="place-order-btn">Place Order</button>
+    </form>
+  </div>
+
+  <script>
+    // Initialize WebSocket connection
+    const socket = new WebSocket('ws://localhost:8080');
+
+    // Handle WebSocket messages
+    socket.onmessage = (event) => {
+      console.log(`Received message: ${event.data}`);
+      const data = JSON.parse(event.data);
+      if (data.type === 'orders') {
+        renderOrders(data.orders);
+      } else if (data.type === 'balance') {
+        renderBalance(data.balance);
+      }
+    };
+
+    // Render orders table
+    function renderOrders(orders) {
+      const ordersList = document.getElementById('orders-list');
+      ordersList.innerHTML = '';
+      orders.forEach((order) => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${order.id}</td>
+          <td>${order.amount}</td>
+          <td>${order.price}</td>
+          <td>${order.side === 0? 'Buy' : 'Sell'}</td>
+        `;
+        ordersList.appendChild(row);
+      });
+    }
+
+    // Render user balance
+    function renderBalance(balance) {
+      const balanceElement = document.getElementById('balance');
+      balanceElement.textContent = `Your balance: ${balance}`;
+    }
+
+    // Handle place order form submission
+    document.getElementById('place-order-btn').addEventListener('click', (event) => {
+      event.preventDefault();
+      const amount = document.getElementById('amount').value;
+      const price = document.getElementById('price').value;
+      const side = document.getElementById('side').value;
+      socket.send(JSON.stringify({ type: 'placeOrder', amount, price, side }));
+    });
+  </script>
+</body>
+</html>
