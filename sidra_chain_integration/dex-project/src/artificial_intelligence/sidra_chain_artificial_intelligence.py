@@ -1,31 +1,39 @@
-# sidra_chain_artificial_intelligence.py
-import torch
-import torch.nn as nn
-import torch.optim as optim
+# dex_project_artificial_intelligence.py
+import numpy as np
+import tensorflow as tf
+from tensorflow import keras
 
-class SidraChainArtificialIntelligence:
+class DexProjectArtificialIntelligence:
     def __init__(self):
         pass
 
-    def train_neural_network(self, data, num_epochs):
-        # Train a neural network on Sidra Chain data
-        model = nn.Sequential(
-            nn.Linear(10, 128),
-            nn.ReLU(),
-            nn.Linear(128, 10)
-        )
-        criterion = nn.MSELoss()
-        optimizer = optim.Adam(model.parameters(), lr=0.001)
-        for epoch in range(num_epochs):
-            optimizer.zero_grad()
-            outputs = model(data)
-            loss = criterion(outputs, data)
-            loss.backward()
-            optimizer.step()
-            print(f'Epoch {epoch+1}, Loss: {loss.item()}')
+    def create_neural_network(self, input_shape, output_shape):
+        # Create a neural network using Keras
+        model = keras.Sequential([
+            keras.layers.Dense(64, activation='relu', input_shape=input_shape),
+            keras.layers.Dense(32, activation='relu'),
+            keras.layers.Dense(output_shape, activation='softmax')
+        ])
+        model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
         return model
 
-    def make_predictions(self, model, data):
-        # Make predictions on new Sidra Chain data
-        outputs = model(data)
-        return outputs.detach().numpy()
+    def train_neural_network(self, model, X_train, y_train, X_test, y_test):
+        # Train a neural network using Keras
+        model.fit(X_train, y_train, epochs=10, batch_size=128, validation_data=(X_test, y_test))
+
+    def use_neural_network(self, model, input_data):
+        # Use a neural network to make predictions
+        output_data = model.predict(input_data)
+        return output_data
+
+    def create_decision_tree(self, X_train, y_train):
+        # Create a decision tree using Scikit-learn
+        from sklearn.tree import DecisionTreeClassifier
+        clf = DecisionTreeClassifier(random_state=0)
+        clf.fit(X_train, y_train)
+        return clf
+
+    def use_decision_tree(self, clf, input_data):
+        # Use a decision tree to make predictions
+        output_data = clf.predict(input_data)
+        return output_data
