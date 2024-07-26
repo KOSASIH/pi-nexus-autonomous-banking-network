@@ -38,4 +38,4 @@ The Sidra Chain integration code is licensed under the MIT License. See `LICENSE
 
 ## Contact
 
-For questions, comments, or concerns, please contact the Sidra Chain team at [insert contact information].
+For questions, comments, or concerns, please contact the Sidra Chain team at [twitter](@sidrachain).
