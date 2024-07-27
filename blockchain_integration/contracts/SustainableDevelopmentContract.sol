@@ -27,5 +27,24 @@ contract SustainableDevelopmentContract {
         projects[projects.length] = newProject;
     }
 
-    // Function to invest in a project
-    function invest(uint256 _projectId, uint256 _amount
+        // Function to invest in a project
+    function invest(uint256 _projectId, uint256 _amount) public {
+        Project storage project = projects[_projectId];
+        require(project.projectId != 0, "Project does not exist");
+        uint256 impact = _amount * project.impactPerPi;
+        impactBalances[msg.sender] += impact;
+        project.totalInvested += _amount;
+        emit Invested(_projectId, msg.sender, _amount);
+        emit ImpactUpdated(msg.sender, impactBalances[msg.sender]);
+    }
+
+    // Function to view a user's impact balance
+    function viewImpactBalance() public view returns (uint256) {
+        return impactBalances[msg.sender];
+    }
+
+    // Function to view a project's details
+    function viewProject(uint256 _projectId) public view returns (Project memory) {
+        return projects[_projectId];
+    }
+}
