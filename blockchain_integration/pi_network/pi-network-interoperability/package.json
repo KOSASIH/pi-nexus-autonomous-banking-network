@@ -1,0 +1,12 @@
+{
+  "name": "relayer-node",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "web3": "^1.3.4",
+    "ethers": "^5.4.0",
+    "axios": "^0.21.1"
+  }
+}
