@@ -12,26 +12,38 @@ class PolkadotBridgeContract {
     });
   }
 
-  async bridgeToken(tokenAddress, recipientAddress, amount) {
+  async lockTokens(amount, tokenAddress) {
     const txCount = await this.web3.eth.getTransactionCount(this.polkadotBridgeContractAddress);
     const tx = {
       from: this.polkadotBridgeContractAddress,
-      to: tokenAddress,
+      to: this.polkadotBridgeContractAddress,
       value: amount,
       gas: '20000',
       gasPrice: '20',
-      nonce: txCount
+      nonce: txCount,
+      data: `0x${tokenAddress.toString(16)}`
     };
     const signedTx = await this.ethersProvider.signTransaction(tx, '0x1234567890abcdef');
     await this.ethersProvider.sendTransaction(signedTx);
   }
 
-  async getBalance(tokenAddress) {
-    return this.web3.eth.getBalance(tokenAddress);
+  async unlockTokens(amount, tokenAddress) {
+    const txCount = await this.web3.eth.getTransactionCount(this.polkadotBridgeContractAddress);
+    const tx = {
+      from: this.polkadotBridgeContractAddress,
+      to: this.polkadotBridgeContractAddress,
+      value: amount,
+      gas: '20000',
+      gasPrice: '20',
+      nonce: txCount,
+      data: `0x${tokenAddress.toString(16)}`
+    };
+    const signedTx = await this.ethersProvider.signTransaction(tx, '0x1234567890abcdef');
+    await this.ethersProvider.sendTransaction(signedTx);
   }
 
-  async getPolkadotBalance(address) {
-    return this.api.query.balances.freeBalance(address);
+  async getLockedTokens(tokenAddress) {
+    return this.api.query.bridge.lockedTokens(tokenAddress);
   }
 }
 
