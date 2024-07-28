@@ -51,7 +51,7 @@ Lynx is licensed under the [Apache 2.0](LICENSE).
 
 We would like to thank the following organizations and individuals for their contributions to the Lynx project:
 
-* [Sidra Chain Owner](https://github.com/maljefairi)
+* [Mohammed Al-Jefairi ( Sidra Chain Owner )](https://github.com/maljefairi)
 * All contributors
 
 
