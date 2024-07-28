@@ -1,0 +1,36 @@
+# Core dependencies
+numpy==1.20.0
+scipy==1.6.2
+pandas==1.3.5
+matplotlib==3.4.3
+scikit-learn==1.0.2
+
+# AGI dependencies
+torch==1.9.0
+torchvision==0.10.0
+transformers==4.10.0
+
+# Spacecraft dependencies
+pyephem==3.7.7.0
+skyfield==1.31
+poliastro==0.14.0
+
+# Sensor dependencies
+pyserial==3.5
+python-smbus==4.2
+
+# GUI dependencies
+PyQt5==5.15.4
+PyQtWebEngine==5.15.4
+
+# Fault detection dependencies
+scipy-signal==1.6.2
+pykalman==0.9.5
+
+# Mission planning dependencies
+ortools==9.0.9048
+google-api-python-client==2.31.0
+
+# Testing dependencies
+pytest==6.2.5
+pytest-cov==3.0.0
