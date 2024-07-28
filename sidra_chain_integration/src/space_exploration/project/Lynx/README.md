@@ -44,14 +44,14 @@ We welcome contributions to the Lynx project. Please see our [contribution guide
 **License**
 ----------
 
-Lynx is licensed under the [MIT License](LICENSE).
+Lynx is licensed under the [Apache 2.0](LICENSE).
 
 **Acknowledgments**
 ------------------
 
 We would like to thank the following organizations and individuals for their contributions to the Lynx project:
 
-* [List of contributors]
+* [Contributors]
 
 **Contact**
 ----------
