@@ -3,16 +3,45 @@
 <head>
     <title>Lynx Cyber Attack Prediction System</title>
     <link rel="stylesheet" href="static/css/style.css">
+    <link rel="icon" href="static/img/favicon.ico">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-    <h1>Lynx Cyber Attack Prediction System</h1>
-    <form id="predict-form">
-        <label for="data">Network Traffic Data:</label>
-        <textarea id="data" name="data"></textarea>
-        <button type="submit">Predict</button>
-    </form>
-    <div id="results"></div>
-
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="home">
+            <h1>Lynx Cyber Attack Prediction System</h1>
+            <p>Welcome to the Lynx Cyber Attack Prediction System. This system uses machine learning algorithms to predict cyber attacks based on network traffic data.</p>
+            <form id="predict-form">
+                <label for="data">Network Traffic Data:</label>
+                <textarea id="data" name="data"></textarea>
+                <button type="submit">Predict</button>
+                <button id="clear-button">Clear</button>
+                <button id="example-button">Example</button>
+            </form>
+            <div id="results"></div>
+        </section>
+        <section id="about">
+            <h2>About the System</h2>
+            <p>The Lynx Cyber Attack Prediction System is a machine learning-based system that predicts cyber attacks based on network traffic data. The system uses a combination of machine learning algorithms and data preprocessing techniques to identify patterns in network traffic data that are indicative of cyber attacks.</p>
+        </section>
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <p>If you have any questions or would like to learn more about the Lynx Cyber Attack Prediction System, please contact us at <a href="mailto:info@lynx.com">info@lynx.com</a>.</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 Lynx Cyber Attack Prediction System</p>
+    </footer>
     <script src="static/js/script.js"></script>
 </body>
-</html>
+                </html>
