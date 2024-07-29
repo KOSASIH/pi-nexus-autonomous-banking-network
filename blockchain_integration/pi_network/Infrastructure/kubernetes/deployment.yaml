@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pi-network
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: pi-network
+  template:
+    metadata:
+      labels:
+        app: pi-network
+    spec:
+      containers:
+      - name: pi-network
+        image: pi-network:latest
+        ports:
+        - containerPort: 8080
+        env:
+        - name: PI_NETWORK_PORT
+          value: "8080"
+        - name: PI_NETWORK_DB_HOST
+          value: "db"
+        - name: PI_NETWORK_DB_PORT
+          value: "5432"
+        - name: PI_NETWORK_DB_USER
+          value: "pi_network"
+        - name: PI_NETWORK_DB_PASSWORD
+          value: "pi_network_password"
+      - name: db
+        image: postgres:12
+        ports:
+        - containerPort: 5432
+        env:
+        - name: POSTGRES_USER
+          value: "pi_network"
+        - name: POSTGRES_PASSWORD
+          value: "pi_network_password"
+        - name: POSTGRES_DB
+          value: "pi_network"
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
