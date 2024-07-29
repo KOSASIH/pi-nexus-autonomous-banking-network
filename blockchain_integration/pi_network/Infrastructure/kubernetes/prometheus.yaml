@@ -1,0 +1,16 @@
+apiVersion: monitoring.coreos.com/v1
+kind: Prometheus
+metadata:
+  name: pi-network-prometheus
+spec:
+  replicas: 1
+  config:
+    global:
+      scrape_interval: 30s
+    rule_files:
+      - /etc/prometheus/rules
+    scrape_configs:
+      - job_name: pi-network
+        static_configs:
+          - targets:
+              - pi-network:8080
