@@ -1,17 +1,17 @@
 // Import the necessary libraries
-const PiNetwork = require('pi-network-javascript');
-const Wallet = require('pi-network-wallet');
+const PiNetwork = require("pi-network-javascript");
+const Wallet = require("pi-network-wallet");
 
 // Set up the Pi Network API connection
 const piNetwork = new PiNetwork({
-  network: 'mainnet', // or 'testnet'
-  apiKey: 'YOUR_API_KEY'
+  network: "mainnet", // or 'testnet'
+  apiKey: "YOUR_API_KEY",
 });
 
 // Set up the Pi Network wallet connection
 const wallet = new Wallet({
-  username: 'YOUR_USERNAME',
-  password: 'YOUR_PASSWORD'
+  username: "YOUR_USERNAME",
+  password: "YOUR_PASSWORD",
 });
 
 // Implement wallet integration
@@ -34,5 +34,5 @@ async function receivePi() {
 module.exports = {
   getBalance,
   sendPi,
-  receivePi
+  receivePi,
 };
