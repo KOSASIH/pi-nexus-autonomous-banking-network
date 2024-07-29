@@ -1,0 +1,15 @@
+apiVersion: integreatly.com/v1alpha1
+kind: Grafana
+metadata:
+  name: pi-network-grafana
+spec:
+  replicas: 1
+  config:
+    auth:
+      disable_login_form: true
+    security:
+      admin_password: <base64 encoded password>
+    datasources:
+      - name: Prometheus
+        type: prometheus
+        url: http://pi-network-prometheus:9090
