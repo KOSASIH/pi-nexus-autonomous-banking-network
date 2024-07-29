@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pi-network
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: pi-network
+  template:
+    metadata:
+      labels:
+        app: pi-network
+    spec:
+      containers:
+      - name: pi-network
+        image: pi-network:latest
+        ports:
+        - containerPort: 8080
+        volumeMounts:
+        - name: pi-network-pvc
+          mountPath: /mnt/data
+      volumes:
+      - name: pi-network-pvc
+        persistentVolumeClaim:
+          claimName: pi-network-pvc
