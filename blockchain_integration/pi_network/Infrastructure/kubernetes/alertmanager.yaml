@@ -1,0 +1,14 @@
+apiVersion: monitoring.coreos.com/v1
+kind: Alertmanager
+metadata:
+  name: pi-network-alertmanager
+spec:
+  replicas: 1
+  config:
+    inhibit_rules:
+      - target_match:
+          - job: pi-network
+        labels:
+          severity: warning
+        annotations:
+          summary: Pi Network warning
