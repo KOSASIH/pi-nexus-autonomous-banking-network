@@ -1,0 +1,28 @@
+apiVersion: integreatly.com/v1alpha1
+kind: Grafana
+metadata:
+  name: pi-network-grafana
+spec:
+  replicas: 1
+  config:
+    auth:
+      disable_login_form: true
+    security:
+      admin_password: <base64 encoded password>
+    datasources:
+      - name: Prometheus
+        type: prometheus
+        url: http://pi-network-prometheus:9090
+      - name: Loki
+        type: loki
+        url: http://pi-network-loki:3100
+    dashboards:
+      - name: Pi Network Overview
+        file: dashboards/pi-network-overview.json
+      - name: Pi Network Performance
+        file: dashboards/pi-network-performance.json
+    plugins:
+      - name: grafana-piechart-panel
+        version: 1.4.0
+      - name: grafana-table-panel
+        version: 1.2.0
