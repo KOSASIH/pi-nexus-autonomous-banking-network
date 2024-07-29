@@ -1,0 +1,14 @@
+{
+  "name": "pi-network",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "truffle test",
+    "deploy": "truffle deploy",
+    "migrate": "truffle migrate"
+  },
+  "dependencies": {
+    "truffle": "^5.3.7",
+    "web3": "^1.5.0",
+    "ganache-cli": "^6.12.2"
+  }
+}
