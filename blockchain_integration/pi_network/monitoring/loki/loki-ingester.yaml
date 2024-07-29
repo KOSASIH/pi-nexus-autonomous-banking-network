@@ -1,0 +1,13 @@
+apiVersion: loki.grafana.com/v1alpha1
+kind: LokiIngester
+metadata:
+  name: pi-network-loki-ingester
+spec:
+  replicas: 2
+  serviceAccountName: pi-network-loki-ingester
+  config:
+    ingester:
+      lifecycler:
+        ring:
+          kvstore:
+            store: inmemory
