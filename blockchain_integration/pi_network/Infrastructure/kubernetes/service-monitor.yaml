@@ -1,0 +1,11 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: pi-network-monitor
+spec:
+  selector:
+    matchLabels:
+      app: pi-network
+  endpoints:
+  - port: 8080
+    interval: 30s
