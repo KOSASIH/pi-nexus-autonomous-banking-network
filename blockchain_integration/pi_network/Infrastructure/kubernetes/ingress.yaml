@@ -1,0 +1,13 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: pi-network-ingress
+spec:
+  rules:
+  - host: pi-network.example.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: pi-network
+          servicePort: 8080
