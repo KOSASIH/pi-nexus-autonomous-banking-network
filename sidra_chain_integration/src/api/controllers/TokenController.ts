@@ -32,4 +32,4 @@ export class TokenController {
     await this.tokenRepository.save(result);
     return res.json(result);
   }
-}
+  }
