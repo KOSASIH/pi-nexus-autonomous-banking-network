@@ -28,6 +28,15 @@ export class SidraChainTransaction {
 
   @Column()
   gasPrice: number;
+
+  @Column()
+  nonce: number;
+
+  @Column()
+  transactionIndex: number;
+
+  @Column()
+  blockHash: string;
 }
 
 @Entity()
@@ -46,4 +55,25 @@ export class SidraChainBlock {
 
   @Column()
   transactions: SidraChainTransaction[];
+}
+
+@Entity()
+export class Token {
+  @PrimaryGeneratedColumn()
+  id: number;
+
+  @Column()
+  tokenAddress: string;
+
+  @Column()
+  tokenName: string;
+
+  @Column()
+  tokenSymbol: string;
+
+  @Column()
+  totalSupply: number;
+
+  @Column()
+  decimals: number;
 }
