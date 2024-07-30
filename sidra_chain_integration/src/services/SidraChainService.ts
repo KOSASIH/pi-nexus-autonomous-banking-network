@@ -1,36 +1,22 @@
 import { Injectable } from '@nestjs/common';
-import { SidraChain } from '../contracts/SidraChain';
-import Web3 from 'web3';
+import { SidraChainTransactionRepository } from '../infrastructure/database/repository';
+import { SidraChain } from '../contracts/SidraChain.sol';
 
 @Injectable()
 export class SidraChainService {
-  private web3: Web3;
-  private sidraChainContract: SidraChain;
+  constructor(private readonly sidraChainTransactionRepository: SidraChainTransactionRepository) {}
 
-  constructor() {
-    this.web3 = new Web3(new Web3.providers.HttpProvider(environment.sidraChainUrl));
-    this.sidraChainContract = new SidraChain(environment.sidraChainContractAddress);
-  }
-
-  async getSidraChainInfo() {
-    const info = await this.sidraChainContract.methods.getInfo().call();
+  async getSidraChainInfo(): Promise<SidraChainInfo> {
+    // Call the SidraChain contract to get the chain info
+    const sidraChain = new SidraChain();
+    const info = await sidraChain.getInfo();
     return info;
   }
 
-  async transfer(transferData: TransferData) {
-    const txCount = await this.web3.eth.getTransactionCount(environment.tokenContractAddress);
-    const tx = {
-      from: environment.tokenContractAddress,
-      to: transferData.recipient,
-      value: transferData.amount,
-      gas: '20000',
-      gasPrice: '20',
-      nonce: txCount,
-    };
-    const signedTx = await this.web3.eth.accounts.signTransaction(tx, environment.privateKey);
-    const receipt = await this.web3.eth.sendSignedTransaction(signedTx.rawTransaction);
-    return receipt;
+  async transfer(transferData: TransferData): Promise<SidraChainTransaction> {
+    // Call the SidraChain contract to transfer tokens
+    const sidraChain = new SidraChain();
+    const result = await sidraChain.transfer(transferData);
+    return result;
   }
-
-  //...
 }
