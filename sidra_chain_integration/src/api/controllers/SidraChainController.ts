@@ -4,6 +4,8 @@ import { SidraChainTransactionRepository } from '../infrastructure/database/repo
 import { SendMessage } from '../infrastructure/messaging/rabbitmq';
 import { Roles } from '../security/roles.decorator';
 import { RolesGuard } from '../security/roles.guard';
+import { AdminRole } from '../security/roles/admin.role';
+import { UserRole } from '../security/roles/user.role';
 
 @Controller('sidra-chain')
 export class SidraChainController {
@@ -19,7 +21,7 @@ export class SidraChainController {
     return res.json(info);
   }
 
-  @Post('transfer')
+    @Post('transfer')
   @Roles('user')
   async transfer(@Body() transferData: TransferData, @Req() req: Request, @Res() res: Response) {
     const result = await this.sidraChainService.transfer(transferData);
@@ -44,4 +46,4 @@ export class SidraChainController {
     }
     return res.json(transaction);
   }
-  }
+    }
