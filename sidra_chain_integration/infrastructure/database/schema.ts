@@ -22,4 +22,28 @@ export class SidraChainTransaction {
 
   @Column()
   value: string;
+
+  @Column()
+  gasUsed: number;
+
+  @Column()
+  gasPrice: number;
+}
+
+@Entity()
+export class SidraChainBlock {
+  @PrimaryGeneratedColumn()
+  id: number;
+
+  @Column()
+  blockNumber: number;
+
+  @Column()
+  blockHash: string;
+
+  @Column()
+  timestamp: Date;
+
+  @Column()
+  transactions: SidraChainTransaction[];
 }
