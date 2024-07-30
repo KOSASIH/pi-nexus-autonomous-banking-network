@@ -4,6 +4,9 @@ from wallet import Wallet
 from transaction import Transaction
 from contract import EonixContract
 from database import EonixDatabase
+from ai import EonixAI
+from ml import EonixML
+from nlp import EonixNLP
 
 class Eonix:
     def __init__(self):
@@ -11,6 +14,9 @@ class Eonix:
         self.wallet = Wallet()
         self.contract_manager = EonixContractManager()
         self.database = EonixDatabase()
+        self.ai = EonixAI()
+        self.ml = EonixML()
+        self.nlp = EonixNLP()
 
     def create_transaction(self, recipient, amount):
         transaction = Transaction(self.wallet.public_key, recipient, amount)
@@ -38,3 +44,15 @@ class Eonix:
 
     def retrieve_data(self, cid):
         return self.database.retrieve_data(cid)
+
+    def predict_transaction_outcome(self, transaction):
+        return self.ai.predict_outcome(transaction)
+
+    def detect_fraudulent_transaction(self, transaction):
+        return self.ml.predict_fraud(transaction)
+
+    def analyze_sentiment(self, text):
+        return self.nlp.analyze_sentiment(text)
+
+    def extract_entities(self, text):
+        return self.nlp.extract_entities(text)
