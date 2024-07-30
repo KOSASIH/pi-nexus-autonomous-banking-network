@@ -16,7 +16,7 @@ def main():
     print("Contract result:", result)
 
     # Test database feature
-    data = "data to store"
+    data = {"key": "value"}
     cid = eonix.store_data(data)
     retrieved_data = eonix.retrieve_data(cid)
     print("Retrieved data:", retrieved_data)
@@ -28,11 +28,11 @@ def main():
 
     # Test ML feature
     transaction = {"sender": "sender", "recipient": "recipient", "amount": 10}
-    fraud = eonix.detect_fraudulent_transaction(transaction)
-    print("Fraudulent transaction:", fraud)
+    is_fraudulent = eonix.detect_fraudulent_transaction(transaction)
+    print("Is fraudulent:", is_fraudulent)
 
     # Test NLP feature
-    text = "text to analyze"
+    text = "This is a sample text"
     sentiment = eonix.analyze_sentiment(text)
     print("Sentiment:", sentiment)
 
@@ -46,10 +46,30 @@ def main():
     eonix.display_ar()
 
     # Test AGI feature
-    data = [("input1", "output1"), ("input2", "output2")]
+    data = [{"input": "input1", "output": "output1"}, {"input": "input2", "output": "output2"}]
     eonix.train_agi_model(data)
     accuracy = eonix.evaluate_agi_model(data)
-    print("AGI model accuracy:", accuracy)
+    print("AGI accuracy:", accuracy)
+
+    # Test advanced AI feature
+    prompt = "Generate a sample text"
+    text = eonix.generate_text(prompt)
+    print("Generated text:", text)
+
+    # Test cybersecurity feature
+    data = "sample data"
+    encrypted_data = eonix.encrypt_data(data)
+    decrypted_data = eonix.decrypt_data(encrypted_data)
+    print("Decrypted data:", decrypted_data)
+
+    # Test IoT feature
+    device_ip = "192.168.1.100"
+    device_port = 8080
+    command = "turn on"
+    eonix.connect_device(device_ip, device_port)
+    eonix.send_command(device_ip, device_port, command)
+    data = eonix.receive_data(device_ip, device_port)
+    print("Received data:", data)
 
 if __name__ == "__main__":
     main()
