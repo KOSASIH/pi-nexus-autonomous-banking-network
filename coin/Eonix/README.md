@@ -29,7 +29,7 @@ We welcome contributions to the Eonix project. Please submit pull requests or is
 
 # License
 
-Eonix is licensed under the MIT License. See LICENSE for details.
+Eonix is licensed under the Apache 2.0 License. See LICENSE for details.
 
 # Contact
 
