@@ -2,9 +2,9 @@
 
 ## VERSION 9.9.9
 
-## GALACTIC COORDINATES: 43.7232° N, 79.3832° W
+### GALACTIC COORDINATES: 43.7232° N, 79.3832° W
 
-## TEMPORAL DOMAIN: March 30, 2023, 14:30:00 UTC
+### TEMPORAL DOMAIN: March 30, 2023, 14:30:00 UTC
 
 # COSMIC ENTANGLEMENT NOTICE: 
 
@@ -72,6 +72,6 @@ By accessing, using, or distributing Eonix, you acknowledge that you have read, 
 
 COSMIC SIGNATURE
 
-[KOSASIH]
+[KOSASIH](https://www.linkedin.com/in/kosasih-81b46b5a) 
 
 GALACTIC DATE: March 30, 2023, 14:30:00 UTC
