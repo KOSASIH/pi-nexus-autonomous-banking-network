@@ -6,7 +6,9 @@
 
 ## TEMPORAL DOMAIN: March 30, 2023, 14:30:00 UTC
 
-# COSMIC ENTANGLEMENT NOTICE: By accessing, using, or distributing the Eonix software, you acknowledge that you have read, understood, and agree to be bound by the terms and conditions of this License Agreement.
+# COSMIC ENTANGLEMENT NOTICE: 
+
+*By accessing, using, or distributing the Eonix software, you acknowledge that you have read, understood, and agree to be bound by the terms and conditions of this License Agreement*.
 
 ## ARTICLE I: DEFINITIONS
 
