@@ -6,7 +6,7 @@ class MultiChainManager:
         self.chains = {
             'ethereum': Web3(Web3.HTTPProvider('https://mainnet.infura.io/v3/YOUR_PROJECT_ID')),
             'binance_smart_chain': Web3(Web3.HTTPProvider('https://bsc-dataseed.binance.org/api/v1/')),
-            'pi_network': Web3(Web3.HTTPProvider('https://pi-network.io/api/v1/'))
+            'pi_network': Web3(Web3.HTTPProvider('https://minepi.com/api/v1/'))
         }
 
     def get_chain(self, chain_name):
