@@ -1,1 +1,1 @@
-FIAT_CURRENCIES = ['USD', 'EUR', 'GBP', 'JPY', `IDR`]
+FIAT_CURRENCIES = ['USD', 'EUR', 'GBP', 'JPY', `IDR`, `VND`]
