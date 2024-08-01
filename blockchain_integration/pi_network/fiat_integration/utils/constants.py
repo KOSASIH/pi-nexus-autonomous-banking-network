@@ -26,7 +26,9 @@ FIAT_CURRENCIES = [
     'HUF',  # Hungarian Forint
     'IDR',  # Indonesian Rupiah
     'VND',  # Vietnamese Dong
+    'SAR',  # Saudi Riyal
 ]
+
 
 # Cryptocurrencies
 CRYPTO_CURRENCIES = [
