@@ -43,4 +43,4 @@ CRYPTO_CURRENCIES = [
 
 # Other constants
 MIN_FIAT_TRANSACTION_AMOUNT = 10.0  # Minimum fiat transaction amount
-MAX_FIAT_TRANSACTION_AMOUNT = 100000.0  # Maximum fiat transaction amount
+MAX_FIAT_TRANSACTION_AMOUNT = 250000.0  # Maximum fiat transaction amount
