@@ -2,9 +2,9 @@
 const Web3 = require('web3');
 
 class SmartContract {
-  // ... other methods ...
+  //... other methods...
 
-  async createWallet(walletAddress, accountAddress) {
+  async mapAccountToWallet(accountAddress, walletAddress) {
     const web3 = new Web3(new Web3.providers.HttpProvider('https://mainnet.infura.io/v3/YOUR_PROJECT_ID'));
     const contractAddress = '0x...YOUR_CONTRACT_ADDRESS...';
     const contractABI = [...YOUR_CONTRACT_ABI...];
@@ -12,7 +12,7 @@ class SmartContract {
     const contract = new web3.eth.Contract(contractABI, contractAddress);
     const txCount = await web3.eth.getTransactionCount(walletAddress);
 
-    const txData = contract.methods.createWallet(accountAddress).encodeABI();
+    const txData = contract.methods.mapAccountToWallet(accountAddress, walletAddress).encodeABI();
     const tx = {
       from: walletAddress,
       to: contractAddress,
