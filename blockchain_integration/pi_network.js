@@ -1,11 +1,27 @@
 // blockchain_integration/pi_network.js
-const PiNetwork = require('pi-network');
+const axios = require('axios');
 
-const piNetworkConfig = {
-  nodeUrl: 'https://api.minepi.com/v1/node',
-  walletUrl: 'https://api.minepi.com/v1/wallet',
-};
+class PiNetwork {
+  async createAccount(userIdentity, walletAddress) {
+    const apiUrl = 'https://api.minepi.com/v1/account';
+    const headers = {
+      'Content-Type': 'application/json',
+    };
 
-const piNetwork = new PiNetwork(piNetworkConfig);
+    const data = {
+      user_identity: userIdentity,
+      wallet_address: walletAddress,
+    };
 
-module.exports = piNetwork;
+    try {
+      const response = await axios.post(apiUrl, data, headers);
+      const account = response.data;
+      return account;
+    } catch (error) {
+      console.error(error);
+      throw error;
+    }
+  }
+}
+
+module.exports = PiNetwork;
