@@ -1,0 +1,2 @@
+class FiatIntegrationError(Exception):
+    pass
