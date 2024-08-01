@@ -1,18 +1,37 @@
-import math
+import requests
+from stellar_sdk import Server, TransactionBuilder, Asset, Memo
 
 class PiFiatSwapManager:
-    def __init__(self, pi_network_api, fiat_exchange_rate_manager, bank_account_manager):
-        self.pi_network_api = pi_network_api
-        self.fiat_exchange_rate_manager = fiat_exchange_rate_manager
-        self.bank_account_manager = bank_account_manager
+    def __init__(self, pi_testnet, my_public_key, my_secret_seed):
+        self.pi_testnet = pi_testnet
+        self.my_public_key = my_public_key
+        self.my_secret_seed = my_secret_seed
 
-    def swap_pi_for_fiat(self, user_id, amount_pi, fiat_currency):
-        pi_balance = self.pi_network_api.get_user_balance(user_id)
-        fiat_exchange_rate = self.fiat_exchange_rate_manager.get_fiat_exchange_rates()[fiat_currency]
-        amount_fiat = pi_balance * fiat_exchange_rate
-        bank_account_balance = self.bank_account_manager.get_bank_account_balance(user_id)
-        if bank_account_balance >= amount_fiat:
-            self.bank_account_manager.transfer_fiat_to_bank_account(user_id, amount_fiat)
-            return True
-        else:
-            return False
+    def load_account(self):
+        response = self.pi_testnet.loadAccount(self.my_public_key)
+        return response
+
+    def build_transaction(self, recipient_address, amount):
+        payment = TransactionBuilder(
+            self.load_account(),
+            fee=self.pi_testnet.fetchBaseFee(),
+            network_passphrase="Pi Testnet"
+        ).addOperation(
+            payment_op=PaymentOp(
+                destination=recipient_address,
+                asset=Asset.native(),
+                amount=amount
+            )
+        ).addMemo(
+            Memo.text("Payment ID")
+        ).build()
+        return payment
+
+    def sign_transaction(self, transaction):
+        keypair = Keypair.fromSecret(self.my_secret_seed)
+        transaction.sign(keypair)
+        return transaction
+
+    def submit_transaction(self, transaction):
+        response = self.pi_testnet.submitTransaction(transaction)
+        return response
