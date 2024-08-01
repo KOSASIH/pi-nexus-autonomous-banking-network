@@ -24,7 +24,6 @@ FIAT_CURRENCIES = [
     'PLN',  # Polish Złoty
     'CZK',  # Czech Koruna
     'HUF',  # Hungarian Forint
-    'ILS',  # Israeli Shekel
     'IDR',  # Indonesian Rupiah
     'VND',  # Vietnamese Dong
 ]
@@ -44,4 +43,4 @@ CRYPTO_CURRENCIES = [
 
 # Other constants
 MIN_FIAT_TRANSACTION_AMOUNT = 10.0  # Minimum fiat transaction amount
-MAX_FIAT_TRANSACTION_AMOUNT = 10000.0  # Maximum fiat transaction amount
+MAX_FIAT_TRANSACTION_AMOUNT = 100000.0  # Maximum fiat transaction amount
