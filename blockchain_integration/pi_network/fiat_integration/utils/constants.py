@@ -1,0 +1,1 @@
+FIAT_CURRENCIES = ['USD', 'EUR', 'GBP', 'JPY', `IDR`]
