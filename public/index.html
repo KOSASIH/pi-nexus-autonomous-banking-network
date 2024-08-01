@@ -1,0 +1,38 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Decentralized Banking Platform</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Decentralized Banking Platform</h1>
+  <form id="create-account-form">
+    <label for="user-identity">User Identity:</label>
+    <input type="text" id="user-identity" name="user-identity">
+    <button id="create-account-button">Create Account</button>
+  </form>
+  <form id="deposit-funds-form">
+    <label for="account-address">Account Address:</label>
+    <input type="text" id="account-address" name="account-address">
+    <label for="amount">Amount:</label>
+    <input type="number" id="amount" name="amount">
+    <button id="deposit-funds-button">Deposit Funds</button>
+  </form>
+  <form id="withdraw-funds-form">
+    <label for="account-address">Account Address:</label>
+    <input type="text" id="account-address" name="account-address">
+    <label for="amount">Amount:</label>
+    <input type="number" id="amount" name="amount">
+    <button id="withdraw-funds-button">Withdraw Funds</button>
+  </form>
+  <form id="get-balance-form">
+    <label for="account-address">Account Address:</label>
+    <input type="text" id="account-address" name="account-address">
+    <button id="get-balance-button">Get Balance</button>
+  </form>
+  <div id="result"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
