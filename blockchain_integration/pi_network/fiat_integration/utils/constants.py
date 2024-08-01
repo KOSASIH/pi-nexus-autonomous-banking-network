@@ -27,8 +27,8 @@ FIAT_CURRENCIES = [
     'IDR',  # Indonesian Rupiah
     'VND',  # Vietnamese Dong
     'SAR',  # Saudi Riyal
+    'PHP',  # Philippine Peso
 ]
-
 
 # Cryptocurrencies
 CRYPTO_CURRENCIES = [
