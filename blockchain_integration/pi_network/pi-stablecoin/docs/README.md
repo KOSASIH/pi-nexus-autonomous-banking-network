@@ -12,9 +12,9 @@ To get started with the Pi Stablecoin project, please refer to the [installation
 
 The Pi Stablecoin project consists of the following components:
 
-* Smart contracts: Written in [insert programming language, e.g., Solidity]
+* Smart contracts: Written in [Python, Java Script, Solidity]
 * Blockchain network: Built on the Pi Network blockchain
-* APIs: [insert APIs or interfaces used]
+* APIs: [Index, Blockchain, Models, Utils, etc]
 
 For a detailed overview of the project's architecture, please refer to the [architecture.md](architecture.md) file.
 
