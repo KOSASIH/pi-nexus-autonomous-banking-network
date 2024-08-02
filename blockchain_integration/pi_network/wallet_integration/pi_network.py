@@ -1,4 +1,5 @@
-from.base import WalletIntegration
+from .base import WalletIntegration
+
 
 class PINetworkWalletIntegration(WalletIntegration):
     def __init__(self, wallet_address, private_key):
