@@ -1,11 +1,24 @@
-const express = require('express');
+import express from 'express';
+import fiatOnRampRouter from './fiatOnRamp';
+import walletRouter from './wallet';
+import dashboardRouter from './dashboard';
+
 const app = express();
-const bodyParser = require('body-parser');
-const cors = require('cors');
-const transactionRoutes = require('./transactions');
 
-app.use(cors());
-app.use(bodyParser.json());
-app.use('/api/transactions', transactionRoutes);
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-module.exports = app;
+app.use('/fiat-on-ramp', fiatOnRampRouter);
+app.use('/wallet', walletRouter);
+app.use('/dashboard', dashboardRouter);
+
+app.get('/', (req, res) => {
+  res.send('OnRampPi API');
+});
+
+app.use((err, req, res, next) => {
+  console.error(err);
+  res.status(500).send('Internal Server Error');
+});
+
+export default app;
