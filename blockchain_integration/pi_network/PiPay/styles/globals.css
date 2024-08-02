@@ -1,0 +1,71 @@
+/* styles/globals.css */
+/* Global Styles */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+  background-color: #f9f9f9;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 0.5em;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 0.25em;
+  padding: 0.5em 1em;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  background-color: #fff;
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  background-color: #eee;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.error {
+  color: #red;
+  font-size: 14px;
+  margin-top: 0.5em;
+}
+
+.payment-button {
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 0.5em 1em;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 0.25em;
+  cursor: pointer;
+}
+
+.payment-button.loading {
+  background-color: #666;
+  color: #fff;
+  cursor: wait;
+}
+
+.payment-button:disabled {
+  background-color: #ccc;
+  color: #fff;
+  cursor: not-allowed;
+}
