@@ -1,55 +1,43 @@
-# Pi-Based Payment Gateway
-==========================
+PiPay - Payment Gateway for Pi Network
+=====================================
 
-A decentralized payment gateway built on Ethereum, utilizing the Pi Token for seamless transactions.
+PiPay is a payment gateway that enables merchants to accept Pi as a form of payment, driving adoption and increasing the token's utility.
 
-## Overview
+Features
+--------
 
-The Pi-Based Payment Gateway is a cutting-edge solution for secure, transparent, and efficient transactions. Leveraging the power of blockchain technology and the Pi Token, this platform enables fast, low-cost, and reliable payments.
+* Seamless integration with Pi Network
+* Easy payment processing for merchants
+* Support for multiple payment methods (Pi, Fiat, etc.)
+* Real-time transaction tracking and analytics
 
-## Features
+Getting Started
+---------------
 
-* **Decentralized architecture**: Built on Ethereum, ensuring transparency, security, and immutability.
-* **Pi Token integration**: Utilizes the Pi Token for transactions, providing a stable and reliable store of value.
-* **Smart contract-based**: Automated payment processing and settlement using secure, auditable smart contracts.
-* **High-performance**: Optimized for fast transaction processing and low latency.
-* **User-friendly interface**: Intuitive dashboard for easy payment management and tracking.
-
-## Getting Started
-
-### Prerequisites
-
-* Node.js (version 14 or higher)
-* Truffle (version 5.3.7 or higher)
-* Ganache CLI (version 6.12.2 or higher)
-
-### Installation
-
-1. Clone the repository: `git clone https://github.com/KOSASIH/pi-nexus-autonomous-banking-network/tree/main/blockchain_integration/pi_network/PiPay.git`
+1. Clone the repository: `git clone https://github.com/KOSASIH/pi-nexus-autonomous-banking-network.git`
 2. Install dependencies: `npm install`
-3. Compile contracts: `truffle compile`
-4. Migrate contracts: `truffle migrate`
-5. Start the development server: `ganache-cli`
+3. Start the server: `npm start`
+4. Open the API documentation: `http://localhost:3000/api/docs`
 
-### Usage
+API Endpoints
+-------------
 
-1. Open the Truffle console: `truffle console`
-2. Interact with the payment gateway contracts using the Truffle console or your preferred Ethereum wallet.
+* `/api/payments`: Create a new payment
+* `/api/payments/:id`: Get a payment by ID
+* `/api/merchants`: Get a list of registered merchants
+* `/api/merchants/:id`: Get a merchant by ID
 
-## Contributing
+Contributing
+------------
 
-Contributions are welcome! Please submit pull requests or issues to help improve the Pi-Based Payment Gateway.
+Contributions are welcome! Please open a pull request to contribute to the project.
 
-## License
+License
+-------
 
-The Pi-Based Payment Gateway is licensed under the MIT License.
+MIT License
 
-## Authors
+Author
+------
 
-* [KOSASIH](https://github.com/KOSASIH)
-
-## Acknowledgments
-
-* OpenZeppelin Solidity for their excellent smart contract libraries.
-* Truffle Suite for their comprehensive development tools.
-* The Ethereum community for their ongoing support and innovation.
+KOSASIH
