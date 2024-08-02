@@ -25,7 +25,7 @@ The Pi-Based Payment Gateway is a cutting-edge solution for secure, transparent,
 
 ### Installation
 
-1. Clone the repository: `git clone https://github.com/KOSASIH/pi-pay.git`
+1. Clone the repository: `git clone https://github.com/KOSASIH/pi-nexus-autonomous-banking-network/tree/main/blockchain_integration/pi_network/PiPay.git`
 2. Install dependencies: `npm install`
 3. Compile contracts: `truffle compile`
 4. Migrate contracts: `truffle migrate`
