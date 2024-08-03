@@ -1,0 +1,55 @@
+---
+- name: Deploy Pi Network
+  become: yes
+
+  tasks:
+  - name: Install dependencies
+    apt:
+      name: python3-pip,git,nginx
+      state: present
+
+  - name: Clone Pi Network repository
+    git:
+      repo: "{{ pi_network_repo }}"
+      dest: /opt/pi-network
+      version: "{{ pi_network_branch }}"
+
+  - name: Install Pi Network requirements
+    pip:
+      requirements: /opt/pi-network/requirements.txt
+
+  - name: Configure Pi Network database
+    mysql_db:
+      name: "{{ pi_network_db_name }}"
+      state: present
+    mysql_user:
+      name: "{{ pi_network_db_username }}"
+      password: "{{ pi_network_db_password }}"
+      priv: "{{ pi_network_db_name }}.*:ALL"
+      state: present
+
+  - name: Configure Pi Network API
+    template:
+      src: templates/pi-network-api.conf.j2
+      dest: /etc/nginx/sites-available/pi-network-api
+      mode: '0644'
+    notify: restart nginx
+
+  - name: Configure Pi Network web
+    template:
+      src: templates/pi-network-web.conf.j2
+      dest: /etc/nginx/sites-available/pi-network-web
+      mode: '0644'
+    notify: restart nginx
+
+  - name: Start Pi Network API
+    service:
+      name: pi-network-api
+      state: started
+      enabled: yes
+
+  - name: Start Pi Network web
+    service:
+      name: pi-network-web
+      state: started
+      enabled: yes
