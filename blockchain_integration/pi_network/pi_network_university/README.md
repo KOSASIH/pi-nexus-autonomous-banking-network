@@ -39,12 +39,12 @@ Contributions are welcome! Please submit a pull request with your changes.
 ## License
 -------
 
-The Pi Network University is licensed under the MIT License.
+The Pi Network University is licensed under the Apache 2.0 License.
 
 ## Contact
 -------
 
-For any questions or concerns, please contact us at [insert contact email or link].
+For any questions or concerns, please contact us at [support@piuniversity.io](support@piuniversity.io) 
 
 ## Roadmap
 -------
