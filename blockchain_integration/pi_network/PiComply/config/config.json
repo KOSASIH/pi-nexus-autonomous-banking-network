@@ -1,0 +1,44 @@
+{
+  "network": {
+    "mainnet": {
+      "chainId": 1,
+      "rpcUrl": "https://mainnet.infura.io/v3/YOUR_PROJECT_ID",
+      "gasPrice": "20.0",
+      "gasLimit": "8000000"
+    },
+    "testnet": {
+      "chainId": 4,
+      "rpcUrl": "https://rinkeby.infura.io/v3/YOUR_PROJECT_ID",
+      "gasPrice": "10.0",
+      "gasLimit": "6000000"
+    }
+  },
+  "contracts": {
+    "ComplianceProtocol": {
+      "address": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e",
+      "abi": "ComplianceProtocol.abi.json"
+    },
+    "RegulatoryKnowledgeGraph": {
+      "address": "0x55241586d5046974586480469745864804697458",
+      "abi": "RegulatoryKnowledgeGraph.abi.json"
+    }
+  },
+  "oracles": {
+    "Chainlink": {
+      "address": "0x514910771AF9Ca656af840dff83E8264EcF986CA",
+      "abi": "Chainlink.abi.json"
+    }
+  },
+  "aiComplianceEngine": {
+    "model": "compliance_model_v1",
+    "threshold": 0.8
+  },
+  "reportingAnalytics": {
+    "dashboardUrl": "https://pi-comply-dashboard.herokuapp.com",
+    "apiUrl": "https://pi-comply-api.herokuapp.com"
+  },
+  "security": {
+    "privateKey": "0x1234567890abcdef",
+    "password": "mysecretpassword"
+  }
+}
