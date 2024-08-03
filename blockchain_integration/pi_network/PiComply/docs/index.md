@@ -19,6 +19,8 @@ PiComply is a cutting-edge compliance platform that leverages AI, NLP, and real-
 - API Documentation
 - Smart Contract Development
 - Contributing to PiComply
-- Troubleshooting
+
+#  Troubleshooting
+
 - FAQs
 - Error Handling
