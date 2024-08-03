@@ -1,0 +1,71 @@
+global:
+  scrape_interval: 10s
+  evaluation_interval: 10s
+
+rule_files:
+  - "rules.yml"
+
+scrape_configs:
+  - job_name: pi-network
+    metrics_path: /metrics
+    static_configs:
+      - targets:
+          - pi-network:8080
+
+  - job_name: kubernetes-nodes
+    metrics_path: /metrics
+    kubernetes_sd_configs:
+      - role: node
+
+  - job_name: kubernetes-pods
+    metrics_path: /metrics
+    kubernetes_sd_configs:
+      - role: pod
+
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets:
+            - alertmanager:9093
+
+alertmanager:
+  enabled: true
+  web:
+    external_url: http://alertmanager:9093
+
+rules:
+  - alert: PiNetworkDown
+    annotations:
+      description: Pi Network is down
+      summary: Pi Network is not responding
+    expr: up{job="pi-network"} == 0
+    for: 1m
+    labels:
+      severity: critical
+
+  - alert: PiNetworkHighLatency
+    annotations:
+      description: Pi Network latency is high
+      summary: Pi Network latency is above 100ms
+    expr: latency{job="pi-network"} > 100
+    for: 5m
+    labels:
+      severity: warning
+
+  - alert: KubernetesNodeDown
+    annotations:
+      description: Kubernetes node is down
+      summary: Kubernetes node is not responding
+    expr: up{job="kubernetes-nodes"} == 0
+    for: 1m
+    labels:
+      severity: critical
+
+  - alert: KubernetesPodCrashLooping
+    annotations:
+      description: Kubernetes pod is crash looping
+      summary: Kubernetes pod is restarting more than 5 times in 10 minutes
+    expr: increases(kube_pod_container_status_restarts_total{job="kubernetes-pods"}[10m]) > 5
+    for: 10m
+    labels:
+      severity: warning
