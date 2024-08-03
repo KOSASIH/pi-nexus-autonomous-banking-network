@@ -1,0 +1,16 @@
+---
+- name: Configure Pi Network database
+  become: yes
+
+  tasks:
+  - name: Create Pi Network database
+    mysql_db:
+      name: "{{ pi_network_db_name }}"
+      state: present
+
+  - name: Create Pi Network database user
+    mysql_user:
+      name: "{{ pi_network_db_username }}"
+      password: "{{ pi_network_db_password }}"
+      priv: "{{ pi_network_db_name }}.*:ALL"
+      state: present
