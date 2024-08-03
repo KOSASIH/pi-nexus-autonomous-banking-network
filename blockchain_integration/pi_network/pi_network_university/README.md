@@ -49,7 +49,7 @@ For any questions or concerns, please contact us at [support@piuniversity.io](su
 ## Roadmap
 -------
 
-* [Insert roadmap items, e.g. "Implement course completion certificates", "Integrate with Pi Network wallet", etc.]
+* [Insert roadmap items, e.g. "Implement course completion certificates", "Integrate with Pi Network wallet", etc.](blockchain_integration/pi_network/pi_network_university/docs/roadmap.md) 
 
 ## Acknowledgments
 ---------------
