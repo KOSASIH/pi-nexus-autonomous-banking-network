@@ -1,7 +1,7 @@
 {
   "name": "PiComply",
   "version": "1.0.0",
-  "description": "A cutting-edge compliance platform for regulatory reporting and analytics",
+  "description": "A cutting-edge compliance platform leveraging AI, NLP, and real-time data processing for precise regulatory reporting and analytics.",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
