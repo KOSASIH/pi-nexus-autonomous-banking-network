@@ -1,0 +1,6 @@
+course_id,course_name,enrollment,avg_grade,pass_rate
+CS101,Introduction to Computer Science,250,82.5,90.0
+CS202,Data Structures,200,78.2,85.0
+CS303,Algorithms,220,85.1,92.0
+CS404,Computer Networks,180,80.5,88.0
+CS505,Machine Learning,150,90.2,95.0
