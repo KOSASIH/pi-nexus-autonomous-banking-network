@@ -1,0 +1,9 @@
+---
+pi_network_version: "1.0.0"
+pi_network_repo: "https://github.com/pi-network/pi-network.git"
+pi_network_branch: "main"
+pi_network_db_username: "pi_network_admin"
+pi_network_db_password: "P@ssw0rd!"
+pi_network_db_name: "pi_network_db"
+pi_network_api_port: 8080
+pi_network_web_port: 80
