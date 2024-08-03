@@ -24,4 +24,7 @@ The User Management system allows administrators to manage user accounts and pro
 ### User Roles
 
 * **GET /users/:id/roles**: Retrieve a list of all roles for a specific user
-* **POST /users/:id/roles
+* **POST /users/:id/roles**: Assign a role to a specific user
+* **GET /users/:id/roles/:role_id**: Retrieve a specific role for a specific user
+* **PUT /users/:id/roles/:role_id**: Update a specific role for a specific user
+* **DELETE /users/:id/roles/:role_id**: Delete a specific role for a specific user
