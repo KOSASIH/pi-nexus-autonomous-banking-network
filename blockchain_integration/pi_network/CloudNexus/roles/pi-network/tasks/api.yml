@@ -1,0 +1,17 @@
+---
+- name: Configure Pi Network API
+  become: yes
+
+  tasks:
+  - name: Configure Pi Network API
+    template:
+      src: templates/pi-network-api.conf.j2
+      dest: /etc/nginx/sites-available/pi-network-api
+      mode: '0644'
+    notify: restart nginx
+
+  - name: Start Pi Network API
+    service:
+      name: pi-network-api
+      state: started
+      enabled: yes
