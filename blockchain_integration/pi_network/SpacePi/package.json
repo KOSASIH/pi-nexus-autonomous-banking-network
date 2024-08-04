@@ -1,0 +1,47 @@
+{
+  "name": "space-pi",
+  "version": "1.0.0",
+  "description": "SpacePi is a decentralized platform that enables Pi Coin holders to purchase SpaceX merchandise, experiences, and even satellite launch services using their Pi Coins. The platform utilizes blockchain technology to ensure secure, transparent, and efficient transactions.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "nodemon server/index.js",
+    "test": "jest",
+    "test:client": "jest tests/client",
+    "test:server": "jest tests/server",
+    "lint": "eslint.",
+    "deploy": "truffle deploy"
+  },
+  "keywords": [],
+  "author": "KOSASIH and SpacePi Team",
+  "license": "Apache 2.0",
+  "dependencies": {
+    "express": "^4.17.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-redux": "^7.2.4",
+    "redux": "^4.1.0",
+    "redux-thunk": "^2.3.0",
+    "truffle": "^5.3.7",
+    "web3": "^1.3.4",
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "eslint": "^7.14.0",
+    "jest": "^26.6.3",
+    "nodemon": "^2.0.7",
+    "supertest": "^6.1.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
+    "@babel/plugin-proposal-object-rest-spread": "^7.12.1",
+    "@babel/preset-env": "^7.12.11",
+    "@babel/preset-react": "^7.12.10",
+    "babel-loader": "^8.2.2",
+    "css-loader": "^5.2.0",
+    "style-loader": "^2.0.0",
+    "webpack": "^5.24.2",
+    "webpack-cli": "^4.9.1"
+  }
+}
