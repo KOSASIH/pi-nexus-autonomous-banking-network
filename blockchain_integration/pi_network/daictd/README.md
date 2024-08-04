@@ -5,7 +5,7 @@
 
 # DAICTD 
 
-Decentralized Artificial Intelligence for Cybersecurity Threat Detection and Mitigation on the Pi Network (DAICTD). 
+Decentralized Artificial Intelligence for Cybersecurity Threat Detection and Mitigation (DAICTD). 
 
 # Advanced Threat Detection and Mitigation System
 
