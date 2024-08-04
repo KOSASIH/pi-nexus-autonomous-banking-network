@@ -1,29 +1,27 @@
-// kyc/kyc.service.js
-import axios from 'axios';
-import { PiNetworkApi } from './pi-network-api/pi-network-api';
+import { Injectable } from '@nestjs/common';
+import { KycModel } from './kyc.model';
+import { KycValidation } from './kyc.validation';
+import { PiNetworkApi } from '../pi-network-api/pi-network-api';
 
-const piNetworkApiUrl = 'https://api.pinetwork.io/v1';
+@Injectable()
+export class KycService {
+  constructor(private readonly kycModel: KycModel, private readonly kycValidation: KycValidation, private readonly piNetworkApi: PiNetworkApi) {}
 
-class KycService {
-  async verifyKyc(userId, userData) {
-    try {
-      const response = await axios.post(`${piNetworkApiUrl}/kyc/verify`, {
-        user_id: userId,
-        data: userData,
-      });
-
-      if (response.data.success) {
-        // KYC verification successful
-        return true;
-      } else {
-        // KYC verification failed
-        return false;
-      }
-    } catch (error) {
-      console.error(error);
-      return false;
+  async verifyIdentity(userId: string, identity: any) {
+    const user = await this.kycModel.findById(userId);
+    if (!user) {
+      throw new Error('User not found');
     }
+    const isValid = await this.kycValidation.validateIdentity(identity);
+    if (!isValid) {
+      throw new Error('Invalid identity');
+    }
+    const piNetworkResponse = await this.piNetworkApi.createPayment(user.piNetworkAddress, 1, 'KYC verification');
+    if (!piNetworkResponse) {
+      throw new Error('Pi Network API error');
+    }
+    user.kycVerified = true;
+    await user.save();
+    return user;
   }
-}
-
-export default KycService;
+  }
