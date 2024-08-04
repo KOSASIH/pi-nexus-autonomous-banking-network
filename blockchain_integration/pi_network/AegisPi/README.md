@@ -40,3 +40,72 @@ Contact
 -------
 
 For any questions, issues, or feedback, please contact us at [support@aegispi.com](mailto:support@aegispi.com).
+
+Roadmap
+--------
+
+* **Q1 2023**: Implement AI-powered security features for threat detection and prevention
+* **Q2 2023**: Develop scalability framework for handling increased traffic and user adoption
+* **Q3 2023**: Integrate AegisPi with Pi Network's blockchain for secure and transparent transactions
+* **Q4 2023**: Implement AI-powered predictive maintenance for minimizing downtime and optimizing network performance
+
+Technical Requirements
+--------------------
+
+* **Node.js**: 14.17.0 or higher
+* **npm**: 6.14.13 or higher
+* **Pi Network SDK**: 1.0.0 or higher
+* **TensorFlow.js**: 3.10.0 or higher
+* **Brain.js**: 1.4.14 or higher
+
+Testing
+-------
+
+AegisPi uses Jest for unit testing and integration testing. To run the tests, use the following command:
+
+`npm run test`
+
+Deployment
+----------
+
+AegisPi can be deployed to the Pi Network's Open Mainnet using the following command:
+
+`npm run deploy`
+
+This will deploy the framework to the Pi Network's Open Mainnet, ensuring that the AI-powered security and scalability features are enabled.
+
+FAQ
+---
+
+### What is AegisPi?
+AegisPi is a decentralized AI-powered security and scalability framework for the Pi Network's Open Mainnet.
+
+### How does AegisPi work?
+AegisPi uses advanced AI algorithms to detect and prevent potential security threats in real-time, while also providing a scalable architecture for handling increased traffic and user adoption.
+
+### Is AegisPi open-source?
+Yes, AegisPi is an open-source project, and we welcome contributions from the community.
+
+### How can I contribute to AegisPi?
+You can contribute to AegisPi by forking the repository and submitting a pull request.
+
+### Who is behind AegisPi?
+AegisPi is developed and maintained by the Pi Network team, in collaboration with the open-source community.
+
+Acknowledgments
+--------------
+
+AegisPi is built on top of the following open-source projects:
+
+* TensorFlow.js
+* Brain.js
+* Pi Network SDK
+
+We would like to thank the maintainers and contributors of these projects for their hard work and dedication.
+
+License
+-------
+
+AegisPi is licensed under the Apache 2.0 License. See `LICENSE` for more information.
+
+Copyright 2024 PiNexus. All rights reserved.
