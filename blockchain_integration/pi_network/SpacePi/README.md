@@ -26,6 +26,6 @@ SpacePi is licensed under the Apache 2.0 License.
 
 # Contact
 
-For any questions or concerns, please reach out to the SpacePi team at [support@spacepi.io].
+For any questions or concerns, please reach out to the SpacePi team at [support@spacepi.io](mailto:support@spacepi.io).
 
 Thank you for your interest in SpacePi!
