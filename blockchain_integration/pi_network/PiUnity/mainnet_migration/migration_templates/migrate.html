@@ -1,0 +1,16 @@
+<!-- migration_templates/migrate.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Migrate to Mainnet</h1>
+    <p>Enter your mainnet and testnet addresses to initiate the migration process.</p>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Migrate</button>
+    </form>
+    {% if migration_status %}
+        <p>Migration status: {{ migration_status }}</p>
+    {% endif %}
+{% endblock %}
