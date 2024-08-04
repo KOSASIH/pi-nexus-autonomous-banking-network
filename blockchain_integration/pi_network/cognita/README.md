@@ -41,7 +41,7 @@ We welcome contributions to the Cognita project. If you're interested in contrib
 License
 -------
 
-The Cognita project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
+The Cognita project is licensed under the [Apache 2.0 License](https://opensource.org/licenses/Apache-2.0).
 
 Contact
 -------
