@@ -34,7 +34,7 @@ class PredictiveMaintenance:
         self.model.compile(loss='mean_squared_error', optimizer='adam')
         self.model.fit(X_train, y_train, epochs=50, batch_size=32, validation_data=(X_test, y_test))
 
-        def train(self):
+    def train(self):
         if self.model_type == 'random_forest':
             self.train_random_forest()
         elif self.model_type == 'lstm':
