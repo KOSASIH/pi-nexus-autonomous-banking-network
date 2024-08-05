@@ -43,7 +43,7 @@ We welcome contributions to PiRealEstate. Please fork our repository and submit 
 
 # License
 
-PiRealEstate is licensed under the MIT License. See LICENSE for details.
+PiRealEstate is licensed under the Apache 2.0 License. See LICENSE for details.
 
 # Contact
 
