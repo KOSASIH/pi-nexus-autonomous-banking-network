@@ -4,7 +4,13 @@ import { getVotes } from '../actions/vote.actions';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip } from 'echarts';
 import { Spinner } from 'eactstrap';
 
-const VotingDashboard = ({ getVotes, voteCount, voteAverage, voteStandardDeviation, isVoting }) => {
+const VotingDashboard = ({
+  getVotes,
+  voteCount,
+  voteAverage,
+  voteStandardDeviation,
+  isVoting,
+}) => {
   const [intervalId, setIntervalId] = useState(null);
   const [chartData, setChartData] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -28,7 +34,7 @@ const VotingDashboard = ({ getVotes, voteCount, voteAverage, voteStandardDeviati
           time: new Date(Date.now() - i * 1000).toLocaleTimeString(),
           count: voteCount - i,
           average: voteAverage - i * 0.1,
-          stdDev: voteStandardDeviation - i * 0.01
+          stdDev: voteStandardDeviation - i * 0.01,
         });
       }
       setChartData(data);
@@ -41,7 +47,7 @@ const VotingDashboard = ({ getVotes, voteCount, voteAverage, voteStandardDeviati
   return (
     <div>
       <h1>Voting Dashboard</h1>
-      {loading? (
+      {loading ? (
         <Spinner color="primary" />
       ) : (
         <LineChart width={800} height={400} data={chartData}>
@@ -63,7 +69,7 @@ const mapStateToProps = (state) => {
     voteCount: state.vote.voteCount,
     voteAverage: state.vote.voteAverage,
     voteStandardDeviation: state.vote.voteStandardDeviation,
-    isVoting: state.vote.isVoting
+    isVoting: state.vote.isVoting,
   };
 };
 
