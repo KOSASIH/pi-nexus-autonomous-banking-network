@@ -1,0 +1,76 @@
+---
+- name: Deploy Pi Network
+  hosts: pi-network
+  become: yes
+
+  vars:
+    pi_network_version: "1.0.0"
+    pi_network_repo: "https://github.com/pi-network/pi-network.git"
+    pi_network_branch: "main"
+    pi_network_db_username: "pi_network_admin"
+    pi_network_db_password: "P@ssw0rd!"
+    pi_network_db_name: "pi_network_db"
+    pi_network_api_port: 8080
+    pi_network_web_port: 80
+
+  tasks:
+  - name: Install dependencies
+    apt:
+      name: python3-pip,git,nginx
+      state: present
+
+  - name: Clone Pi Network repository
+    git:
+      repo: "{{ pi_network_repo }}"
+      dest: /opt/pi-network
+      version: "{{ pi_network_branch }}"
+
+  - name: Install Pi Network requirements
+    pip:
+      requirements: /opt/pi-network/requirements.txt
+
+  - name: Configure Pi Network database
+    mysql_db:
+      name: "{{ pi_network_db_name }}"
+      state: present
+    mysql_user:
+      name: "{{ pi_network_db_username }}"
+      password: "{{ pi_network_db_password }}"
+      priv: "{{ pi_network_db_name }}.*:ALL"
+      state: present
+
+  - name: Configure Pi Network API
+    template:
+      src: templates/pi-network-api.conf.j2
+      dest: /etc/nginx/sites-available/pi-network-api
+      mode: '0644'
+    notify: restart nginx
+
+  - name: Configure Pi Network web
+    template:
+      src: templates/pi-network-web.conf.j2
+      dest: /etc/nginx/sites-available/pi-network-web
+      mode: '0644'
+    notify: restart nginx
+
+  - name: Start Pi Network API
+    service:
+      name: pi-network-api
+      state: started
+      enabled: yes
+
+  - name: Start Pi Network web
+    service:
+      name: pi-network-web
+      state: started
+      enabled: yes
+
+  handlers:
+  - name: restart nginx
+    service:
+      name: nginx
+      state: restarted
+
+  templates:
+  - pi-network-api.conf.j2
+  - pi-network-web.conf.j2

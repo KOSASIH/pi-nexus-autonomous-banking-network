@@ -1,0 +1,23 @@
+{
+  "name": "pi-nexus-autonomous-banking-network",
+  "version": "1.0.0",
+  "description": "Pi Nexus Autonomous Banking Network",
+  "main": "server/app.js",
+  "scripts": {
+    "start": "node server/app.js",
+    "dev": "nodemon server/app.js"
+  },
+  "keywords": [],
+  "author": "KOSASIH",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongodb": "^3.6.3",
+    "mongoose": "^5.10.18"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}

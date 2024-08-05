@@ -1,0 +1,5 @@
+date,country,product,quantity,value
+2022-01-01,USA,Electronics,1000,100000
+2022-01-02,China,Machinery,500,50000
+2022-01-03,Japan,Automotive,2000,200000
+...

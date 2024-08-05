@@ -1,0 +1,24 @@
+apiVersion: monitoring.coreos.com/v1
+kind: Alertmanager
+metadata:
+  name: pi-network-alertmanager
+spec:
+  replicas: 2
+  serviceAccountName: pi-network-alertmanager
+  config:
+    global:
+      smtp_smarthost: 'smtp.gmail.com:587'
+      smtp_from: 'your_email@gmail.com'
+      smtp_auth_username: 'your_email@gmail.com'
+      smtp_auth_password: 'your_password'
+    route:
+      receiver: 'team'
+      repeat_interval: 5m
+    receivers:
+    - name: 'team'
+      email_configs:
+      - to: 'your_email@gmail.com'
+        from: 'your_email@gmail.com'
+        smarthost: 'smtp.gmail.com:587'
+        auth_username: 'your_email@gmail.com'
+        auth_password: 'your_password'

@@ -1,0 +1,26 @@
+import pandas as pd
+import numpy as np
+from sklearn.preprocessing import StandardScaler
+
+class DataLoader:
+    def __init__(self, data_path, labels_path):
+        self.data_path = data_path
+        self.labels_path = labels_path
+
+    def load_data(self):
+        data = pd.read_csv(self.data_path)
+        labels = pd.read_csv(self.labels_path)
+        return data, labels
+
+    def preprocess_data(self, data):
+        scaler = StandardScaler()
+        data[['feature1', 'feature2',...]] = scaler.fit_transform(data[['feature1', 'feature2',...]])
+        return data
+
+    def create_dataset(self, data, labels):
+        dataset = ThreatDetectionDataset(data, labels)
+        return dataset
+
+    def create_data_loader(self, dataset, batch_size, shuffle):
+        data_loader = DataLoader(dataset, batch_size=batch_size, shuffle=shuffle)
+        return data_loader

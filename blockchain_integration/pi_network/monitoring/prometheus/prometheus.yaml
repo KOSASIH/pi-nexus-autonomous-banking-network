@@ -1,0 +1,21 @@
+apiVersion: monitoring.coreos.com/v1
+kind: Prometheus
+metadata:
+  name: pi-network-prometheus
+spec:
+  replicas: 2
+  serviceAccountName: pi-network-prometheus
+  serviceMonitorSelector:
+    matchLabels:
+      app: pi-network
+  resources:
+    requests:
+      cpu: 100m
+      memory: 512Mi
+  storage:
+    volumeClaimTemplate:
+      spec:
+        accessModes: ["ReadWriteOnce"]
+        resources:
+          requests:
+            storage: 10Gi

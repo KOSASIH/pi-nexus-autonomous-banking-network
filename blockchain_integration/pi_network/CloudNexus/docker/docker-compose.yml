@@ -1,0 +1,30 @@
+version: "3"
+
+services:
+  pi-network-api:
+    build: .
+    ports:
+      - "8080:8080"
+    depends_on:
+      - pi-network-db
+    environment:
+      - DATABASE_URL=postgres://pi_network_admin:P@ssw0rd!@pi-network-db:5432/pi_network_db
+
+  pi-network-db:
+    image: postgres
+    environment:
+      - POSTGRES_USER=pi_network_admin
+      - POSTGRES_PASSWORD=P@ssw0rd!
+      - POSTGRES_DB=pi_network_db
+    volumes:
+      - pi-network-db-data:/var/lib/postgresql/data
+
+  pi-network-web:
+    build: ./web
+    ports:
+      - "80:80"
+    depends_on:
+      - pi-network-api
+
+volumes:
+  pi-network-db-data:

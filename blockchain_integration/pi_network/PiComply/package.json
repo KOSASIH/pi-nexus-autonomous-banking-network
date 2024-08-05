@@ -1,0 +1,49 @@
+{
+  "name": "PiComply",
+  "version": "1.0.0",
+  "description": "A cutting-edge compliance platform leveraging AI, NLP, and real-time data processing for precise regulatory reporting and analytics.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "jest",
+    "lint": "eslint .",
+    "build": "webpack",
+    "deploy": "aws s3 cp build s3://compliance-platform"
+  },
+  "keywords": [
+    "compliance",
+    "regulatory",
+    "reporting",
+    "analytics",
+    "machine learning",
+    "natural language processing",
+    "real-time data processing"
+  ],
+  "author": "KOSASIH",
+  "license": "Apache 2.0",
+  "dependencies": {
+    "aws-sdk": "^2.7.22",
+    "eslint": "^7.10.0",
+    "jest": "^26.6.3",
+    "webpack": "^5.10.0",
+    "babel-loader": "^8.2.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "redux": "^4.1.0",
+    "react-redux": "^7.2.3",
+    "redux-thunk": "^2.3.0",
+    "axios": "^0.21.1",
+    "lodash": "^4.17.21",
+    "moment": "^2.29.1",
+    " numeral": "^2.3.10"
+  },
+  "devDependencies": {
+    "babel-core": "^7.12.10",
+    "babel-preset-env": "^7.12.11",
+    "babel-preset-react": "^7.12.10",
+    "css-loader": "^5.0.2",
+    "style-loader": "^2.0.0",
+    "webpack-cli": "^4.5.0",
+    "webpack-dev-server": "^3.11.2"
+  }
+}

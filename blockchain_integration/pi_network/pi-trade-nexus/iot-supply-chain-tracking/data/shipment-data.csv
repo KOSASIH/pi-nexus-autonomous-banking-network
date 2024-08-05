@@ -1,0 +1,6 @@
+"Shipment ID","Origin","Destination","Departure Date","Arrival Date","Shipment Type","Weight (kg)","Volume (m³)"
+"SHIP001","New York","Los Angeles","2022-01-01","2022-01-05","Air Freight",100,2.5
+"SHIP002","Chicago","Miami","2022-01-03","2022-01-07","Land Freight",200,5.0
+"SHIP003","San Francisco","Seattle","2022-01-05","2022-01-09","Sea Freight",300,10.0
+"SHIP004","Dallas","Houston","2022-01-07","2022-01-11","Land Freight",400,15.0
+"SHIP005","Boston","Washington D.C.","2022-01-09","2022-01-13","Air Freight",500,20.0

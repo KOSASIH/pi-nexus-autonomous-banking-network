@@ -1,0 +1,26 @@
+{
+  "blockchain": {
+    "network": "ganache",
+    "provider": "http://localhost:8545",
+    "contract_address": "0x...contract address...",
+    "contract_abi": "path/to/contract/abi.json"
+  },
+  "ai": {
+    "model_type": "threat_detection",
+    "model_path": "path/to/model/threat_detection_model.pth",
+    "training_data": "path/to/training/data/threat_detection_data.csv",
+    "testing_data": "path/to/testing/data/threat_detection_data.csv"
+  },
+  "security": {
+    "incident_response_system": "path/to/incident/response/system.py",
+    "security_oracles": ["path/to/security/oracle1.py", "path/to/security/oracle2.py"]
+  },
+  "data": {
+    "raw_data_path": "path/to/raw/data/",
+    "processed_data_path": "path/to/processed/data/"
+  },
+  "logging": {
+    "level": "INFO",
+    "file_path": "path/to/log/file.log"
+  }
+}

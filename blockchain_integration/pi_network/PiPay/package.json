@@ -1,0 +1,27 @@
+{
+  "name": "pi-pay",
+  "version": "1.0.0",
+  "description": "Pi-Based Payment Gateway",
+  "main": "truffle-config.js",
+  "scripts": {
+    "test": "truffle test",
+    "migrate": "truffle migrate",
+    "compile": "truffle compile",
+    "deploy": "truffle deploy",
+    "console": "truffle console"
+  },
+  "keywords": [],
+  "author": "KOSASIH",
+  "license": "MIT",
+  "dependencies": {
+    "truffle": "^5.3.7",
+    "truffle-hdwallet-provider": "^1.4.0",
+    "web3": "^1.5.2",
+    "openzeppelin-solidity": "^4.4.2"
+  },
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "chai-as-promised": "^7.1.1",
+    "ganache-cli": "^6.12.2"
+  }
+}

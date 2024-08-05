@@ -1,0 +1,1 @@
+# This is a binary file, so I'll just indicate that it's a pickle file containing a trained Random Forest model

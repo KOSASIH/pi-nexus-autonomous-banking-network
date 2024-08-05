@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: pi-network-config
+data:
+  PI_NETWORK_PORT: "8080"
+  PI_NETWORK_DB_HOST: "db"
+  PI_NETWORK_DB_PASSWORD: "pi_network_password"

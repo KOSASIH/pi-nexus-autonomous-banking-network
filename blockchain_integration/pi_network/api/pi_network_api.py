@@ -1,38 +1,37 @@
-# pi_network_api.py
-from fastapi import FastAPI, HTTPException
-from pydantic import BaseModel
-from web3 import Web3
+import requests
+import json
 
-app = FastAPI()
+class PiNetworkAPI:
+    def __init__(self, api_key, api_secret):
+        self.api_key = api_key
+        self.api_secret = api_secret
+        self.base_url = "https://api.minepi.com/v1"
 
-class Transaction(BaseModel):
-    sender: str
-    recipient: str
-    amount: float
+    def get_user_balance(self, user_id):
+        headers = {
+            "Authorization": f"Bearer {self.api_key}",
+            "Content-Type": "application/json"
+        }
+        response = requests.get(f"{self.base_url}/users/{user_id}/balance", headers=headers)
+        return response.json()
 
-class Block(BaseModel):
-    index: int
-    timestamp: str
-    transactions: List[Transaction]
-    hash: str
-    prev_hash: str
+    def swap_pi_for_fiat(self, user_id, amount_pi, fiat_currency):
+        headers = {
+            "Authorization": f"Bearer {self.api_key}",
+            "Content-Type": "application/json"
+        }
+        data = {
+            "user_id": user_id,
+            "amount_pi": amount_pi,
+            "fiat_currency": fiat_currency
+        }
+        response = requests.post(f"{self.base_url}/swap", headers=headers, json=data)
+        return response.json()
 
-@app.post("/transactions")
-async def create_transaction(tx: Transaction):
-    # Create new transaction and add to mempool
-    return {"message": "Transaction created successfully"}
-
-@app.get("/blocks")
-async def get_blocks():
-    # Return list of blocks
-    return [{"index": 1, "timestamp": "2023-02-20T14:30:00", "transactions": [...], "hash": "0x...", "prev_hash": "0x..."}]
-
-@app.get("/blocks/{block_id}")
-async def get_block(block_id: int):
-    # Return block by ID
-    return {"index": block_id, "timestamp": "2023-02-20T14:30:00", "transactions": [...], "hash": "0x...", "prev_hash": "0x..."}
-
-@app.post("/blocks")
-async def create_block():
-    # Create new block and add to blockchain
-    return {"message": "Block created successfully"}
+    def get_fiat_exchange_rate(self, fiat_currency):
+        headers = {
+            "Authorization": f"Bearer {self.api_key}",
+            "Content-Type": "application/json"
+        }
+        response = requests.get(f"{self.base_url}/exchange_rates/{fiat_currency}", headers=headers)
+        return response.json()

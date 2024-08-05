@@ -1,0 +1,16 @@
+<!-- utility_templates/create_utility.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Create Utility</h1>
+    <p>Enter your mainnet and testnet addresses to create a new utility.</p>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Create Utility</button>
+    </form>
+    {% if error_message %}
+        <p>{{ error_message }}</p>
+    {% endif %}
+{% endblock %}

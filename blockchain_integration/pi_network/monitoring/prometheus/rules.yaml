@@ -1,0 +1,24 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: pi-network-rules
+spec:
+  groups:
+  - name: pi-network.rules
+    rules:
+    - alert: PiNetworkDown
+      expr: up{job="pi-network"} == 0
+      for: 5m
+      labels:
+        severity: critical
+      annotations:
+        summary: Pi Network is down
+        description: Pi Network is down for more than 5 minutes
+    - alert: PiNetworkHighLatency
+      expr: latency{job="pi-network"} > 100
+      for: 1m
+      labels:
+        severity: warning
+      annotations:
+        summary: Pi Network high latency
+        description: Pi Network latency is higher than 100ms for more than 1 minute

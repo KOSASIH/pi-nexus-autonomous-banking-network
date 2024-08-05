@@ -1,0 +1,11 @@
+user_id,course_id,grade,feedback
+U001,CSE101,A,Great course!
+U002,CSE102,B+,Good instructor!
+U003,CSE103,A-,Challenging but worth it!
+U004,CSE104,B,Need more practice!
+U005,CSE105,A+,Best course ever!
+U006,CSE101,B,Good course, but too easy!
+U007,CSE102,A,Excellent instructor!
+U008,CSE103,B-,Need more support!
+U009,CSE104,A,Challenging but fun!
+U010,CSE105,B+,Good course, but too long!

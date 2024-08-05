@@ -1,0 +1,26 @@
+{
+  "name": "onramp-pi",
+  "version": "1.0.0",
+  "description": "OnRampPi: A wallet integration that enables users to easily buy Pi with fiat currencies",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "jest",
+    "lint": "eslint ."
+  },
+  "keywords": ["pi-network", "wallet-integration", "fiat-on-ramp"],
+  "author": "KOSASIH",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "body-parser": "^1.19.0",
+    "mongoose": "^5.11.10",
+    "axios": "^0.21.1",
+    "plaid": "^10.1.0"
+  },
+  "devDependencies": {
+    "jest": "^27.0.6",
+    "eslint": "^7.25.0",
+    "eslint-config-airbnb": "^18.2.1"
+  }
+}

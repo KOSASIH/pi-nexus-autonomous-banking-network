@@ -1,0 +1,23 @@
+apiVersion: loki.grafana.com/v1alpha1
+kind: Loki
+metadata:
+  name: pi-network-loki
+spec:
+  replicas: 2
+  serviceAccountName: pi-network-loki
+  config:
+    auth:
+      enabled: true
+    server:
+      http_listen_port: 3100
+    ingester:
+      lifecycler:
+        ring:
+          kvstore:
+            store: inmemory
+    store:
+      boltdb:
+        path: /tmp/loki.db
+    limits_config:
+      ingestion_rate_mb: 10
+      ingestion_burst_size_mb: 20
