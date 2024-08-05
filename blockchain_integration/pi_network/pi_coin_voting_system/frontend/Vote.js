@@ -11,14 +11,15 @@ const Vote = () => {
   useEffect(() => {
     const token = localStorage.getItem('token');
     const headers = { Authorization: `Bearer ${token}` };
-    axios.get('/api/getVotes', { headers })
-      .then(response => {
+    axios
+      .get('/api/getVotes', { headers })
+      .then((response) => {
         const { voteCount, voteAverage, voteStandardDeviation } = response.data;
         setVoteCount(voteCount);
         setVoteAverage(voteAverage);
         setVoteStandardDeviation(voteStandardDeviation);
       })
-      .catch(err => {
+      .catch((err) => {
         setError(err.response.data.error);
       });
   }, []);
@@ -41,7 +42,11 @@ const Vote = () => {
       <h1>Cast Your Vote!</h1>
       <form onSubmit={handleSubmit}>
         <label>Enter your vote:</label>
-        <input type="number" value={vote} onChange={(e) => setVote(e.target.value)} />
+        <input
+          type="number"
+          value={vote}
+          onChange={(e) => setVote(e.target.value)}
+        />
         <br />
         <button type="submit">Cast Vote</button>
       </form>
