@@ -13,7 +13,7 @@ plotly==5.3.1
 web3==5.24.0
 solcx==0.8.10
 py-solc-x==0.8.10
-eth-account==0.5.4
+eth-account==0.5.9
 eth-utils==1.10.0
 
 # Blockchain dependencies
