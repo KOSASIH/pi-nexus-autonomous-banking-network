@@ -1,0 +1,15 @@
+{
+  "name": "Pi Trade Blockchain",
+  "description": "Pi Trade Blockchain Network",
+  "version": "1.0.0",
+  "protocol": "pi-trade-blockchain",
+  "port": 30303,
+  "networkId": 12345,
+  "nodes": [
+    {
+      "ip": "127.0.0.1",
+      "port": 30303,
+      "nodeId": "0x0000000000000000000000000000000000000000000000000000000000000000"
+    }
+  ]
+}
