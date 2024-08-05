@@ -1,0 +1,21 @@
+{
+  "database": {
+    "uri": "mongodb://localhost:27017/pilearn",
+    "username": "root",
+    "password": "password"
+  },
+  "server": {
+    "port": 3000,
+    "host": "localhost"
+  },
+  "smart-contracts": {
+    " CourseContract": {
+      "address": "0x...",
+      "abi": [...]
+    },
+    "UserContract": {
+      "address": "0x...",
+      "abi": [...]
+    }
+  }
+}
