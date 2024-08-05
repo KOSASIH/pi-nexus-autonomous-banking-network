@@ -1,0 +1,69 @@
+{
+  "node_id": "Node-1234567890",
+  "node_type": "EdgeNode",
+  "location": {
+    "latitude": 37.7749,
+    "longitude": -122.4194,
+    "altitude": 100
+  },
+  "network": {
+    "ip_address": "192.168.1.100",
+    "subnet_mask": "255.255.255.0",
+    "gateway": "192.168.1.1",
+    "dns_servers": ["8.8.8.8", "4.4.4.4"]
+  },
+  "sensors": [
+    {
+      "sensor_id": "TemperatureSensor-1",
+      "sensor_type": "Temperature",
+      "unit": "Celsius",
+      "range": [-20, 50],
+      "accuracy": 0.1
+    },
+    {
+      "sensor_id": "HumiditySensor-1",
+      "sensor_type": "Humidity",
+      "unit": "%",
+      "range": [0, 100],
+      "accuracy": 0.5
+    },
+    {
+      "sensor_id": "PressureSensor-1",
+      "sensor_type": "Pressure",
+      "unit": "mbar",
+      "range": [900, 1100],
+      "accuracy": 0.1
+    }
+  ],
+  "actuators": [
+    {
+      "actuator_id": "LED-1",
+      "actuator_type": "LED",
+      "color": "Red",
+      "brightness": 50
+    },
+    {
+      "actuator_id": "Fan-1",
+      "actuator_type": "Fan",
+      "speed": 50
+    }
+  ],
+  "communication": {
+    "protocol": "MQTT",
+    "broker": "mqtt://localhost:1883",
+    "topics": ["node/1234567890/sensors", "node/1234567890/actuators"]
+  },
+  "security": {
+    "authentication": "username:password",
+    "encryption": "AES-256"
+  },
+  "firmware": {
+    "version": "1.2.3",
+    "update_url": "https://example.com/firmware/update"
+  },
+  "logging": {
+    "level": "DEBUG",
+    "format": "JSON",
+    "output": "console"
+  }
+}
