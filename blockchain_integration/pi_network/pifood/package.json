@@ -1,0 +1,36 @@
+{
+  "name": "pifood",
+  "version": "1.0.0",
+  "description": "PiFood - A Blockchain-based Food Supply Chain Platform",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "jest",
+    "lint": "eslint.",
+    "build": "webpack",
+    "deploy": "aws s3 deploy"
+  },
+  "keywords": [],
+  "author": "KOSASIH anda PiFood Team",
+  "license": "Apache 2.0",
+  "dependencies": {
+    "web3": "^1.5.0",
+    "ethers.js": "^5.5.0",
+    "express": "^4.17.1",
+    "pg": "^8.7.1",
+    "sequelize": "^6.6.2",
+    "google-analytics": "^2.1.1",
+    "jest": "^27.0.6",
+    "eslint": "^7.32.0",
+    "webpack": "^5.51.1",
+    "aws-sdk": "^2.7.22"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15",
+    "babel-eslint": "^10.1.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.27.1"
+  }
+}
