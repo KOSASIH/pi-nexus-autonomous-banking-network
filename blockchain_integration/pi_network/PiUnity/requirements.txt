@@ -2,7 +2,7 @@
 
 Django==3.2.25
 django-crispy-forms==1.11.2
-Pillow==8.3.1
+Pillow==10.3.0
 django-filter==2.4.0
 django-rest-framework==0.1.0
 django-allauth==0.41.0
