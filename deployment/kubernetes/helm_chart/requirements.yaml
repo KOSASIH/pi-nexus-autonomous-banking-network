@@ -1,0 +1,5 @@
+# helm_chart/requirements.yaml
+dependencies:
+  - name: postgresql
+    version: ^8.6.0
+    repository: https://kubernetes-charts.storage.googleapis.com
