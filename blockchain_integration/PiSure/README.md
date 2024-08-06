@@ -12,7 +12,7 @@ PiSure is a decentralized insurance platform built using Node.js, PostgreSQL, an
 ### Running the Application
 
 1. Clone the repository: `git clone https://github.com/KOSASIH/pi-nexus-autonomous-banking-network/new/main/blockchain_integration/PiSure.git`
-2. Change into the repository directory: `cd pi-sure`
+2. Change into the repository directory: `cd PiSure`
 3. Build and start the application: `docker-compose up`
 4. Access the application at: `http://localhost:3000`
 
