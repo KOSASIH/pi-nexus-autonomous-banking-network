@@ -40,4 +40,4 @@ Contributions are welcome! Please submit a pull request with your changes and a 
 
 ## License
 
-PiSure is licensed under the MIT License. See [LICENSE](LICENSE) for details.
+PiSure is licensed under the Apache 2.0 License. See [LICENSE](LICENSE) for details.
