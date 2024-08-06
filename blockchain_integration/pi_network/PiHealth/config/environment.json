@@ -1,0 +1,25 @@
+{
+  "blockchain": {
+    "nodeUrl": "https://mainnet.infura.io/v3/YOUR_PROJECT_ID",
+    "networkId": 1,
+    "gasPrice": 20,
+    "gasLimit": 100000
+  },
+  "api": {
+    "apiKey": "YOUR_API_KEY",
+    "apiSecret": "YOUR_API_SECRET",
+    "baseUrl": "https://api.pihealth.com"
+  },
+  "database": {
+    "host": "localhost",
+    "port": 5432,
+    "username": "pihealth",
+    "password": "pihealth",
+    "database": "pihealth"
+  },
+  "iot": {
+    "mqttBroker": "tcp://localhost:1883",
+    "mqttUsername": "pihealth",
+    "mqttPassword": "pihealth"
+  }
+}
