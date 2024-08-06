@@ -26,3 +26,24 @@ DAPI is a cutting-edge, highly scalable, and secure mainnet infrastructure for P
 - xcmp/: Cross-Chain Message Passing (XCMP) implementation
 - node/: Node implementation for running the DAPI network
 - tools/: Tools and scripts for building, deploying, and testing the DAPI network
+
+# Getting Started
+
+To get started with DAPI, please follow these steps:
+
+- Clone the repository: git clone https://github.com/KOSASIH/pi-nexus-autonomous-banking-network.git
+- Navigate to the DAPI directory: cd pi-nexus-autonomous-banking-network/blockchain_integration/pi_network/dapi
+- Build the project: ./tools/build/build.sh
+- Deploy the project: ./tools/deploy/deploy.sh
+
+# Contributing
+
+Contributions to DAPI are welcome! Please submit a pull request to the repository with your proposed changes.
+
+# License
+
+DAPI is licensed under the Apache 2.0 license. See LICENSE for more information.
+
+# Contact
+
+For more information or to get in touch with the DAPI team, please visit our GitHub page: https://github.com/KOSASIH/pi-nexus-autonomous-banking-network/tree/main/blockchain_integration/pi_network/dapi
