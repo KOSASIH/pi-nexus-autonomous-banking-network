@@ -1,0 +1,16 @@
+{
+  "audit_rules": {
+    "weak_passwords": {
+      "enabled": true,
+      "threshold": 8
+    },
+    "outdated_dependencies": {
+      "enabled": true,
+      "threshold": 30
+    },
+    "sensitive_data_exposure": {
+      "enabled": true,
+      "threshold": 10
+    }
+  }
+}
