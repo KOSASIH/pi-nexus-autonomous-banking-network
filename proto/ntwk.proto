@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package ntwk;
+
+service NtwkNode {
+  rpc SendMessage(SendMessageRequest) returns (SendMessageResponse) {}
+  rpc GetMessage(GetMessageRequest) returns (GetMessageResponse) {}
+}
+
+message SendMessageRequest {
+  Message message = 1;
+}
+
+message SendMessageResponse {
+  string result = 1;
+}
+
+message GetMessageRequest {
+  string message_id = 1;
+}
+
+message GetMessageResponse {
+  Message message = 1;
+}
+
+message Message {
+  string id = 1;
+  string data = 2;
+}
