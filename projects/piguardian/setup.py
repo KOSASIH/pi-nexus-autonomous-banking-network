@@ -12,7 +12,7 @@ setup(
         'requests==2.25.1',
         'statsmodels==0.12.2',
         'plotly==4.14.3',
-        'numpy==1.20.0',
+        'numpy==1.22.0',
         'pandas==1.3.1',
         'scikit-learn==0.24.2',
         'matplotlib==3.4.3',
