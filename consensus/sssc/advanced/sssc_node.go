@@ -45,4 +45,17 @@ func main() {
 
 	db, err := badger.Open("sssc.db")
 	if err != nil {
-		log
+		log.Fatalf("failed to open badger db: %v", err)
+	}
+	defer db.Close()
+
+	srv := grpc.NewServer()
+	pb.RegisterSSSCNodeServer(srv, &SSSCNode{
+		shardID: "shard-1",
+		nodes:   make(map[string]*grpc.ClientConn),
+		db:      db,
+	})
+
+	log.Println("SSSC node listening on port 50053")
+	srv.Serve(lis)
+}
