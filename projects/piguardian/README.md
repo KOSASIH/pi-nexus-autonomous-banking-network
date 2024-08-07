@@ -42,7 +42,7 @@ We would like to acknowledge the Pi Network community for their support and insp
 
 # Contact
 
-For any questions or concerns, please contact us at kosasih@example.com.
+For any questions or concerns, please contact us at support@piguardian.com.
 
 # Copyright
 
