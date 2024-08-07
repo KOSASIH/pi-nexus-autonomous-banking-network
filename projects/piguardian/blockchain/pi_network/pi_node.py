@@ -125,4 +125,51 @@ class PiNode:
         elif self.consensus_algorithm == 'proof-of-stake':
             return self.mine_block_pos(transactions)
 
-    def mine_block_pow(self
+    def mine_block_pow(self, transactions):
+        previous_block_hash = self.blockchain[-1]['block_hash'] if self.blockchain else '0' * 64
+        nonce = 0
+        while True:
+            block = self.create_block(transactions, previous_block_hash)
+            block['nonce'] = nonce
+            block_hash = self.calculate_block_hash(block)
+            if int(block_hash, 16) < 2 ** (256 - self.difficulty_target):
+                self.add_block(block)
+                return block
+            nonce += 1
+
+    def mine_block_pos(self, transactions):
+        # proof-of-stake consensus algorithm
+        # select a node to create a new block based on their stake weight
+        nodes = self.peers + [self]
+        nodes.sort(key=lambda node: node.stake_weight, reverse=True)
+        for node in nodes:
+            if node.stake_weight > 0:
+                previous_block_hash = node.blockchain[-1]['block_hash'] if node.blockchain else '0' * 64
+                block = node.create_block(transactions, previous_block_hash)
+                node.add_block(block)
+                return block
+        return None
+
+    def get_stake_weight(self):
+        return self.stake_weight
+
+    def set_stake_weight(self, stake_weight):
+        self.stake_weight = stake_weight
+
+    def get_transaction_pool(self):
+        return self.transaction_pool
+
+    def add_transaction(self, transaction):
+        self.transaction_pool.append(transaction)
+
+    def clear_transaction_pool(self):
+        self.transaction_pool = []
+
+    def get_node_id(self):
+        return self.node_id
+
+    def get_public_key(self):
+        return self.public_key
+
+    def get_private_key(self):
+        return self.private_key
