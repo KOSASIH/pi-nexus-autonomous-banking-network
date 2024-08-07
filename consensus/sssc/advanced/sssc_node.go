@@ -16,25 +16,78 @@ type SSSCNode struct {
 	shardID string
 	nodes   map[string]*grpc.ClientConn
 	db      *badger.DB
-}
-
-func (n *SSSCNode) JoinShard(ctx context.Context, req *pb.JoinShardRequest) (*pb.JoinShardResponse, error) {
-	// TO DO: implement shard joining logic
-	log.Printf("Received join shard request from %s", req.NodeID)
-	n.nodes[req.NodeID] = req.Conn
-	return &pb.JoinShardResponse{Result: "success"}, nil
+	votes   map[string]map[string]bool
 }
 
 func (n *SSSCNode) ProposeBlock(ctx context.Context, req *pb.ProposeBlockRequest) (*pb.ProposeBlockResponse, error) {
-	// TO DO: implement block proposal logic
-	log.Printf("Received propose block request from %s", req.NodeID)
+	// Store proposed block in database
+	err := n.db.Update(func(txn *badger.Txn) error {
+		err := txn.Set([]byte("proposed_block_"+req.Block.Hash().Hex()), []byte(req.Block.Marshal()))
+		return err
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	// Broadcast proposed block to other nodes
+	for _, node := range n.nodes {
+		client := pb.NewSSSCNodeClient(node)
+		_, err := client.ProposeBlock(ctx, req)
+		if err != nil {
+			log.Printf("Error broadcasting proposed block to node %s: %v", node.Target(), err)
+		}
+	}
+
 	return &pb.ProposeBlockResponse{Result: "success"}, nil
 }
 
 func (n *SSSCNode) VoteBlock(ctx context.Context, req *pb.VoteBlockRequest) (*pb.VoteBlockResponse, error) {
-	// TO DO: implement block voting logic
-	log.Printf("Received vote block request from %s", req.NodeID)
+	// Store vote in database
+	err := n.db.Update(func(txn *badger.Txn) error {
+		err := txn.Set([]byte("vote_"+req.Block.Hash().Hex()+"_"+req.Vote), []byte("true"))
+		return err
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	// Update vote count
+	n.votes[req.Block.Hash().Hex()][req.Vote] = true
+
+	// Check if block is committed
+	if n.isCommitted(req.Block.Hash().Hex()) {
+		// Commit block to blockchain
+		err := n.commitBlock(req.Block)
+		if err != nil {
+			return nil, err
+		}
+	}
+
 	return &pb.VoteBlockResponse{Result: "success"}, nil
+}
+
+func (n *SSSCNode) isCommitted(blockHash string) bool {
+	// Check if block has been committed
+	votes, ok := n.votes[blockHash]
+	if !ok {
+		return false
+	}
+	if len(votes) >= len(n.nodes)/2 {
+		return true
+	}
+	return false
+}
+
+func (n *SSSCNode) commitBlock(block *types.Block) error {
+	// Commit block to blockchain
+	err := n.db.Update(func(txn *badger.Txn) error {
+		err := txn.Set([]byte("block_"+block.Hash().Hex()), []byte(block.Marshal()))
+		return err
+	})
+	if err != nil {
+		return err
+	}
+	return nil
 }
 
 func main() {
@@ -54,6 +107,7 @@ func main() {
 		shardID: "shard-1",
 		nodes:   make(map[string]*grpc.ClientConn),
 		db:      db,
+		votes:   make(map[string]map[string]bool),
 	})
 
 	log.Println("SSSC node listening on port 50053")
