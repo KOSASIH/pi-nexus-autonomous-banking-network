@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package sssc;
+
+service SSSCNode {
+  rpc ProposeBlock(ProposeBlockRequest) returns (ProposeBlockResponse) {}
+  rpc VoteBlock(VoteBlockRequest) returns (VoteBlockResponse) {}
+}
+
+message ProposeBlockRequest {
+  Block block = 1;
+}
+
+message ProposeBlockResponse {
+  string result = 1;
+}
+
+message VoteBlockRequest {
+  Block block = 1;
+  Vote vote = 2;
+}
+
+message VoteBlockResponse {
+  string result = 1;
+}
+
+message Block {
+  string hash = 1;
+  string data = 2;
+}
+
+message Vote {
+  string voter = 1;
+  bool value = 2;
+}
