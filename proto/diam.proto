@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package diam;
+
+service DIAMNode {
+  rpc CreateIdentity(CreateIdentityRequest) returns (CreateIdentityResponse) {}
+  rpc Authenticate(AuthenticateRequest) returns (AuthenticateResponse) {}
+}
+
+message CreateIdentityRequest {
+  Identity identity = 1;
+}
+
+message CreateIdentityResponse {
+  Identity identity = 1;
+}
+
+message AuthenticateRequest {
+  Identity identity = 1;
+}
+
+message AuthenticateResponse {
+  bool authenticated = 1;
+}
+
+message Identity {
+  string id = 1;
+  string username = 2;
+  string password = 3;
+}
