@@ -17,3 +17,5 @@ export const sendPiTransaction = async (from, to, amount) => {
   });
   return response.data;
 };
+
+export default piNetworkApi;
