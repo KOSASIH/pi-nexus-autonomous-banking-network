@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Dialogflow } from '@google-cloud/dialogflow';
+import { useApi } from '../context/api';
 
 const ChatWindow = () => {
   const [messages, setMessages] = useState([]);
   const [inputValue, setInputValue] = useState('');
+  const api = useApi();
 
   useEffect(() => {
     const dialogflow = new Dialogflow();
@@ -32,6 +34,18 @@ const ChatWindow = () => {
     }
   };
 
+  const handleGetBalance = async () => {
+    const balance = await api.getPiBalance();
+    setMessages((prevMessages) => [...prevMessages, `Your balance is ${balance} Pi coins`]);
+  };
+
+  const handleSendTransaction = async () => {
+    const amount = 10; // hardcoded for demo purposes
+    const recipient = 'recipient_address'; // hardcoded for demo purposes
+    const transaction = await api.sendPiTransaction(amount, recipient);
+    setMessages((prevMessages) => [...prevMessages, `Transaction sent: ${transaction}`]);
+  };
+
   return (
     <div className="chat-window">
       <h2>Pi Wallet Bot</h2>
@@ -47,6 +61,8 @@ const ChatWindow = () => {
         placeholder="Type a message..."
       />
       <button onClick={handleSendMessage}>Send</button>
+      <button onClick={handleGetBalance}>Get Balance</button>
+      <button onClick={handleSendTransaction}>Send Transaction</button>
     </div>
   );
 };
