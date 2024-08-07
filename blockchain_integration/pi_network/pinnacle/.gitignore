@@ -1,0 +1,20 @@
+# Ignore notebooks output
+notebooks/*.ipynb_checkpoints
+
+# Ignore data files
+data/*.csv
+
+# Ignore virtual environment files
+venv/
+*.pyc
+
+# Ignore IDE files
+.vscode/
+.idea/
+
+# Ignore OS files
+.DS_Store
+Thumbs.db
+
+# Ignore log files
+*.log
