@@ -1,0 +1,10 @@
+timestamp,asset,liquidity_provider,available_balance,locked_balance
+1643723400,ETH,Binance,100.0,20.0
+1643723400,BTC,Binance,500.0,100.0
+1643723400,ETH,Uniswap,50.0,10.0
+1643723400,BTC,Uniswap,200.0,40.0
+1643723460,ETH,Binance,120.0,30.0
+1643723460,BTC,Binance,520.0,110.0
+1643723520,ETH,Uniswap,60.0,15.0
+1643723520,BTC,Uniswap,220.0,45.0
+...
