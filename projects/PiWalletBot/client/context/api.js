@@ -4,17 +4,26 @@ const api = axios.create({
   baseURL: 'https://api.pi.network',
 });
 
-export const getPiBalance = async () => {
-  const response = await api.get('/balance');
-  return response.data;
+export const getPiBalance = async (address) => {
+  try {
+    const response = await api.get(`/balance/${address}`);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
 };
 
-export const sendPiTransaction = async (amount, recipient) => {
-  const response = await api.post('/transaction', {
-    amount,
-    recipient,
-  });
-  return response.data;
+export const sendPiTransaction = async (from, to, amount) => {
+  try {
+    const response = await api.post('/transaction', {
+      from,
+      to,
+      amount,
+    });
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
 };
 
 export default api;
