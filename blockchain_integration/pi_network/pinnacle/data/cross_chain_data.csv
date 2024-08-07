@@ -1,0 +1,10 @@
+timestamp,chain,token,bridge_type,bridge_fee
+1643723400,Ethereum,ETH,Poly Network,0.01
+1643723400,Binance Smart Chain,BNB,Poly Network,0.005
+1643723400,Ethereum,USDT,Poly Network,0.02
+1643723400,Binance Smart Chain,USDT,Poly Network,0.01
+1643723460,Ethereum,ETH,Poly Network,0.012
+1643723460,Binance Smart Chain,BNB,Poly Network,0.006
+1643723520,Ethereum,USDT,Poly Network,0.025
+1643723520,Binance Smart Chain,USDT,Poly Network,0.012
+...
