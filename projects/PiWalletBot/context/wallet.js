@@ -40,4 +40,8 @@ const WalletProvider = ({ children }) => {
   return (
     <WalletContext.Provider value={{ balance, transactions, getBalance, getTransactions }}>
       {children}
-    </WalletContext.Provider
+        </WalletContext.Provider>
+  );
+};
+
+export { WalletProvider, WalletContext };
