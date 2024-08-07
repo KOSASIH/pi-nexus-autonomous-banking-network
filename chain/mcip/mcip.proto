@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package mcip;
+
+message InteroperabilityRequest {
+  string source_chain = 1;
+  string target_chain = 2;
+  bytes payload = 3;
+}
+
+message InteroperabilityResponse {
+  string result = 1;
+  bytes payload = 2;
+}
+
+service InteroperabilityService {
+  rpc RequestInteroperability(InteroperabilityRequest) returns (InteroperabilityResponse) {}
+}
