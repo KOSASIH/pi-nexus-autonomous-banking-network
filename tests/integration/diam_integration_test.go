@@ -67,4 +67,12 @@ func TestAuthenticateIntegration(t *testing.T) {
 	if err != nil {
 		t.Errorf("failed to authenticate: %v", err)
 	}
-	if
+		if !resp.Authenticated {
+		t.Errorf("unexpected response: %v", resp)
+	}
+
+	// Verify that the authentication was successful
+	if !node.IsAuthenticated(identity.ID) {
+		t.Errorf("identity is not authenticated")
+	}
+}
