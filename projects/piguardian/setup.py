@@ -5,7 +5,7 @@ setup(
     version='1.0.0',
     description='A Decentralized, AI-Powered, Real-Time Network Integrity and Security Monitoring System',
     author='KOSASIH',
-    author_email='kosasih@example.com',
+    author_email='kosasihg88@gmail.com',
     url='https://github.com/KOSASIH/pi-nexus-autonomous-banking-network/tree/main/projects/piguardian',
     packages=find_packages(),
     install_requires=[
