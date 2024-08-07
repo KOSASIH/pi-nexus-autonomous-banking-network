@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { Dialogflow } from '@google-cloud/dialogflow';
 import { useApi } from '../context/api';
+import { useAuth } from '../context/auth';
 
 const ChatWindow = () => {
   const [messages, setMessages] = useState([]);
   const [inputValue, setInputValue] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
   const api = useApi();
+  const auth = useAuth();
 
   useEffect(() => {
     const dialogflow = new Dialogflow();
@@ -26,24 +30,46 @@ const ChatWindow = () => {
     setInputValue(event.target.value);
   };
 
-  const handleSendMessage = () => {
+  const handleSendMessage = async () => {
     const message = inputValue.trim();
     if (message) {
       setInputValue('');
-      handleSendMessage(message);
+      try {
+        setLoading(true);
+        const response = await dialogflow.detectIntent(message);
+        setMessages((prevMessages) => [...prevMessages, response]);
+        setLoading(false);
+      } catch (error) {
+        setError(error.message);
+        setLoading(false);
+      }
     }
   };
 
   const handleGetBalance = async () => {
-    const balance = await api.getPiBalance();
-    setMessages((prevMessages) => [...prevMessages, `Your balance is ${balance} Pi coins`]);
+    try {
+      setLoading(true);
+      const balance = await api.getPiBalance(auth.user.address);
+      setMessages((prevMessages) => [...prevMessages, `Your balance is ${balance} Pi coins`]);
+      setLoading(false);
+    } catch (error) {
+      setError(error.message);
+      setLoading(false);
+    }
   };
 
   const handleSendTransaction = async () => {
-    const amount = 10; // hardcoded for demo purposes
-    const recipient = 'recipient_address'; // hardcoded for demo purposes
-    const transaction = await api.sendPiTransaction(amount, recipient);
-    setMessages((prevMessages) => [...prevMessages, `Transaction sent: ${transaction}`]);
+    try {
+      setLoading(true);
+      const amount = 10; // hardcoded for demo purposes
+      const recipient = 'recipient_address'; // hardcoded for demo purposes
+      const transaction = await api.sendPiTransaction(auth.user.address, recipient, amount);
+      setMessages((prevMessages) => [...prevMessages, `Transaction sent: ${transaction}`]);
+      setLoading(false);
+    } catch (error) {
+      setError(error.message);
+      setLoading(false);
+    }
   };
 
   return (
@@ -63,6 +89,8 @@ const ChatWindow = () => {
       <button onClick={handleSendMessage}>Send</button>
       <button onClick={handleGetBalance}>Get Balance</button>
       <button onClick={handleSendTransaction}>Send Transaction</button>
+      {loading ? <p>Loading...</p> : null}
+      {error ? <p>Error: {error}</p> : null}
     </div>
   );
 };
