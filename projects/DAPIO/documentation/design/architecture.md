@@ -14,3 +14,57 @@ The DAPIO architecture consists of the following components:
 ## Data Flow
 
 The following diagram illustrates the data flow of the DAPIO network:
+
+      +---------------+
+      |  Data Sources  |
+      +---------------+
+              |
+              |
+              v
+      +---------------+
+      |  AI Engine  |
+      +---------------+
+              |
+              |
+              v
+      +---------------+
+      |  Blockchain  |
+      |  Interoperability  |
+      |  Layer  |
+      +---------------+
+              |
+              |
+              v
+      +---------------+
+      |  Data Feed  |
+      +---------------+
+              |
+              |
+              v
+      +---------------+
+      |  Smart Contracts  |
+      +---------------+
+              |
+              |
+              v
+      +---------------+
+      |  Pi Network Mainnet  |
+      +---------------+
+
+
+
+## Security
+
+The DAPIO network uses a combination of cryptographic techniques and security protocols to ensure the integrity and confidentiality of data. These include:
+
+* **Public-key cryptography**: The DAPIO network uses public-key cryptography to secure data transmission and storage.
+* **Hash functions**: The DAPIO network uses hash functions to ensure the integrity of data.
+* **Digital signatures**: The DAPIO network uses digital signatures to authenticate data and ensure its origin.
+
+## Scalability
+
+The DAPIO network is designed to be highly scalable and can handle a large volume of data and transactions. The network uses a combination of techniques to achieve scalability, including:
+
+* **Sharding**: The DAPIO network uses sharding to divide the network into smaller, parallel networks that can process data and transactions in parallel.
+* **Off-chain transactions**: The DAPIO network uses off-chain transactions to reduce the load on the network and improve performance.
+* **Data compression**: The DAPIO network uses data compression to reduce the size of data stored on the network.
