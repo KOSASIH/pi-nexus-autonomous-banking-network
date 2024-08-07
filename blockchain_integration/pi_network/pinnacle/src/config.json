@@ -1,0 +1,21 @@
+{
+    "api": {
+        "pi_network": {
+            "endpoint": "https://api.pi.network/v1",
+            "api_key": "YOUR_API_KEY"
+        },
+        "ethereum": {
+            "endpoint": "https://api.ethereum.org/v1",
+            "api_key": "YOUR_API_KEY"
+        },
+        "bsc": {
+            "endpoint": "https://api.bscscan.com/v1",
+            "api_key": "YOUR_API_KEY"
+        }
+    },
+    "gas_price": {
+        "max": 1000000000,
+        "min": 1000000,
+        "step": 1000000
+    }
+}
