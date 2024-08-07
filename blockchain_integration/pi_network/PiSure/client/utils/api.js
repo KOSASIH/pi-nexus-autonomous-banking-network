@@ -5,4 +5,7 @@ const api = axios.create({
 });
 
 export const createPolicy = (data) => api.post('/policies', data);
-export const getPolicies = () => api
+export const getPolicies = () => api.get('/policies');
+export const getPolicy = (id) => api.get(`/policies/${id}`);
+export const updatePolicy = (id, data) => api.put(`/policies/${id}`, data);
+export const deletePolicy = (id) => api.delete(`/policies/${id}`);
