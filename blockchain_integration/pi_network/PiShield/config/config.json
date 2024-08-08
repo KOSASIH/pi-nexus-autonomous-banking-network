@@ -1,0 +1,30 @@
+{
+  "network": {
+    "pi_network": {
+      "node_url": "https://pi-node.com",
+      "contract_address": "0x...PiShieldContractAddress..."
+    }
+  },
+  "ai_auditor": {
+    "model_path": "./models/neural_network.js",
+    "rule_path": "./models/rule_based.js"
+  },
+  "contract_executor": {
+    "executor_path": "./executor.js"
+  },
+  "crypto": {
+    "lattice_crypto_path": "./lattice_crypto.js",
+    "hash_based_signatures_path": "./hash_based_signatures.js"
+  },
+  "formal_verifier": {
+    "model_checker_path": "./model_checker.js",
+    "theorem_prover_path": "./theorem_prover.js"
+  },
+  "node": {
+    "node_path": "./node.js"
+  },
+  "quantum_resistance": {
+    "lattice_based_crypto_path": "./lattice_based_crypto.js",
+    "hash_based_signatures_path": "./hash_based_signatures.js"
+  }
+}
