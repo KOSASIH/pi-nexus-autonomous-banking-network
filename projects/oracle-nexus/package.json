@@ -1,0 +1,21 @@
+{
+  "name": "oracle-nexus",
+  "version": "1.0.0",
+  "description": "Oracle Nexus project",
+  "main": "index.js",
+  "scripts": {
+    "test": "hardhat test",
+    "deploy": "hardhat deploy",
+    "dev": "hardhat node"
+  },
+  "keywords": [],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "hardhat": "^2.8.3",
+    "ethers": "^5.4.3",
+    "chai": "^4.3.4",
+    "elliptic": "^6.5.3",
+    "web3": "^1.5.2"
+  }
+}
