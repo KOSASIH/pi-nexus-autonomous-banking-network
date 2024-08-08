@@ -1,0 +1,15 @@
+[
+  {
+    "symbol": "BTC/USDT",
+    "exchange": "Binance",
+    "baseAsset": "BTC",
+    "quoteAsset": "USDT"
+  },
+  {
+    "symbol": "ETH/USD",
+    "exchange": "Kraken",
+    "baseAsset": "ETH",
+    "quoteAsset": "USD"
+  },
+  ...
+]
