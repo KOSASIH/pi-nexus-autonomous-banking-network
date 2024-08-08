@@ -1,0 +1,66 @@
+{
+  "contracts": [
+    {
+      "id": "contract-1",
+      "address": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e",
+      "name": "PiShield Token",
+      "description": "A token contract for the PiShield ecosystem",
+      "compilerVersion": "0.8.0",
+      "optimizationLevel": 2,
+      "contractSize": 1024,
+      "functions": [
+        {
+          "name": "transfer",
+          "description": "Transfer tokens from one address to another",
+          "inputs": [
+            {
+              "name": "_from",
+              "type": "address"
+            },
+            {
+              "name": "_to",
+              "type": "address"
+            },
+            {
+              "name": "_value",
+              "type": "uint256"
+            }
+          ],
+          "outputs": [
+            {
+              "name": "success",
+              "type": "bool"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "contract-2",
+      "address": "0x1234567890abcdef1234567890abcdef",
+      "name": "PiShield Oracle",
+      "description": "An oracle contract for the PiShield ecosystem",
+      "compilerVersion": "0.7.0",
+      "optimizationLevel": 1,
+      "contractSize": 512,
+      "functions": [
+        {
+          "name": "getPrice",
+          "description": "Get the current price of a asset",
+          "inputs": [
+            {
+              "name": "_asset",
+              "type": "string"
+            }
+          ],
+          "outputs": [
+            {
+              "name": "price",
+              "type": "uint256"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
