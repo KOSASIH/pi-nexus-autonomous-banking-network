@@ -39,4 +39,10 @@ contract EthereumBridge {
         // Get the Ethereum token address
         address ethereumTokenAddress = ethereumTokenAddresses[_from];
 
-        // Transfer the tokens from the CrossChainBridge contract to the Ethereum
+        // Transfer the tokens from the CrossChainBridge contract to the Ethereum blockchain
+        SafeERC20.safeTransfer(crossChainBridgeAddress, ethereumTokenAddress, _value);
+
+        // Emit the TransferCompleted event
+        emit TransferCompleted(_from, address(this), _value, _data);
+    }
+}
