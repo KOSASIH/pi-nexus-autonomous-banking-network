@@ -19,7 +19,7 @@ Flask-Babel==2.10.1
 Flask-Script==2.0.6
 Flask-Session==0.4.0
 Flask-Mail==0.9.1
-Flask-RESTX==0.2.0
+Flask-RESTX==0.5.1
 Flask-Msearch==0.1.1
 Flask-Cache==1.10.1
 Flask-JWT==1.0.1
