@@ -1,0 +1,4 @@
+# Constants for PiHE
+HE_LIBRARY = 'TFHE'  # or 'SEAL' or 'HElib'
+KEY_SIZE = 2048
+POLYNOMIAL_DEGREE = 4096
