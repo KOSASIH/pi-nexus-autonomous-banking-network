@@ -1,0 +1,17 @@
+{
+  "name": "PiWalletBot",
+  "version": "1.0.0",
+  "description": "A chatbot-based wallet interface for the Pi Network",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "actions-on-google": "^2.12.0",
+    "body-parser": "^1.19.0",
+    "dialogflow-fulfillment": "^0.6.1",
+    "express": "^4.17.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
+}
