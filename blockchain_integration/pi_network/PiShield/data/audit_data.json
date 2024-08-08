@@ -1,0 +1,39 @@
+{
+  "audits": [
+    {
+      "id": "audit-1",
+      "contractAddress": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e",
+      "auditType": "AI Auditing",
+      "auditResult": 92,
+      "auditDate": "2023-02-15T14:30:00.000Z",
+      "auditData": {
+        "codeComplexity": 0.8,
+        "vulnerabilityScore": 0.4,
+        "codeQuality": 0.9
+      }
+    },
+    {
+      "id": "audit-2",
+      "contractAddress": "0x742d35Cc6634C0532925a3b844Bc454e4438f44e",
+      "auditType": "Formal Verification",
+      "auditResult": true,
+      "auditDate": "2023-02-16T10:45:00.000Z",
+      "auditData": {
+        "proofSize": 1024,
+        "verificationTime": 300
+      }
+    },
+    {
+      "id": "audit-3",
+      "contractAddress": "0x1234567890abcdef1234567890abcdef",
+      "auditType": "AI Auditing",
+      "auditResult": 85,
+      "auditDate": "2023-02-17T12:00:00.000Z",
+      "auditData": {
+        "codeComplexity": 0.7,
+        "vulnerabilityScore": 0.3,
+        "codeQuality": 0.8
+      }
+    }
+  ]
+}
