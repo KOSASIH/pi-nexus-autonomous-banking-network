@@ -1,0 +1,55 @@
+{
+  "access_control": [
+    {
+      "id": 1,
+      "name": "admin",
+      "description": "Administrator role",
+      "permissions": [
+        "create_user",
+        "read_user",
+        "update_user",
+        "delete_user",
+        "create_group",
+        "read_group",
+        "update_group",
+        "delete_group"
+      ],
+      "groups": [
+        "admin"
+      ],
+      "created_at": "2023-02-20T14:30:00.000Z",
+      "updated_at": "2023-02-20T14:30:00.000Z"
+    },
+    {
+      "id": 2,
+      "name": "moderator",
+      "description": "Moderator role",
+      "permissions": [
+        "read_user",
+        "update_user",
+        "create_group",
+        "read_group",
+        "update_group"
+      ],
+      "groups": [
+        "moderator"
+      ],
+      "created_at": "2023-02-20T14:30:00.000Z",
+      "updated_at": "2023-02-20T14:30:00.000Z"
+    },
+    {
+      "id": 3,
+      "name": "user",
+      "description": "User role",
+      "permissions": [
+        "read_user",
+        "update_user"
+      ],
+      "groups": [
+        "user"
+      ],
+      "created_at": "2023-02-20T14:30:00.000Z",
+      "updated_at": "2023-02-20T14:30:00.000Z"
+    }
+  ]
+}
