@@ -1,0 +1,15 @@
+{
+  "environment": "development",
+  "quantum_crypto": {
+    "key_size": 2048,
+    "signature_scheme": "ECDSA"
+  },
+  "ai_ml": {
+    "model_path": "models/",
+    "data_path": "data/"
+  },
+  "node": {
+    "port": 3000,
+    "host": "localhost"
+  }
+}
