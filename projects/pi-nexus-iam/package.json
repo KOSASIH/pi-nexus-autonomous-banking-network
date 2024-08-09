@@ -1,0 +1,24 @@
+{
+  "name": "pi-nexus-iam",
+  "version": "1.0.0",
+  "description": "Pi Nexus IAM (Identity and Access Management) system",
+  "main": "index.ts",
+  "scripts": {
+    "test": "jest",
+    "start": "ts-node index.ts"
+  },
+  "keywords": [],
+  "author": "KOSASIH",
+  "license": "MIT",
+  "dependencies": {
+    "aws-sdk": "^2.7.22",
+    "typescript": "^4.3.5",
+    "jest": "^27.4.2",
+    "ts-node": "^10.7.0"
+  },
+  "devDependencies": {
+    "@types/aws-sdk": "^2.7.22",
+    "@types/jest": "^27.4.2",
+    "@types/node": "^16.11.7"
+  }
+}
