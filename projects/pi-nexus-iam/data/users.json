@@ -1,0 +1,62 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "john_doe",
+      "password": "$2b$12$KhT5sG4jR6eV8aM9cLdOe.",
+      "email": "john.doe@example.com",
+      "role": "admin",
+      "permissions": [
+        "create_user",
+        "read_user",
+        "update_user",
+        "delete_user",
+        "create_group",
+        "read_group",
+        "update_group",
+        "delete_group"
+      ],
+      "groups": [
+        "admin",
+        "moderator"
+      ],
+      "created_at": "2023-02-20T14:30:00.000Z",
+      "updated_at": "2023-02-20T14:30:00.000Z"
+    },
+    {
+      "id": 2,
+      "username": "jane_doe",
+      "password": "$2b$12$KhT5sG4jR6eV8aM9cLdOe.",
+      "email": "jane.doe@example.com",
+      "role": "moderator",
+      "permissions": [
+        "read_user",
+        "update_user",
+        "create_group",
+        "read_group",
+        "update_group"
+      ],
+      "groups": [
+        "moderator"
+      ],
+      "created_at": "2023-02-20T14:30:00.000Z",
+      "updated_at": "2023-02-20T14:30:00.000Z"
+    },
+    {
+      "id": 3,
+      "username": "bob_smith",
+      "password": "$2b$12$KhT5sG4jR6eV8aM9cLdOe.",
+      "email": "bob.smith@example.com",
+      "role": "user",
+      "permissions": [
+        "read_user",
+        "update_user"
+      ],
+      "groups": [
+        "user"
+      ],
+      "created_at": "2023-02-20T14:30:00.000Z",
+      "updated_at": "2023-02-20T14:30:00.000Z"
+    }
+  ]
+}
