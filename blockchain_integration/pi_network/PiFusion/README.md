@@ -62,9 +62,9 @@ For questions, comments, or concerns, please contact the PiFusion development te
 
 ## Roadmap
 
-* Q1 2023: Implement intelligent node selection algorithm
-* Q2 2023: Develop PiFusion dashboard and API
-* Q3 2023: Integrate with Pi Network mainnet
-* Q4 2023: Deploy PiFusion on cloud infrastructure
+* Q1 2024: Implement intelligent node selection algorithm
+* Q2 2024: Develop PiFusion dashboard and API
+* Q3 2024: Integrate with Pi Network mainnet
+* Q4 2024: Deploy PiFusion on cloud infrastructure
 
 Note: This roadmap is subject to change based on project requirements and priorities.
