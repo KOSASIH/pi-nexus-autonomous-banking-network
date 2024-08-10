@@ -1,0 +1,21 @@
+{
+  "blockchain": {
+    "name": "Pi-Stablecoin",
+    "symbol": "PI",
+    "block_time": 10,
+    "block_size": 1000,
+    "difficulty": 1000
+  },
+  "transaction": {
+    "fee": 0.01,
+    "gas_limit": 100000
+  },
+  "user": {
+    "password_length": 12,
+    "salt_length": 16
+  },
+  "crypto": {
+    "algorithm": "AES-256-CBC",
+    "key_length": 32
+  }
+}
