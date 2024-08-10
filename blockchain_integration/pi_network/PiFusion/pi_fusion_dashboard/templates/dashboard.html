@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PiFusion Dashboard</title>
+  </head>
+  <body>
+    <h1>PiFusion Dashboard</h1>
+    <ul>
+      {% for node in nodes %}
+        <li>
+          {{ node.name }} (Reputation: {{ node.reputation }}, Incentivization: {{ node.incentivization }})
+        </li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>
