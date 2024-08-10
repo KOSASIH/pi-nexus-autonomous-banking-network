@@ -28,4 +28,4 @@ ipython==8.10.0
 
 # Other dependencies
 python-dotenv==0.19.2
-gunicorn==20.1.0
+gunicorn==22.0.0
