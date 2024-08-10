@@ -1,0 +1,126 @@
+/* Variables */
+:root {
+  --primary-color: #3498db;
+  --secondary-color: #f1c40f;
+  --background-color: #f9f9f9;
+  --text-color: #333;
+  --font-family: 'Open Sans', sans-serif;
+  --transition-duration: 0.3s;
+}
+
+/* Global Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  transition: background-color var(--transition-duration);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  color: var(--primary-color);
+  margin-bottom: 0.5em;
+}
+
+p {
+  margin-bottom: 1em;
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary-color);
+  transition: color var(--transition-duration);
+}
+
+a:hover {
+  color: var(--secondary-color);
+}
+
+/* Grid System */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-gap: 10px;
+}
+
+.grid-item {
+  grid-column: span 4;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+  .grid-item {
+    grid-column: span 6;
+  }
+}
+
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .grid-item {
+    grid-column: span 4;
+  }
+}
+
+/* Animations */
+.animate {
+  transition: transform var(--transition-duration);
+}
+
+.animate:hover {
+  transform: scale(1.1);
+}
+
+/* Utility Classes */
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Custom Components */
+.button {
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color var(--transition-duration);
+}
+
+.button:hover {
+  background-color: var(--secondary-color);
+}
+
+.card {
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: box-shadow var(--transition-duration);
+}
+
+.card:hover {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
