@@ -16,7 +16,7 @@ plotly==5.3.1
 # API and web development
 requests==2.26.0
 beautifulsoup4==4.9.3
-lxml==4.6.3
+lxml==4.9.1
 jquery==3.6.0
 bootstrap==5.1.3
 
