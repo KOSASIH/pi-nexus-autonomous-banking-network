@@ -132,5 +132,29 @@ const NodeList = () => {
             return (
               <tr {...node.getRowProps()} className="node-table-row">
                 {node.cells.map((cell) => (
-                  <td {...cell.getCellProps()} className="node-table-cell">
-                    {cell
+                  <td {...cell.getCellProps()} className="node-table-cell">                    
+                     {cell.render('Cell')}
+                  </td>
+                ))}
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+      <NodePagination
+        nodes={paginatedNodes}
+        currentPage={nodePagination.currentPage}
+        pageSize={nodePagination.pageSize}
+        totalCount={filteredNodes.length}
+        onPageChange={(page) => nodePagination.setCurrentPage(page)}
+      />
+      <NodeCard
+        nodes={selectedNodes}
+        onNodeSelect={(nodeId) => setSelectedNodes((prev) => [...prev, nodeId])}
+        onNodeDeselect={(nodeId) => setSelectedNodes((prev) => prev.filter((id) => id !== nodeId))}
+      />
+    </div>
+  );
+};
+
+export default NodeList;
