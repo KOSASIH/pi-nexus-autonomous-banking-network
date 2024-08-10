@@ -23,11 +23,14 @@ Customizable dashboards and reports to meet the unique needs of individual users
 
 ## Technical Requirements
 
-- Hardware
+*Hardware*
+
 - 2+ CPU cores
 - 4+ GB RAM
 - 100+ GB storage
-- Software
+
+*Software*
+
 - Python 3.8+
 - Flask 2.0+
 - TensorFlow 2.4+
