@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Metrics{% endblock %}
+
+{% block content %}
+    <h1>Metrics</h1>
+    <div id="metrics-chart"></div>
+    <script>
+        // Load metrics data from API
+        fetch('/api/metrics')
+            .then(response => response.json())
+            .then(data => {
+                // Render chart using a library like Chart.js
+                const chart = new Chart(document.getElementById('metrics-chart'), {
+                    type: 'line',
+                    data: data,
+                    options: {
+                        title: {
+                            display: true,
+                            text: 'Metrics Chart'
+                        }
+                    }
+                });
+            });
+    </script>
+{% endblock %}
