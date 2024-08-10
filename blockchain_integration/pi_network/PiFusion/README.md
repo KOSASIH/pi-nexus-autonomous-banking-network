@@ -29,3 +29,42 @@ PiFusion is a cutting-edge, blockchain-agnostic system that leverages artificial
 ## Git Repository
 
 This project is hosted on GitHub at [https://github.com/KOSASIH/pi-nexus-autonomous-banking-network/tree/main/blockchain_integration/pi_network/PiFusion](https://github.com/KOSASIH/pi-nexus-autonomous-banking-network/tree/main/blockchain_integration/pi_network/PiFusion).
+
+## Installation and Setup
+
+1. Clone the repository: `git clone https://github.com/KOSASIH/pi-nexus-autonomous-banking-network.git`
+2. Navigate to the PiFusion directory: `cd pi-nexus-autonomous-banking-network/blockchain_integration/pi_network/PiFusion`
+3. Install dependencies: `pip install -r requirements.txt`
+4. Set up the database: `python setup_db.py`
+5. Start the PiFusion dashboard: `python app.py`
+
+## Usage
+
+1. Access the PiFusion dashboard: `http://localhost:5000`
+2. View node reputation and ranking: `http://localhost:5000/dashboard`
+3. Interact with the Pi Network mainnet: `http://localhost:5000/api`
+
+## Contributing
+
+Contributions are welcome! Please fork the repository, make your changes, and submit a pull request.
+
+## License
+
+PiFusion is licensed under the MIT License. See [LICENSE](LICENSE) for details.
+
+## Acknowledgments
+
+PiFusion is built on top of the Pi Network mainnet and utilizes various open-source libraries and frameworks. We acknowledge the contributions of the Pi Network community and the open-source community at large.
+
+## Contact
+
+For questions, comments, or concerns, please contact the PiFusion development team at [kosasih@pifusion.io](mailto:kosasih@pifusion.io).
+
+## Roadmap
+
+* Q1 2023: Implement intelligent node selection algorithm
+* Q2 2023: Develop PiFusion dashboard and API
+* Q3 2023: Integrate with Pi Network mainnet
+* Q4 2023: Deploy PiFusion on cloud infrastructure
+
+Note: This roadmap is subject to change based on project requirements and priorities.
