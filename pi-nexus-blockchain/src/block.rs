@@ -1,19 +1,25 @@
-// block.rs (updated)
+// block.rs (update)
 
-// ...
+use crate::transaction::Transaction;
 
-impl BlockHeader {
-    // ...
+pub struct Block {
+    pub index: u64,
+    pub previous_hash: String,
+    pub timestamp: u64,
+    pub transactions: Vec<Transaction>,
+    pub hash: String,
+}
 
-    pub fn mine(&mut self, difficulty_target: u64) {
-        let mut nonce = 0;
-        loop {
-            self.nonce = nonce;
-            let hash = self.hash();
-            if hash.starts_with(&format!("{:0>64}", difficulty_target)) {
-                break;
-            }
-            nonce += 1;
+impl Block {
+    pub fn new(index: u64, previous_hash: &str, transactions: Vec<Transaction>) -> Self {
+        let timestamp = crate::utils::get_current_timestamp();
+        let hash = crate::utils::calculate_block_hash(index, previous_hash, &transactions, timestamp);
+        Block {
+            index,
+            previous_hash: previous_hash.to_string(),
+            timestamp,
+            transactions,
+            hash,
         }
     }
 }
