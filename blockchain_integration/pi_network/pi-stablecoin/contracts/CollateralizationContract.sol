@@ -119,4 +119,85 @@ contract CollateralizationContract {
     // Function to update the collateralization buffer
     function updateCollateralizationBuffer(uint256 newBuffer) public {
         // Check if the new buffer is valid
-        require(newBuffer >= 0 && newBuffer <= 100, "Invalid collateral
+        require(newBuffer >= 0 && newBuffer <= 100, "Invalid collateralization buffer");
+
+        // Update the collateralization buffer
+        collateralizationBuffer = newBuffer;
+
+        // Emit the CollateralizationBufferUpdated event
+        emit CollateralizationBufferUpdated(newBuffer);
+    }
+
+    // Function to update the minimum collateralization ratio
+    function updateMinCollateralizationRatio(uint256 newRatio) public {
+        // Check if the new ratio is valid
+        require(newRatio >= 0 && newRatio <= 100, "Invalid minimum collateralization ratio");
+
+        // Update the minimum collateralization ratio
+        minCollateralizationRatio = newRatio;
+
+        // Emit the MinCollateralizationRatioUpdated event
+        emit MinCollateralizationRatioUpdated(newRatio);
+    }
+
+    // Function to update the maximum collateralization ratio
+    function updateMaxCollateralizationRatio(uint256 newRatio) public {
+        // Check if the new ratio is valid
+        require(newRatio >= 0 && newRatio <= 100, "Invalid maximum collateralization ratio");
+
+        // Update the maximum collateralization ratio
+        maxCollateralizationRatio = newRatio;
+
+        // Emit the MaxCollateralizationRatioUpdated event
+        emit MaxCollateralizationRatioUpdated(newRatio);
+    }
+
+    // Function to get the total collateral value
+    function getTotalCollateralValue() public view returns (uint256) {
+        uint256 totalValue = 0;
+        for (address collateralAsset in collateralBalances) {
+            uint256 price = Oracle(oracleAddress).getPrice(collateralAsset);
+            totalValue += collateralBalances[collateralAsset] * price;
+        }
+        return totalValue;
+    }
+
+    // Function to get the Pi Coin supply
+    function getPiCoinSupply() public view returns (uint256) {
+        return PiCoin(piCoinAddress).totalSupply();
+    }
+
+    // Function to check if the collateralization ratio is met
+    function isCollateralizationRatioMet() public view returns (bool) {
+        uint256 totalCollateralValue = getTotalCollateralValue();
+        uint256 piCoinSupply = getPiCoinSupply();
+        return totalCollateralValue >= piCoinSupply * collateralizationRatio / 100;
+    }
+
+    // Function to check if the collateralization buffer is met
+    function isCollateralizationBufferMet() public view returns (bool) {
+        uint256 totalCollateralValue = getTotalCollateralValue();
+        uint256 piCoinSupply = getPiCoinSupply();
+        return totalCollateralValue >= piCoinSupply * (collateralizationRatio + collateralizationBuffer) / 100;
+    }
+
+    // Function to get the collateralization ratio
+    function getCollateralizationRatio() public view returns (uint256) {
+        return collateralizationRatio;
+    }
+
+    // Function to get the collateralization buffer
+    function getCollateralizationBuffer() public view returns (uint256) {
+        return collateralizationBuffer;
+    }
+
+    // Function to get the minimum collateralization ratio
+    function getMinCollateralizationRatio() public view returns (uint256) {
+        return minCollateralizationRatio;
+    }
+
+    // Function to get the maximum collateralization ratio
+    function getMaxCollateralizationRatio() public view returns (uint256) {
+        return maxCollateralizationRatio;
+    }
+}
