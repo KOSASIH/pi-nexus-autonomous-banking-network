@@ -1,20 +1,20 @@
-# Use an official Node runtime as the base image
-FROM node:14
+# Use an official Python image as a base
+FROM python:3.9-slim
 
-# Set the working directory in the container to /app
+# Set the working directory to /app
 WORKDIR /app
 
-# Copy package.json and package-lock.json to the working directory
-COPY package*.json ./
+# Copy the requirements file
+COPY requirements.txt .
 
-# Install any needed packages specified in package.json
-RUN npm install
+# Install the dependencies
+RUN pip install -r requirements.txt
 
-# Bundle app source inside the Docker image
+# Copy the application code
 COPY . .
 
-# Make port 8080 available to the world outside the container
-EXPOSE 8080
+# Expose the port the application will use
+EXPOSE 8000
 
-# Define the command to run the app
-CMD ["npm", "start"]
+# Run the command to start the development server
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
