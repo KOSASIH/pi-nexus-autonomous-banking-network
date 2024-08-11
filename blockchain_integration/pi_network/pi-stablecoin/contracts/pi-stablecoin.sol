@@ -1,90 +1,122 @@
 pragma solidity ^0.8.0;
 
+import "https://github.com/OpenZeppelin/openzeppelin-solidity/contracts/math/SafeMath.sol";
 import "https://github.com/OpenZeppelin/openzeppelin-solidity/contracts/token/ERC20/SafeERC20.sol";
-import "./pi-oracle.sol";
 
-contract PiStablecoin {
+contract PiStableCoin {
     // Mapping of user balances
     mapping (address => uint256) public balances;
 
-    // Mapping of allowed spenders
-    mapping (address => mapping (address => uint256)) public allowed;
-
-    // Total supply of stablecoins
+    // Total supply of Pi Coin
     uint256 public totalSupply;
 
-    // Pi Oracle contract instance
-    PiOracle public piOracle;
+    // Reserve of assets
+    uint256 public reserve;
 
-    // Event emitted when stablecoins are minted
-    event Mint(address indexed to, uint256 amount);
+    // Oracle service
+    address public oracle;
 
-    // Event emitted when stablecoins are burned
-    event Burn(address indexed from, uint256 amount);
+    // Governance mechanism
+    address public governance;
 
-    // Event emitted when stablecoins are transferred
-    event Transfer(address indexed from, address indexed to, uint256 amount);
+    // Price feed contract
+    address public priceFeed;
 
-    // Event emitted when spenders are approved
-    event Approval(address indexed owner, address indexed spender, uint256 amount);
+    // Rebalancing threshold (e.g. 1% deviation from target price)
+    uint256 public rebalancingThreshold;
 
-    // Constructor
-    constructor(address _piOracle) public {
-        piOracle = PiOracle(_piOracle);
+    // Target price of Pi Coin (e.g. $314.159)
+    uint256 public targetPrice;
+
+    // Event emitted when the value of Pi Coin changes
+    event ValueChanged(uint256 newValue);
+
+    // Event emitted when the reserve is updated
+    event ReserveUpdated(uint256 newReserve);
+
+    // Event emitted when the governance mechanism updates the target price
+    event TargetPriceUpdated(uint256 newTargetPrice);
+
+    // Event emitted when the rebalancing threshold is updated
+    event RebalancingThresholdUpdated(uint256 newThreshold);
+
+    // Modifier to check if the caller is the governance mechanism
+    modifier onlyGovernance {
+        require(msg.sender == governance, "Only governance can call this function");
+        _;
     }
 
-    // Function to mint stablecoins
+    // Modifier to check if the caller is the oracle service
+    modifier onlyOracle {
+        require(msg.sender == oracle, "Only oracle can call this function");
+        _;
+    }
+
+    // Function to mint new Pi Coin
     function mint(address _to, uint256 _amount) public {
-        // Get the current Pi price from the oracle
-        uint256 piPrice = piOracle.getPiPrice();
+        // Check if the reserve is sufficient
+        require(reserve >= _amount, "Insufficient reserve");
 
-        // Calculate the amount of stablecoins to mint
-        uint256 stablecoinAmount = _amount * piPrice;
-
-        // Update the total supply
-        totalSupply += stablecoinAmount;
-
-        // Update the user's balance
-        balances[_to] += stablecoinAmount;
-
-        // Emit the mint event
-        emit Mint(_to, stablecoinAmount);
-    }
-
-    // Function to burn stablecoins
-    function burn(address _from, uint256 _amount) public {
-        // Get the current Pi price from the oracle
-        uint256 piPrice = piOracle.getPiPrice();
-
-        // Calculate the amount of stablecoins to burn
-        uint256 stablecoinAmount = _amount * piPrice;
-
-        // Update the total supply
-        totalSupply -= stablecoinAmount;
-
-        // Update the user's balance
-        balances[_from] -= stablecoinAmount;
-
-        // Emit the burn event
-        emit Burn(_from, stablecoinAmount);
-    }
-
-    // Function to transfer stablecoins
-    function transfer(address _to, uint256 _amount) public {
-        // Update the user's balance
-        balances[msg.sender] -= _amount;
+        // Mint new Pi Coin
         balances[_to] += _amount;
+        totalSupply += _amount;
 
-        // Emit the transfer event
-        emit Transfer(msg.sender, _to, _amount);
+        // Update the reserve
+        reserve -= _amount;
     }
 
-    // Function to approve spenders
-    function approve(address _spender, uint256 _amount) public {
-        // Update the allowed spenders
-        allowed[msg.sender][_spender] = _amount;
+    // Function to burn Pi Coin
+    function burn(address _from, uint256 _amount) public {
+        // Check if the user has sufficient balance
+        require(balances[_from] >= _amount, "Insufficient balance");
 
-        // Emit the approval event
-        emit Approval(msg.sender, _spender, _amount);
+        // Burn Pi Coin
+        balances[_from] -= _amount;
+        totalSupply -= _amount;
+
+        // Update the reserve
+        reserve += _amount;
+    }
+
+    // Function to update the value of Pi Coin
+    function updateValue(uint256 _newValue) public onlyOracle {
+        // Check if the new value is within the rebalancing threshold
+        require(SafeMath.abs(_newValue - targetPrice) <= rebalancingThreshold, "Value is outside rebalancing threshold");
+
+        // Update the value of Pi Coin
+        emit ValueChanged(_newValue);
+    }
+
+    // Function to update the target price
+    function updateTargetPrice(uint256 _newTargetPrice) public onlyGovernance {
+        // Update the target price
+        targetPrice = _newTargetPrice;
+        emit TargetPriceUpdated(_newTargetPrice);
+    }
+
+    // Function to update the rebalancing threshold
+    function updateRebalancingThreshold(uint256 _newThreshold) public onlyGovernance {
+        // Update the rebalancing threshold
+        rebalancingThreshold = _newThreshold;
+        emit RebalancingThresholdUpdated(_newThreshold);
+    }
+
+    // Function to update the reserve
+    function updateReserve(uint256 _newReserve) public onlyGovernance {
+        // Update the reserve
+        reserve = _newReserve;
+        emit ReserveUpdated(_newReserve);
+    }
+
+    // Function to get the current price of Pi Coin
+    function getPrice() public view returns (uint256) {
+        // Get the current price from the price feed contract
+        return priceFeed.getPrice();
+    }
+
+    // Function to get the current reserve ratio
+    function getReserveRatio() public view returns (uint256) {
+        // Calculate the current reserve ratio
+        return reserve * 100 / totalSupply;
     }
 }
