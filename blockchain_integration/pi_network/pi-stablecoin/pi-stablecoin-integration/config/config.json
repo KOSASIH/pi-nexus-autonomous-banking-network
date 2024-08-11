@@ -1,0 +1,44 @@
+{
+  "defi": {
+    "uniswap": {
+      "apiUrl": "https://api.uniswap.org/v2",
+      "apiKey": "YOUR_API_KEY"
+    },
+    "sushiswap": {
+      "apiUrl": "https://api.sushiswap.fi/v2",
+      "apiKey": "YOUR_API_KEY"
+    },
+    "curve": {
+      "apiUrl": "https://api.curve.fi/v2",
+      "apiKey": "YOUR_API_KEY"
+    }
+  },
+  "dex": {
+    "binance-smart-chain": {
+      "apiUrl": "https://api.binance.org/api/v3",
+      "apiKey": "YOUR_API_KEY"
+    },
+    "polygon": {
+      "apiUrl": "https://api.polygon.technology/v2",
+      "apiKey": "YOUR_API_KEY"
+    },
+    "huobi": {
+      "apiUrl": "https://api.huobi.pro/v2",
+      "apiKey": "YOUR_API_KEY"
+    }
+  },
+  "oracle": {
+    "chainlink": {
+      "apiUrl": "https://api.chain.link/v2",
+      "apiKey": "YOUR_API_KEY"
+    },
+    "compound": {
+      "apiUrl": "https://api.compound.finance/v2",
+      "apiKey": "YOUR_API_KEY"
+    },
+    "aave": {
+      "apiUrl": "https://api.aave.com/v2",
+      "apiKey": "YOUR_API_KEY"
+    }
+  }
+}
