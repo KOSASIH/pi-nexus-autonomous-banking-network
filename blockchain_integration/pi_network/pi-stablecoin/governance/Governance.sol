@@ -133,7 +133,7 @@ contract Governance is AccessControl, ReentrancyGuard, Pausable {
         // Check if the proposal has been executed
         require(!proposals[_proposalId].executed, "Proposal has already been executed");
 
-                // Check if the proposal has passed
+        // Check if the proposal has passed
         require(voteCounts[_proposalId][true] > voteCounts[_proposalId][false], "Proposal has not passed");
 
         // Execute the proposal
