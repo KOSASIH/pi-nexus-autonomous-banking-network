@@ -2,7 +2,7 @@ pragma solidity ^0.8.0;
 
 import "./ReputationSystem.sol";
 
-contract iDecentralizedExchange {
+contract DecentralizedExchange {
     // Mapping of user addresses to their decentralized exchange balances
     mapping (address => uint256) public decentralizedExchangeBalances;
 
