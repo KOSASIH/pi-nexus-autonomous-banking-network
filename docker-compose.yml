@@ -1,23 +1,78 @@
-version: '3'
+version: '3.8'
 
 services:
   app:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - NODE_ENV=production
+        - API_KEY=super_secret_api_key
     ports:
       - "8000:8000"
     depends_on:
       - db
+      - redis
+      - rabbitmq
     environment:
-      - DATABASE_URL=postgres://user:password@db:5432/database
+      - DATABASE_URL=postgres://username:password@rds-instance.123456789012.us-east-1.rds.amazonaws.com:5432/database
+      - REDIS_URL=redis://redis:6379
+      - RABBITMQ_URL=amqp://rabbitmq:5672
+      - API_KEY=super_secret_api_key
+    deploy:
+      mode: replicated
+      replicas: 3
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+      update_config:
+        parallelism: 2
+        delay: 10s
+      rollback_config:
+        parallelism: 2
+        delay: 10s
 
   db:
     image: postgres
     environment:
-      - POSTGRES_USER=user
+      - POSTGRES_USER=username
       - POSTGRES_PASSWORD=password
       - POSTGRES_DB=database
     volumes:
       - db-data:/var/lib/postgresql/data
+    deploy:
+      mode: replicated
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+
+  redis:
+    image: redis:alpine
+    ports:
+      - "6379:6379"
+    deploy:
+      mode: replicated
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    deploy:
+      mode: replicated
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
 
 volumes:
   db-data:
