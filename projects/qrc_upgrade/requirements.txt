@@ -2,7 +2,7 @@
 
 # Cryptography libraries
 cryptography==3.4.7
-pycryptodome==3.10.1
+pycryptodome==3.19.1
 
 # Math and science libraries
 numpy==1.22.0
