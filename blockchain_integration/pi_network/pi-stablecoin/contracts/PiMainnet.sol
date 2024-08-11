@@ -256,5 +256,103 @@ contract PiMainnet {
         // Update the sender's balance
         piCoinBalances[msg.sender] -= amount;
 
+        // Update the sender's balance
+        piCoinBalances[msg.sender] -= amount;
+
         // Update the recipient's balance
-        piCoin
+        piCoinBalances[to] += amount;
+
+        // Emit an event to notify the change in balance
+        emit PiCoinBalanceChanged(to, piCoinBalances[to]);
+    }
+
+    // Function to update a user's reputation score
+    function updateReputationScore(address user, uint256 newScore) public {
+        reputationScores[user] = newScore;
+        emit ReputationScoreChanged(user, newScore);
+    }
+
+    // Function to update a user's incentivization amount
+    function updateIncentivizationAmount(address user, uint256 newAmount) public {
+        incentivizationAmounts[user] = newAmount;
+        emit IncentivizationAmountChanged(user, newAmount);
+    }
+
+    // Function to update a user's collateralization amount
+    function updateCollateralizationAmount(address user, uint256 newAmount) public {
+        collateralizationAmounts[user] = newAmount;
+        emit CollateralizationAmountChanged(user, newAmount);
+    }
+
+    // Function to update a user's algorithmic stabilization amount
+    function updateAlgorithmicStabilizationAmount(address user, uint256 newAmount) public {
+        algorithmicStabilizationAmounts[user] = newAmount;
+        emit AlgorithmicStabilizationAmountChanged(user, newAmount);
+    }
+
+    // Function to update a user's pegging amount
+    function updatePeggingAmount(address user, uint256 newAmount) public {
+        peggingAmounts[user] = newAmount;
+        emit PeggingAmountChanged(user, newAmount);
+    }
+
+    // Function to update a user's oracle service fee
+    function updateOracleServiceFee(address user, uint256 newFee) public {
+        oracleServiceFees[user] = newFee;
+        emit OracleServiceFeeChanged(user, newFee);
+    }
+
+    // Function to update a user's governance vote
+    function updateGovernanceVote(address user, uint256 newVote) public {
+        governanceVotes[user] = newVote;
+        emit GovernanceVoteChanged(user, newVote);
+    }
+
+    // Function to update a user's KYC verification status
+    function updateKYCVerificationStatus(address user, bool newStatus) public {
+        kycVerificationStatus[user] = newStatus;
+        emit KYCVerificationStatusChanged(user, newStatus);
+    }
+
+    // Function to update a user's AML compliance status
+    function updateAMLComplianceStatus(address user, bool newStatus) public {
+        amlComplianceStatus[user] = newStatus;
+        emit AMLComplianceStatusChanged(user, newStatus);
+    }
+
+    // Function to update a user's insurance fund contribution
+    function updateInsuranceFundContribution(address user, uint256 newContribution) public {
+        insuranceFundContributions[user] = newContribution;
+        emit InsuranceFundContributionChanged(user, newContribution);
+    }
+
+    // Function to update a user's decentralized exchange balance
+    function updateDecentralizedExchangeBalance(address user, uint256 newBalance) public {
+        decentralizedExchangeBalances[user] = newBalance;
+        emit DecentralizedExchangeBalanceChanged(user, newBalance);
+    }
+
+    // Function to update a user's liquidity pool balance
+    function updateLiquidityPoolBalance(address user, uint256 newBalance) public {
+        liquidityPoolBalances[user] = newBalance;
+        emit LiquidityPoolBalanceChanged(user, newBalance);
+    }
+
+    // Function to update a user's staking contract balance
+    function updateStakingContractBalance(address user, uint256 newBalance) public {
+        stakingContractBalances[user] = newBalance;
+        emit StakingContractBalanceChanged(user, newBalance);
+    }
+
+    // Function to update a user's vesting contract balance
+    function updateVestingContractBalance(address user, uint256 newBalance) public {
+        vestingContractBalances[user] = newBalance;
+        emit VestingContractBalanceChanged(user, newBalance);
+    }
+
+    // Function to update a user's treasury balance
+    function updateTreasuryBalance(address user, uint256 newBalance) public {
+        treasuryBalances[user] = newBalance;
+        emit TreasuryBalanceChanged(user, newBalance);
+    }
+}
