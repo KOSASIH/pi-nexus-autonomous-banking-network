@@ -1,48 +1,23 @@
-// blockchain.rs (updated)
+// blockchain.rs (new)
 
-// ...
+use crate::block::Block;
+use std::collections::VecDeque;
+
+pub struct Blockchain {
+    pub chain: VecDeque<Block>,
+}
 
 impl Blockchain {
-    // ...
-
-    pub fn validate_block(&self, block: &Block) -> bool {
-        let previous_block_hash = self.chain.last().unwrap().hash.clone();
-        if block.header.previous_hash != previous_block_hash {
-            return false;
+    pub fn new() -> Self {
+        let genesis_block = Block::new(0, "0", vec![]);
+        Blockchain {
+            chain: VecDeque::from(vec![genesis_block]),
         }
-        if block.header.difficulty_target != self.difficulty_target {
-            return false;
-        }
-        if block.header.timestamp <= self.chain.last().unwrap().header.timestamp {
-            return false;
-        }
-        if !self.validate_transactions(&block.transactions) {
-            return false;
-        }
-        true
     }
 
-    fn validate_transactions(&self, transactions: &Vec<Transaction>) -> bool {
-        for transaction in transactions {
-            if !self.validate_transaction(transaction) {
-                return false;
-            }
-        }
-        true
-    }
-
-    fn validate_transaction(&self, transaction: &Transaction) -> bool {
-        // TO DO: implement transaction validation logic
-        true
-    }
-
-    pub fn mine_block(&mut self) {
-        let block = self.create_block();
-        if self.validate_block(&block) {
-            self.chain.push(block);
-            self.pending_transactions.clear();
-        } else {
-            println!("Invalid block!");
-        }
+    pub fn add_block(&mut self, transactions: Vec<crate::transaction::Transaction>) {
+        let previous_hash = self.chain.back().unwrap().hash.clone();
+        let new_block = Block::new(self.chain.len() as u64, &previous_hash, transactions);
+        self.chain.push_back(new_block);
     }
 }
