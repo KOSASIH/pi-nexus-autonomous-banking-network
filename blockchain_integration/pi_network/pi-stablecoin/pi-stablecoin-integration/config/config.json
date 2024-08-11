@@ -39,6 +39,11 @@
     "aave": {
       "apiUrl": "https://api.aave.com/v2",
       "apiKey": "YOUR_API_KEY"
+    },
+    "stellar": {
+      "horizonUrl": "https://horizon.stellar.org",
+      "network": "public",
+      "fee": 100
     }
   }
 }
