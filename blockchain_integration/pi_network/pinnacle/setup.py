@@ -14,7 +14,7 @@ DEPENDENCIES = [
     "eth-sig-util==1.3.2",
     "py-solc-x==1.3.3",
     "scikit-learn==1.0.2",
-    "tensorflow==2.6.0",
+    "tensorflow==2.12.1",
     "numpy==1.21.2",
     "pandas==1.3.5",
     "matplotlib==3.5.1",
