@@ -456,7 +456,7 @@ contract ReputationSystem {
     // Event emitted when a user's reputation score is updated
     event ReputationScoreUpdated(address indexed user, uint256 newScore);
 
-        // Constructor
+    // Constructor
     constructor() public {
         // Set the reputation validators
         reputationValidators = [address(0x1234567890123456789012345678901234567890), address(0x9876543210987654321098765432109876543210)];
