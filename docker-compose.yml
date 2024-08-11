@@ -1,38 +1,23 @@
-version: "3.8"
+version: '3'
 
 services:
-  api-gateway:
-    build:
-      context: ./api-gateway
-      dockerfile: Dockerfile
+  app:
+    build: .
     ports:
-      - "5000:5000"
+      - "8000:8000"
+    depends_on:
+      - db
     environment:
-      - JWT_SECRET_KEY=my_secret_key
+      - DATABASE_URL=postgres://user:password@db:5432/database
 
-  authentication:
-    build:
-      context: ./authentication
-      dockerfile: Dockerfile
-    ports:
-      - "5001:5001"
+  db:
+    image: postgres
     environment:
-      - DATABASE_URI=postgres://user:password@localhost/db
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=database
+    volumes:
+      - db-data:/var/lib/postgresql/data
 
-  transaction-processing:
-    build:
-      context: ./transaction-processing
-      dockerfile: Dockerfile
-    ports:
-      - "5002:5002"
-    environment:
-      - BROKER_URL=amqp://guest:guest@localhost
-
-  account-management:
-    build:
-      context: ./account-management
-      dockerfile: Dockerfile
-    ports:
-      - "5003:5003"
-    environment:
-      - DATABASE_URI=postgres://user:password@localhost/db
+volumes:
+  db-data:
