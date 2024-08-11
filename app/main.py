@@ -133,4 +133,79 @@ def get_confirmed_transactions():
 @app.route('/api/blockchain/sync', methods=['POST'])
 @jwt_required
 def sync_blockchain():
-    blockchain_service = BlockchainService
+    blockchain_service = BlockchainService()
+    response = blockchain_service.sync_blockchain()
+    return jsonify(response), 200
+
+@app.route('/api/blockchain/mine', methods=['POST'])
+@jwt_required
+def mine_block():
+    blockchain_service = BlockchainService()
+    response = blockchain_service.mine_block()
+    return jsonify(response), 200
+
+@app.route('/api/blockchain/validate', methods=['POST'])
+@jwt_required
+def validate_blockchain():
+    blockchain_service = BlockchainService()
+    response = blockchain_service.validate_blockchain()
+    return jsonify(response), 200
+
+@app.route('/api/nodes/register', methods=['POST'])
+@jwt_required
+def register_node():
+    node_service = NodeService()
+    node_data = request.json
+    response = node_service.register_node(node_data)
+    return jsonify(response), 201
+
+@app.route('/api/nodes/unregister', methods=['POST'])
+@jwt_required
+def unregister_node():
+    node_service = NodeService()
+    node_id = request.json.get('node_id')
+    response = node_service.unregister_node(node_id)
+    return jsonify(response), 200
+
+@app.route('/api/blocks/get', methods=['GET'])
+@jwt_required
+def get_block():
+    block_service = BlockService()
+    block_hash = request.args.get('block_hash')
+    block = block_service.get_block(block_hash)
+    return jsonify(block.to_dict()), 200
+
+@app.route('/api/transactions/get', methods=['GET'])
+@jwt_required
+def get_transaction():
+    transaction_service = TransactionService()
+    transaction_id = request.args.get('transaction_id')
+    transaction = transaction_service.get_transaction(transaction_id)
+    return jsonify(transaction.to_dict()), 200
+
+@app.route('/api/wallet', methods=['GET'])
+@jwt_required
+def get_wallet():
+    wallet_service = WalletService()
+    user_id = g.user
+    wallet = wallet_service.get_wallet(user_id)
+    return jsonify(wallet.to_dict()), 200
+
+@app.route('/api/wallet/transactions', methods=['GET'])
+@jwt_required
+def get_wallet_transactions():
+    wallet_service = WalletService()
+    user_id = g.user
+    transactions = wallet_service.get_wallet_transactions(user_id)
+    return jsonify([transaction.to_dict() for transaction in transactions]), 200
+
+@app.route('/api/wallet/balance', methods=['GET'])
+@jwt_required
+def get_wallet_balance():
+    wallet_service = WalletService()
+    user_id = g.user
+    balance = wallet_service.get_wallet_balance(user_id)
+    return jsonify({'balance': balance}), 200
+
+if __name__ == '__main__':
+    app.run(debug=True)
