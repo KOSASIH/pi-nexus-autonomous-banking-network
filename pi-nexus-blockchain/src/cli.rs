@@ -1,4 +1,4 @@
-// cli.rs (new)
+// cli.rs (update)
 
 use crate::blockchain::Blockchain;
 use crate::transaction::Transaction;
@@ -18,16 +18,20 @@ fn main() {
 
     let matches = app.get_matches();
 
-    let blockchain = Blockchain::new();
+    let mut blockchain = Blockchain::new();
 
     match matches.value_of("command").unwrap() {
         "create_transaction" => {
-            // TO DO: implement create transaction logic
-            println!("Create transaction command");
+            let sender = "Alice";
+            let recipient = "Bob";
+            let amount = 10;
+            let transaction = Transaction::new(sender, recipient, amount);
+            blockchain.add_transaction(transaction);
+            println!("Transaction created and added to the blockchain");
         }
         "add_block" => {
-            // TO DO: implement add block logic
-            println!("Add block command");
+            blockchain.add_block(blockchain.get_transactions());
+            println!("Block added to the blockchain");
         }
         "get_chain" => {
             println!("Blockchain chain:");
@@ -37,4 +41,4 @@ fn main() {
         }
         _ => println!("Invalid command"),
     }
-}
+    }
