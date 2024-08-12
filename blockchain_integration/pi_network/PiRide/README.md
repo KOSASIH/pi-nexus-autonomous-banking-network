@@ -21,12 +21,13 @@ Getting Started
 
 ### Installation
 
-1. Clone the repository: `git clone https://github.com/pi-ride/pi-ride.git`
-2. Install dependencies: `npm install`
-3. Start the development environment: `docker-compose up`
-4. Migrate the contracts: `truffle migrate`
-5. Start the API: `npm run api`
-6. Start the frontend: `npm run frontend`
+1. Clone the repository: `git clone https://github.com/KOSASIH/pi-nexus-autonomous-banking-network.git`
+2. Navigate to the PiRide directory: `cd blockchain_integration/pi_network/PiRide`
+3. Install dependencies: `npm install`
+4. Start the development environment: `docker-compose up`
+5. Migrate the contracts: `truffle migrate`
+6. Start the API: `npm run api`
+7. Start the frontend: `npm run frontend`
 
 ### Usage
 
