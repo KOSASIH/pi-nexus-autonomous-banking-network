@@ -138,4 +138,50 @@ class TCPNodeInterface(NodeInterface):
         self.socket.close()
 
     def send_data(self, data: bytes) -> None:
-        """
+        """Send data to the node using TCP."""
+        self.socket.sendall(data)
+
+    def receive_data(self) -> bytes:
+        """Receive data from the node using TCP."""
+        return self.socket.recv(1024)
+
+    def _create_socket(self) -> socket.socket:
+        """Create a TCP socket connection."""
+        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        sock.connect((self.node_address, self.node_port))
+        return sock
+
+class NodeInterfaceFactory:
+    """Factory class for creating node interfaces."""
+
+    @staticmethod
+    def create_node_interface(node_id: str, node_address: str, node_port: int, interface_type: str) -> NodeInterface:
+        """Create a node interface based on the interface type."""
+        if interface_type == 'grpc':
+            return GRPCNodeInterface(node_id, node_address, node_port)
+        elif interface_type == 'websocket':
+            return WebSocketNodeInterface(node_id, node_address, node_port)
+        elif interface_type == 'tcp':
+            return TCPNodeInterface(node_id, node_address, node_port)
+        else:
+            raise ValueError(f'Invalid interface type: {interface_type}')
+
+if __name__ == '__main__':
+    logging.basicConfig(level=logging.INFO)
+    node_id = 'node-1'
+    node_address = 'localhost'
+    node_port = 50051
+    interface_type = 'grpc'
+
+    node_interface = NodeInterfaceFactory.create_node_interface(node_id, node_address, node_port, interface_type)
+    node_interface.start()
+
+    try:
+        while True:
+            data = b'Hello, node!'
+            node_interface.send_data(data)
+            response = node_interface.receive_data()
+            print(f'Received response: {response}')
+            time.sleep(1)
+    except KeyboardInterrupt:
+        node_interface.stop()
