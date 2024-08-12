@@ -30,7 +30,7 @@ Requirements
 Installation
 ------------
 
-1. Clone the repository: `git clone https://github.com/KOSASIH/pi-brain.git`
+1. Clone the repository: `git clone https://github.com/KOSASIH/pi-nexus-autonomous-banking-network/tree/main/blockchain_integration/pi_network/pibrain.git`
 2. Navigate to the PiBrain directory: `cd pi-brain`
 3. Install the dependencies: `pip install -r requirements.txt`
 4. Run the application: `python main.py`
