@@ -65,4 +65,21 @@ def load_network_predictor_data(file_path):
     y = data['network_performance'].values
     scaler = StandardScaler()
     X = scaler.fit_transform(X)
-    return X,
+    return X, y
+
+def predict_network_performance(model, input_data):
+    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    model.to(device)
+    input_data = torch.tensor(input_data, dtype=torch.float).to(device)
+    output = model(input_data)
+    return output.detach().cpu().numpy()
+
+# Example usage:
+X, y = load_network_predictor_data('network_performance_data.csv')
+dataset = NetworkPredictorDataset(X, y)
+model = NetworkPredictor(input_dim=X.shape[1], hidden_dim=128, output_dim=1)
+model = train_network_predictor(model, dataset, batch_size=32, epochs=100, learning_rate=0.001)
+
+input_data = np.array([[1, 2, 3, 4, 5]])  # example input data
+output = predict_network_performance(model, input_data)
+print(f'Predicted network performance: {output}')
