@@ -137,4 +137,51 @@ class TCPSocketNetworkInterface(NetworkInterface):
         _LOGGER.info('Stopping TCP socket network interface...')
         self.socket.close()
 
-    def send_data(self, data:
+    def send_data(self, data: bytes) -> None:
+        """Send data over the network using TCP socket."""
+        self.socket.sendall(data)
+
+    def receive_data(self) -> bytes:
+        """Receive data from the network using TCP socket."""
+        return self.socket.recv(1024)
+
+    def _create_socket(self) -> socket.socket:
+        """Create a TCP socket connection."""
+        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        sock.connect((self.network_address, self.network_port))
+        return sock
+
+class NetworkInterfaceFactory:
+    """Factory class for creating network interfaces."""
+
+    @staticmethod
+    def create_network_interface(network_id: str, network_address: str, network_port: int, interface_type: str) -> NetworkInterface:
+        """Create a network interface based on the interface type."""
+        if interface_type == 'grpc':
+            return GRPCNetworkInterface(network_id, network_address, network_port)
+        elif interface_type == 'websocket':
+            return WebSocketNetworkInterface(network_id, network_address, network_port)
+        elif interface_type == 'tcp':
+            return TCPSocketNetworkInterface(network_id, network_address, network_port)
+        else:
+            raise ValueError(f'Invalid interface type: {interface_type}')
+
+if __name__ == '__main__':
+    logging.basicConfig(level=logging.INFO)
+    network_id = 'network-1'
+    network_address = 'localhost'
+    network_port = 50051
+    interface_type = 'grpc'
+
+    network_interface = NetworkInterfaceFactory.create_network_interface(network_id, network_address, network_port, interface_type)
+    network_interface.start()
+
+    try:
+        while True:
+            data = b'Hello, network!'
+            network_interface.send_data(data)
+            response = network_interface.receive_data()
+            print(f'Received response: {response}')
+            time.sleep(1)
+    except KeyboardInterrupt:
+        network_interface.stop()
