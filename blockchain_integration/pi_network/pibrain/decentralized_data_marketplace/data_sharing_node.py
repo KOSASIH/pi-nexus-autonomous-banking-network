@@ -52,4 +52,10 @@ def get_providers():
     providers = contract.get_data_providers()
     return jsonify({'providers': providers})
 
-@app.route('/get
+@app.route('/get_consumers', methods=['GET'])
+def get_consumers():
+    consumers = contract.get_data_consumers()
+    return jsonify({'consumers': consumers})
+
+if __name__ == '__main__':
+    app.run(debug=True)
