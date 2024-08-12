@@ -34,4 +34,54 @@ const RideOfferContainer = () => {
         rideType,
         price
       );
-      notify
+      notify(`Ride offer created successfully! Tx Hash: ${txHash}`);
+      setRideOffers([...rideOffers, { pickupLocation, dropoffLocation, rideType, price }]);
+      setLoading(false);
+    } catch (error) {
+      notify(`Error creating ride offer: ${error.message}`);
+      setLoading(false);
+    }
+  };
+
+  const handleMapClick = (location) => {
+    setPickupLocation(location);
+  };
+
+  const handleDropoffChange = (location) => {
+    setDropoffLocation(location);
+  };
+
+  const handleRideTypeChange = (type) => {
+    setRideType(type);
+  };
+
+  const handlePriceChange = (price) => {
+    setPrice(price);
+  };
+
+  return (
+    <div>
+      <h2>Ride Offer Container</h2>
+      <RideOfferForm
+        onSubmit={handleFormSubmit}
+        pickupLocation={pickupLocation}
+        dropoffLocation={dropoffLocation}
+        rideType={rideType}
+        price={price}
+        onChangePickupLocation={handleMapClick}
+        onChangeDropoffLocation={handleDropoffChange}
+        onChangeRideType={handleRideTypeChange}
+        onChangePrice={handlePriceChange}
+      />
+      <RideOfferMap
+        pickupLocation={pickupLocation}
+        dropoffLocation={dropoffLocation}
+        onClick={handleMapClick}
+      />
+      <RideOfferList rideOffers={rideOffers} />
+      {loading && <p>Loading...</p>}
+    </div>
+  );
+};
+
+export default RideOfferContainer;
