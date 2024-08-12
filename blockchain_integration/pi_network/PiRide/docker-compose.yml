@@ -1,0 +1,50 @@
+version: "3"
+services:
+  ganache:
+    image: trufflesuite/ganache-cli:v6.12.2
+    ports:
+      - "8545:8545"
+    environment:
+      -GANACHE_ACCOUNTS=10
+      -GANACHE_DEFAULT_BALANCE_ETH=100
+    command: ["--gasPrice", "20000000000", "--gasLimit", "8000000"]
+
+  truffle:
+    build: .
+    environment:
+      - TRUFFLE_NETWORK=development
+    volumes:
+      - ./contracts:/app/contracts
+      - ./migrations:/app/migrations
+      - ./test:/app/test
+    command: ["truffle", "migrate", "--reset"]
+
+  pi-ride-api:
+    build: ./api
+    ports:
+      - "3000:3000"
+    environment:
+      - API_PORT=3000
+      - API_HOST=localhost
+      - DATABASE_URL=postgres://user:password@localhost:5432/pi-ride-db
+    depends_on:
+      - ganache
+      - truffle
+
+  pi-ride-db:
+    image: postgres
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=pi-ride-db
+    volumes:
+      - ./db:/var/lib/postgresql/data
+
+  pi-ride-frontend:
+    build: ./frontend
+    ports:
+      - "8080:8080"
+    environment:
+      - REACT_APP_API_URL=http://localhost:3000
+    depends_on:
+      - pi-ride-api
