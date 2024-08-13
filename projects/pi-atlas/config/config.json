@@ -1,0 +1,21 @@
+{
+  "api": {
+    "port": 8080,
+    "host": "0.0.0.0"
+  },
+  "ipfs": {
+    "host": "ipfs.infura.io",
+    "port": 5001,
+    "api_key": "YOUR_IPFS_API_KEY"
+  },
+  "ai_models": {
+    "anomaly_detection": "anomaly_detection.py",
+    "network_mapping": "network_mapping.py",
+    "optimization": "optimization.py"
+  },
+  "quantum_resistant_cryptography": {
+    "lattice_based_cryptography": "lattice_based_cryptography.py",
+    "code_based_cryptography": "code_based_cryptography.py",
+    "post_quantum_cryptography": "post_quantum_cryptography.py"
+  }
+}
