@@ -122,4 +122,26 @@ const NodeContainer = ({ node }) => {
       <p>Quantum: {JSON.stringify(nodeState.quantum)}</p>
       <button onClick={() => handleNodeStatusChange('online')}>Toggle Online</button>
       <button onClick={() => handleNodeStatusChange('offline')}>Toggle Offline</button>
-      <button onClick={() => handleNodeMetricsChange({ cpu: 50, memory:
+      <button onClick={() => handleNodeMetricsChange({ cpu: 50, memory: 75 })}>
+        Update Metrics
+      </button>
+      <button onClick={() => handleNodeSecurityChange({ firewall: true, antivirus: true })}>
+        Update Security
+      </button>
+      <button onClick={() => handleNodeNetworkingChange({ ip: '192.168.1.100', subnet: '255.255.255.0' })}>
+        Update Networking
+      </button>
+      <button onClick={() => handleNodeStorageChange({ capacity: 1000, available: 500 })}>
+        Update Storage
+      </button>
+      <button onClick={() => handleNodeAIChange({ model: 'neural_network', accuracy: 0.9 })}>
+        Update AI
+      </button>
+      <button onClick={() => handleNodeQuantumChange({ qubit_count: 100, entanglement: true })}>
+        Update Quantum
+      </button>
+    </div>
+  );
+};
+
+export default NodeContainer;
