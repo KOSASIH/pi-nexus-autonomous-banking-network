@@ -1,0 +1,37 @@
+/* Edge Styles */
+
+.edge-container {
+  background-color: #f7f7f7;
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin: 20px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.edge-header {
+  background-color: #337ab7;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.edge-header h2 {
+  margin-top: 0;
+}
+
+.edge-content {
+  padding: 20px;
+}
+
+.edge-content ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.edge-content li {
+  margin-bottom
