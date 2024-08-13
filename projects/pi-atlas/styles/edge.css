@@ -34,4 +34,43 @@
 }
 
 .edge-content li {
-  margin-bottom
+  margin-bottom: 10px;
+}
+
+.edge-content li:before {
+  content: "\2022";
+  margin-right: 10px;
+  color: #337ab7;
+}
+
+.edge-footer {
+  background-color: #f7f7f7;
+  padding: 10px;
+  text-align: center;
+  border-top: 1px solid #ddd;
+}
+
+.edge-footer button {
+  background-color: #337ab7;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.edge-footer button:hover {
+  background-color: #23527c;
+}
+
+.edge-graph {
+  width: 100%;
+  height: 200px;
+  border: 1px solid #ddd;
+  padding: 20px;
+}
+
+.edge-graph svg {
+  width: 100%;
+  height: 100%;
+}
