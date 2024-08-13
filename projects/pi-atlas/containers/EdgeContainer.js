@@ -133,3 +133,57 @@ const EdgeContainer = ({ edge }) => {
       <h2>Edge {edge.id}</h2>
       <p>Status: {edgeState.status}</p>
       <p>Metrics:
+        <EdgeMetrics metrics={edgeState.metrics} />
+      </p>
+      <p>Security:
+        <EdgeSecurity security={edgeState.security} />
+      </p>
+      <p>Networking:
+        <EdgeNetworking networking={edgeState.networking} />
+      </p>
+      <p>Storage:
+        <EdgeStorage storage={edgeState.storage} />
+      </p>
+      <p>AI:
+        <EdgeAI ai={edgeState.ai} />
+      </p>
+      <p>Quantum:
+        <EdgeQuantum quantum={edgeState.quantum} />
+      </p>
+      <h3>Nodes:</h3>
+      <ul>
+        {edgeState.nodes.map((node) => (
+          <li key={node.id}>
+            <NodeContainer node={node} />
+          </li>
+        ))}
+      </ul>
+      <button onClick={() => handleEdgeStatusChange('online')}>Set Online</button>
+      <button onClick={() => handleEdgeStatusChange('offline')}>Set Offline</button>
+      <button onClick={() => handleEdgeMetricsChange({ cpu: 50, memory: 75 })}>
+        Update Metrics
+      </button>
+      <button onClick={() => handleEdgeSecurityChange({ firewall: true, antivirus: true })}>
+        Update Security
+      </button>
+      <button onClick={() => handleEdgeNetworkingChange({ ip: '192.168.1.100', subnet: '255.255.255.0' })}>
+        Update Networking
+      </button>
+      <button onClick={() => handleEdgeStorageChange({ capacity: 1000, available: 500 })}>
+        Update Storage
+      </button>
+      <button onClick={() => handleEdgeAIChange({ model: 'neural_network', accuracy: 0.9 })}>
+        Update AI
+      </button>
+      <button onClick={() => handleEdgeQuantumChange({ qubit_count: 100, entanglement: true })}>
+        Update Quantum
+      </button>
+      <button onClick={() => handleNodeAdd({ id: 'new_node', status: 'online' })}>
+        Add Node
+      </button>
+      <button onClick={() => handleNodeRemove('node_id')}>Remove Node</button>
+    </div>
+  );
+};
+
+export default EdgeContainer;
