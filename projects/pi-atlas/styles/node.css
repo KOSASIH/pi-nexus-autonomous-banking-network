@@ -1,0 +1,64 @@
+/* Node Styles */
+
+.node-container {
+  background-color: #f7f7f7;
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin: 20px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.node-header {
+  background-color: #337ab7;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.node-header h2 {
+  margin-top: 0;
+}
+
+.node-content {
+  padding: 20px;
+}
+
+.node-content ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.node-content li {
+  margin-bottom: 10px;
+}
+
+.node-content li:before {
+  content: "\2022";
+  margin-right: 10px;
+  color: #337ab7;
+}
+
+.node-footer {
+  background-color: #f7f7f7;
+  padding: 10px;
+  text-align: center;
+  border-top: 1px solid #ddd;
+}
+
+.node-footer button {
+  background-color: #337ab7;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.node-footer button:hover {
+  background-color: #23527c;
+}
