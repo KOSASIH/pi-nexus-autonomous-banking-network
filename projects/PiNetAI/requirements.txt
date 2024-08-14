@@ -1,0 +1,6 @@
+boto3
+google-cloud-storage
+azure-storage-blob
+tensorflow
+keras
+edgeiq
