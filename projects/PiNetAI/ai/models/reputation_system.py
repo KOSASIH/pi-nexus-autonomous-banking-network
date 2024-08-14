@@ -95,4 +95,107 @@ class ReputationSystem:
 
     def evaluate_models(self, predictions):
         metrics = {}
-        for model_name, prediction in
+        for model_name, prediction in predictions.items():
+            accuracy = accuracy_score(self.data['rating'], prediction)
+            precision = precision_score(self.data['rating'], prediction, average='macro')
+            recall = recall_score(self.data['rating'], prediction, average='macro')
+            f1 = f1_score(self.data['rating'], prediction, average='macro')
+            metrics[model_name] = {'accuracy': accuracy, 'precision': precision, 'recall': recall, 'f1': f1}
+        return metrics
+
+    def visualize_results(self, predictions):
+        plt.figure(figsize=(10, 6))
+        sns.set_style('whitegrid')
+        sns.barplot(x=list(predictions.keys()), y=[metrics['accuracy'] for metrics in predictions.values()])
+        plt.xlabel('Model')
+        plt.ylabel('Accuracy')
+        plt.title('Model Performance')
+        plt.show()
+
+    def optimize_hyperparameters(self):
+        def objective(trial):
+            params = {
+                'Random Forest': {
+                    'n_estimators': trial.suggest_int('n_estimators', 100, 1000),
+                    'max_depth': trial.suggest_int('max_depth', 3, 10)
+                },
+                'XGBoost': {
+                    'max_depth': trial.suggest_int('max_depth', 3, 10),
+                    'learning_rate': trial.suggest_loguniform('learning_rate', 1e-5, 1e2),
+                    'n_estimators': trial.suggest_int('n_estimators', 100, 1000)
+                },
+                'CatBoost': {
+                    'iterations': trial.suggest_int('iterations', 100, 1000),
+                    'learning_rate': trial.suggest_loguniform('learning_rate', 1e-5, 1e2),
+                    'depth': trial.suggest_int('depth', 3, 10)
+                },
+                'LightGBM': {
+                    'max_depth': trial.suggest_int('max_depth', 3, 10),
+                    'learning_rate': trial.suggest_loguniform('learning_rate', 1e-5, 1e2),
+                    'n_estimators': trial.suggest_int('n_estimators', 100, 1000)
+                },
+                'Neural Network': {
+                    'hidden_layers': trial.suggest_int('hidden_layers', 1, 5),
+                    'hidden_units': trial.suggest_int('hidden_units', 10, 100),
+                    'dropout_rate': trial.suggest_uniform('dropout_rate', 0.1, 0.5)
+                }
+            }
+            model_name = trial.suggest_categorical('model_name', list(self.models.keys()))
+            model = self.models[model_name]
+            model.set_params(**params[model_name])
+            model.fit(self.data)
+            prediction = model.predict(self.data)
+            accuracy = accuracy_score(self.data['rating'], prediction)
+            return -accuracy
+
+        study = optuna.create_study(direction='maximize')
+        study.optimize(objective, n_trials=50)
+        best_trial = study.best_trial
+        best_model_name = best_trial.params['model_name']
+        best_model = self.models[best_model_name]
+        best_model.set_params(**best_trial.params)
+        return best_model
+
+    def calculate_text_features(self, text_data):
+        vectorizer = TfidfVectorizer(max_features=1000)
+        text_features = vectorizer.fit_transform(text_data)
+        return text_features
+
+    def calculate_collaborative_features(self, user_item_matrix):
+        collaborative_features = np.zeros((self.num_users, self.num_items))
+        for i in range(self.num_users):
+            for j in range(self.num_items):
+                if user_item_matrix[i, j] > 0:
+                    collaborative_features[i, j] = self.calculate_collaborative_feature(i, j, user_item_matrix)
+        return collaborative_features
+
+    def calculate_collaborative_feature(self, user_id, item_id, user_item_matrix):
+        user_ratings = user_item_matrix[user_id, :]
+        item_ratings = user_item_matrix[:, item_id]
+        collaborative_feature = np.dot(user_ratings, item_ratings) / (np.linalg.norm(user_ratings) * np.linalg.norm(item_ratings))
+        return collaborative_feature
+
+if __name__ == '__main__':
+    # Load data
+    data = pd.read_csv('data.csv')
+
+    # Create ReputationSystem object
+    reputation_system = ReputationSystem(data, num_users=1000, num_items=1000)
+
+    # Preprocess data
+    reputation_system.preprocess_data()
+
+    # Create user-item matrices
+    user_item_matrix = reputation_system.create_user_item_matrices()
+
+    # Calculate reputation scores
+    reputation_scores = reputation_system.calculate_reputation_scores(user_item_matrix)
+
+    # Train models
+    reputation_system.train_models(reputation_scores)
+
+    # Predict reputation scores
+    predictions = reputation_system.predict_reputation_scores(reputation_scores)
+
+    # Evaluate models
+    metrics = reputation_system.evaluate
