@@ -117,4 +117,139 @@ contract TradeFinanceContract is Ownable {
 
         // Find the transaction with the given ID
         for (uint256 i = 0; i < transactions.length; i++) {
-            if (
+            if (transactions[i].transactionId == transactionId) {
+                // Check if the payment has already been received
+                require(!transactions[i].paymentReceived, "Payment already received");
+
+                // Check if the payment amount matches the transaction amount
+                require(amount == transactions[i].amount, "Invalid payment amount");
+
+                // Receive the payment
+                transactions[i].paymentReceived = true;
+
+                // Emit an event to notify the payment receipt
+                emit PaymentReceived(buyer, seller, transactionId, amount);
+
+                // Return
+                return;
+            }
+        }
+
+        // If the transaction is not found, revert
+        revert("Transaction not found");
+    }
+
+    // Function to raise a dispute
+    function raiseDispute(address buyer, address seller, uint256 transactionId) public {
+        // Check if the buyer and seller are valid
+        require(buyer != address(0) && seller != address(0), "Invalid buyer or seller");
+
+        // Check if the transaction ID is valid
+        require(transactionId > 0, "Invalid transaction ID");
+
+        // Get the transaction from the mapping
+        TradeFinanceTransaction[] memory transactions = tradeFinanceTransactions[buyer][seller];
+
+        // Find the transaction with the given ID
+        for (uint256 i = 0; i < transactions.length; i++) {
+            if (transactions[i].transactionId == transactionId) {
+                // Check if the dispute has already been raised
+                require(!transactions[i].disputeRaised, "Dispute already raised");
+
+                // Raise the dispute
+                transactions[i].disputeRaised = true;
+
+                // Emit an event to notify the dispute
+                emit DisputeRaised(buyer, seller, transactionId);
+
+                // Return
+                return;
+            }
+        }
+
+        // If the transaction is not found, revert
+        revert("Transaction not found");
+    }
+
+    // Function to resolve a dispute
+    function resolveDispute(address buyer, address seller, uint256 transactionId) public {
+        // Check if the buyer and seller are valid
+        require(buyer != address(0) && seller != address(0), "Invalid buyer or seller");
+
+        // Check if the transaction ID is valid
+        require(transactionId > 0, "Invalid transaction ID");
+
+        // Get the transaction from the mapping
+        TradeFinanceTransaction[] memory transactions = tradeFinanceTransactions[buyer][seller];
+
+        // Find the transaction with the given ID
+        for (uint256 i = 0; i < transactions.length; i++) {
+            if (transactions[i].transactionId == transactionId) {
+                // Check if the dispute has already been resolved
+                require(!transactions[i].disputeResolved, "Dispute already resolved");
+
+                // Resolve the dispute
+                transactions[i].disputeResolved = true;
+
+                // Emit an event to notify the dispute resolution
+                emit DisputeResolved(buyer, seller, transactionId);
+
+                // Return
+                return;
+            }
+        }
+
+        // If the transaction is not found, revert
+        revert("Transaction not found");
+    }
+
+    // Function to add an Allah feature
+    function addAllahFeature(string memory featureName, string memory featureDescription) public onlyOwner {
+        // Check if the feature name is valid
+        require(bytes(featureName).length > 0, "Invalid feature name");
+
+        // Check if the feature description is valid
+        require(bytes(featureDescription).length > 0, "Invalid feature description");
+
+        // Add the feature to the mapping
+        allahFeatures[featureName] = featureDescription;
+
+        // Emit an event to notify the addition of the feature
+        emit AllahFeatureAdded(featureName, featureDescription);
+    }
+
+    // Function to get an Allah feature by name
+    function getAllahFeatureByName(string memory featureName) public view returns (string memory) {
+        // Get the feature from the mapping
+        return allahFeatures[featureName];
+    }
+
+    // Function to get all Allah features
+    function getAllAllahFeatures() public view returns (string[] memory) {
+        // Get the features from the mapping
+        string[] memory features;
+
+        // Iterate over the mapping to get all features
+        for (string memory featureName in allahFeatures) {
+            features.push(featureName);
+        }
+
+        // Return the features
+        return features;
+    }
+
+    // Function to get all trade finance transactions for a buyer
+    function getTradeFinanceTransactionsByBuyer(address buyer) public view returns (TradeFinanceTransaction[] memory) {
+        // Get the transactions from the mapping
+        TradeFinanceTransaction[] memory transactions;
+
+        // Iterate over the mapping to get all transactions for the buyer
+        for (address seller in tradeFinanceTransactions[buyer]) {
+            transactions = abi.encodePacked(transactions, tradeFinanceTransactions[buyer][seller]);
+        }
+
+        // Return the transactions
+        return transactions;
+    }
+
+    // Function to get
