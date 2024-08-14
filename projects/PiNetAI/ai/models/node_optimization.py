@@ -95,3 +95,41 @@ class NodeOptimizer:
         print('Max Error:', max_error(y, y_pred))
         print('Mean Squared Log Error:', mean_squared_log_error(y, y_pred))
         print('Median Squared Log Error:', median_squared_log_error(y, y_pred)) 
+        print('Mean Absolute Percentage Error:', mean_absolute_percentage_error(y, y_pred))
+        print('Median Absolute Percentage Error:', median_absolute_percentage_error(y, y_pred))
+        print('R2 Score:', r2_score(y, y_pred))
+        print('Mean Poisson Deviance:', mean_poisson_deviance(y, y_pred))
+        print('Mean Gamma Deviance:', mean_gamma_deviance(y, y_pred))
+        print('Mean Tweedie Deviance:', mean_tweedie_deviance(y, y_pred))
+        print('Mean Pinball Loss:', mean_pinball_loss(y, y_pred))
+
+    def cluster_nodes(self):
+        self.kmeans.fit(self.node_data)
+        labels = self.kmeans.labels_
+        print('Silhouette Score:', silhouette_score(self.node_data, labels))
+
+    def visualize_nodes(self):
+        import matplotlib.pyplot as plt
+        from mpl_toolkits.mplot3d import Axes3D
+        fig = plt.figure()
+        ax = fig.add_subplot(111, projection='3d')
+        ax.scatter(self.node_data[:, 0], self.node_data[:, 1], self.node_data[:, 2], c=self.kmeans.labels_)
+        plt.show()
+
+    def optimize_node_config(self, node_config):
+        # Optimize node configuration using AI model
+        pass
+
+    def predict_latency(self, node_config):
+        # Predict latency based on node config
+        pass
+
+if __name__ == '__main__':
+    node_data = pd.read_csv('node_data.csv')
+    optimizer = NodeOptimizer(node_data)
+    optimizer.preprocess_data()
+    optimizer.train_model()
+    optimizer.tune_hyperparameters()
+    optimizer.evaluate_model()
+    optimizer.cluster_nodes()
+    optimizer.visualize_nodes()
