@@ -71,4 +71,29 @@ function App() {
         <input type="text" value={newTrade.product} onChange={(event) => setNewTrade({ ...newTrade, product: event.target.value })} />
         <br />
         <label>Quantity:</label>
-        <input type="text" value={newTrade
+        <input type="text" value={newTrade.quantity} onChange={(event) => setNewTrade({ ...newTrade, quantity: event.target.value })} />
+        <br />
+        <label>Price:</label>
+        <input type="text" value={newTrade.price} onChange={(event) => setNewTrade({ ...newTrade, price: event.target.value })} />
+        <br />
+        <button type="submit">Create Trade</button>
+      </form>
+      <h2>Trades</h2>
+      <ul>
+        {trades.map((trade) => (
+          <li key={trade.id}>
+            <span>Buyer: {trade.buyer}</span>
+            <span>Seller: {trade.seller}</span>
+            <span>Product: {trade.product}</span>
+            <span>Quantity: {trade.quantity}</span>
+            <span>Price: {trade.price}</span>
+            <span>Status: {trade.status}</span>
+            <button id={trade.id} value="pending" onClick={handleUpdateTrade}>Update Status</button>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+export default App;
