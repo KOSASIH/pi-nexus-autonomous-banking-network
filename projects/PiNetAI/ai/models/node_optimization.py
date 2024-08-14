@@ -86,4 +86,82 @@ class NodeOptimizer(BaseEstimator, RegressorMixin):
             self.model = AdaBoostRegressor(n_estimators=100, random_state=42)
         elif self.model_type == 'bagging':
             self.model = BaggingRegressor(n_estimators=100, random_state=42)
-        elif
+        elif self.model_type == 'mlp':
+            self.model = MLPRegressor(hidden_layer_sizes=(100, 50), max_iter=1000, random_state=42)
+        elif self.model_type == 'svr':
+            self.model = SVR(kernel='rbf', C=1, epsilon=0.1)
+        elif self.model_type == 'linear':
+            self.model = LinearRegression()
+        elif self.model_type == 'decision_tree':
+            self.model = DecisionTreeRegressor(random_state=42)
+        else:
+            raise ValueError("Invalid model type. Please choose from 'random_forest', 'gradient_boosting', 'ada_boost', 'bagging', 'mlp', 'svr', or 'linear'.")
+
+        if self.hyperparameter_tuning:
+            self.grid_search.fit(X_train, y_train)
+            self.model = self.grid_search.best_estimator_
+        else:
+            self.model.fit(X_train, y_train)
+
+    def tune_hyperparameters(self):
+        if self.hyperparameter_tuning:
+            param_grid = {
+                'n_estimators': [10, 50, 100, 200],
+                'max_depth': [None, 5, 10, 15],
+                'min_samples_split': [2, 5, 10],
+                'min_samples_leaf': [1, 5, 10]
+            }
+            self.grid_search = GridSearchCV(estimator=self.model, param_grid=param_grid, cv=5, scoring='neg_mean_squared_error')
+            self.grid_search.fit(self.node_data.drop([self.target_column], axis=1), self.node_data[self.target_column])
+            print("Best Parameters:", self.grid_search.best_params_)
+            print("Best Score:", self.grid_search.best_score_)
+
+    def evaluate_model(self):
+        y_pred = self.model.predict(self.node_data.drop([self.target_column], axis=1))
+        print("Mean Squared Error:", mean_squared_error(self.node_data[self.target_column], y_pred))
+        print("R2 Score:", r2_score(self.node_data[self.target_column], y_pred))
+        print("Mean Absolute Error:", mean_absolute_error(self.node_data[self.target_column], y_pred))
+        print("Median Absolute Error:", median_absolute_error(self.node_data[self.target_column], y_pred))
+        print("Explained Variance Score:", explained_variance_score(self.node_data[self.target_column], y_pred))
+        print("Max Error:", max_error(self.node_data[self.target_column], y_pred))
+        print("Mean Squared Log Error:", mean_squared_log_error(self.node_data[self.target_column], y_pred))
+        print("Median Squared Log Error:", median_squared_log_error(self.node_data[self.target_column], y_pred))
+        print("Mean Absolute Percentage Error:", mean_absolute_percentage_error(self.node_data[self.target_column], y_pred))
+        print("Median Absolute Percentage Error:", median_absolute_percentage_error(self.node_data[self.target_column], y_pred))
+        print("Mean Poisson Deviance:", mean_poisson_deviance(self.node_data[self.target_column], y_pred))
+        print("Mean Gamma Deviance:", mean_gamma_deviance(self.node_data[self.target_column], y_pred))
+        print("Mean Tweedie Deviance:", mean_tweedie_deviance(self.node_data[self.target_column], y_pred))
+        print("Mean Pinball Loss:", mean_pinball_loss(self.node_data[self.target_column], y_pred))
+
+    def cluster_nodes(self):
+        self.kmeans.fit(self.node_data.drop([self.target_column], axis=1))
+        labels = self.kmeans.labels_
+        print("Silhouette Score:", silhouette_score(self.node_data.drop([self.target_column], axis=1), labels))
+        print("Calinski-Harabasz Score:", calinski_harabasz_score(self.node_data.drop([self.target_column], axis=1), labels))
+        print("Davies-Bouldin Score:", davies_bouldin_score(self.node_data.drop([self.target_column], axis=1), labels))
+
+    def visualize_nodes(self):
+        fig = go.Figure(data=[go.Scatter3d(
+            x=self.node_data.drop([self.target_column], axis=1)[:, 0],
+            y=self.node_data.drop([self.target_column], axis=1)[:, 1],
+            z=self.node_data.drop([self.target_column], axis=1)[:, 2],
+            mode='markers',
+            marker=dict(
+                size=5,
+                color=self.kmeans.labels_,
+                colorscale='Viridis',
+                showscale=True
+            )
+        )])
+        fig.update_layout(title='Node Clusters', scene=dict(
+                    xaxis_title='Feature 1',
+                    yaxis_title='Feature 2',
+                    zaxis_title='Feature 3'))
+        iplot(fig)
+
+    def optimize_node_config(self, node_config):
+        # Optimize node configuration using AI model
+        pass
+
+    def predict_latency(self, node_config):
+        # Predict latency based on node config
