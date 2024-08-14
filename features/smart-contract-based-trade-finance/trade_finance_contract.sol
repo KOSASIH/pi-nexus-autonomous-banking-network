@@ -252,4 +252,36 @@ contract TradeFinanceContract is Ownable {
         return transactions;
     }
 
-    // Function to get
+    // Function to get all trade finance transactions for a seller
+    function getTradeFinanceTransactionsBySeller(address seller) public view returns (TradeFinanceTransaction[] memory) {
+        // Get the transactions from the mapping
+        TradeFinanceTransaction[] memory transactions;
+
+        // Iterate over the mapping to get all transactions for the seller
+        for (address buyer in tradeFinanceTransactions) {
+            for (TradeFinanceTransaction transaction in tradeFinanceTransactions[buyer][seller]) {
+                transactions.push(transaction);
+            }
+        }
+
+        // Return the transactions
+        return transactions;
+    }
+
+    // Function to get a trade finance transaction by ID
+    function getTradeFinanceTransactionById(uint256 transactionId) public view returns (TradeFinanceTransaction memory) {
+        // Get the transactions from the mapping
+        for (address buyer in tradeFinanceTransactions) {
+            for (address seller in tradeFinanceTransactions[buyer]) {
+                for (TradeFinanceTransaction transaction in tradeFinanceTransactions[buyer][seller]) {
+                    if (transaction.transactionId == transactionId) {
+                        return transaction;
+                    }
+                }
+            }
+        }
+
+        // If the transaction is not found, revert
+        revert("Transaction not found");
+    }
+}
