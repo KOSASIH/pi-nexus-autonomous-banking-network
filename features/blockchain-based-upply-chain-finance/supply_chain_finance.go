@@ -137,4 +137,138 @@ func (s *SupplyChainFinance) updateTrade(stub shim.ChaincodeStubInterface, args 
 func (s *SupplyChainFinance) getTrade(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
 	log.Println("Retrieving trade")
 	if len(args) != 1 {
-		return nil, fmt.Errorf("Invalid number of arguments. Expecting 1, got %d", len(args
+		return nil, fmt.Errorf("Invalid number of arguments. Expecting 1, got %d", len(args))
+	}
+
+	tradeID := args[0]
+
+	ledger, err := s.getLedger(stub)
+	if err != nil {
+		return nil, err
+	}
+
+	for _, trade := range ledger.Trades {
+		if trade.ID == tradeID {
+			return json.Marshal(trade)
+		}
+	}
+
+	return nil, fmt.Errorf("Trade not found: %s", tradeID)
+}
+
+// getAllTrades retrieves all trades from the supply chain
+func (s *SupplyChainFinance) getAllTrades(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
+	log.Println("Retrieving all trades")
+	ledger, err := s.getLedger(stub)
+	if err != nil {
+		return nil, err
+	}
+
+	return json.Marshal(ledger.Trades)
+}
+
+// getTradeHistory retrieves the history of a trade from the supply chain
+func (s *SupplyChainFinance) getTradeHistory(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
+	log.Println("Retrieving trade history")
+	if len(args) != 1 {
+		return nil, fmt.Errorf("Invalid number of arguments. Expecting 1, got %d", len(args))
+	}
+
+	tradeID := args[0]
+
+	ledger, err := s.getLedger(stub)
+	if err != nil {
+		return nil, err
+	}
+
+	var history []Trade
+	for _, trade := range ledger.Trades {
+		if trade.ID == tradeID {
+			history = append(history, trade)
+		}
+	}
+
+	return json.Marshal(history)
+}
+
+// verifyTrade verifies the integrity of a trade in the supply chain
+func (s *SupplyChainFinance) verifyTrade(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
+	log.Println("Verifying trade")
+	if len(args) != 1 {
+		return nil, fmt.Errorf("Invalid number of arguments. Expecting 1, got %d", len(args))
+	}
+
+	tradeID := args[0]
+
+	ledger, err := s.getLedger(stub)
+	if err != nil {
+		return nil, err
+	}
+
+	for _, trade := range ledger.Trades {
+		if trade.ID == tradeID {
+			if trade.Hash != calculateHash(trade) {
+				return nil, fmt.Errorf("Trade has been tampered with: %s", tradeID)
+			}
+			return []byte("Trade is valid")
+		}
+	}
+
+	return nil, fmt.Errorf("Trade not found: %s", tradeID)
+}
+
+// getLedger retrieves the ledger from the supply chain
+func (s *SupplyChainFinance) getLedger(stub shim.ChaincodeStubInterface) (*Ledger, error) {
+	log.Println("Retrieving ledger")
+	ledgerBytes, err := stub.GetState("ledger")
+	if err != nil {
+		return nil, err
+	}
+
+	var ledger Ledger
+	err = json.Unmarshal(ledgerBytes, &ledger)
+	if err != nil {
+		return nil, err
+	}
+
+	return &ledger, nil
+}
+
+// calculateHash calculates the hash of a trade
+func calculateHash(trade Trade) string {
+	log.Println("Calculating hash")
+	hash := sha256.New()
+	hash.Write([]byte(trade.ID))
+	hash.Write([]byte(trade.Buyer))
+	hash.Write([]byte(trade.Seller))
+	hash.Write([]byte(trade.Product))
+	hash.Write([]byte(strconv.Itoa(trade.Quantity)))
+	hash.Write([]byte(trade.Price.String()))
+	hash.Write([]byte(trade.Status))
+	hash.Write([]byte(strconv.FormatInt(trade.Timestamp, 10)))
+
+	return fmt.Sprintf("%x", hash.Sum(nil))
+}
+
+func main() {
+	log.Println("Starting supply chain finance smart contract")
+	contract := new(SupplyChainFinance)
+	contract.TransactionContextHandler = new(contractapi.TransactionContext)
+	contract.BeforeTransaction = func(ctx contractapi.TransactionContextInterface) error {
+		log.Println("Before transaction")
+		return nil
+	}
+	contract.AfterTransaction = func(ctx contractapi.TransactionContextInterface) error {
+		log.Println("After transaction")
+		return nil
+	}
+
+	cc, err := contractapi.NewChaincode(contract)
+	if err != nil {
+		log.Panicf("Error creating chaincode: %s", err)
+	}
+
+	if err := shim.Start(cc); err != nil {
+		log.Panicf("Error starting chaincode: %s", err)
+	}
+}
