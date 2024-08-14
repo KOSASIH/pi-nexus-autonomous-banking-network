@@ -165,3 +165,52 @@ class NodeOptimizer(BaseEstimator, RegressorMixin):
 
     def predict_latency(self, node_config):
         # Predict latency based on node config
+        pass
+
+    def save_model(self):
+        if self.save_model:
+            joblib.dump(self.model, 'node_optimizer_model.joblib')
+            print("Model saved to node_optimizer_model.joblib")
+
+    def load_model(self):
+        if self.load_model:
+            self.model = joblib.load('node_optimizer_model.joblib')
+            print("Model loaded from node_optimizer_model.joblib")
+
+    def fit(self, X, y):
+        self.preprocess_data()
+        self.train_model()
+        self.tune_hyperparameters()
+        self.evaluate_model()
+        self.cluster_nodes()
+        self.visualize_nodes()
+        self.save_model()
+        return self
+
+    def predict(self, X):
+        return self.model.predict(X)
+
+    def score(self, X, y):
+        return self.model.score(X, y)
+
+if __name__ == "__main__":
+    # Load node data
+    node_data = pd.read_csv('node_data.csv')
+
+    # Define categorical, numerical, and text columns
+    categorical_columns = ['column1', 'column2']
+    numerical_columns = ['column3', 'column4']
+    text_columns = ['column5']
+
+    # Initialize NodeOptimizer
+    node_optimizer = NodeOptimizer(node_data, 'target_column', categorical_columns, numerical_columns, text_columns, 
+                                   model_type='random_forest', hyperparameter_tuning=True, feature_selection=True, 
+                                   clustering=True, visualization=True, save_model=True, load_model=False)
+
+    # Fit NodeOptimizer
+    node_optimizer.fit(node_data.drop(['target_column'], axis=1), node_data['target_column'])
+
+    # Predict latency
+    node_config = pd.DataFrame({'column1': [1, 2, 3], 'column2': [4, 5, 6], 'column3': [7, 8, 9]})
+    predicted_latency = node_optimizer.predict(node_config)
+    print("Predicted Latency:", predicted_latency)
