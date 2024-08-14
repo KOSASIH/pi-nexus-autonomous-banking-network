@@ -198,4 +198,34 @@ if __name__ == '__main__':
     predictions = reputation_system.predict_reputation_scores(reputation_scores)
 
     # Evaluate models
-    metrics = reputation_system.evaluate
+    metrics = reputation_system.evaluate_models(predictions)
+
+    # Visualize results
+    reputation_system.visualize_results(metrics)
+
+    # Optimize hyperparameters
+    best_model = reputation_system.optimize_hyperparameters()
+
+    # Calculate text features
+    text_data = pd.read_csv('text_data.csv')
+    text_features = reputation_system.calculate_text_features(text_data)
+
+    # Calculate collaborative features
+    collaborative_features = reputation_system.calculate_collaborative_features(user_item_matrix)
+
+    # Combine features
+    combined_features = np.concatenate((reputation_scores, text_features, collaborative_features), axis=1)
+
+    # Train final model
+    final_model = reputation_system.models['Neural Network']
+    final_model.fit(combined_features, reputation_system.data['rating'])
+
+    # Evaluate final model
+    final_prediction = final_model.predict(combined_features)
+    final_metrics = reputation_system.evaluate_models({'Final Model': final_prediction})
+
+    # Visualize final results
+    reputation_system.visualize_results(final_metrics)
+
+    # Save final model
+    final_model.save('final_model.h5')
