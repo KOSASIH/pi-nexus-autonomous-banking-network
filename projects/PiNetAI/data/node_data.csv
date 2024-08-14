@@ -1,0 +1,7 @@
+node_id,name,category,location
+1,Node 1,A,New York
+2,Node 2,B,Los Angeles
+3,Node 3,A,Chicago
+4,Node 4,C,Houston
+5,Node 5,B,Seattle
+...
