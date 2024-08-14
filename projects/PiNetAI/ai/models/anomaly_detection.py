@@ -89,4 +89,81 @@ class AnomalyDetector:
         plt.show()
 
     def optimize_hyperparameters(self):
-        def objective(tr
+        def objective(trial):
+            params = {
+                'Isolation Forest': {
+                    'n_estimators': trial.suggest_int('n_estimators', 100, 1000),
+                    'max_samples': trial.suggest_int('max_samples', 100, 1000),
+                    'contamination': trial.suggest_uniform('contamination', 0.01, 0.5)
+                },
+                'One-Class SVM': {
+                    'kernel': trial.suggest_categorical('kernel', ['linear', 'poly', 'rbf', 'sigmoid']),
+                    'gamma': trial.suggest_loguniform('gamma', 1e-5, 1e5),
+                    'nu': trial.suggest_uniform('nu', 0.01, 0.5)
+                },
+                'Local Outlier Factor': {
+                    'n_neighbors': trial.suggest_int('n_neighbors', 10, 100),
+                    'contamination': trial.suggest_uniform('contamination', 0.01, 0.5)
+                },
+                'XGBoost': {
+                    'max_depth': trial.suggest_int('max_depth', 3, 10),
+                    'learning_rate': trial.suggest_loguniform('learning_rate', 1e-5, 1e2),
+                    'n_estimators': trial.suggest_int('n_estimators', 100, 1000)
+                },
+                'CatBoost': {
+                    'iterations': trial.suggest_int('iterations', 100, 1000),
+                    'learning_rate': trial.suggest_loguniform('learning_rate', 1e-5, 1e2),
+                    'depth': trial.suggest_int('depth', 3, 10)
+                },
+                'LightGBM': {
+                    'max_depth': trial.suggest_int('max_depth', 3, 10),
+                    'learning_rate': trial.suggest_loguniform('learning_rate', 1e-5, 1e2),
+                    'n_estimators': trial.suggest_int('n_estimators', 100, 1000)
+                },
+                'Neural Network': {
+                    'hidden_layers': trial.suggest_int('hidden_layers', 1, 5),
+                    'hidden_units': trial.suggest_int('hidden_units', 10, 100),
+                    'dropout_rate': trial.suggest_uniform('dropout_rate', 0.1, 0.5)
+                }
+            }
+            model_name = trial.suggest_categorical('model_name', list(self.models.keys()))
+            model = self.models[model_name]
+            model.set_params(**params[model_name])
+            model.fit(self.data)
+            prediction = model.predict(self.data)
+            accuracy = accuracy_score(self.data['label'], prediction)
+            return -accuracy
+
+        study = optuna.create_study(direction='maximize')
+        study.optimize(objective, n_trials=50)
+        best_trial = study.best_trial
+        best_model_name = best_trial.params['model_name']
+        best_model = self.models[best_model_name]
+        best_model.set_params(**best_trial.params)
+        return best_model
+
+if __name__ == '__main__':
+    # Load data
+    data = pd.read_csv('data.csv')
+
+    # Create AnomalyDetector object
+    detector = AnomalyDetector(data)
+
+    # Preprocess data
+    detector.preprocess_data()
+
+    # Train models
+    detector.train_models()
+
+    # Predict anomalies
+    predictions = detector.predict_anomalies()
+
+    # Evaluate models
+    metrics = detector.evaluate_models(predictions)
+
+    # Visualize results
+    detector.visualize_results(predictions)
+
+    # Optimize hyperparameters
+    best_model = detector.optimize_hyperparameters()
+    print('Best model:', best_model)
