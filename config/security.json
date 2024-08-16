@@ -1,0 +1,22 @@
+{
+  "encryption": {
+    "algorithm": "AES-256",
+    "key": "secret_key_here"
+  },
+  "access_control": {
+    "roles": [
+      "admin",
+      "user",
+      "guest"
+    ],
+    "permissions": {
+      "admin": ["read", "write", "execute"],
+      "user": ["read", "write"],
+      "guest": ["read"]
+    }
+  },
+  "intrusion_detection": {
+    "threshold": 5,
+    "response": "alert_admin"
+  }
+}
