@@ -111,4 +111,31 @@ class StabilizationModel:
 
         return results
 
-    def make_predictions(self, input
+    def make_predictions(self, input_data):
+        # Make predictions using the best model
+        best_model = max(self.models, key=lambda x: x.score(self.X_test, self.y_test))
+        predictions = best_model.predict(input_data)
+        return predictions
+
+    def plot_results(self):
+        # Plot the results of each model
+        import matplotlib.pyplot as plt
+
+        plt.figure(figsize=(10, 6))
+        for i, model in enumerate(self.models):
+            y_pred = model.predict(self.X_test)
+            plt.plot(y_pred, label=model.__class__.__name__)
+
+        plt.plot(self.y_test, label='Actual')
+        plt.legend()
+        plt.show()
+
+    def save_model(self, model, filename):
+        # Save a model to a file
+        import joblib
+        joblib.dump(model, filename)
+
+    def load_model(self, filename):
+        # Load a model from a file
+        import joblib
+        return joblib.load(filename)
