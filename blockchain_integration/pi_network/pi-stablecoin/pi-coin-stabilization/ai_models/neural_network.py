@@ -55,4 +55,13 @@ class NeuralNetworkModel:
         # Calculate mean squared error
         mse = mean_squared_error(self.y_test, y_pred)
 
-        # Calculate R-squared
+        # Calculate R-squared score
+        r2 = r2_score(self.y_test, y_pred)
+
+        return mse, r2
+
+    def make_predictions(self, input_features):
+        # Make predictions using trained model
+        predictions = self.model.predict(input_features)
+
+        return predictions
