@@ -32,6 +32,9 @@ class Wearable:
             data = 'Heart rate: 100 bpm'
             self.send_data(data)
             time.sleep(1)
+            self.send_data('TRANSFER:50.0')  # Transfer $50.0 to bank account
+            time.sleep(1)
+            self.send_data('BALANCE')  # Request current balance
 
 if __name__ == '__main__':
     wearable_id = 'wearable123'
