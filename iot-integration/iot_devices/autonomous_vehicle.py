@@ -1,16 +1,50 @@
-import requests
+import os
+import json
+import socket
+import time
+from cryptography.fernet import Fernet
 
-class AutonomousVehicleDevice:
-    def __init__(self, device_id, device_token):
-        self.device_id = device_id
-        self.device_token = device_token
+class AutonomousVehicle:
+    def __init__(self, vehicle_id, vehicle_secret, home_id, home_secret):
+        self.vehicle_id = vehicle_id
+        self.vehicle_secret = vehicle_secret
+        self.home_id = home_id
+        self.home_secret = home_secret
+        self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        self.socket.connect(('localhost', 8080))
+        self.gps_data = {'latitude': 37.7749, 'longitude': -122.4194}
+        self.speed_data = {'speed': 60}
 
-    def make_payment(self, amount):
-        # Make a request to the autonomous vehicle API to make a payment
-        response = requests.post(f'https://autonomous-vehicle-api.com/payments/{self.device_id}', json={'amount': amount}, headers={'Authorization': f'Bearer {self.device_token}'})
-        return response.json()
+    def send_gps_data(self):
+        self.socket.send(json.dumps(self.gps_data).encode())
 
-    def get_vehicle_data(self):
-        # Make a request to the autonomous vehicle API to retrieve vehicle data
-        response = requests.get(f'https://autonomous-vehicle-api.com/vehicles/{self.device_id}', headers={'Authorization': f'Bearer {self.device_token}'})
-        return response.json()
+    def send_speed_data(self):
+        self.socket.send(json.dumps(self.speed_data).encode())
+
+    def receive_command(self):
+        command = self.socket.recv(1024)
+        return command.decode()
+
+    def authenticate(self):
+        cipher_suite = Fernet(self.vehicle_secret)
+        encrypted_home_secret = cipher_suite.encrypt(self.home_secret.encode())
+        self.socket.send(self.vehicle_id.encode())
+        self.socket.send(encrypted_home_secret)
+
+    def start(self):
+        self.authenticate()
+        while True:
+            self.send_gps_data()
+            self.send_speed_data()
+            time.sleep(1)
+            self.socket.send('TRANSFER:20.0'.encode())  # Transfer $20.0 to bank account
+            time.sleep(1)
+            self.socket.send('BALANCE'.encode())  # Request current balance
+
+if __name__ == '__main__':
+    vehicle_id = 'vehicle123'
+    vehicle_secret = 'secret123'
+    home_id = 'home123'
+    home_secret = 'secret123'
+    autonomous_vehicle = AutonomousVehicle(vehicle_id, vehicle_secret, home_id, home_secret)
+    autonomous_vehicle.start()
