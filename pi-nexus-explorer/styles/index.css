@@ -1,0 +1,17 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #00698f;
+}
+
+a:hover {
+  color: #0099cc;
+}
