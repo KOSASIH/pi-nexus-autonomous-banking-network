@@ -1,0 +1,28 @@
+{
+  "name": "pi-nexus-explorer",
+  "version": "1.0.0",
+  "description": "Pi Nexus Explorer",
+  "main": "app.js",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test"
+  },
+  "keywords": [],
+  "author": "KOSASIH",
+  "license": "Apache 2.0",
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-router-dom": "^5.2.0",
+    "react-redux": "^7.2.3",
+    "redux": "^4.1.0",
+    "axios": "^0.21.1"
+  },
+  "devDependencies": {
+    "react-scripts": "^4.0.3",
+    "typescript": "^4.1.3",
+    "jest": "^27.0.6",
+    "ts-jest": "^27.0.3"
+  }
+}
