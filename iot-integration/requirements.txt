@@ -1,0 +1,5 @@
+Flask==2.0.1
+requests==2.25.1
+sqlite3==2.6.0
+hashlib==2021.3.24
+base64==1.0.4
