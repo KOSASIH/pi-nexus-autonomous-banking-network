@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pi Coin Real-Time Data Analytics</title>
+  <link rel="stylesheet" href="https://unpkg.com/recharts@2.0.0-beta.1/dist/recharts.css">
+</head>
+<body>
+  <div id="root">
+    <h1>Pi Coin Real-Time Data Analytics</h1>
+    <div id="chart-container">
+      <LineChart width={800} height={400} data={data}>
+        <Line type="monotone" dataKey="price" stroke="#8884d8" />
+        <XAxis dataKey="date" />
+        <YAxis />
+        <CartesianGrid stroke="#ccc" />
+        <Tooltip />
+      </LineChart>
+    </div>
+    <div id="aggregated-data-container">
+      <h2>Aggregated Data</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Mean Price</th>
+            <th>Sum Volume</th>
+          </tr>
+        </thead>
+        <tbody>
+          {aggregatedData.map((row, index) => (
+            <tr key={index}>
+              <td>{row.date}</td>
+              <td>{row.mean_price}</td>
+              <td>{row.sum_volume}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <div id="listing-progress-container">
+      <h2>Listing Progress</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Listing Status</th>
+            <th>Count</th>
+          </tr>
+        </thead>
+        <tbody>
+          {listingProgress.map((row, index) => (
+            <tr key={index}>
+              <td>{row.listing_status}</td>
+              <td>{row.count}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <script src="frontend.js"></script>
+</body>
+</html>
