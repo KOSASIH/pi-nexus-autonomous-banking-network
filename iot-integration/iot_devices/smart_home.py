@@ -13,6 +13,7 @@ class SmartHome:
         self.socket.bind(('localhost', 8080))
         self.socket.listen(5)
         self.threads = []
+        self.bank_account = {'balance': 1000.0}
 
     def add_device(self, device):
         self.devices.append(device)
@@ -48,6 +49,11 @@ class SmartHome:
             data = client_socket.recv(1024)
             if data:
                 print(f'Received data from device {client_socket.getpeername()}: {data.decode()}')
+                if data.decode().startswith('TRANSFER'):
+                    amount = float(data.decode().split(':')[1])
+                    self.transfer_funds(amount)
+                elif data.decode().startswith('BALANCE'):
+                    self.send_balance(client_socket)
             else:
                 break
 
@@ -55,6 +61,16 @@ class SmartHome:
         cipher_suite = Fernet(self.home_secret)
         encrypted_device_secret = cipher_suite.encrypt(device_secret.encode())
         return encrypted_device_secret == device_secret.encode()
+
+    def transfer_funds(self, amount):
+        if amount <= self.bank_account['balance']:
+            self.bank_account['balance'] -= amount
+            print(f'Transfer successful. New balance: {self.bank_account["balance"]}')
+        else:
+            print('Insufficient funds')
+
+    def send_balance(self, client_socket):
+        client_socket.send(str(self.bank_account['balance']).encode())
 
     def start(self):
         thread = threading.Thread(target=self.start_listening)
