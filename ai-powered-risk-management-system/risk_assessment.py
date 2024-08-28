@@ -1,69 +1,39 @@
 import pandas as pd
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
+from data_processing import load_transaction_data, load_market_data, load_network_data
+from risk_assessment import calculate_fraud_score, calculate_liquidity_score, calculate_stability_score
 
-def calculate_fraud_score(transaction_data):
+def assess_risk(transaction_file, market_file, network_file):
     """
-    Calculate fraud detection score using a machine learning model.
+    Assess risk by calculating fraud detection score, liquidity risk assessment score, and network stability evaluation score.
 
     Args:
-        transaction_data (pd.DataFrame): Transaction data
+        transaction_file (str): Path to transaction data CSV file
+        market_file (str): Path to market data CSV file
+        network_file (str): Path to network data CSV file
 
     Returns:
-        float: Fraud detection score
+        dict: Risk assessment scores
     """
-    # Split data into features and target
-    X = transaction_data.drop(['is_fraud'], axis=1)
-    y = transaction_data['is_fraud']
+    # Load data
+    transaction_data = load_transaction_data(transaction_file)
+    market_data = load_market_data(market_file)
+    network_data = load_network_data(network_file)
 
-    # Split data into training and testing sets
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+    # Preprocess data
+    transaction_data = preprocess_data(transaction_data)
+    market_data = preprocess_data(market_data)
+    network_data = preprocess_data(network_data)
 
-    # Train a random forest classifier
-    clf = RandomForestClassifier(n_estimators=100, random_state=42)
-    clf.fit(X_train, y_train)
+    # Calculate risk scores
+    fraud_score = calculate_fraud_score(transaction_data)
+    liquidity_score = calculate_liquidity_score(market_data)
+    stability_score = calculate_stability_score(network_data)
 
-    # Predict probabilities
-    y_pred_proba = clf.predict_proba(X_test)[:, 1]
+    # Return risk assessment scores
+    risk_scores = {
+        'fraud_score': fraud_score,
+        'liquidity_score': liquidity_score,
+        'stability_score': stability_score
+    }
 
-    # Calculate fraud detection score
-    fraud_score = y_pred_proba.mean()
-
-    return fraud_score
-
-def calculate_liquidity_score(market_data):
-    """
-    Calculate liquidity risk assessment score.
-
-    Args:
-        market_data (pd.DataFrame): Market data
-
-    Returns:
-        float: Liquidity risk assessment score
-    """
-    # Calculate liquidity metrics (e.g., bid-ask spread, order book depth)
-    liquidity_metrics = market_data[['bid_ask_spread', 'order_book_depth']].mean()
-
-    # Calculate liquidity score
-    liquidity_score = liquidity_metrics.sum() / len(liquidity_metrics)
-
-    return liquidity_score
-
-def calculate_stability_score(network_data):
-    """
-    Calculate network stability evaluation score.
-
-    Args:
-        network_data (pd.DataFrame): Network data
-
-    Returns:
-        float: Network stability evaluation score
-    """
-    # Calculate network stability metrics (e.g., node connectivity, latency)
-    stability_metrics = network_data[['node_connectivity', 'latency']].mean()
-
-    # Calculate stability score
-    stability_score = stability_metrics.sum() / len(stability_metrics)
-
-    return stability_score
+    return risk_scores
