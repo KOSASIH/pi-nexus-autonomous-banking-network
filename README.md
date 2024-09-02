@@ -17,6 +17,10 @@ A decentralized, AI-driven system accelerating the Open Mainet Pi Network, conne
 
 This repository contains the code and resources for a Pi-Nexus Autonomous Banking Network. The network is built using Raspberry Pi devices and allows for the creation of a decentralized, autonomous banking system.
 
+# Video 
+
+Check our [video here](https://youtu.be/QfyMYi-k-8M?si=FT6uT8TABafuUyCq) 
+
 # Getting Started
 
 To get started with the Pi-Nexus Autonomous Banking Network, follow these steps:
