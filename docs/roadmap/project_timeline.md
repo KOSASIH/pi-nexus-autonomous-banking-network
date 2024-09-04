@@ -25,3 +25,35 @@ The Pi Nexus Autonomous Banking Network project timeline outlines the key milest
 - Month 19-20: Continue to refine and improve the network
 - Month 21-22: Expand the network to new markets and regions
 - Month 23-24: Evaluate and plan for future development and growth
+
+# Project Phase
+
+The Pi Nexus Autonomous Banking Network project timeline outlines the key dates and deadlines for each phase of the project.
+
+## Phase 1: Research and Development (Weeks 1-4)
+
+- Week 1: Project Kickoff
+- Week 2: Decentralized Node Network Design
+- Week 3: Smart Contract Framework Development
+- Week 4: User Interface Design
+
+## Phase 2: Development (Weeks 5-16)
+
+- Week 5: Decentralized Node Network Development
+- Week 8: Decentralized Node Network Development
+- Week 9: Smart Contract Framework Integration
+- Week 12: Smart Contract Framework Integration
+- Week 13: User Interface Development
+- Week 16: User Interface Development
+
+## Phase 3: Testing and Quality Assurance
+
+- Week 17: Internal Testing
+- Week 18: Internal Testing
+- Week 19: Quality Assurance
+- Week 20: Quality Assurance
+
+## Phase 4: Deployment and Launch (Weeks 21-24) 
+
+- Week 21: Deployment
+- Week 24: Launch
