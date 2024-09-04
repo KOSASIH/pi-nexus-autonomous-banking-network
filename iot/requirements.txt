@@ -1,0 +1,4 @@
+# iot/requirements.txt
+pyserial==3.5
+paho-mqtt==1.5.1
+aws-iot-device-sdk==1.4.1
