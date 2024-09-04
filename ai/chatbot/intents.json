@@ -1,0 +1,42 @@
+[
+    {
+        "text": "Hello",
+        "intent": 0,
+        "response": "Hi! How can I assist you today?"
+    },
+    {
+        "text": "What is your name?",
+        "intent": 1,
+        "response": "I'm an AI-powered chatbot, and I don't have a personal name. I'm here to help answer your questions and provide information!"
+    },
+    {
+        "text": "What can you do?",
+        "intent": 2,
+        "response": "I can assist with a wide range of tasks, from answering questions to providing information on various topics. I can also help with language translation, calculations, and more!"
+    },
+    {
+        "text": "Can you tell me a joke?",
+        "intent": 3,
+        "response": "Why did the computer go to the doctor? It had a virus! Hope that made you smile!"
+    },
+    {
+        "text": "I'm feeling sad",
+        "intent": 4,
+        "response": "Sorry to hear that you're feeling down. Would you like to talk about what's on your mind? Sometimes sharing your feelings can help you feel better."
+    },
+    {
+        "text": "I need help with a math problem",
+        "intent": 5,
+        "response": "I'd be happy to help you with that! What's the problem you're working on?"
+    },
+    {
+        "text": "Can you translate something for me?",
+        "intent": 6,
+        "response": "What language would you like me to translate from and to?"
+    },
+    {
+        "text": "Goodbye",
+        "intent": 7,
+        "response": "It was nice chatting with you! Have a great day and feel free to come back if you need anything else."
+    }
+]
