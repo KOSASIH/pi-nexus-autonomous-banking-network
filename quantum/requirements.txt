@@ -1,0 +1,4 @@
+# quantum/requirements.txt
+qiskit==0.23.0
+qiskit-terra==0.17.0
+qiskit-aer==0.8.0
