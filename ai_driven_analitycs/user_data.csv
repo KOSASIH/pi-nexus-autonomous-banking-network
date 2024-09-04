@@ -1,0 +1,6 @@
+"User ID","Username","Email","Password Hash","Account Type","Balance","Currency"
+"USR001","john_doe","john.doe@example.com","$2b$12$abcdefg1234567890","PREMIUM","1000.00","USD"
+"USR002","jane_doe","jane.doe@example.com","$2b$12$fedcba0987654321","BASIC","500.00","EUR"
+"USR003","bob_smith","bob.smith@example.com","$2b$12$1234567890abcdef","PREMIUM","2000.00","GBP"
+"USR004","alice_wong","alice.wong@example.com","$2b$12$0987654321fedcba","BASIC","1500.00","JPY"
+"USR005","charlie_brown","charlie.brown@example.com","$2b$12$abcdefg1234567890","PREMIUM","2500.00","CNY"
