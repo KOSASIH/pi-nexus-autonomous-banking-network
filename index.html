@@ -2,89 +2,180 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pi Nexus: Decentralized AI-Driven System</title>
+    <title>Pi Nexus</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
         body {
+            background-color: #0d0d0d;
             font-family: 'Roboto', sans-serif;
+        }
+        .neon-text {
+            color: #ff6600;
+            text-shadow: 0 0 5px #ff6600, 0 0 10px #ff6600, 0 0 20px #ff6600, 0 0 40px #ff6600;
+        }
+        .neon-border {
+            border: 2px solid #ff6600;
+            box-shadow: 0 0 5px #ff6600, 0 0 10px #ff6600, 0 0 20px #ff6600, 0 0 40px #ff6600;
         }
     </style>
 </head>
-<body class="bg-gray-900 text-white">
-    <!-- Navbar -->
-    <nav class="bg-gray-800 p-4 flex justify-between items-center">
-        <div class="text-2xl font-bold">Pi Nexus</div>
-        <div>
-            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                Connect Wallet
-            </button>
+<body class="text-white">
+    <!-- Navigation Bar -->
+    <nav class="bg-black bg-opacity-75 p-4 fixed w-full z-10 top-0">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold neon-text">Pi Nexus</a>
+            <div class="space-x-4">
+                <a href="#features" class="hover:text-gray-400">Features</a>
+                <a href="#services" class="hover:text-gray-400">Services</a>
+                <a href="#contact" class="hover:text-gray-400">Contact</a>
+            </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="bg-gray-900 text-center py-20">
-        <h1 class="text-5xl font-bold mb-6">Welcome to Pi Nexus</h1>
-        <p class="text-xl mb-6">A decentralized, revolutionary high-tech AI-driven autonomous banking network</p>
-        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded">
-            Get Started
-        </button>
+    <section class="relative flex items-center justify-center min-h-screen bg-cover bg-center" style="background-image: url('https://placehold.co/1920x1080');">
+        <div class="absolute inset-0 bg-black opacity-50"></div>
+        <div class="relative z-10 text-center">
+            <h1 class="text-4xl md:text-6xl neon-text">Pi Nexus</h1>
+            <p class="mt-4 text-lg md:text-2xl">A decentralized, revolutionary high-tech AI-driven autonomous banking network.</p>
+            <button class="mt-8 px-6 py-3 text-lg font-semibold neon-border">Get Started</button>
+        </div>
     </section>
 
     <!-- Features Section -->
-    <section class="py-20">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold mb-12 text-center">Features</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-                <div class="bg-gray-800 p-6 rounded-lg shadow-lg text-center">
-                    <i class="fas fa-network-wired text-4xl mb-4"></i>
-                    <h3 class="text-xl font-bold mb-2">Decentralized Network</h3>
-                    <p>Secure and efficient transactions through a decentralized network.</p>
+    <section id="features" class="py-16 bg-gray-900">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-bold neon-text">Features</h2>
+            <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="p-6 bg-gray-800 rounded-lg neon-border">
+                    <i class="fas fa-lock text-4xl neon-text"></i>
+                    <h3 class="mt-4 text-xl font-semibold">Secure Transactions</h3>
+                    <p class="mt-2">Experience unparalleled security with our advanced encryption and blockchain technology.</p>
                 </div>
-                <div class="bg-gray-800 p-6 rounded-lg shadow-lg text-center">
-                    <i class="fas fa-robot text-4xl mb-4"></i>
-                    <h3 class="text-xl font-bold mb-2">AI-Driven System</h3>
-                    <p>Autonomous transactions powered by advanced AI algorithms.</p>
+                <div class="p-6 bg-gray-800 rounded-lg neon-border">
+                    <i class="fas fa-robot text-4xl neon-text"></i>
+                    <h3 class="mt-4 text-xl font-semibold">AI-Driven</h3>
+                    <p class="mt-2">Leverage the power of AI to optimize and automate your transactions.</p>
                 </div>
-                <div class="bg-gray-800 p-6 rounded-lg shadow-lg text-center">
-                    <i class="fas fa-university text-4xl mb-4"></i>
-                    <h3 class="text-xl font-bold mb-2">Global Bank Integration</h3>
-                    <p>Seamless integration with global banks for secure transactions.</p>
+                <div class="p-6 bg-gray-800 rounded-lg neon-border">
+                    <i class="fas fa-globe text-4xl neon-text"></i>
+                    <h3 class="mt-4 text-xl font-semibold">Global Connectivity</h3>
+                    <p class="mt-2">Connect with global banks for efficient and autonomous transactions.</p>
+                </div>
+                <div class="p-6 bg-gray-800 rounded-lg neon-border">
+                    <i class="fas fa-cloud text-4xl neon-text"></i>
+                    <h3 class="mt-4 text-xl font-semibold">Cloud Integration</h3>
+                    <p class="mt-2">Seamlessly integrate with cloud services for enhanced scalability and performance.</p>
+                </div>
+                <div class="p-6 bg-gray-800 rounded-lg neon-border">
+                    <i class="fas fa-fingerprint text-4xl neon-text"></i>
+                    <h3 class="mt-4 text-xl font-semibold">Biometric Authentication</h3>
+                    <p class="mt-2">Utilize biometric authentication for an extra layer of security.</p>
+                </div>
+                <div class="p-6 bg-gray-800 rounded-lg neon-border">
+                    <i class="fas fa-network-wired text-4xl neon-text"></i>
+                    <h3 class="mt-4 text-xl font-semibold">Decentralized Network</h3>
+                    <p class="mt-2">Benefit from a decentralized network ensuring no single point of failure.</p>
+                </div>
+                <div class="p-6 bg-gray-800 rounded-lg neon-border">
+                    <i class="fas fa-chart-pie text-4xl neon-text"></i>
+                    <h3 class="mt-4 text-xl font-semibold">Advanced Analytics</h3>
+                    <p class="mt-2">Gain deep insights with our advanced analytics and reporting tools.</p>
+                </div>
+                <div class="p-6 bg-gray-800 rounded-lg neon-border">
+                    <i class="fas fa-wallet text-4xl neon-text"></i>
+                    <h3 class="mt-4 text-xl font-semibold">Digital Wallet</h3>
+                    <p class="mt-2">Manage your digital assets securely with our integrated digital wallet.</p>
+                </div>
+                <div class="p-6 bg-gray-800 rounded-lg neon-border">
+                    <i class="fas fa-exchange-alt text-4xl neon-text"></i>
+                    <h3 class="mt-4 text-xl font-semibold">Instant Transfers</h3>
+                    <p class="mt-2">Enjoy instant transfers with our high-speed transaction processing.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section class="py-20 bg-gray-900">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold mb-12 text-center">Services</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-                <div class="bg-gray-800 p-6 rounded-lg shadow-lg text-center">
-                    <i class="fas fa-wallet text-4xl mb-4"></i>
-                    <h3 class="text-xl font-bold mb-2">Wallet Management</h3>
-                    <p>Manage your Pi Network wallet with ease and security.</p>
+    <section id="services" class="py-16 bg-gray-800">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-bold neon-text">Services</h2>
+            <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="p-6 bg-gray-700 rounded-lg neon-border">
+                    <i class="fas fa-chart-line text-4xl neon-text"></i>
+                    <h3 class="mt-4 text-xl font-semibold">Real-Time Analytics</h3>
+                    <p class="mt-2">Get real-time insights and analytics to make informed decisions.</p>
                 </div>
-                <div class="bg-gray-800 p-6 rounded-lg shadow-lg text-center">
-                    <i class="fas fa-exchange-alt text-4xl mb-4"></i>
-                    <h3 class="text-xl font-bold mb-2">Transaction Processing</h3>
-                    <p>Fast and secure transaction processing across the network.</p>
+                <div class="p-6 bg-gray-700 rounded-lg neon-border">
+                    <i class="fas fa-shield-alt text-4xl neon-text"></i>
+                    <h3 class="mt-4 text-xl font-semibold">Enhanced Security</h3>
+                    <p class="mt-2">Our system ensures your data and transactions are always secure.</p>
                 </div>
-                <div class="bg-gray-800 p-6 rounded-lg shadow-lg text-center">
-                    <i class="fas fa-shield-alt text-4xl mb-4"></i>
-                    <h3 class="text-xl font-bold mb-2">Security Services</h3>
-                    <p>Advanced security measures to protect your assets and data.</p>
+                <div class="p-6 bg-gray-700 rounded-lg neon-border">
+                    <i class="fas fa-sync-alt text-4xl neon-text"></i>
+                    <h3 class="mt-4 text-xl font-semibold">Seamless Integration</h3>
+                    <p class="mt-2">Easily integrate with existing systems and platforms.</p>
+                </div>
+                <div class="p-6 bg-gray-700 rounded-lg neon-border">
+                    <i class="fas fa-cogs text-4xl neon-text"></i>
+                    <h3 class="mt-4 text-xl font-semibold">Automated Processes</h3>
+                    <p class="mt-2">Automate routine processes to increase efficiency and reduce errors.</p>
+                </div>
+                <div class="p-6 bg-gray-700 rounded-lg neon-border">
+                    <i class="fas fa-user-shield text-4xl neon-text"></i>
+                    <h3 class="mt-4 text-xl font-semibold">User Privacy</h3>
+                    <p class="mt-2">We prioritize user privacy with strict data protection policies.</p>
+                </div>
+                <div class="p-6 bg-gray-700 rounded-lg neon-border">
+                    <i class="fas fa-headset text-4xl neon-text"></i>
+                    <h3 class="mt-4 text-xl font-semibold">24/7 Support</h3>
+                    <p class="mt-2">Our support team is available 24/7 to assist you with any issues.</p>
+                </div>
+                <div class="p-6 bg-gray-700 rounded-lg neon-border">
+                    <i class="fas fa-university text-4xl neon-text"></i>
+                    <h3 class="mt-4 text-xl font-semibold">Global Bank Integrations</h3>
+                    <p class="mt-2">Seamlessly integrate with global banks for efficient transactions.</p>
+                </div>
+                <div class="p-6 bg-gray-700 rounded-lg neon-border">
+                    <i class="fas fa-money-check-alt text-4xl neon-text"></i>
+                    <h3 class="mt-4 text-xl font-semibold">Multi-Currency Support</h3>
+                    <p class="mt-2">Handle transactions in multiple currencies with ease.</p>
+                </div>
+                <div class="p-6 bg-gray-700 rounded-lg neon-border">
+                    <i class="fas fa-analytics text-4xl neon-text"></i>
+                    <h3 class="mt-4 text-xl font-semibold">Predictive Analytics</h3>
+                    <p class="mt-2">Utilize AI-driven predictive analytics for better decision-making.</p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-gray-900">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-bold neon-text">Contact Us</h2>
+            <p class="mt-4">Have questions? Get in touch with us!</p>
+            <form class="mt-8 max-w-lg mx-auto">
+                <div class="mb-4">
+                    <input type="text" placeholder="Your Name" class="w-full p-3 bg-gray-800 rounded-lg neon-border">
+                </div>
+                <div class="mb-4">
+                    <input type="email" placeholder="Your Email" class="w-full p-3 bg-gray-800 rounded-lg neon-border">
+                </div>
+                <div class="mb-4">
+                    <textarea placeholder="Your Message" class="w-full p-3 bg-gray-800 rounded-lg neon-border" rows="4"></textarea>
+                </div>
+                <button type="submit" class="px-6 py-3 text-lg font-semibold neon-border">Send Message</button>
+            </form>
+        </div>
+    </section>
+
     <!-- Footer -->
-    <footer class="bg-gray-800 py-6">
-        <div class="container mx-auto px-6 text-center">
+    <footer class="py-8 bg-black bg-opacity-75">
+        <div class="container mx-auto text-center">
             <p>&copy; 2024 Pi Nexus. All rights reserved.</p>
         </div>
     </footer>
 </body>
-</html>
+                    </html>
