@@ -2,7 +2,7 @@
 
 ## Architecture Diagram
 
-```mermaid
+```
 1. graph LR
 2.  A[User] -->|requests|> B[API Gateway]
 3.  B -->|authenticates|> C[Authentication Service]
