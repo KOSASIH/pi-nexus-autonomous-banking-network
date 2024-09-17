@@ -7,6 +7,12 @@
 [![StackHawk](https://github.com/KOSASIH/pi-nexus-autonomous-banking-network/actions/workflows/stackhawk.yml/badge.svg)](https://github.com/KOSASIH/pi-nexus-autonomous-banking-network/actions/workflows/stackhawk.yml)
 [![CodeFactor](https://www.codefactor.io/repository/github/kosasih/pi-nexus-autonomous-banking-network/badge/main)](https://www.codefactor.io/repository/github/kosasih/pi-nexus-autonomous-banking-network/overview/main)
 
+[![World Bank](https://img.shields.io/badge/World%20Bank-Partner-34C759.svg)](https://www.worldbank.org/)
+[![IFC](https://img.shields.io/badge/IFC-Partner-6495ed.svg)](https://www.ifc.org/)
+[![MIGA](https://img.shields.io/badge/MIGA-Partner-228B22.svg)](https://www.miga.org/)
+[![ICSID](https://img.shields.io/badge/ICSID-Partner-00698f.svg)](https://icsid.worldbank.org/)
+[![WBI](https://img.shields.io/badge/WBI-Partner-FFC107.svg)](https://www.worldbank.org/en/about/partnerships/world-bank-institute)
+
 [![AWS](https://img.shields.io/badge/AWS-Partner-FF9900.svg)](https://aws.amazon.com/)
 [![Azure](https://img.shields.io/badge/Azure-Partner-007bff.svg)](https://azure.microsoft.com/)
 [![Google Cloud](https://img.shields.io/badge/Google%20Cloud-Partner-4285F4.svg)](https://cloud.google.com/)
