@@ -36,6 +36,19 @@
 [![BRI](https://img.shields.io/badge/BRI-Partner-ff9900.svg)](https://www.blockchainresearchinstitute.org/)
 [![IBA](https://img.shields.io/badge/IBA-Partner-008000.svg)](https://www.internationalblockchainassociation.com/)
 
+[![ASEAN](https://img.shields.io/badge/ASEAN-Member-00698f.svg)](https://asean.org/)
+[![EU](https://img.shields.io/badge/EU-Member-6495ed.svg)](https://europa.eu/)
+[![NAFTA](https://img.shields.io/badge/NAFTA-Member-FFC107.svg)](https://www.nafta-sec-alena.org/)
+[![MERCOSUR](https://img.shields.io/badge/MERCOSUR-Member-228B22.svg)](https://www.mercosur.int/)
+[![WTO](https://img.shields.io/badge/WTO-Member-008000.svg)](https://www.wto.org/)
+[![OECD](https://img.shields.io/badge/OECD-Member-6495ed.svg)](https://www.oecd.org/)
+[![UNCTAD](https://img.shields.io/badge/UNCTAD-Partner-34C759.svg)](https://unctad.org/)
+[![ITC](https://img.shields.io/badge/ITC-Partner-228B22.svg)](https://www.intracen.org/)
+[![USMCA](https://img.shields.io/badge/USMCA-Member-FFC107.svg)](https://www.usmca.com/)
+[![CPTPP](https://img.shields.io/badge/CPTPP-Member-6495ed.svg)](https://www.cptpp.org/)
+[![RCEP](https://img.shields.io/badge/RCEP-Member-228B22.svg)](https://www.recep.org/)
+[![EFTA](https://img.shields.io/badge/EFTA-Member-00698f.svg)](https://www.efta.int/)
+
 <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://github.com/KOSASIH/pi-nexus-autonomous-banking-network">pi-nexus-autonomous-banking-network</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://www.linkedin.com/in/kosasih-81b46b5a">KOSASIH</a> is licensed under <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">Creative Commons Attribution 4.0 International<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""></a></p>
 
 # pi-nexus-autonomous-banking-network
