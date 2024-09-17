@@ -7,6 +7,13 @@
 [![StackHawk](https://github.com/KOSASIH/pi-nexus-autonomous-banking-network/actions/workflows/stackhawk.yml/badge.svg)](https://github.com/KOSASIH/pi-nexus-autonomous-banking-network/actions/workflows/stackhawk.yml)
 [![CodeFactor](https://www.codefactor.io/repository/github/kosasih/pi-nexus-autonomous-banking-network/badge/main)](https://www.codefactor.io/repository/github/kosasih/pi-nexus-autonomous-banking-network/overview/main)
 
+[![United Nations](https://img.shields.io/badge/United%20Nations-Member-222222.svg)](https://www.un.org/)
+[![UNDP](https://img.shields.io/badge/UNDP-Member-34C759.svg)](https://www.undp.org/)
+[![UNICEF](https://img.shields.io/badge/UNICEF-Member-6495ed.svg)](https://www.unicef.org/)
+[![UNEP](https://img.shields.io/badge/UNEP-Member-2ecc71.svg)](https://www.unep.org/)
+[![UNHCR](https://img.shields.io/badge/UNHCR-Member-ff69b4.svg)](https://www.unhcr.org/)
+[![UNFPA](https://img.shields.io/badge/UNFPA-Member-ff9900.svg)](https://www.unfpa.org/)
+
 [![World Bank](https://img.shields.io/badge/World%20Bank-Partner-34C759.svg)](https://www.worldbank.org/)
 [![IFC](https://img.shields.io/badge/IFC-Partner-6495ed.svg)](https://www.ifc.org/)
 [![MIGA](https://img.shields.io/badge/MIGA-Partner-228B22.svg)](https://www.miga.org/)
