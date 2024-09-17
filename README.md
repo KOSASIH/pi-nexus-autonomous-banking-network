@@ -13,6 +13,16 @@
 [![ICSID](https://img.shields.io/badge/ICSID-Partner-00698f.svg)](https://icsid.worldbank.org/)
 [![WBI](https://img.shields.io/badge/WBI-Partner-FFC107.svg)](https://www.worldbank.org/en/about/partnerships/world-bank-institute)
 
+[![Brazil](https://img.shields.io/badge/Brazil-Member-34C759.svg)](https://www.gov.br/)
+[![Russia](https://img.shields.io/badge/Russia-Member-6495ed.svg)](https://www.gov.ru/)
+[![India](https://img.shields.io/badge/India-Member-228B22.svg)](https://www.india.gov.in/)
+[![China](https://img.shields.io/badge/China-Member-FFC107.svg)](https://www.gov.cn/)
+[![South Africa](https://img.shields.io/badge/South%20Africa-Member-00698f.svg)](https://www.gov.za/)
+
+[![NDB](https://img.shields.io/badge/NDB-Member-34C759.svg)](https://www.ndb.int/)
+[![BRICS Business Council](https://img.shields.io/badge/BRICS%20Business%20Council-Member-6495ed.svg)](https://www.bricsbusinesscouncil.org/)
+[![BRICS Think Tank Council](https://img.shields.io/badge/BRICS%20Think%20Tank%20Council-Member-228B22.svg)](https://www.brics-ttc.org/)
+
 [![AWS](https://img.shields.io/badge/AWS-Partner-FF9900.svg)](https://aws.amazon.com/)
 [![Azure](https://img.shields.io/badge/Azure-Partner-007bff.svg)](https://azure.microsoft.com/)
 [![Google Cloud](https://img.shields.io/badge/Google%20Cloud-Partner-4285F4.svg)](https://cloud.google.com/)
