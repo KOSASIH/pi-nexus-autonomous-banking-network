@@ -19,6 +19,12 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.4.3",
     "web3": "^1.7.3"
+    "bcrypt": "^5.0.1",
+    "express": "^4.17.1",
+    "mongodb": "^3.6.3",
+    "validator": "^13.6.0"
+  }
+}
   },
   "devDependencies": {
     "@babel/core": "^7.20.12",
