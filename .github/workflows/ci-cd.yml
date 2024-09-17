@@ -12,12 +12,14 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        run: npm install
+
       - name: Run tests
-        run: pytest
-      - name: Deploy to production
-        uses: azure/azure-webapps-deploy@v2
-        with:
-          app-name: pi-nexus-autonomous-banking-network
-          package: .
+        run: npm test
+
+      - name: Build and deploy
+        env:
+          NODE_ENV: production
+        run: npm run build && npm run deploy
