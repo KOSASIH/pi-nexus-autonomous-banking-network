@@ -7,6 +7,15 @@
 [![StackHawk](https://github.com/KOSASIH/pi-nexus-autonomous-banking-network/actions/workflows/stackhawk.yml/badge.svg)](https://github.com/KOSASIH/pi-nexus-autonomous-banking-network/actions/workflows/stackhawk.yml)
 [![CodeFactor](https://www.codefactor.io/repository/github/kosasih/pi-nexus-autonomous-banking-network/badge/main)](https://www.codefactor.io/repository/github/kosasih/pi-nexus-autonomous-banking-network/overview/main)
 
+[![SWIFT](https://img.shields.io/badge/SWIFT-Compliant-007bff.svg)](https://www.swift.com/)
+[![ISO 20022](https://img.shields.io/badge/ISO%2020022-Certified-008000.svg)](https://www.iso.org/standard/66693.html)
+[![PCI-DSS](https://img.shields.io/badge/PCI--DSS-Compliant-ff9900.svg)](https://www.pcisecuritystandards.org/)
+[![GDPR](https://img.shields.io/badge/GDPR-Compliant-32cd32.svg)](https://www.eugdpr.org/)
+[![AML](https://img.shields.io/badge/AML-Compliant-ff69b4.svg)](https://www.fatf-gafi.org/)
+[![KYC](https://img.shields.io/badge/KYC-Compliant-6495ed.svg)](https://www.fatf-gafi.org/)
+[![FCA](https://img.shields.io/badge/FCA-Regulated-007bff.svg)](https://www.fca.org.uk/)
+[![FINCEN](https://img.shields.io/badge/FINCEN-Compliant-008000.svg)](https://www.fincen.gov/)
+
 <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://github.com/KOSASIH/pi-nexus-autonomous-banking-network">pi-nexus-autonomous-banking-network</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://www.linkedin.com/in/kosasih-81b46b5a">KOSASIH</a> is licensed under <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">Creative Commons Attribution 4.0 International<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""></a></p>
 
 # pi-nexus-autonomous-banking-network
