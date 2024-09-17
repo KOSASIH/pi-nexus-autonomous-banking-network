@@ -7,6 +7,16 @@
 [![StackHawk](https://github.com/KOSASIH/pi-nexus-autonomous-banking-network/actions/workflows/stackhawk.yml/badge.svg)](https://github.com/KOSASIH/pi-nexus-autonomous-banking-network/actions/workflows/stackhawk.yml)
 [![CodeFactor](https://www.codefactor.io/repository/github/kosasih/pi-nexus-autonomous-banking-network/badge/main)](https://www.codefactor.io/repository/github/kosasih/pi-nexus-autonomous-banking-network/overview/main)
 
+[![AWS](https://img.shields.io/badge/AWS-Partner-FF9900.svg)](https://aws.amazon.com/)
+[![Azure](https://img.shields.io/badge/Azure-Partner-007bff.svg)](https://azure.microsoft.com/)
+[![Google Cloud](https://img.shields.io/badge/Google%20Cloud-Partner-4285F4.svg)](https://cloud.google.com/)
+[![IBM Cloud](https://img.shields.io/badge/IBM%20Cloud-Partner-00698f.svg)](https://www.ibm.com/cloud)
+[![NVIDIA AI](https://img.shields.io/badge/NVIDIA%20AI-Partner-76B900.svg)](https://www.nvidia.com/en-us/deep-learning-ai/)
+[![Google AI](https://img.shields.io/badge/Google%20AI-Partner-4285F4.svg)](https://ai.google/)
+[![Microsoft AI](https://img.shields.io/badge/Microsoft%20AI-Partner-007bff.svg)](https://www.microsoft.com/en-us/ai)
+[![IBM Watson](https://img.shields.io/badge/IBM%20Watson-Partner-00698f.svg)](https://www.ibm.com/watson)
+
+
 [![SWIFT](https://img.shields.io/badge/SWIFT-Compliant-007bff.svg)](https://www.swift.com/)
 [![ISO 20022](https://img.shields.io/badge/ISO%2020022-Certified-008000.svg)](https://www.iso.org/standard/66693.html)
 [![PCI-DSS](https://img.shields.io/badge/PCI--DSS-Compliant-ff9900.svg)](https://www.pcisecuritystandards.org/)
@@ -15,6 +25,16 @@
 [![KYC](https://img.shields.io/badge/KYC-Compliant-6495ed.svg)](https://www.fatf-gafi.org/)
 [![FCA](https://img.shields.io/badge/FCA-Regulated-007bff.svg)](https://www.fca.org.uk/)
 [![FINCEN](https://img.shields.io/badge/FINCEN-Compliant-008000.svg)](https://www.fincen.gov/)
+
+[![CISA](https://img.shields.io/badge/CISA-Partner-007bff.svg)](https://www.cisa.gov/)
+[![NIST](https://img.shields.io/badge/NIST-Partner-6495ed.svg)](https://www.nist.gov/)
+[![ISO](https://img.shields.io/badge/ISO-Partner-008000.svg)](https://www.iso.org/)
+[![SANS Institute](https://img.shields.io/badge/SANS%20Institute-Partner-ff9900.svg)](https://www.sans.org/)
+
+[![Hyperledger](https://img.shields.io/badge/Hyperledger-Partner-007bff.svg)](https://www.hyperledger.org/)
+[![EEA](https://img.shields.io/badge/EEA-Partner-6495ed.svg)](https://entethalliance.org/)
+[![BRI](https://img.shields.io/badge/BRI-Partner-ff9900.svg)](https://www.blockchainresearchinstitute.org/)
+[![IBA](https://img.shields.io/badge/IBA-Partner-008000.svg)](https://www.internationalblockchainassociation.com/)
 
 <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://github.com/KOSASIH/pi-nexus-autonomous-banking-network">pi-nexus-autonomous-banking-network</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://www.linkedin.com/in/kosasih-81b46b5a">KOSASIH</a> is licensed under <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">Creative Commons Attribution 4.0 International<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""></a></p>
 
