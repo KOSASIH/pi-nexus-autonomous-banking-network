@@ -14,3 +14,16 @@ web3
 uport
 ipfs-http-client
 apache-spark
+# Existing dependencies
+Flask==2.0.1
+Flask-SQLAlchemy==2.5.1
+Flask-Marshmallow==0.14.0
+marshmallow==3.13.0
+requests==2.26.0
+web3==5.24.0
+
+# New dependencies for cryptography, access control, and input validation
+cryptography==3.4.7
+pycryptodome==3.10.1
+pyjwt==2.3.0
+Flask-JWT-Extended==3.25.1
