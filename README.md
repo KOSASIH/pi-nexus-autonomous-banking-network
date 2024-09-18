@@ -81,6 +81,13 @@
 [![Partner - Abu Dhabi Global Market (ADGM)](https://img.shields.io/badge/Partner-ADGM-032B44.svg)](https://www.adgm.com/)
 [![Member - Securities and Commodities Authority (SCA)](https://img.shields.io/badge/Member-SCA-0047AB.svg)](https://www.sca.gov.ae/)
 
+[![Partner - International Monetary Fund (IMF)](https://img.shields.io/badge/Partner-IMF-00698f.svg)](https://www.imf.org/)
+[![Member - World Bank](https://img.shields.io/badge/Member-World%20Bank-032B44.svg)](https://www.worldbank.org/)
+[![Partner - Financial Action Task Force (FATF)](https://img.shields.io/badge/Partner-FATF-008000.svg)](https://www.fatf-gafi.org/)
+[![Member - International Organization of Securities Commissions (IOSCO)](https://img.shields.io/badge/Member-IOSCO-0047AB.svg)](https://www.iosco.org/)
+[![Partner - Bank for International Settlements (BIS)](https://img.shields.io/badge/Partner-BIS-00698f.svg)](https://www.bis.org/)
+[![Member - International Finance Corporation (IFC)](https://img.shields.io/badge/Member-IFC-032B44.svg)](https://www.ifc.org/)
+
 <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://github.com/KOSASIH/pi-nexus-autonomous-banking-network">pi-nexus-autonomous-banking-network</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://www.linkedin.com/in/kosasih-81b46b5a">KOSASIH</a> is licensed under <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">Creative Commons Attribution 4.0 International<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""></a></p>
 
 # pi-nexus-autonomous-banking-network
