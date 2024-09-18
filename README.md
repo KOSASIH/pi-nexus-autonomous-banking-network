@@ -76,6 +76,11 @@
 [![RCEP](https://img.shields.io/badge/RCEP-Member-228B22.svg)](https://www.recep.org/)
 [![EFTA](https://img.shields.io/badge/EFTA-Member-00698f.svg)](https://www.efta.int/)
 
+[![Partner - UAE Central Bank](https://img.shields.io/badge/Partner-UAE%20Central%20Bank-008000.svg)](https://www.centralbank.ae/)
+[![Member - Dubai Financial Services Authority (DFSA)](https://img.shields.io/badge/Member-DFSA-00698f.svg)](https://www.dfsa.ae/)
+[![Partner - Abu Dhabi Global Market (ADGM)](https://img.shields.io/badge/Partner-ADGM-032B44.svg)](https://www.adgm.com/)
+[![Member - Securities and Commodities Authority (SCA)](https://img.shields.io/badge/Member-SCA-0047AB.svg)](https://www.sca.gov.ae/)
+
 <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://github.com/KOSASIH/pi-nexus-autonomous-banking-network">pi-nexus-autonomous-banking-network</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://www.linkedin.com/in/kosasih-81b46b5a">KOSASIH</a> is licensed under <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">Creative Commons Attribution 4.0 International<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""></a></p>
 
 # pi-nexus-autonomous-banking-network
