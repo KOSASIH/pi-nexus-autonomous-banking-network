@@ -1,0 +1,5 @@
+{
+  "algorithm": "AES-256-GCM",
+  "key": "super_secret_key_here",
+  "iv": "initialization_vector_here"
+}
