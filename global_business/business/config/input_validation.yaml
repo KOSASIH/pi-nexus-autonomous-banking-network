@@ -1,0 +1,11 @@
+input_validation:
+  users:
+    - username: { type: string, required: true, min_length: 3, max_length: 32 }
+    - email: { type: email, required: true, unique: true }
+    - password: { type: password, required: true, min_length: 12 }
+  accounts:
+    - account_number: { type: string, required: true, min_length: 10, max_length: 20 }
+    - account_type: { type: string, required: true, enum: ["checking", "savings"] }
+  transactions:
+    - amount: { type: decimal, required: true, min_value: 0.01, max_value: 100000.00 }
+    - transaction_type: { type: string, required: true, enum: ["deposit", "withdrawal"] }
