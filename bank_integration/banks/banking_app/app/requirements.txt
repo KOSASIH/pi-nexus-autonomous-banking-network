@@ -1,0 +1,8 @@
+Flask==2.0.1
+Flask-SQLAlchemy==2.5.1
+Flask-Marshmallow==0.14.0
+Flask-JWT-Extended==4.0.1
+SQLAlchemy==1.4.25
+marshmallow==3.13.0
+python-dotenv==0.19.2
+logging==0.4.1.3
