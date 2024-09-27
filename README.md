@@ -13,6 +13,11 @@
 [![StackHawk](https://github.com/KOSASIH/pi-nexus-autonomous-banking-network/actions/workflows/stackhawk.yml/badge.svg)](https://github.com/KOSASIH/pi-nexus-autonomous-banking-network/actions/workflows/stackhawk.yml)
 [![CodeFactor](https://www.codefactor.io/repository/github/kosasih/pi-nexus-autonomous-banking-network/badge/main)](https://www.codefactor.io/repository/github/kosasih/pi-nexus-autonomous-banking-network/overview/main)
 
+[![Pi Network](https://img.shields.io/badge/Pi%20Network-Pi%20Network-blue.svg)](https://minepi.com/)
+[![Raspberry Pi](https://img.shields.io/badge/Raspberry%20Pi-RPi-red.svg)](https://www.raspberrypi.com/)
+[![Raspberry Pi Zero](https://img.shields.io/badge/Raspberry%20Pi%20Zero-RPi%20Zero-green.svg)](https://www.raspberrypi.com/products/raspberry-pi-zero/)
+[![Epaper Badge](https://img.shields.io/badge/Epaper%20Badge-Epaper%20Badge-orange.svg)](https://medium.com/coinmonks/building-an-epaper-badge-with-a-raspberry-pi-zero-e4b98b3311c3) 
+
 [![United Nations](https://img.shields.io/badge/United%20Nations-Member-222222.svg)](https://www.un.org/)
 [![UNDP](https://img.shields.io/badge/UNDP-Member-34C759.svg)](https://www.undp.org/)
 [![UNICEF](https://img.shields.io/badge/UNICEF-Member-6495ed.svg)](https://www.unicef.org/)
