@@ -1,6 +1,9 @@
 # vr_ar_interface.py
 import pygame
+import zipline
 from pygame import display
+from zipline.algorithm import TradingEnvironment
+
 
 def vr_ar_interface():
     # Initialize the VR/AR interface
@@ -16,18 +19,18 @@ def vr_ar_interface():
 
     return experience
 
+
 # financial_education.py
-import zipline
-from zipline.algorithm import TradingEnvironment
+
 
 def financial_education():
     # Create a trading environment
     env = TradingEnvironment()
 
     # Define the financial education strategy
-    strategy = env.add_strategy('financial_education_strategy')
-    strategy.add_rule('buy', 'tock', 'when', 'input_data > 0.5')
-    strategy.add_rule('sell', 'tock', 'when', 'input_data < 0.5')
+    strategy = env.add_strategy("financial_education_strategy")
+    strategy.add_rule("buy", "tock", "when", "input_data > 0.5")
+    strategy.add_rule("sell", "tock", "when", "input_data < 0.5")
 
     # Run the financial education strategy
     env.run(strategy)
