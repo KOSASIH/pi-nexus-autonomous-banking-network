@@ -1,6 +1,8 @@
 import time
+
 from cloud.ec2 import EC2
 from cloud.s3 import S3
+
 
 class Cloud:
     def __init__(self):
@@ -25,6 +27,7 @@ class Cloud:
 
     def download_file(self, bucket_name, object_name, file_path):
         self.s3.download_file(bucket_name, object_name, file_path)
+
 
 if __name__ == "__main__":
     cloud = Cloud()
