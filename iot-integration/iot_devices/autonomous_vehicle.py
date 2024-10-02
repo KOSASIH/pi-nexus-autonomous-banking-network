@@ -1,19 +1,22 @@
-import os
 import json
+import os
 import socket
 import time
+
 from cryptography.fernet import Fernet
 
+
 class AutonomousVehicle:
+
     def __init__(self, vehicle_id, vehicle_secret, home_id, home_secret):
         self.vehicle_id = vehicle_id
         self.vehicle_secret = vehicle_secret
         self.home_id = home_id
         self.home_secret = home_secret
         self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        self.socket.connect(('localhost', 8080))
-        self.gps_data = {'latitude': 37.7749, 'longitude': -122.4194}
-        self.speed_data = {'speed': 60}
+        self.socket.connect(("localhost", 8080))
+        self.gps_data = {"latitude": 37.7749, "longitude": -122.4194}
+        self.speed_data = {"speed": 60}
 
     def send_gps_data(self):
         self.socket.send(json.dumps(self.gps_data).encode())
@@ -37,14 +40,18 @@ class AutonomousVehicle:
             self.send_gps_data()
             self.send_speed_data()
             time.sleep(1)
-            self.socket.send('TRANSFER:20.0'.encode())  # Transfer $20.0 to bank account
+            # Transfer $20.0 to bank account
+            self.socket.send("TRANSFER:20.0".encode())
             time.sleep(1)
-            self.socket.send('BALANCE'.encode())  # Request current balance
+            self.socket.send("BALANCE".encode())  # Request current balance
 
-if __name__ == '__main__':
-    vehicle_id = 'vehicle123'
-    vehicle_secret = 'secret123'
-    home_id = 'home123'
-    home_secret = 'secret123'
-    autonomous_vehicle = AutonomousVehicle(vehicle_id, vehicle_secret, home_id, home_secret)
+
+if __name__ == "__main__":
+    vehicle_id = "vehicle123"
+    vehicle_secret = "secret123"
+    home_id = "home123"
+    home_secret = "secret123"
+    autonomous_vehicle = AutonomousVehicle(
+        vehicle_id, vehicle_secret, home_id, home_secret
+    )
     autonomous_vehicle.start()
