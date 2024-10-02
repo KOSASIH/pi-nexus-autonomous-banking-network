@@ -1,5 +1,7 @@
 import unittest
+
 from blockchain.block import Block
+
 
 class TestBlock(unittest.TestCase):
     def test_create_block(self):
