@@ -6,7 +6,10 @@ class RiskAssessmentModel {
     this.model = tf.sequential();
     this.model.add(tf.layers.dense({ units: 10, inputShape: [3] }));
     this.model.add(tf.layers.dense({ units: 1 }));
-    this.model.compile({ optimizer: tf.optimizers.adam(), loss: 'meanSquaredError' });
+    this.model.compile({
+      optimizer: tf.optimizers.adam(),
+      loss: 'meanSquaredError',
+    });
   }
 
   async train(data) {
@@ -16,7 +19,11 @@ class RiskAssessmentModel {
   }
 
   async predict(loanApplication) {
-    const input = [loanApplication.creditScore, loanApplication.loanAmount, loanApplication.interestRate];
+    const input = [
+      loanApplication.creditScore,
+      loanApplication.loanAmount,
+      loanApplication.interestRate,
+    ];
     const output = this.model.predict(input);
     return output.dataSync()[0];
   }
