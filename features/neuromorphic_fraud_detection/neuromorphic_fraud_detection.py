@@ -2,6 +2,7 @@
 import numpy as np
 from snnlib import SpikingNeuralNetwork
 
+
 class NeuromorphicFraudDetection:
     def __init__(self):
         self.snn = SpikingNeuralNetwork()
