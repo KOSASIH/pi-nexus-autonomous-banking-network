@@ -1,16 +1,23 @@
 # neuromorphic_network.py
 import nengo
+import numpy as np
 from nengo.dists import Uniform
+from sklearn.ensemble import RandomForestClassifier
+
 
 def neuromorphic_fraud_detection(input_data):
     # Define the neuromorphic network
     model = nengo.Network()
     with model:
         input_node = nengo.Node(input_data)
-        fraud_detector = nengo.Ensemble(n_neurons=100, dimensions=10, neuron_type=nengo.LIF())
+        fraud_detector = nengo.Ensemble(
+            n_neurons=100, dimensions=10, neuron_type=nengo.LIF()
+        )
         nengo.Connection(input_node, fraud_detector)
         output_node = nengo.Node(size_in=1)
-        nengo.Connection(fraud_detector, output_node, function=lambda x: 1 if x > 0.5 else 0)
+        nengo.Connection(
+            fraud_detector, output_node, function=lambda x: 1 if x > 0.5 else 0
+        )
 
     # Run the neuromorphic network
     with nengo.Simulator(model) as sim:
@@ -18,9 +25,9 @@ def neuromorphic_fraud_detection(input_data):
 
     return sim.data[output_node]
 
+
 # fraud_detector.py
-import numpy as np
-from sklearn.ensemble import RandomForestClassifier
+
 
 def fraud_detector(input_data):
     # Train a random forest classifier
