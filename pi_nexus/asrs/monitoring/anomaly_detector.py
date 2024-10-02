@@ -2,6 +2,7 @@ import numpy as np
 import pandas as pd
 from scipy.stats import zscore
 
+
 class AnomalyDetector:
     def __init__(self, config):
         self.config = config
