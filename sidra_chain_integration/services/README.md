@@ -1,5 +1,4 @@
-Sidra Chain Integration Services
-=============================
+# Sidra Chain Integration Services
 
 This directory contains the code for the Sidra Chain Integration services.
 
