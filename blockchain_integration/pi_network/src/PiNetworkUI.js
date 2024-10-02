@@ -10,7 +10,11 @@ return (
     <h1>Pi Network UI</h1>
     <form onSubmit={handleSubmit}>
       <label>From Address:</label>
-      <input type="text" value={fromAddress} onChange={handleFromAddressChange} />
+      <input
+        type="text"
+        value={fromAddress}
+        onChange={handleFromAddressChange}
+      />
       <br />
       <label>To Address:</label>
       <input type="text" value={toAddress} onChange={handleToAddressChange} />
