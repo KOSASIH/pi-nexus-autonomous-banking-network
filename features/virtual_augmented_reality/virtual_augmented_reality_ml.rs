@@ -8,6 +8,8 @@ struct VirtualAugmentedRealityML {
 impl VirtualAugmentedRealityML {
     fn new() -> Self {
         // Implement virtual augmented reality using machine learning here
-        Self { ml: MachineLearning::new() }
+        Self {
+            ml: MachineLearning::new(),
+        }
     }
 }
