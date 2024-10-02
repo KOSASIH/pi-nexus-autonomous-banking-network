@@ -1,8 +1,9 @@
 # litecoin/wallet.py
 import litecoinlib
 
+
 class LitecoinWallet:
-    def __init__(self, network='mainnet'):
+    def __init__(self, network="mainnet"):
         self.network = network
         self.litecoin = litecoinlib.Litecoin(network)
 
