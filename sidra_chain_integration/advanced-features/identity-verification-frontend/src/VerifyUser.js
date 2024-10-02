@@ -30,22 +30,41 @@ const VerifyUser = () => {
       <form>
         <label>
           User Address:
-          <input type="text" value={userAddress} onChange={(event) => setUserAddress(event.target.value)} />
+          <input
+            type="text"
+            value={userAddress}
+            onChange={(event) => setUserAddress(event.target.value)}
+          />
         </label>
         <br />
         <label>
           First Name:
-          <input type="text" name="firstName" value={userData.firstName} onChange={handleInputChange} />
+          <input
+            type="text"
+            name="firstName"
+            value={userData.firstName}
+            onChange={handleInputChange}
+          />
         </label>
         <br />
         <label>
           Last Name:
-          <input type="text" name="lastName" value={userData.lastName} onChange={handleInputChange} />
+          <input
+            type="text"
+            name="lastName"
+            value={userData.lastName}
+            onChange={handleInputChange}
+          />
         </label>
         <br />
         <label>
           Date of Birth:
-          <input type="date" name="dateOfBirth" value={userData.dateOfBirth} onChange={handleInputChange} />
+          <input
+            type="date"
+            name="dateOfBirth"
+            value={userData.dateOfBirth}
+            onChange={handleInputChange}
+          />
         </label>
         <br />
         <button onClick={handleVerify}>Verify</button>
