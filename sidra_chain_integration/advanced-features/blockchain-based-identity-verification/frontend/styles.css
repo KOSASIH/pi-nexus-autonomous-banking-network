@@ -18,7 +18,8 @@ body {
   margin-bottom: 10px;
 }
 
-#user-form input[type="text"], #user-form input[type="file"] {
+#user-form input[type='text'],
+#user-form input[type='file'] {
   width: 100%;
   padding: 10px;
   margin-bottom: 20px;
@@ -26,7 +27,7 @@ body {
 }
 
 #verify-button {
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: #fff;
   padding: 10px 20px;
   border: none;
