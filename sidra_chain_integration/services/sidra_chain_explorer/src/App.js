@@ -26,7 +26,9 @@ function App() {
 
   useEffect(() => {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
-    provider.getBlockNumber().then((blockNumber) => setBlockNumber(blockNumber));
+    provider
+      .getBlockNumber()
+      .then((blockNumber) => setBlockNumber(blockNumber));
   }, []);
 
   if (loading) return <div>Loading...</div>;
