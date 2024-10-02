@@ -1,10 +1,16 @@
 import unittest
+
 from oracle_service import OracleService
+
 
 class TestOracleService(unittest.TestCase):
     def test_update_price(self) -> None:
         # Create a mock OracleModel instance
-        oracle_model = OracleModel(node_url="https://example.com", api_key="YOUR_API_KEY", contract_address="0x...")
+        oracle_model = OracleModel(
+            node_url="https://example.com",
+            api_key="YOUR_API_KEY",
+            contract_address="0x...",
+        )
 
         # Create an OracleService instance with the mock model
         oracle_service = OracleService(oracle_model)
@@ -17,7 +23,11 @@ class TestOracleService(unittest.TestCase):
 
     def test_get_price(self) -> None:
         # Create a mock OracleModel instance
-        oracle_model = OracleModel(node_url="https://example.com", api_key="YOUR_API_KEY", contract_address="0x...")
+        oracle_model = OracleModel(
+            node_url="https://example.com",
+            api_key="YOUR_API_KEY",
+            contract_address="0x...",
+        )
 
         # Create an OracleService instance with the mock model
         oracle_service = OracleService(oracle_model)
