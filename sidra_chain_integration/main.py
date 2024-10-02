@@ -1,11 +1,12 @@
-from sidra_chain_sdk import SidraChain
-from loan_processing.loan_processing import LoanProcessing
 from investment_management.investment_management import InvestmentManagement
+from loan_processing.loan_processing import LoanProcessing
 from risk_assessment.risk_assessment import RiskAssessment
+from sidra_chain_sdk import SidraChain
+
 
 def main():
     # Initialize Sidra Chain SDK
-    sidra_chain = SidraChain('YOUR_API_KEY', 'YOUR_API_SECRET', 'ainnet')
+    sidra_chain = SidraChain("YOUR_API_KEY", "YOUR_API_SECRET", "ainnet")
 
     # Create instances of autonomous banking use cases
     loan_processing = LoanProcessing(sidra_chain)
@@ -17,5 +18,6 @@ def main():
     investment_management.create_investment_management_contract()
     risk_assessment.create_risk_assessment_contract()
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()
