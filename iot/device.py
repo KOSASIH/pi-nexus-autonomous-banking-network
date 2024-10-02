@@ -11,6 +11,7 @@ class Device:
         # Kode untuk mengirim perintah ke perangkat IoT
         print(f"Sending command: {command} to {self.name}")
 
+
 class ATM(Device):
     def __init__(self, name, topic):
         super().__init__(name, topic)
@@ -23,6 +24,7 @@ class ATM(Device):
         # Kode untuk memeriksa saldo
         print(f"{self.name} is checking balance")
 
+
 class CreditCardTerminal(Device):
     def __init__(self, name, topic):
         super().__init__(name, topic)
@@ -34,6 +36,7 @@ class CreditCardTerminal(Device):
     def charge_card(self, amount):
         # Kode untuk mengisi kartu kredit
         print(f"{self.name} is charging card: {amount}")
+
 
 class Sensor(Device):
     def __init__(self, name, topic):
