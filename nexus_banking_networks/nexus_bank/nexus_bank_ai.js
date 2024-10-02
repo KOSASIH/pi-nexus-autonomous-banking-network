@@ -1,11 +1,14 @@
-import * as tf from '@tensorflow/tfjs';
+import * as tf from "@tensorflow/tfjs";
 
 class AI {
   constructor() {
     this.model = tf.sequential();
     this.model.add(tf.layers.dense({ units: 10, inputShape: [1] }));
     this.model.add(tf.layers.dense({ units: 1 }));
-    this.model.compile({ optimizer: tf.optimizers.adam(), loss: 'meanSquaredError' });
+    this.model.compile({
+      optimizer: tf.optimizers.adam(),
+      loss: "meanSquaredError",
+    });
   }
 
   train(data) {
@@ -25,7 +28,7 @@ const data = [
   { x: 20, y: 40 },
   { x: 30, y: 60 },
   { x: 40, y: 80 },
-  { x: 50, y: 100 }
+  { x: 50, y: 100 },
 ];
 
 ai.train(data);
