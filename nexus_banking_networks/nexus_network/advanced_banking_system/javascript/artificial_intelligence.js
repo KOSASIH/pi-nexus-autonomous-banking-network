@@ -1,5 +1,5 @@
 // artificial_intelligence.js
-import * as brain from 'brain.js';
+import * as brain from "brain.js";
 
 const net = new brain.NeuralNetwork();
 
