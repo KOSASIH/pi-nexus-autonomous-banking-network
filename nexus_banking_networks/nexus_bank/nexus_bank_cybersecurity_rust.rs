@@ -1,5 +1,5 @@
+use ring::rand::{SecureRandom, SystemRandom};
 use ring::{aead, error};
-use ring::rand::{SystemRandom, SecureRandom};
 
 struct Cybersecurity {
     key: [u8; 32],
@@ -32,7 +32,7 @@ impl Cybersecurity {
 
 fn main() {
     let cybersecurity = Cybersecurity::new().unwrap();
-    let plaintext= b"Hello, World!";
+    let plaintext = b"Hello, World!";
     let ciphertext = cybersecurity.encrypt(plaintext).unwrap();
     println!("Ciphertext: {:?}", ciphertext);
     let decrypted = cybersecurity.decrypt(&ciphertext).unwrap();
