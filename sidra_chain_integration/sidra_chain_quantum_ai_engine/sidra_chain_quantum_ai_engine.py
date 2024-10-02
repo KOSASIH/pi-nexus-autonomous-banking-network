@@ -3,6 +3,7 @@ import qiskit
 import tensorflow_quantum
 from sidra_chain_api import SidraChainAPI
 
+
 class SidraChainQuantumAIEngine:
     def __init__(self, sidra_chain_api: SidraChainAPI):
         self.sidra_chain_api = sidra_chain_api
@@ -10,9 +11,9 @@ class SidraChainQuantumAIEngine:
     def design_quantum_ai_model(self, quantum_ai_model_config: dict):
         # Design a quantum AI model using Qiskit and TensorFlow Quantum
         quantum_ai_model = qiskit.QuantumCircuit()
-        quantum_ai_model.add_layer(qiskit.Layer('quantum_convolutional_layer'))
-        quantum_ai_model.add_layer(qiskit.Layer('quantum_dense_layer'))
-        #...
+        quantum_ai_model.add_layer(qiskit.Layer("quantum_convolutional_layer"))
+        quantum_ai_model.add_layer(qiskit.Layer("quantum_dense_layer"))
+        # ...
         return quantum_ai_model
 
     def train_quantum_ai_model(self, quantum_ai_model: qiskit.QuantumCircuit):
