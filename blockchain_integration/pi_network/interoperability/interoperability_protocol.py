@@ -1,6 +1,7 @@
 # interoperability_protocol.py
 import hashlib
 
+
 class InteroperabilityProtocol:
     def __init__(self, blockchain_networks):
         self.blockchain_networks = blockchain_networks
