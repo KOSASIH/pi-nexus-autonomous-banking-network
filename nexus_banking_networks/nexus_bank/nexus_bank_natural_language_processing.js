@@ -1,4 +1,4 @@
-const natural = require('natural');
+const natural = require("natural");
 
 const tokenizer = new natural.WordTokenizer();
 const text = "Hello, how are you?";
