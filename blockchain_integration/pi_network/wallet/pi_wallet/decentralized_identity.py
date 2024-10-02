@@ -1,7 +1,8 @@
 import uport
-from uport.did import DID
 from uport.credentials import Credentials
-from uport.utils import encode_data, decode_data
+from uport.did import DID
+from uport.utils import decode_data, encode_data
+
 
 class DecentralizedIdentity:
     def __init__(self, did, private_key):
@@ -40,6 +41,7 @@ class DecentralizedIdentity:
     def decrypt_data(self, encrypted_data):
         return self.uport.decrypt_data(encrypted_data)
 
+
 # Example usage:
 did = "did:uport:0x..."
 private_key = "0x..."
@@ -57,7 +59,11 @@ updated_identity = {"name": "John Doe", "email": "johndoe@example.com"}
 decentralized_identity.update_identity(updated_identity)
 
 # Add credential
-credential = {"type": "UniversityDegree", "issuer": "University of Blockchain", "issued": "2022-01-01"}
+credential = {
+    "type": "UniversityDegree",
+    "issuer": "University of Blockchain",
+    "issued": "2022-01-01",
+}
 decentralized_identity.add_credential(credential)
 
 # Getcredentials
