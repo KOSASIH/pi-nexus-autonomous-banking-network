@@ -5,4 +5,4 @@ tensorflow==2.12.1
 qiskit==0.29.0
 web3==5.24.0
 RPi.GPIO==0.7.0
-nltk==3.6.2
+nltk==3.9
