@@ -1,12 +1,13 @@
 import numpy as np
-from sklearn.svm import OneClassSVM
 from sklearn.preprocessing import StandardScaler
+from sklearn.svm import OneClassSVM
+
 
 class NodeAnomalyDetection:
     def __init__(self, node_data):
         self.node_data = node_data
         self.scaler = StandardScaler()
-        self.ocsvm = OneClassSVM(kernel='rbf', gamma=0.1, nu=0.1)
+        self.ocsvm = OneClassSVM(kernel="rbf", gamma=0.1, nu=0.1)
 
     def preprocess_data(self):
         scaled_data = self.scaler.fit_transform(self.node_data)
@@ -29,6 +30,7 @@ class NodeAnomalyDetection:
         plt.ylabel("Feature 2")
         plt.title("Node Anomalies")
         plt.show()
+
 
 node_data = ...  # load node data
 node_anomaly_detection = NodeAnomalyDetection(node_data)
