@@ -1,6 +1,7 @@
 # linting_formatting/linting_formatting_engine.py
 import subprocess
 
+
 class LintingFormattingEngine:
     def __init__(self):
         self.linting_formatting_rules = LintingFormattingRules()
