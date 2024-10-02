@@ -4,8 +4,15 @@ const identityVerificationContract = require('./identity-verification-contract')
 
 class IdentityVerificationService {
   constructor() {
-    this.web3 = new Web3(new Web3.providers.HttpProvider('https://mainnet.infura.io/v3/YOUR_PROJECT_ID'));
-    this.contract = new this.web3.eth.Contract(identityVerificationContract.abi, identityVerificationContract.address);
+    this.web3 = new Web3(
+      new Web3.providers.HttpProvider(
+        'https://mainnet.infura.io/v3/YOUR_PROJECT_ID',
+      ),
+    );
+    this.contract = new this.web3.eth.Contract(
+      identityVerificationContract.abi,
+      identityVerificationContract.address,
+    );
   }
 
   async verifyUserIdentity(userId, name, email, password) {
@@ -16,9 +23,14 @@ class IdentityVerificationService {
       value: '0',
       gas: '20000',
       gasPrice: '20',
-      data: this.contract.methods.verifyUserIdentity(name, email, password).encodeABI(),
+      data: this.contract.methods
+        .verifyUserIdentity(name, email, password)
+        .encodeABI(),
     };
-    const signedTx = await this.web3.eth.accounts.signTransaction(tx, '0x' + userId);
+    const signedTx = await this.web3.eth.accounts.signTransaction(
+      tx,
+      '0x' + userId,
+    );
     await this.web3.eth.sendSignedTransaction(signedTx.rawTransaction);
   }
 
