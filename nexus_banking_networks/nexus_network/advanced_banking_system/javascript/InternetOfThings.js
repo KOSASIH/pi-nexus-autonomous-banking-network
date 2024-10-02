@@ -1,5 +1,5 @@
 // InternetOfThings.js
-import * as thingSpeak from 'thingspeak';
+import * as thingSpeak from "thingspeak";
 
 const channel = thingSpeak.channel(123456);
 channel.writeField(1, 25.5);
