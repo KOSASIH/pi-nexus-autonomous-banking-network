@@ -11,5 +11,6 @@ class NodeRegistry:
     def remove_node(self, node):
         del self.nodes[node.node_id]
 
+
 # Example usage
 node_registry = NodeRegistry()
