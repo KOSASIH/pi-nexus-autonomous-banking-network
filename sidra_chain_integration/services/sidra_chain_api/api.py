@@ -9,9 +9,11 @@ sidra_chain = SidraChain()
 database = Database()
 machine_learning = MachineLearning()
 
+
 @app.get("/healthcheck")
 async def healthcheck():
     return {"status": "ok"}
+
 
 @app.post("/transactions")
 async def create_transaction(transaction: dict):
