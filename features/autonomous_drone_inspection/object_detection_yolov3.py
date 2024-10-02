@@ -9,9 +9,12 @@ with open("coco.names", "r") as f:
 layer_names = net.getLayerNames()
 output_layers = [layer_names[i[0] - 1] for i in net.getUnconnectedOutLayers()]
 
+
 def detect_objects(frame):
     height, width, channels = frame.shape
-    blob = cv2.dnn.blobFromImage(frame, 0.00392, (416, 416), (0, 0, 0), True, crop=False)
+    blob = cv2.dnn.blobFromImage(
+        frame, 0.00392, (416, 416), (0, 0, 0), True, crop=False
+    )
     net.setInput(blob)
     outs = net.forward(output_layers)
     class_ids = []
@@ -34,6 +37,7 @@ def detect_objects(frame):
                 class_ids.append(class_id)
     return boxes, confidences, class_ids
 
+
 cap = cv2.VideoCapture(0)
 while True:
     ret, frame = cap.read()
@@ -44,9 +48,11 @@ while True:
         x, y, w, h = boxes[i]
         label = str(classes[class_ids[i]])
         cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
-        cv2.putText(frame, label, (x, y + 30), cv2.FONT_HERSHEY_PLAIN, 3, (0, 0, 255), 3)
-    cv2.imshow('Object Detection', frame)
-    if cv2.waitKey(1) & 0xFF == ord('q'):
+        cv2.putText(
+            frame, label, (x, y + 30), cv2.FONT_HERSHEY_PLAIN, 3, (0, 0, 255), 3
+        )
+    cv2.imshow("Object Detection", frame)
+    if cv2.waitKey(1) & 0xFF == ord("q"):
         break
 cap.release()
 cv2.destroyAllWindows()
