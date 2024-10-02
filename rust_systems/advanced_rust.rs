@@ -1,5 +1,5 @@
-use std::thread;
 use std::sync::{Arc, Mutex};
+use std::thread;
 
 // Define a struct to hold some data
 struct Data {
