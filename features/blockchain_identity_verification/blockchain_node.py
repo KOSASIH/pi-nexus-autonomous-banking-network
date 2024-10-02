@@ -2,6 +2,7 @@
 import bitcoinlib
 from bitcoinlib.keys import HDKey
 
+
 def blockchain_node():
     # Initialize the blockchain node
     hdkey = HDKey()
@@ -14,9 +15,9 @@ def blockchain_node():
 
     return result
 
+
 # identity_verifier.py
-import bitcoinlib
-from bitcoinlib.keys import HDKey
+
 
 def identity_verifier():
     # Initialize the identity verifier
