@@ -1,8 +1,10 @@
-import os
 import json
+import os
+
 import tensorflow as tf
 from kafka import KafkaConsumer
 from matplotlib import pyplot as plt
+
 
 class NeuralNetworkOptimizer:
     def __init__(self, neural_network, kafka_topic):
@@ -33,8 +35,11 @@ class NeuralNetworkOptimizer:
         plt.title("Neural Network Optimization")
         plt.show()
 
+
 if __name__ == "__main__":
     # Initialize the Neural Network Optimizer
-    nno = NeuralNetworkOptimizer(tf.keras.models.Sequential([...]), "pi-nexus-performance-data")
+    nno = NeuralNetworkOptimizer(
+        tf.keras.models.Sequential([...]), "pi-nexus-performance-data"
+    )
     # Optimize the performance of the PI-Nexus network
     nno.optimize_performance()
