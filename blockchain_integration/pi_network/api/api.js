@@ -5,12 +5,15 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 
 // Connect to MongoDB database
-mongoose.connect('mongodb://localhost/pi-network-db', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb://localhost/pi-network-db', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
 // Define Pi Coin model
 const PiCoin = mongoose.model('PiCoin', {
   value: { type: Number, default: 314.159 },
-  votes: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Vote' }]
+  votes: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Vote' }],
 });
 
 // Define Vote model
@@ -18,14 +21,14 @@ const Vote = mongoose.model('Vote', {
   value: { type: Number, default: 314.159 },
   userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
   option: { type: String, required: true },
-  createdAt: { type: Date, default: Date.now }
+  createdAt: { type: Date, default: Date.now },
 });
 
 // Define User model
 const User = mongoose.model('User', {
   username: { type: String, required: true },
   password: { type: String, required: true },
-  piCoins: [{ type: mongoose.Schema.Types.ObjectId, ref: 'PiCoin' }]
+  piCoins: [{ type: mongoose.Schema.Types.ObjectId, ref: 'PiCoin' }],
 });
 
 // Middlewares
@@ -53,7 +56,7 @@ app.post('/api/vote', async (req, res) => {
 app.get('/api/user/pi-coins', async (req, res) => {
   const user = await User.findOne({ username: req.headers.username });
   const piCoins = await PiCoin.find({ _id: { $in: user.piCoins } });
-  res.json({ piCoins: piCoins.map(piCoin => piCoin.value) });
+  res.json({ piCoins: piCoins.map((piCoin) => piCoin.value) });
 });
 
 // Start server
