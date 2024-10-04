@@ -16,6 +16,18 @@
 [![International Organization of Securities Commissions](https://img.shields.io/badge/International%20Organization%20of%20Securities%20Commissions-Member-0047AB.svg)](https://www.iosco.org/)
 [![Bank for International Settlements](https://img.shields.io/badge/Bank%20for%20International%20Settlements-Partner-00698f.svg)](https://www.bis.org/)
 [![International Finance Corporation](https://img.shields.io/badge/International%20Finance%20Corporation-Member-032B44.svg)](https://www.ifc.org/)
+[![European Union](https://img.shields.io/badge/European%20Union-Member-0099CC.svg)](https://europa.eu/)
+[![European Central Bank](https://img.shields.io/badge/European%20Central%20Bank-Partner-00698f.svg)](https://www.ecb.europa.eu/)
+[![European Securities and Markets Authority](https://img.shields.io/badge/ESMA-Member-0047AB.svg)](https://www.esma.europa.eu/)
+[![European Banking Authority](https://img.shields.io/badge/EBA-Member-032B44.svg)](https://www.eba.europa.eu/)
+[![Asia-Pacific Economic Cooperation](https://img.shields.io/badge/APEC-Member-FFC107.svg)](https://www.apec.org/)
+[![OECD](https://img.shields.io/badge/OECD-Member-228B22.svg)](https://www.oecd.org/)
+[![International Chamber of Commerce](https://img.shields.io/badge/ICC-Member-6495ed.svg)](https://iccwbo.org/)
+[![World Trade Organization](https://img.shields.io/badge/WTO-Member-00698f.svg)](https://www.wto.org/)
+[![ISO](https://img.shields.io/badge/ISO-Certified-222222.svg)](https://www.iso.org/)
+[![IEC](https://img.shields.io/badge/IEC-Certified-222222.svg)](https://www.iec.ch/)
+[![PCI SSC](https://img.shields.io/badge/PCI%20SSC-Certified-FFC107.svg)](https://www.pcisecuritystandards.org/)
+[![SWIFT](https://img.shields.io/badge/SWIFT-Partner-00698f.svg)](https://www.swift.com/)
 
 <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://github.com/KOSASIH/pi-nexus-autonomous-banking-network/tree/main/blockchain_integration/pi_network/PiPay">PiPay</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://www.linkedin.com/in/kosasih-81b46b5a">KOSASIH</a> is licensed under <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">Creative Commons Attribution 4.0 International<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""></a></p>
 
