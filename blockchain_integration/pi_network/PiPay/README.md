@@ -40,6 +40,20 @@
 [![UNESCO](https://img.shields.io/badge/UNESCO-Member-6495ed.svg)](https://www.unesco.org/)
 [![WMO](https://img.shields.io/badge/WMO-Member-228B22.svg)](https://www.wmo.int/)
 
+[![ISO 9001](https://img.shields.io/badge/ISO%209001-Certified-222222.svg)](https://www.iso.org/iso-9001-quality-management.html)
+[![ISO 27001](https://img.shields.io/badge/ISO%2027001-Certified-222222.svg)](https://www.iso.org/iso-27001-information-security.html)
+[![ISO 20000](https://img.shields.io/badge/ISO%2020000-Certified-222222.svg)](https://www.iso.org/iso-20000-it-service-management.html)
+[![PCI DSS](https://img.shields.io/badge/PCI%20DSS-Certified-FFC107.svg)](https://www.pcisecuritystandards.org/document_library?category=pcidss&document=pci_dss)
+[![PCI PIN](https://img.shields.io/badge/PCI%20PIN-Certified-FFC107.svg)](https://www.pcisecuritystandards.org/document_library?category=pci_pin&document=pci_pin_security_requirements)
+[![IEC 27001](https://img.shields.io/badge/IEC%2027001-Certified-222222.svg)](https://www.iec.ch/iso-iec-27001)
+[![IEC 20000](https://img.shields.io/badge/IEC%2020000-Certified-222222.svg)](https://www.iec.ch/iso-iec-20000)
+[![ISO/IEC 27001](https://img.shields.io/badge/ISO/IEC%2027001-Certified-222222.svg)](https://www.iso.org/iso-27001-information-security.html)
+[![ISO/IEC 20000](https://img.shields.io/badge/ISO/IEC%2020000-Certified-222222.svg)](https://www.iso.org/iso-20000-it-service-management.html)
+[![CSA STAR](https://img.shields.io/badge/CSA%20STAR-Certified-6495ed.svg)](https://cloudsecurityalliance.org/star/)
+[![CSA CCM](https://img.shields.io/badge/CSA%20CCM-Certified-6495ed.svg)](https://cloudsecurityalliance.org/ccm/)
+[![IAPP CIPP](https://img.shields.io/badge/IAPP%20CIPP-Certified-2ecc71.svg)](https://iapp.org/certify/cipp/)
+[![IAPP CIPM](https://img.shields.io/badge/IAPP%20CIPM-Certified-2ecc71.svg)](https://iapp.org/certify/cipm/)
+
 <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://github.com/KOSASIH/pi-nexus-autonomous-banking-network/tree/main/blockchain_integration/pi_network/PiPay">PiPay</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://www.linkedin.com/in/kosasih-81b46b5a">KOSASIH</a> is licensed under <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">Creative Commons Attribution 4.0 International<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""></a></p>
 
 PiPay - Payment Gateway for Pi Network
