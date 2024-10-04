@@ -62,6 +62,31 @@
 [![EC-Council CEH](https://img.shields.io/badge/EC--Council%20CEH-Certified-FFC107.svg)](https://www.eccouncil.org/programs/certified-ethical-hacker-ceh/)
 [![EC-Council CHFI](https://img.shields.io/badge/EC--Council%20CHFI-Certified-FFC107.svg)](https://www.eccouncil.org/programs/computer-hacking-forensic-investigator-chfi/)
 
+[![AWS](https://img.shields.io/badge/AWS-Partner-232F3E.svg)](https://aws.amazon.com/)
+[![AWS Certified](https://img.shields.io/badge/AWS%20Certified-Developer-FFC107.svg)](https://aws.amazon.com/certification/)
+[![Microsoft](https://img.shields.io/badge/Microsoft-Partner-5E5E5E.svg)](https://www.microsoft.com/)
+[![Microsoft Azure](https://img.shields.io/badge/Microsoft%20Azure-Partner-0078D7.svg)](https://azure.microsoft.com/)
+[![Microsoft Certified](https://img.shields.io/badge/Microsoft%20Certified-Developer-5E5E5E.svg)](https://www.microsoft.com/learning/)
+[![Google Cloud](https://img.shields.io/badge/Google%20Cloud-Partner-4285F4.svg)](https://cloud.google.com/)
+[![Google Cloud Certified](https://img.shields.io/badge/Google%20Cloud%20Certified-Developer-4285F4.svg)](https://cloud.google.com/certification)
+[![IBM](https://img.shields.io/badge/IBM-Partner-0A0A0A.svg)](https://www.ibm.com/)
+[![IBM Cloud](https://img.shields.io/badge/IBM%20Cloud-Partner-0A0A0A.svg)](https://www.ibm.com/cloud/)
+[![IBM Certified](https://img.shields.io/badge/IBM%20Certified-Developer-0A0A0A.svg)](https://www.ibm.com/training/)
+[![Oracle](https://img.shields.io/badge/Oracle-Partner-F80000.svg)](https://www.oracle.com/)
+[![Oracle Cloud](https://img.shields.io/badge/Oracle%20Cloud-Partner-F80000.svg)](https://cloud.oracle.com/)
+[![Oracle Certified](https://img.shields.io/badge/Oracle%20Certified-Developer-F80000.svg)](https://education.oracle.com/)
+[![SAP](https://img.shields.io/badge/SAP-Partner-0A0A0A.svg)](https://www.sap.com/)
+[![SAP Cloud](https://img.shields.io/badge/SAP%20Cloud-Partner-0A0A0A.svg)](https://www.sap.com/cloud)
+[![SAP Certified](https://img.shields.io/badge/SAP%20Certified-Developer-0A0A0A.svg)](https://training.sap.com/)
+[![Cisco](https://img.shields.io/badge/Cisco-Partner-1BA0D7.svg)](https://www.cisco.com/)
+[![Cisco Certified](https://img.shields.io/badge/Cisco%20Certified-Developer-1BA0D7.svg)](https://www.cisco.com/c/en/us/training-events.html)
+[![Dell](https://img.shields.io/badge/Dell-Partner-007DB8.svg)](https://www.dell.com/)
+[![Dell EMC](https://img.shields.io/badge/Dell%20EMC-Partner-007DB8.svg)](https://www.dell.com/en-us/work/shop/dell-emc)
+[![HPE](https://img.shields.io/badge/HPE-Partner-0096D6.svg)](https://www.hpe.com/)
+[![HPE Cloud](https://img.shields.io/badge/HPE%20Cloud-Partner-0096D6.svg)](https://www.hpe.com/us/en/cloud.html)
+[![VMware](https://img.shields.io/badge/VMware-Partner-666666.svg)](https://www.vmware.com/)
+[![VMware Cloud](https://img.shields.io/badge/VMware%20Cloud-Partner-666666.svg)](https://cloud.vmware.com/)
+
 <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://github.com/KOSASIH/pi-nexus-autonomous-banking-network/tree/main/blockchain_integration/pi_network/PiPay">PiPay</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://www.linkedin.com/in/kosasih-81b46b5a">KOSASIH</a> is licensed under <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">Creative Commons Attribution 4.0 International<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""></a></p>
 
 PiPay - Payment Gateway for Pi Network
