@@ -28,6 +28,17 @@
 [![IEC](https://img.shields.io/badge/IEC-Certified-222222.svg)](https://www.iec.ch/)
 [![PCI SSC](https://img.shields.io/badge/PCI%20SSC-Certified-FFC107.svg)](https://www.pcisecuritystandards.org/)
 [![SWIFT](https://img.shields.io/badge/SWIFT-Partner-00698f.svg)](https://www.swift.com/)
+[![ITU](https://img.shields.io/badge/ITU-Member-222222.svg)](https://www.itu.int/)
+[![WIPO](https://img.shields.io/badge/WIPO-Member-6495ed.svg)](https://www.wipo.int/)
+[![ICAO](https://img.shields.io/badge/ICAO-Member-228B22.svg)](https://www.icao.int/)
+[![WHO](https://img.shields.io/badge/WHO-Member-2ecc71.svg)](https://www.who.int/)
+[![IMO](https://img.shields.io/badge/IMO-Member-00698f.svg)](https://www.imo.org/)
+[![IOM](https://img.shields.io/badge/IOM-Member-FFC107.svg)](https://www.iom.int/)
+[![UNCTAD](https://img.shields.io/badge/UNCTAD-Member-0047AB.svg)](https://unctad.org/)
+[![ILO](https://img.shields.io/badge/ILO-Member-032B44.svg)](https://www.ilo.org/)
+[![FAO](https://img.shields.io/badge/FAO-Member-2ecc71.svg)](https://www.fao.org/)
+[![UNESCO](https://img.shields.io/badge/UNESCO-Member-6495ed.svg)](https://www.unesco.org/)
+[![WMO](https://img.shields.io/badge/WMO-Member-228B22.svg)](https://www.wmo.int/)
 
 <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://github.com/KOSASIH/pi-nexus-autonomous-banking-network/tree/main/blockchain_integration/pi_network/PiPay">PiPay</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://www.linkedin.com/in/kosasih-81b46b5a">KOSASIH</a> is licensed under <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">Creative Commons Attribution 4.0 International<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""></a></p>
 
