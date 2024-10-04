@@ -1,3 +1,22 @@
+[![United Nations](https://img.shields.io/badge/United%20Nations-Member-222222.svg)](https://www.un.org/)
+[![UNDP](https://img.shields.io/badge/UNDP-Member-34C759.svg)](https://www.undp.org/)
+[![UNICEF](https://img.shields.io/badge/UNICEF-Member-6495ed.svg)](https://www.unicef.org/)
+[![UNEP](https://img.shields.io/badge/UNEP-Member-2ecc71.svg)](https://www.unep.org/)
+[![UNHCR](https://img.shields.io/badge/UNHCR-Member-ff69b4.svg)](https://www.unhcr.org/)
+[![UNFPA](https://img.shields.io/badge/UNFPA-Member-ff9900.svg)](https://www.unfpa.org/)
+
+[![World Bank](https://img.shields.io/badge/World%20Bank-Partner-34C759.svg)](https://www.worldbank.org/)
+[![IFC](https://img.shields.io/badge/IFC-Partner-6495ed.svg)](https://www.ifc.org/)
+[![MIGA](https://img.shields.io/badge/MIGA-Partner-228B22.svg)](https://www.miga.org/)
+[![ICSID](https://img.shields.io/badge/ICSID-Partner-00698f.svg)](https://icsid.worldbank.org/)
+[![WBI](https://img.shields.io/badge/WBI-Partner-FFC107.svg)](https://www.worldbank.org/en/about/partnerships/world-bank-institute)
+
+[![International Monetary Fund](https://img.shields.io/badge/International%20Monetary%20Fund-Partner-00698f.svg)](https://www.imf.org/)
+[![Financial Action Task Force](https://img.shields.io/badge/Financial%20Action%20Task%20Force-Partner-008000.svg)](https://www.fatf-gafi.org/)
+[![International Organization of Securities Commissions](https://img.shields.io/badge/International%20Organization%20of%20Securities%20Commissions-Member-0047AB.svg)](https://www.iosco.org/)
+[![Bank for International Settlements](https://img.shields.io/badge/Bank%20for%20International%20Settlements-Partner-00698f.svg)](https://www.bis.org/)
+[![International Finance Corporation](https://img.shields.io/badge/International%20Finance%20Corporation-Member-032B44.svg)](https://www.ifc.org/)
+
 <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://github.com/KOSASIH/pi-nexus-autonomous-banking-network/tree/main/blockchain_integration/pi_network/PiPay">PiPay</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://www.linkedin.com/in/kosasih-81b46b5a">KOSASIH</a> is licensed under <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">Creative Commons Attribution 4.0 International<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""></a></p>
 
 PiPay - Payment Gateway for Pi Network
