@@ -59,6 +59,8 @@
 [![(ISC)² CISSP](https://img.shields.io/badge/(ISC)²%20CISSP-Certified-00698f.svg)](https://www.isc2.org/certifications/cissp)
 [![(ISC)² CCSP](https://img.shields.io/badge/(ISC)²%20CCSP-Certified-00698f.svg)](https://www.isc2.org/certifications/ccsp)
 [![OWASP CLTD](https://img.shields.io/badge/OWASP%20CLTD-Certified-228B22.svg)](https://www.owasp.org/index.php/Certified_Lambda_Testing_Domain_Expert)
+[![EC-Council CEH](https://img.shields.io/badge/EC--Council%20CEH-Certified-FFC107.svg)](https://www.eccouncil.org/programs/certified-ethical-hacker-ceh/)
+[![EC-Council CHFI](https://img.shields.io/badge/EC--Council%20CHFI-Certified-FFC107.svg)](https://www.eccouncil.org/programs/computer-hacking-forensic-investigator-chfi/)
 
 <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://github.com/KOSASIH/pi-nexus-autonomous-banking-network/tree/main/blockchain_integration/pi_network/PiPay">PiPay</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://www.linkedin.com/in/kosasih-81b46b5a">KOSASIH</a> is licensed under <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">Creative Commons Attribution 4.0 International<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""></a></p>
 
