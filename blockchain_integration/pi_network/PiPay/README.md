@@ -53,6 +53,12 @@
 [![CSA CCM](https://img.shields.io/badge/CSA%20CCM-Certified-6495ed.svg)](https://cloudsecurityalliance.org/ccm/)
 [![IAPP CIPP](https://img.shields.io/badge/IAPP%20CIPP-Certified-2ecc71.svg)](https://iapp.org/certify/cipp/)
 [![IAPP CIPM](https://img.shields.io/badge/IAPP%20CIPM-Certified-2ecc71.svg)](https://iapp.org/certify/cipm/)
+[![ACAMS CAMS](https://img.shields.io/badge/ACAMS%20CAMS-Certified-228B22.svg)](https://www.acams.org/certification/cams/)
+[![ICA CICA](https://img.shields.io/badge/ICA%20CICA-Certified-6495ed.svg)](https://www.int-comp.org/certification/cica/)
+[![GRMI CRM](https://img.shields.io/badge/GRMI%20CRM-Certified-2ecc71.svg)](https://www.grmi.org/certification/crm/)
+[![(ISC)² CISSP](https://img.shields.io/badge/(ISC)²%20CISSP-Certified-00698f.svg)](https://www.isc2.org/certifications/cissp)
+[![(ISC)² CCSP](https://img.shields.io/badge/(ISC)²%20CCSP-Certified-00698f.svg)](https://www.isc2.org/certifications/ccsp)
+[![OWASP CLTD](https://img.shields.io/badge/OWASP%20CLTD-Certified-228B22.svg)](https://www.owasp.org/index.php/Certified_Lambda_Testing_Domain_Expert)
 
 <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://github.com/KOSASIH/pi-nexus-autonomous-banking-network/tree/main/blockchain_integration/pi_network/PiPay">PiPay</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://www.linkedin.com/in/kosasih-81b46b5a">KOSASIH</a> is licensed under <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">Creative Commons Attribution 4.0 International<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""></a></p>
 
