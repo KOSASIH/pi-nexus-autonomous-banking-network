@@ -248,6 +248,42 @@
 [![Aeternity DApp Developer](https://img.shields.io/badge/Aeternity%20DApp%20Developer-AE--DAD--001-blue.svg)](https://aeternity.com/developers/dapps)
 [![Aeternity DeFi Developer](https://img.shields.io/badge/Aeternity%20DeFi%20Developer-AE--DFD--001-blue.svg)](https://aeternity.com/developers/defi)
 
+[![NEM Developer Certification](https://img.shields.io/badge/NEM%20Developer%20Certification-XEM--DEV--001-blue.svg)](https://nem.io/developers/certification)
+[![NEM Developer](https://img.shields.io/badge/NEM%20Developer-XEM--DEV--002-blue.svg)](https://nem.io/developers)
+[![NEM Smart Contract Developer](https://img.shields.io/badge/NEM%20Smart%20Contract%20Developer-XEM--SCD--001-blue.svg)](https://nem.io/developers/smart-contracts)
+[![NEM DApp Developer](https://img.shields.io/badge/NEM%20DApp%20Developer-XEM--DAD--001-blue.svg)](https://nem.io/developers/dapps)
+[![NEM DeFi Developer](https://img.shields.io/badge/NEM%20DeFi%20Developer-XEM--DFD--001-blue.svg)](https://nem.io/developers/defi)
+[![NEM Gaming Developer](https://img.shields.io/badge/NEM%20Gaming%20Developer-XEM--GD--001-blue.svg)](https://nem.io/developers/gaming)
+[![NEM NFT Developer](https://img.shields.io/badge/NEM%20NFT%20Developer-XEM--NFD--001-blue.svg)](https://nem.io/developers/nft)
+
+[![Stratis Developer Certification](https://img.shields.io/badge/Stratis%20Developer%20Certification-STRAT--DEV--001-blue.svg)](https://stratisplatform.com/developers/certification)
+[![Stratis Developer](https://img.shields.io/badge/Stratis%20Developer-STRAT--DEV--002-blue.svg)](https://stratisplatform.com/developers)
+[![Stratis Smart Contract Developer](https://img.shields.io/badge/Stratis%20Smart%20Contract%20Developer-STRAT--SCD--001-blue.svg)](https://stratisplatform.com/developers/smart-contracts)
+[![Stratis DApp Developer](https://img.shields.io/badge/Stratis%20DApp%20Developer-STRAT--DAD--001-blue.svg)](https://stratisplatform.com/developers/dapps)
+[![Stratis DeFi Developer](https://img.shields.io/badge/Stratis%20DeFi%20Developer-STRAT--DFD--001-blue.svg)](https://stratisplatform.com/developers/defi)
+
+[![Waves Developer Certification](https://img.shields.io/badge/Waves%20Developer%20Certification-WAVES--DEV--001-blue.svg)](https://waves.tech/developers/certification)
+[![Waves Developer](https://img.shields.io/badge/Waves%20Developer-WAVES--DEV--002-blue.svg)](https://waves.tech/developers)
+[![Waves Smart Contract Developer](https://img.shields.io/badge/Waves%20Smart%20Contract%20Developer-WAVES--SCD--001-blue.svg)](https://waves.tech/developers/smart-contracts)
+[![Waves DApp Developer](https://img.shields.io/badge/Waves%20DApp%20Developer-WAVES--DAD--001-blue.svg)](https://waves.tech/developers/dapps)
+[![Waves DeFi Developer](https://img.shields.io/badge/Waves%20DeFi%20Developer-WAVES--DFD--001-blue.svg)](https://waves.tech/developers/defi)
+[![Waves Gaming Developer](https://img.shields.io/badge/Waves%20Gaming%20Developer-WAVES--GD--001-blue.svg)](https://waves.tech/developers/gaming)
+[![Waves NFT Developer](https://img.shields.io/badge/Waves%20NFT%20Developer-WAVES--NFD--001-blue.svg)](https://waves.tech/developers/nft)
+
+[![Komodo Developer Certification](https://img.shields.io/badge/Komodo%20Developer%20Certification-KMD--DEV--001-blue.svg)](https://komodoplatform.com/developers/certification)
+[![Komodo Developer](https://img.shields.io/badge/Komodo%20Developer-KMD--DEV--002-blue.svg)](https://komodoplatform.com/developers)
+[![Komodo Smart Contract Developer](https://img.shields.io/badge/Komodo%20Smart%20Contract%20Developer-KMD--SCD--001-blue.svg)](https://komodoplatform.com/developers/smart-contracts)
+[![Komodo DApp Developer](https://img.shields.io/badge/Komodo%20DApp%20Developer-KMD--DAD--001-blue.svg)](https://komodoplatform.com/developers/dapps)
+[![Komodo DeFi Developer](https://img.shields.io/badge/Komodo%20DeFi%20Developer-KMD--DFD--001-blue.svg)](https://komodoplatform.com/developers/defi)
+
+[![ARK Developer Certification](https://img.shields.io/badge/ARK%20Developer%20Certification-ARK--DEV--001-blue.svg)](https://ark.io/developers/certification)
+[![ARK Developer](https://img.shields.io/badge/ARK%20Developer-ARK--DEV--002-blue.svg)](https://ark.io/developers)
+[![ARK Smart Contract Developer](https://img.shields.io/badge/ARK%20Smart%20Contract%20Developer-ARK--SCD--001-blue.svg)](https://ark.io/developers/smart-contracts)
+[![ARK DApp Developer](https://img.shields.io/badge/ARK%20DApp%20Developer-ARK--DAD--001-blue.svg)](https://ark.io/developers/dapps)
+[![ARK DeFi Developer](https://img.shields.io/badge/ARK%20DeFi%20Developer-ARK--DFD--001-blue.svg)](https://ark.io/developers/defi)
+
+
+
 <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://github.com/KOSASIH/pi-nexus-autonomous-banking-network">pi-nexus-autonomous-banking-network</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://www.linkedin.com/in/kosasih-81b46b5a">KOSASIH</a> is licensed under <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">Creative Commons Attribution 4.0 International<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""></a></p>
 
 # pi-nexus-autonomous-banking-network
