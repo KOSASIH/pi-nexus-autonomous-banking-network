@@ -11,7 +11,6 @@
 [![CodeQL](https://github.com/KOSASIH/pi-nexus-autonomous-banking-network/actions/workflows/codeql.yml/badge.svg)](https://github.com/KOSASIH/pi-nexus-autonomous-banking-network/actions/workflows/codeql.yml)
 [![Docker](https://github.com/KOSASIH/pi-nexus-autonomous-banking-network/actions/workflows/docker-publish.yml/badge.svg?branch=deepsource-transform-2450a09e)](https://github.com/KOSASIH/pi-nexus-autonomous-banking-network/actions/workflows/docker-publish.yml)
 [![StackHawk](https://github.com/KOSASIH/pi-nexus-autonomous-banking-network/actions/workflows/stackhawk.yml/badge.svg)](https://github.com/KOSASIH/pi-nexus-autonomous-banking-network/actions/workflows/stackhawk.yml)
-[![CodeFactor](https://www.codefactor.io/repository/github/kosasih/pi-nexus-autonomous-banking-network/badge/main)](https://www.codefactor.io/repository/github/kosasih/pi-nexus-autonomous-banking-network/overview/main)
 
 [![Pi Network](https://img.shields.io/badge/Pi%20Network-Pi%20Network-blue.svg)](https://minepi.com/)
 [![Raspberry Pi](https://img.shields.io/badge/Raspberry%20Pi-RPi-red.svg)](https://www.raspberrypi.com/)
