@@ -139,15 +139,60 @@
 [![OWASP CLTD](https://img.shields.io/badge/OWASP%20CLTD-Certified-228B22.svg)](https://www.owasp.org/index.php/Certified_Lambda_Testing_Domain_Expert)
 
 [![Ethereum Developer Certification](https://img.shields.io/badge/Ethereum%20Developer%20Certification-ETH--DEV--001-blue.svg)](https://ethereum.org/en/developers/certification/)
+[![Ethereum Smart Contract Developer](https://img.shields.io/badge/Ethereum%20Smart%20Contract%20Developer-ETH--SCD--001-blue.svg)](https://ethereum.org/en/developers/smart-contracts/)
+[![Ethereum DApp Developer](https://img.shields.io/badge/Ethereum%20DApp%20Developer-ETH--DAD--001-blue.svg)](https://ethereum.org/en/developers/dapps/)
+[![Ethereum Full Stack Developer](https://img.shields.io/badge/Ethereum%20Full%20Stack%20Developer-ETH--FSD--001-blue.svg)](https://ethereum.org/en/developers/full-stack)
+[![Ethereum Security Specialist](https://img.shields.io/badge/Ethereum%20Security%20Specialist-ETH--SS--001-blue.svg)](https://ethereum.org/en/developers/security)
+
 [![Hyperledger Certified Developer](https://img.shields.io/badge/Hyperledger%20Certified%20Developer-HLF--CD--001-blue.svg)](https://www.hyperledger.org/certification)
+[![Hyperledger Fabric Developer](https://img.shields.io/badge/Hyperledger%20Fabric%20Developer-HLF--FD--001-blue.svg)](https://www.hyperledger.org/projects/fabric)
+[![Hyperledger Sawtooth Developer](https://img.shields.io/badge/Hyperledger%20Sawtooth%20Developer-HLF--SD--001-blue.svg)](https://www.hyperledger.org/projects/sawtooth)
+[![Hyperledger Indy Developer](https://img.shields.io/badge/Hyperledger%20Indy%20Developer-HLF--ID--001-blue.svg)](https://www.hyperledger.org/projects/indy)
+[![Hyperledger Iroha Developer](https://img.shields.io/badge/Hyperledger%20Iroha%20Developer-HLF--IR--001-blue.svg)](https://www.hyperledger.org/projects/iroha)
+
 [![Bitcoin Developer Certification](https://img.shields.io/badge/Bitcoin%20Developer%20Certification-BTC--DEV--001-blue.svg)](https://bitcoin.org/en/developers/certification)
+[![Bitcoin Core Developer](https://img.shields.io/badge/Bitcoin%20Core%20Developer-BTC--CD--001-blue.svg)](https://bitcoin.org/en/developers/core)
+[![Bitcoin Lightning Network Developer](https://img.shields.io/badge/Bitcoin%20Lightning%20Network%20Developer-BTC--LND--001-blue.svg)](https://bitcoin.org/en/developers/lightning)
+[![Bitcoin Wallet Developer](https://img.shields.io/badge/Bitcoin%20Wallet%20Developer-BTC--WD--001-blue.svg)](https://bitcoin.org/en/developers/wallet)
+[![Bitcoin Full Node Developer](https://img.shields.io/badge/Bitcoin%20Full%20Node%20Developer-BTC--FND--001-blue.svg)](https://bitcoin.org/en/developers/full-node)
+
 [![Corda Certified Developer](https://img.shields.io/badge/Corda%20Certified%20Developer-CORDA--CD--001-blue.svg)](https://www.corda.net/certification)
+[![Corda Developer](https://img.shields.io/badge/Corda%20Developer-CORDA--DEV--001-blue.svg)](https://www.corda.net/developers)
+[![Corda Enterprise Developer](https://img.shields.io/badge/Corda%20Enterprise%20Developer-CORDA--ED--001-blue.svg)](https://www.corda.net/enterprise)
+[![Corda App Developer](https://img.shields.io/badge/Corda%20App%20Developer-CORDA--AD--001-blue.svg)](https://www.corda.net/developers/apps)
+[![Corda Security Specialist](https://img.shields.io/badge/Corda%20Security%20Specialist-CORDA--SS--001-blue.svg)](https://www.corda.net/developers/security)
+
 [![Polkadot Developer Certification](https://img.shields.io/badge/Polkadot%20Developer%20Certification-DOT--DEV--001-blue.svg)](https://polkadot.network/developers/certification)
+[![Polkadot Developer](https://img.shields.io/badge/Polkadot%20Developer-DOT--DEV--002-blue.svg)](https://polkadot.network/developers)
+[![Polkadot Substrate Developer](https://img.shields.io/badge/Polkadot%20Substrate%20Developer-DOT--SD--001-blue.svg)](https://polkadot.network/developers/substrate)
+[![Polkadot Parachain Developer](https://img.shields.io/badge/Polkadot%20Parachain%20Developer-DOT--PD--001-blue.svg)](https://polkadot.network/developers/parachains)
+[![Polkadot Relay Chain Developer](https://img.shields.io/badge/Polkadot%20Relay%20Chain%20Developer-DOT--RCD--001-blue.svg)](https://polkadot.network/developers/relay-chain)
+
 [![Cosmos Developer Certification](https://img.shields.io/badge/Cosmos%20Developer%20Certification-ATOM--DEV--001-blue.svg)](https://cosmos.network/developers/certification)
+[![Cosmos Developer](https://img.shields.io/badge/Cosmos%20Developer-ATOM--DEV--002-blue.svg)](https://cosmos.network/developers)
+[![Cosmos SDK Developer](https://img.shields.io/badge/Cosmos%20SDK%20Developer-ATOM--SDK--001-blue.svg)](https://cosmos.network/developers/sdk)
+[![Cosmos Tendermint Developer](https://img.shields.io/badge/Cosmos%20Tendermint%20Developer-ATOM--TD--001-blue.svg)](https://cosmos.network/developers/tendermint)
+[![Cosmos IBC Developer](https://img.shields.io/badge/Cosmos%20IBC%20Developer-ATOM--IBC--001-blue.svg)](https://cosmos.network/developers/ibc)
+
 [![Binance Smart Chain Developer Certification](https://img.shields.io/badge/Binance%20Smart%20Chain%20Developer%20Certification-BSC--DEV--001-blue.svg)](https://www.binance.com/en/smartchain/developers/certification)
-[![Solana Developer Certification](https://img.shields.io/badge/Solana%20Developer%20Certification-SOL--DEV--001-blue.svg)](https://solana.com/developers/certification)
+[![Binance Smart Chain Developer](https://img.shields.io/badge/Binance%20Smart%20Chain%20Developer-BSC--DEV--002-blue.svg)](https://www.binance.com/en/smartchain/developers)
+[![Binance Smart Chain DApp Developer](https://img.shields.io/badge/Binance%20Smart%20Chain%20DApp%20Developer-BSC--DAD--001-blue.svg)](https://www.binance.com/en/smartchain/developers/dapps)
+[![Binance Smart Chain DeFi Developer](https://img.shields.io/badge/Binance%20Smart%20Chain%20DeFi%20Developer-BSC--DFD--001-blue.svg)](https://www.binance.com/en/smartchain/developers/defi)
+[![Binance Smart Chain NFT Developer](https://img.shields.io/badge/Binance%20Smart%20Chain%20NFT%20Developer-BSC--NFD--001-blue.svg)](https://www.binance.com/en/smartchain/developers/nft)
+
+[![Solana Developer Certification](https://img.shields.io/badge/Solana%20Developer%20Certification-SOL--DEV--001-blue.svg)](https://spl_governance.crsp.spl_gov/)
+[![Solana Developer](https://img.shields.io/badge/Solana%20Developer-SOL--DEV--002-blue.svg)](https://spl_governance.crsp.spl_gov/)
+[![Solana Program Developer](https://img.shields.io/badge/Solana%20Program%20Developer-SOL--PD--001-blue.svg)](https://spl_governance.crsp.spl_gov/)
+[![Solana DApp Developer](https://img.shields.io/badge/Solana%20DApp%20Developer-SOL--DAD--001-blue.svg)](https://spl_governance.crsp.spl_gov/)
+[![Solana DeFi Developer](https://img.shields.io/badge/Solana%20DeFi%20Developer-SOL--DFD--001-blue.svg)](https://spl_governance.crsp.spl_gov/)
+[![Solana NFT Developer](https://img.shields.io/badge/Solana%20NFT%20Developer-SOL--NFD--001-blue.svg)](https://spl_governance.crsp.spl_gov/)
+[![Solana Gaming Developer](https://img.shields.io/badge/Solana%20Gaming%20Developer-SOL--GD--001-blue.svg)](https://spl_governance.crsp.spl_gov/)
+
 [![Cardano Developer Certification](https://img.shields.io/badge/Cardano%20Developer%20Certification-ADA--DEV--001-blue.svg)](https://cardano.org/developers/certification)
-[![Stellar Developer Certification](https://img.shields.io/badge/Stellar%20Developer%20Certification-XLM--DEV--001-blue.svg)](https://www.stellar.org/developers/certification)
+[![Cardano Developer](https://img.shields.io/badge/Cardano%20Developer-ADA--DEV--002-blue.svg)](https://cardano.org/developers)
+[![Cardano Smart Contract Developer](https://img.shields.io/badge/Cardano%20Smart%20Contract%20Developer-ADA--SCD--001-blue.svg)](https://cardano.org/developers/smart-contracts)
+[![Cardano DApp Developer](https://img.shields.io/badge/Cardano%20DApp%20Developer-ADA--DAD--001-blue.svg)](https://cardano.org/developers/dapps)
+[![Cardano DeFi Developer](https://img.shields.io/badge/Cardano%20DeFi%20Developer-ADA--DFD--001-blue.svg)](https://cardano.org/developers/defi)
 
 <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://github.com/KOSASIH/pi-nexus-autonomous-banking-network">pi-nexus-autonomous-banking-network</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://www.linkedin.com/in/kosasih-81b46b5a">KOSASIH</a> is licensed under <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">Creative Commons Attribution 4.0 International<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""></a></p>
 
