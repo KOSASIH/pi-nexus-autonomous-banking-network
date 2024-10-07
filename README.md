@@ -282,6 +282,27 @@
 [![ARK DApp Developer](https://img.shields.io/badge/ARK%20DApp%20Developer-ARK--DAD--001-blue.svg)](https://ark.io/developers/dapps)
 [![ARK DeFi Developer](https://img.shields.io/badge/ARK%20DeFi%20Developer-ARK--DFD--001-blue.svg)](https://ark.io/developers/defi)
 
+[![Lisk Developer Certification](https://img.shields.io/badge/Lisk%20Developer%20Certification-LSK--DEV--001-blue.svg)](https://lisk.io/developers/certification)
+[![Lisk Developer](https://img.shields.io/badge/Lisk%20Developer-LSK--DEV--002-blue.svg)](https://lisk.io/developers)
+[![Lisk Smart Contract Developer](https://img.shields.io/badge/Lisk%20Smart%20Contract%20Developer-LSK--SCD--001-blue.svg)](https://lisk.io/developers/smart-contracts)
+[![Lisk DApp Developer](https://img.shields.io/badge/Lisk%20DApp%20Developer-LSK--DAD--001-blue.svg)](https://lisk.io/developers/dapps)
+[![Lisk DeFi Developer](https://img.shields.io/badge/Lisk%20DeFi%20Developer-LSK--DFD--001-blue.svg)](https://lisk.io/developers/defi)
+[![Lisk Gaming Developer](https://img.shields.io/badge/Lisk%20Gaming%20Developer-LSK--GD--001-blue.svg)](https://lisk.io/developers/gaming)
+[![Lisk NFT Developer](https://img.shields.io/badge/Lisk%20NFT%20Developer-LSK--NFD--001-blue.svg)](https://lisk.io/developers/nft)
+
+[![Waltonchain Developer Certification](https://img.shields.io/badge/Waltonchain%20Developer%20Certification-WTC--DEV--001-blue.svg)](https://waltonchain.org/developers/certification)
+[![Waltonchain Developer](https://img.shields.io/badge/Waltonchain%20Developer-WTC--DEV--002-blue.svg)](https://waltonchain.org/developers)
+[![Waltonchain Smart Contract Developer](https://img.shields.io/badge/Waltonchain%20Smart%20Contract%20Developer-WTC--SCD--001-blue.svg)](https://waltonchain.org/developers/smart-contracts)
+[![Waltonchain DApp Developer](https://img.shields.io/badge/Waltonchain%20DApp%20Developer-WTC--DAD--001-blue.svg)](https://waltonchain.org/developers/dapps)
+[![Waltonchain DeFi Developer](https://img.shields.io/badge/Waltonchain%20DeFi%20Developer-WTC--DFD--001-blue.svg)](https://waltonchain.org/developers/defi)
+
+[![VeChain Developer Certification](https://img.shields.io/badge/VeChain%20Developer%20Certification-VET--DEV--001-blue.svg)](https://www.vechain.org/developers/certification)
+[![VeChain Developer](https://img.shields.io/badge/VeChain%20Developer-VET--DEV--002-blue.svg)](https://www.vechain.org/developers)
+[![VeChain Smart Contract Developer](https://img.shields.io/badge/VeChain%20Smart%20Contract%20Developer-VET--SCD--001-blue.svg)](https://www.vechain.org/developers/smart-contracts)
+[![VeChain DApp Developer](https://img.shields.io/badge/VeChain%20DApp%20Developer-VET--DAD--001-blue.svg)](https://www.vechain.org/developers/dapps)
+[![VeChain DeFi Developer](https://img.shields.io/badge/VeChain%20DeFi%20Developer-VET--DFD--001-blue.svg)](https://www.vechain.org/developers/defi)
+[![VeChain Gaming Developer](https://img.shields.io/badge/VeChain%20Gaming%20Developer-VET--GD--001-blue.svg)](https://www.vechain.org/developers/gaming)
+[![VeChain NFT Developer](https://img.shields.io/badge/VeChain%20NFT%20Developer-VET--NFD--001-blue.svg)](https://www.vechain.org/developers/nft)
 
 
 <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://github.com/KOSASIH/pi-nexus-autonomous-banking-network">pi-nexus-autonomous-banking-network</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://www.linkedin.com/in/kosasih-81b46b5a">KOSASIH</a> is licensed under <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">Creative Commons Attribution 4.0 International<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""></a></p>
