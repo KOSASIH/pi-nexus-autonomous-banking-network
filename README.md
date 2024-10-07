@@ -139,6 +139,16 @@
 [![EC-Council CHFI](https://img.shields.io/badge/EC--Council%20CHFI-Certified-FFC107.svg)](https://www.eccouncil.org/programs/computer-hacking-forensic-investigator-chfi/)
 [![OWASP CLTD](https://img.shields.io/badge/OWASP%20CLTD-Certified-228B22.svg)](https://www.owasp.org/index.php/Certified_Lambda_Testing_Domain_Expert)
 
+[![Ethereum Developer Certification](https://img.shields.io/badge/Ethereum%20Developer%20Certification-ETH--DEV--001-blue.svg)](https://ethereum.org/en/developers/certification/)
+[![Hyperledger Certified Developer](https://img.shields.io/badge/Hyperledger%20Certified%20Developer-HLF--CD--001-blue.svg)](https://www.hyperledger.org/certification)
+[![Bitcoin Developer Certification](https://img.shields.io/badge/Bitcoin%20Developer%20Certification-BTC--DEV--001-blue.svg)](https://bitcoin.org/en/developers/certification)
+[![Corda Certified Developer](https://img.shields.io/badge/Corda%20Certified%20Developer-CORDA--CD--001-blue.svg)](https://www.corda.net/certification)
+[![Polkadot Developer Certification](https://img.shields.io/badge/Polkadot%20Developer%20Certification-DOT--DEV--001-blue.svg)](https://polkadot.network/developers/certification)
+[![Cosmos Developer Certification](https://img.shields.io/badge/Cosmos%20Developer%20Certification-ATOM--DEV--001-blue.svg)](https://cosmos.network/developers/certification)
+[![Binance Smart Chain Developer Certification](https://img.shields.io/badge/Binance%20Smart%20Chain%20Developer%20Certification-BSC--DEV--001-blue.svg)](https://www.binance.com/en/smartchain/developers/certification)
+[![Solana Developer Certification](https://img.shields.io/badge/Solana%20Developer%20Certification-SOL--DEV--001-blue.svg)](https://solana.com/developers/certification)
+[![Cardano Developer Certification](https://img.shields.io/badge/Cardano%20Developer%20Certification-ADA--DEV--001-blue.svg)](https://cardano.org/developers/certification)
+[![Stellar Developer Certification](https://img.shields.io/badge/Stellar%20Developer%20Certification-XLM--DEV--001-blue.svg)](https://www.stellar.org/developers/certification)
 
 <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://github.com/KOSASIH/pi-nexus-autonomous-banking-network">pi-nexus-autonomous-banking-network</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://www.linkedin.com/in/kosasih-81b46b5a">KOSASIH</a> is licensed under <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">Creative Commons Attribution 4.0 International<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""></a></p>
 
