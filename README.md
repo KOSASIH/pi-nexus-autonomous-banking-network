@@ -228,6 +228,25 @@
 [![NEO DApp Developer](https://img.shields.io/badge/NEO%20DApp%20Developer-NEO--DAD--001-blue.svg)](https://neo.org/developers/dapps)
 [![NEO DeFi Developer](https://img.shields.io/badge/NEO%20DeFi%20Developer-NEO--DFD--001-blue.svg)](https://neo.org/developers/defi)
 
+[![Qtum Developer Certification](https://img.shields.io/badge/Qtum%20Developer%20Certification-QTUM--DEV--001-blue.svg)](https://qtum.org/developers/certification)
+[![Qtum Developer](https://img.shields.io/badge/Qtum%20Developer-QTUM--DEV--002-blue.svg)](https://qtum.org/developers)
+[![Qtum Smart Contract Developer](https://img.shields.io/badge/Qtum%20Smart%20Contract%20Developer-QTUM--SCD--001-blue.svg)](https://qtum.org/developers/smart-contracts)
+[![Qtum DApp Developer](https://img.shields.io/badge/Qtum%20DApp%20Developer-QTUM--DAD--001-blue.svg)](https://qtum.org/developers/dapps)
+[![Qtum DeFi Developer](https://img.shields.io/badge/Qtum%20DeFi%20Developer-QTUM--DFD--001-blue.svg)](https://qtum.org/developers/defi)
+[![Qtum Gaming Developer](https://img.shields.io/badge/Qtum%20Gaming%20Developer-QTUM--GD--001-blue.svg)](https://qtum.org/developers/gaming)
+[![Qtum NFT Developer](https://img.shields.io/badge/Qtum%20NFT%20Developer-QTUM--NFD--001-blue.svg)](https://qtum.org/developers/nft)
+
+[![Icon Developer Certification](https://img.shields.io/badge/Icon%20Developer%20Certification-ICX--DEV--001-blue.svg)](https://icon.foundation/developers/certification)
+[![Icon Developer](https://img.shields.io/badge/Icon%20Developer-ICX--DEV--002-blue.svg)](https://icon.foundation/developers)
+[![Icon Smart Contract Developer](https://img.shields.io/badge/Icon%20Smart%20Contract%20Developer-ICX--SCD--001-blue.svg)](https://icon.foundation/developers/smart-contracts)
+[![Icon DApp Developer](https://img.shields.io/badge/Icon%20DApp%20Developer-ICX--DAD--001-blue.svg)](https://icon.foundation/developers/dapps)
+[![Icon DeFi Developer](https://img.shields.io/badge/Icon%20DeFi%20Developer-ICX--DFD--001-blue.svg)](https://icon.foundation/developers/defi)
+
+[![Aeternity Developer Certification](https://img.shields.io/badge/Aeternity%20Developer%20Certification-AE--DEV--001-blue.svg)](https://aeternity.com/developers/certification)
+[![Aeternity Developer](https://img.shields.io/badge/Aeternity%20Developer-AE--DEV--002-blue.svg)](https://aeternity.com/developers)
+[![Aeternity Smart Contract Developer](https://img.shields.io/badge/Aeternity%20Smart%20Contract%20Developer-AE--SCD--001-blue.svg)](https://aeternity.com/developers/smart-contracts)
+[![Aeternity DApp Developer](https://img.shields.io/badge/Aeternity%20DApp%20Developer-AE--DAD--001-blue.svg)](https://aeternity.com/developers/dapps)
+[![Aeternity DeFi Developer](https://img.shields.io/badge/Aeternity%20DeFi%20Developer-AE--DFD--001-blue.svg)](https://aeternity.com/developers/defi)
 
 <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://github.com/KOSASIH/pi-nexus-autonomous-banking-network">pi-nexus-autonomous-banking-network</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://www.linkedin.com/in/kosasih-81b46b5a">KOSASIH</a> is licensed under <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">Creative Commons Attribution 4.0 International<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""></a></p>
 
