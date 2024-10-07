@@ -194,6 +194,41 @@
 [![Cardano DApp Developer](https://img.shields.io/badge/Cardano%20DApp%20Developer-ADA--DAD--001-blue.svg)](https://cardano.org/developers/dapps)
 [![Cardano DeFi Developer](https://img.shields.io/badge/Cardano%20DeFi%20Developer-ADA--DFD--001-blue.svg)](https://cardano.org/developers/defi)
 
+[![Stellar Developer Certification](https://img.shields.io/badge/Stellar%20Developer%20Certification-XLM--DEV--001-blue.svg)](https://www.stellar.org/developers/certification)
+[![Stellar Developer](https://img.shields.io/badge/Stellar%20Developer-XLM--DEV--002-blue.svg)](https://www.stellar.org/developers)
+[![Stellar Smart Contract Developer](https://img.shields.io/badge/Stellar%20Smart%20Contract%20Developer-XLM--SCD--001-blue.svg)](https://www.stellar.org/developers/smart-contracts)
+[![Stellar DApp Developer](https://img.shields.io/badge/Stellar%20DApp%20Developer-XLM--DAD--001-blue.svg)](https://www.stellar.org/developers/dapps)
+[![Stellar DeFi Developer](https://img.shields.io/badge/Stellar%20DeFi%20Developer-XLM--DFD--001-blue.svg)](https://www.stellar.org/developers/defi)
+[![Stellar NFT Developer](https://img.shields.io/badge/Stellar%20NFT%20Developer-XLM--NFD--001-blue.svg)](https://www.stellar.org/developers/nft)
+[![Stellar Gaming Developer](https://img.shields.io/badge/Stellar%20Gaming%20Developer-XLM--GD--001-blue.svg)](https://www.stellar.org/developers/gaming)
+
+[![Tezos Developer Certification](https://img.shields.io/badge/Tezos%20Developer%20Certification-XTZ--DEV--001-blue.svg)](https://tezos.org/developers/certification)
+[![Tezos Developer](https://img.shields.io/badge/Tezos%20Developer-XTZ--DEV--002-blue.svg)](https://tezos.org/developers)
+[![Tezos Smart Contract Developer](https://img.shields.io/badge/Tezos%20Smart%20Contract%20Developer-XTZ--SCD--001-blue.svg)](https://tezos.org/developers/smart-contracts)
+[![Tezos DApp Developer](https://img.shields.io/badge/Tezos%20DApp%20Developer-XTZ--DAD--001-blue.svg)](https://tezos.org/developers/dapps)
+[![Tezos DeFi Developer](https://img.shields.io/badge/Tezos%20DeFi%20Developer-XTZ--DFD--001-blue.svg)](https://tezos.org/developers/defi)
+
+[![EOS Developer Certification](https://img.shields.io/badge/EOS%20Developer%20Certification-EOS--DEV--001-blue.svg)](https://eos.io/developers/certification)
+[![EOS Developer](https://img.shields.io/badge/EOS%20Developer-EOS--DEV--002-blue.svg)](https://eos.io/developers)
+[![EOS Smart Contract Developer](https://img.shields.io/badge/EOS%20Smart%20Contract%20Developer-EOS--SCD--001-blue.svg)](https://eos.io/developers/smart-contracts)
+[![EOS DApp Developer](https://img.shields.io/badge/EOS%20DApp%20Developer-EOS--DAD--001-blue.svg)](https://eos.io/developers/dapps)
+[![EOS DeFi Developer](https://img.shields.io/badge/EOS%20DeFi%20Developer-EOS--DFD--001-blue.svg)](https://eos.io/developers/defi)
+[![EOS Gaming Developer](https://img.shields.io/badge/EOS%20Gaming%20Developer-EOS--GD--001-blue.svg)](https://eos.io/developers/gaming)
+[![EOS NFT Developer](https://img.shields.io/badge/EOS%20NFT%20Developer-EOS--NFD--001-blue.svg)](https://eos.io/developers/nft)
+
+[![TRON Developer Certification](https://img.shields.io/badge/TRON%20Developer%20Certification-TRX--DEV--001-blue.svg)](https://tron.network/developers/certification)
+[![TRON Developer](https://img.shields.io/badge/TRON%20Developer-TRX--DEV--002-blue.svg)](https://tron.network/developers)
+[![TRON Smart Contract Developer](https://img.shields.io/badge/TRON%20Smart%20Contract%20Developer-TRX--SCD--001-blue.svg)](https://tron.network/developers/smart-contracts)
+[![TRON DApp Developer](https://img.shields.io/badge/TRON%20DApp%20Developer-TRX--DAD--001-blue.svg)](https://tron.network/developers/dapps)
+[![TRON DeFi Developer](https://img.shields.io/badge/TRON%20DeFi%20Developer-TRX--DFD--001-blue.svg)](https://tron.network/developers/defi)
+
+[![NEO Developer Certification](https://img.shields.io/badge/NEO%20Developer%20Certification-NEO--DEV--001-blue.svg)](https://neo.org/developers/certification)
+[![NEO Developer](https://img.shields.io/badge/NEO%20Developer-NEO--DEV--002-blue.svg)](https://neo.org/developers)
+[![NEO Smart Contract Developer](https://img.shields.io/badge/NEO%20Smart%20Contract%20Developer-NEO--SCD--001-blue.svg)](https://neo.org/developers/smart-contracts)
+[![NEO DApp Developer](https://img.shields.io/badge/NEO%20DApp%20Developer-NEO--DAD--001-blue.svg)](https://neo.org/developers/dapps)
+[![NEO DeFi Developer](https://img.shields.io/badge/NEO%20DeFi%20Developer-NEO--DFD--001-blue.svg)](https://neo.org/developers/defi)
+
+
 <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://github.com/KOSASIH/pi-nexus-autonomous-banking-network">pi-nexus-autonomous-banking-network</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://www.linkedin.com/in/kosasih-81b46b5a">KOSASIH</a> is licensed under <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">Creative Commons Attribution 4.0 International<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""></a></p>
 
 # pi-nexus-autonomous-banking-network
