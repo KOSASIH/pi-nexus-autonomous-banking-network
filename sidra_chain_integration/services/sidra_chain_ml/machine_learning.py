@@ -1,6 +1,7 @@
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 
+
 class MachineLearning:
     def __init__(self):
         self.model = RandomForestClassifier()
