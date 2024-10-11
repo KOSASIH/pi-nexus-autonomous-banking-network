@@ -305,6 +305,14 @@
 [![VeChain NFT Developer](https://img.shields.io/badge/VeChain%20NFT%20Developer-VET--NFD--001-blue.svg)](https://www.vechain.org/developers/nft)
 
 [![FBI](https://img.shields.io/badge/FBI-Federal%20Bureau%20of%20Investigation-00698f.svg)](https://www.fbi.gov/)
+[![DGSE](https://img.shields.io/badge/DGSE-General%20Directorate%20for%20External%20Security-003366.svg)](https://www.dgse.gouv.fr/)
+[![DRM](https://img.shields.io/badge/DRM-Defense%20Intelligence%20Agency-003366.svg)](https://www.defense.gouv.fr/drm)
+[![BND](https://img.shields.io/badge/BND-Federal%20Intelligence%20Service-003366.svg)](https://www.bnd.de/)
+[![BfV](https://img.shields.io/badge/BfV-Federal%20Office%20for%20the%20Protection%20of%20the%20Constitution-003366.svg)](https://www.bfv.de/)
+[![FSB](https://img.shields.io/badge/FSB-Federal%20Security%20Service-003366.svg)](https://www.fsb.ru/)
+[![SVR](https://img.shields.io/badge/SVR-Foreign%20Intelligence%20Service-003366.svg)](https://www.svr.gov.ru/)
+[![MSS](https://img.shields.io/badge/MSS-Ministry%20of%20State%20Security-003366.svg)](https://www.mss.gov.cn/)
+[![PLA](https://img.shields.io/badge/PLA-People's%20Liberation%20Army-003366.svg)](https://www.pladaily.com.cn/)
 
 <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://github.com/KOSASIH/pi-nexus-autonomous-banking-network">pi-nexus-autonomous-banking-network</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://www.linkedin.com/in/kosasih-81b46b5a">KOSASIH</a> is licensed under <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">Creative Commons Attribution 4.0 International<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""></a></p>
 
