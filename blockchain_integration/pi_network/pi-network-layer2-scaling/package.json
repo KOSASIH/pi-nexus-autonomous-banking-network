@@ -1,0 +1,41 @@
+{
+  "name": "pi-network-layer2-scaling",
+  "version": "1.0.0",
+  "description": "A project exploring Layer 2 scaling solutions for the Pi Network.",
+  "main": "index.js",
+  "scripts": {
+    "test": "hardhat test",
+    "deploy": "hardhat run scripts/deploy.js --network mainnet",
+    "example-rollup": "node rollup_example.js",
+    "example-state-channel": "node state_channel_example.js",
+    "lint": "eslint .",
+    "format": "prettier --write '**/*.{js,json,md}'"
+  },
+  "keywords": [
+    "pi-network",
+    "layer2",
+    "scaling",
+    "blockchain",
+    "smart-contracts"
+  ],
+  "author": "KOSASIH",
+  "license": "Apache 2.0",
+  "dependencies": {
+    "ethers": "^5.6.0",
+    "hardhat": "^2.8.0"
+  },
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "mocha": "^9.1.3",
+    "eslint": "^7.32.0",
+    "prettier": "^2.5.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/pi-network-layer2-scaling.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/pi-network-layer2-scaling/issues"
+  },
+  "homepage": "https://github.com/yourusername/pi-network-layer2-scaling#readme"
+}
