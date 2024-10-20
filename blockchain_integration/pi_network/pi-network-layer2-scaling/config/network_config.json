@@ -1,0 +1,28 @@
+{
+    "networks": {
+        "mainnet": {
+            "name": "Ethereum Mainnet",
+            "rpcUrl": "https://mainnet.infura.io/v3/YOUR_INFURA_PROJECT_ID",
+            "chainId": 1,
+            "explorerUrl": "https://etherscan.io",
+            "rollupAddress": "0xYourRollupContractAddress",
+            "rollupManagerAddress": "0xYourRollupManagerContractAddress"
+        },
+        "rinkeby": {
+            "name": "Rinkeby Testnet",
+            "rpcUrl": "https://rinkeby.infura.io/v3/YOUR_INFURA_PROJECT_ID",
+            "chainId": 4,
+            "explorerUrl": "https://rinkeby.etherscan.io",
+            "rollupAddress": "0xYourRinkebyRollupContractAddress",
+            "rollupManagerAddress": "0xYourRinkebyRollupManagerContractAddress"
+        },
+        "kovan": {
+            "name": "Kovan Testnet",
+            "rpcUrl": "https://kovan.infura.io/v3/YOUR_INFURA_PROJECT_ID",
+            "chainId": 42,
+            "explorerUrl": "https://kovan.etherscan.io",
+            "rollupAddress": "0xYourKovanRollupContractAddress",
+            "rollupManagerAddress": "0xYourKovanRollupManagerContractAddress"
+        }
+    }
+}
