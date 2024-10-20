@@ -1,0 +1,23 @@
+{
+    "rollup": {
+        "batchSize": 100,
+        "gasLimit": 8000000,
+        "maxTransactionCount": 500,
+        "minConfirmation": 3,
+        "rollupFee": {
+            "amount": "0.01",
+            "currency": "ETH"
+        },
+        "validator": {
+            "reward": {
+                "amount": "0.001",
+                "currency": "ETH"
+            },
+            "penalty": {
+                "amount": "0.005",
+                "currency": "ETH"
+            }
+        },
+        "stateRootUpdateInterval": 300 // in seconds
+    }
+}
