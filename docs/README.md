@@ -2,21 +2,7 @@
 
 ## Architecture Diagram
 
-```mermaid
-1. graph LR
-2.  A[User] -->|requests|> B[API Gateway]
-3.  B -->|authenticates|> C[Authentication Service]
-4.  C -->|hashes password|> D[Password Hashing Service]
-5.  D -->|stores hash|> E[Database]
-6.  E -->|stores|> F[Data]
-7.  B -->|validates input|> G[Input Validation Service]
-8.  G -->|authorizes|> H[Authorization Service]
-9.  H -->|accesses|> E[Database]
-10.  E -->|stores|> F[Data]
-11.  I[CI/CD Pipeline] -->|deploys|> B[API Gateway]
-12.  I -->|runs tests|> J[Test Suite]
-13.  J -->|reports results|> I[CI/CD Pipeline]
-```
+![Pi Nexus Diagram](pi-nexus.jpeg) 
 
 This updated diagram includes the new components:
 
