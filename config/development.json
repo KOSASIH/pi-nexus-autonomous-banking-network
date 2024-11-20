@@ -1,0 +1,30 @@
+{
+    "app": {
+        "name": "MyApp",
+        "version": "1.0.0",
+        "debug": true
+    },
+    "database": {
+        "host": "localhost",
+        "port": 5432,
+        "user": "dev_user",
+        "password": "dev_password",
+        "database": "myapp_dev"
+    },
+    "api": {
+        "base_url": "http://localhost:8000/api",
+        "timeout": 30
+    },
+    "logging": {
+        "level": "DEBUG",
+        "file": "logs/development.log"
+    },
+    "two_factor_auth": {
+        "issuer": "MyApp",
+        "secret_length": 16
+    },
+    "features": {
+        "enable_feature_x": true,
+        "enable_feature_y": false
+    }
+}
