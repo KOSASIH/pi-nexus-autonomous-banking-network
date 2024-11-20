@@ -1,30 +1,39 @@
 {
     "app": {
-        "name": "MyApp",
+        "name": "Pi Nexus Autonomous Banking Network",
         "version": "1.0.0",
-        "debug": true
+        "debug": true,
+        "secret_key": "your_secret_key_here"
+    },
+    "server": {
+        "host": "127.0.0.1",
+        "port": 5000
     },
     "database": {
-        "host": "localhost",
-        "port": 5432,
-        "user": "dev_user",
-        "password": "dev_password",
-        "database": "myapp_dev"
+        "type": "sqlite",
+        "name": "pinnexus.db",
+        "uri": "sqlite:///pinnexus.db",
+        "echo": true
     },
-    "api": {
-        "base_url": "http://localhost:8000/api",
-        "timeout": 30
+    "jwt": {
+        "secret_key": "your_jwt_secret_key_here",
+        "algorithm": "HS256",
+        "access_token_expires": 3600
     },
     "logging": {
         "level": "DEBUG",
         "file": "logs/development.log"
     },
-    "two_factor_auth": {
-        "issuer": "MyApp",
-        "secret_length": 16
+    "blockchain": {
+        "difficulty": 2,
+        "mining_reward": 50
     },
-    "features": {
-        "enable_feature_x": true,
-        "enable_feature_y": false
+    "identity_management": {
+        "verification_method": "KYC",
+        "biometric_enabled": false
+    },
+    "notifications": {
+        "enabled": true,
+        "service_url": "http://localhost:8000/notifications"
     }
 }
