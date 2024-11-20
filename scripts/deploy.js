@@ -1,38 +1,31 @@
-const { deployments, ethers } = require("hardhat");
+// deploy.js
+const fs = require('fs');
+const path = require('path');
+const childProcess = require('child_process');
 
-const { deploy } = deployments;
+/**
+ * Deploy the application to a production environment.
+ * @param {string} env - The environment to deploy to (e.g., prod, staging).
+ */
+async function deploy(env) {
+  try {
+    // Create a new directory for the deployment
+    const deployDir = path.join(__dirname, `../deployments/${env}`);
+    fs.mkdirSync(deployDir, { recursive: true });
 
-async function deployContracts() {
-  await deployments.fixture(["contracts"]);
+    // Copy the necessary files to the deployment directory
+    const filesToCopy = ['index.html', 'styles.css', 'script.js'];
+    filesToCopy.forEach((file) => {
+      fs.copyFileSync(path.join(__dirname, `../${file}`), path.join(deployDir, file));
+    });
 
-  const [deployer] = await ethers.getSigners();
+    // Run the deployment script
+    childProcess.execSync(`npm run deploy:${env}`, { cwd: deployDir });
 
-  console.log("Deploying contracts with the account:", deployer.address);
-
-  console.log("Account balance:", (await deployer.getBalance()).toString());
-
-  const MyContract = await ethers.getContractFactory("MyContract");
-
-  console.log("Deploying MyContract...");
-
-  const myContract = await MyContract.deploy();
-
-  console.log("Deployed MyContract at:", myContract.address);
-
-  await myContract.deployed();
-
-  console.log("MyContract deployed.");
-
-  const myContractArtifact = await deployments.artifacts.get("MyContract");
-
-  console.log("MyContract ABI:", myContractArtifact.abi);
-
-  console.log("MyContract bytecode:", myContractArtifact.bytecode);
+    console.log(`Deployment to ${env} environment successful!`);
+  } catch (error) {
+    console.error(`Error deploying to ${env} environment:`, error);
+  }
 }
 
-deployContracts()
-  .then(() => process.exit(0))
-  .catch((error) => {
-    console.error(error);
-    process.exit(1);
-  });
+module.exports = deploy;
