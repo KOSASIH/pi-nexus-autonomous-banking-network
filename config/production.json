@@ -1,0 +1,53 @@
+{
+    "app": {
+        "name": "Pi Nexus Autonomous Banking Network",
+        "version": "1.0.0",
+        "debug": false,
+        "secret_key": "your_production_secret_key_here"
+    },
+    "server": {
+        "host": "0.0.0.0",
+        "port": 80
+    },
+    "database": {
+        "type": "postgresql",
+        "uri": "postgresql://username:password@localhost:5432/pinnexus",
+        "pool_size": 20,
+        "max_overflow": 10,
+        "echo": false
+    },
+    "jwt": {
+        "secret_key": "your_production_jwt_secret_key_here",
+        "algorithm": "HS256",
+        "access_token_expires": 3600
+    },
+    "logging": {
+        "level": "INFO",
+        "file": "logs/production.log",
+        "max_size": "10MB",
+        "backup_count": 5
+    },
+    "blockchain": {
+        "difficulty": 4,
+        "mining_reward": 50
+    },
+    "identity_management": {
+        "verification_method": "KYC",
+        "biometric_enabled": true
+    },
+    "notifications": {
+        "enabled": true,
+        "service_url": "https://api.yournotificationservice.com/notifications"
+    },
+    "security": {
+        "cors": {
+            "origins": ["https://yourdomain.com"],
+            "methods": ["GET", "POST", "PUT", "DELETE"],
+            "allow_headers": ["Content-Type", "Authorization"]
+        },
+        "rate_limiting": {
+            "enabled": true,
+            "limit": "100 per hour"
+        }
+    }
+}
