@@ -1,8 +1,9 @@
 import boto3
 
+
 class EC2:
     def __init__(self, region):
-        self.ec2 = boto3.resource('ec2', region_name=region)
+        self.ec2 = boto3.resource("ec2", region_name=region)
 
     def create_instance(self, image_id, instance_type, key_name):
         instance = self.ec2.create_instances(
@@ -10,7 +11,7 @@ class EC2:
             MinCount=1,
             MaxCount=1,
             InstanceType=instance_type,
-            KeyName=key_name
+            KeyName=key_name,
         )
         instance.wait_until_running()
         instance.reload()
