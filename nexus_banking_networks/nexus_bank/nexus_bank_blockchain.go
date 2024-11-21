@@ -5,6 +5,7 @@ import (
 	"crypto/rand"
 	"encoding/hex"
 	"fmt"
+
 	"github.com/btcsuite/btcd/btcec"
 	"github.com/btcsuite/btcd/chaincfg"
 	"github.com/btcsuite/btcd/txscript"
@@ -33,11 +34,11 @@ func (b *Blockchain) CreateTransaction(from, to string, amount int64) (*wire.Msg
 
 	// Sign the transaction
 	privKey, err := ecdsa.GenerateKey(btcec.S256(), rand.Reader)
-	if err!= nil {
+	if err != nil {
 		return nil, err
 	}
 	sig, err := txscript.SignTxOutput(b.chaincfg, tx, 0, privKey, txscript.SigHashAll, true)
-	if err!= nil {
+	if err != nil {
 		return nil, err
 	}
 	tx.TxIn[0].SignatureScript = sig
@@ -48,7 +49,7 @@ func (b *Blockchain) CreateTransaction(from, to string, amount int64) (*wire.Msg
 func main() {
 	b := NewBlockchain()
 	tx, err := b.CreateTransaction("1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa", "1B1tP1eP5QGefi2DMPTfTL5SLmv7DivfNb", 1000000)
-	if err!= nil {
+	if err != nil {
 		fmt.Println(err)
 		return
 	}
