@@ -2,6 +2,7 @@
 import ARCore
 from sidra_chain_api import SidraChainAPI
 
+
 class SidraChainAugmentedRealityInterface:
     def __init__(self, sidra_chain_api: SidraChainAPI):
         self.sidra_chain_api = sidra_chain_api
