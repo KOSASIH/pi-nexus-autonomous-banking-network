@@ -1,5 +1,6 @@
 import uport
 
+
 class IdentityManager:
     def __init__(self, uport_api_key):
         self.uport = uport.Uport(api_key=uport_api_key)
