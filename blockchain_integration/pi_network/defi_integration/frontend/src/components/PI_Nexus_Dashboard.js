@@ -1,12 +1,12 @@
-import React, { useState, useEffect, useContext, useRef } from 'react';
-import Web3 from 'web3';
-import { useWeb3React } from '@web3-react/core';
-import { Contract } from 'web3/eth/contract';
-import PI_Nexus_ABI from '../../../contracts/PI_Nexus_Autonomous_Banking_Network_v3.json';
-import { ThemeContext } from '../../contexts/ThemeContext';
-import { WalletContext } from '../../contexts/WalletContext';
-import { NotificationContext } from '../../contexts/NotificationContext';
-import { makeStyles } from '@material-ui/core/styles';
+import React, { useState, useEffect, useContext, useRef } from "react";
+import Web3 from "web3";
+import { useWeb3React } from "@web3-react/core";
+import { Contract } from "web3/eth/contract";
+import PI_Nexus_ABI from "../../../contracts/PI_Nexus_Autonomous_Banking_Network_v3.json";
+import { ThemeContext } from "../../contexts/ThemeContext";
+import { WalletContext } from "../../contexts/WalletContext";
+import { NotificationContext } from "../../contexts/NotificationContext";
+import { makeStyles } from "@material-ui/core/styles";
 import {
   Container,
   Typography,
@@ -26,14 +26,14 @@ import {
   Chip,
   Tooltip,
   Zoom,
-} from '@material-ui/core';
-import { LineChart, Line, CartesianGrid, XAxis, YAxis } from 'recharts';
-import { useMediaQuery } from 'react-responsive';
-import { useInterval } from 'react-use';
-import { debounce } from 'lodash';
-import { toast } from 'react-toastify';
+} from "@material-ui/core";
+import { LineChart, Line, CartesianGrid, XAxis, YAxis } from "recharts";
+import { useMediaQuery } from "react-responsive";
+import { useInterval } from "react-use";
+import { debounce } from "lodash";
+import { toast } from "react-toastify";
 
-const PI_NEXUS_CONTRACT_ADDRESS = '0x...'; // Replace with actual contract address
+const PI_NEXUS_CONTRACT_ADDRESS = "0x..."; // Replace with actual contract address
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -46,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
     minWidth: 650,
   },
   progress: {
-    width: '100%',
+    width: "100%",
   },
 }));
 
@@ -62,7 +62,7 @@ const PI_Nexus_Dashboard = () => {
   const [liquidity, setLiquidity] = useState(0);
   const [borrowingRequests, setBorrowingRequests] = useState([]);
   const [chartData, setChartData] = useState([]);
-  const [isMobile] = useMediaQuery({ query: '(max-width: 768px)' });
+  const [isMobile] = useMediaQuery({ query: "(max-width: 768px)" });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const chartRef = useRef(null);
@@ -73,7 +73,7 @@ const PI_Nexus_Dashboard = () => {
       const contract = new Contract(
         PI_NEXUS_CONTRACT_ADDRESS,
         PI_Nexus_ABI,
-        web3.currentProvider
+        web3.currentProvider,
       );
       setPiNexusContract(contract);
     }
@@ -81,34 +81,55 @@ const PI_Nexus_Dashboard = () => {
 
   useEffect(() => {
     if (piNexusContract) {
-      piNexusContract.methods.getGovernanceProposals().call().then(proposals => {
-        setGovernanceProposals(proposals);
-      });
-      piNexusContract.methods.getRewards().call().then(rewards => {
-        setRewards(rewards);
-      });
-      piNexusContract.methods.getLiquidity().call().then(liquidity => {
-        setLiquidity(liquidity);
-      });
-      piNexusContract.methods.getBorrowingRequests().call().then(requests => {
-        setBorrowingRequests(requests);
-      });
-      piNexusContract.methods.getChartData().call().then(data => {
-        setChartData(data);
-      });
+      piNexusContract.methods
+        .getGovernanceProposals()
+        .call()
+        .then((proposals) => {
+          setGovernanceProposals(proposals);
+        });
+      piNexusContract.methods
+        .getRewards()
+        .call()
+        .then((rewards) => {
+          setRewards(rewards);
+        });
+      piNexusContract.methods
+        .getLiquidity()
+        .call()
+        .then((liquidity) => {
+          setLiquidity(liquidity);
+        });
+      piNexusContract.methods
+        .getBorrowingRequests()
+        .call()
+        .then((requests) => {
+          setBorrowingRequests(requests);
+        });
+      piNexusContract.methods
+        .getChartData()
+        .call()
+        .then((data) => {
+          setChartData(data);
+        });
     }
   }, [piNexusContract]);
 
-  const handleAddProposal = async (title, description, target, value, duration) => {
+  const handleAddProposal = async (
+    title,
+    description,
+    target,
+    value,
+    duration,
+  ) => {
     setLoading(true);
     try {
       const response = await piNexusContract.methods
         .addProposal(title, description, target, value, duration)
         .send({ from: account });
-      notify('success', 'Proposal added successfully!');
+      notify("success", "Proposal added successfully!");
       console.log(response);
     } catch (error) {
-      notify('error', 'Error adding proposal!');
+      notify("error", "Error adding proposal!");
       console.error(error);
     }
     setLoading(false);
@@ -120,10 +141,10 @@ const PI_Nexus_Dashboard = () => {
       const response = await piNexusContract.methods
         .vote(proposalId, support)
         .send({ from: account });
-      notify('success', 'Vote recorded successfully!');
+      notify("success", "Vote recorded successfully!");
       console.log(response);
     } catch (error) {
-      notify('error', 'Error voting on proposal!');
+      notify("error", "Error voting on proposal!");
       console.error(error);
     }
     setLoading(false);
@@ -135,10 +156,10 @@ const PI_Nexus_Dashboard = () => {
       const response = await piNexusContract.methods
         .queue(proposalId)
         .send({ from: account });
-      notify('success', 'Proposal queued successfully!');
+      notify("success", "Proposal queued successfully!");
       console.log(response);
     } catch (error) {
-      notify('error', 'Error queuing proposal!');
+      notify("error", "Error queuing proposal!");
       console.error(error);
     }
     setLoading(false);
@@ -150,10 +171,10 @@ const PI_Nexus_Dashboard = () => {
       const response = await piNexusContract.methods
         .execute(proposalId)
         .send({ from: account });
-      notify('success', 'Proposal executed successfully!');
+      notify("success", "Proposal executed successfully!");
       console.log(response);
     } catch (error) {
-      notify('error', 'Error executing proposal!');
+      notify("error", "Error executing proposal!");
       console.error(error);
     }
     setLoading(false);
@@ -165,10 +186,10 @@ const PI_Nexus_Dashboard = () => {
       const response = await piNexusContract.methods
         .stake(amount)
         .send({ from: account });
-      notify('success', 'Stake recorded successfully!');
+      notify("success", "Stake recorded successfully!");
       console.log(response);
     } catch (error) {
-      notify('error', 'Error staking tokens!');
+      notify("error", "Error staking tokens!");
       console.error(error);
     }
     setLoading(false);
@@ -180,10 +201,10 @@ const PI_Nexus_Dashboard = () => {
       const response = await piNexusContract.methods
         .withdraw(amount)
         .send({ from: account });
-      notify('success', 'Withdrawal recorded successfully!');
+      notify("success", "Withdrawal recorded successfully!");
       console.log(response);
     } catch (error) {
-      notify('error', 'Error withdrawing tokens!');
+      notify("error", "Error withdrawing tokens!");
       console.error(error);
     }
     setLoading(false);
@@ -195,10 +216,10 @@ const PI_Nexus_Dashboard = () => {
       const response = await piNexusContract.methods
         .claimRewards()
         .send({ from: account });
-      notify('success', 'Rewards claimed successfully!');
+      notify("success", "Rewards claimed successfully!");
       console.log(response);
     } catch (error) {
-      notify('error', 'Error claiming rewards!');
+      notify("error", "Error claiming rewards!");
       console.error(error);
     }
     setLoading(false);
@@ -210,13 +231,14 @@ const PI_Nexus_Dashboard = () => {
       const response = await piNexusContract.methods
         .borrow(amount, duration)
         .send({ from: account });
-      notify('success', 'Borrow request recorded successfully!');
+      notify("success", "Borrow request recorded successfully!");
       console.log(response);
     } catch (error) {
-      notify('error', 'Error making borrow request!');
+      notify("error", "Error making borrow request!");
       console.error(error);
     }
-    setLoading(false);};
+    setLoading(false);
+  };
 
   const handleApproveBorrow = async (borrowId) => {
     setLoading(true);
@@ -224,10 +246,10 @@ const PI_Nexus_Dashboard = () => {
       const response = await piNexusContract.methods
         .approveBorrow(borrowId)
         .send({ from: account });
-      notify('success', 'Borrow request approved successfully!');
+      notify("success", "Borrow request approved successfully!");
       console.log(response);
     } catch (error) {
-      notify('error', 'Error approving borrow request!');
+      notify("error", "Error approving borrow request!");
       console.error(error);
     }
     setLoading(false);
@@ -239,10 +261,10 @@ const PI_Nexus_Dashboard = () => {
       const response = await piNexusContract.methods
         .repay(borrowId, amount)
         .send({ from: account });
-      notify('success', 'Repayment recorded successfully!');
+      notify("success", "Repayment recorded successfully!");
       console.log(response);
     } catch (error) {
-      notify('error', 'Error making repayment!');
+      notify("error", "Error making repayment!");
       console.error(error);
     }
     setLoading(false);
@@ -254,10 +276,10 @@ const PI_Nexus_Dashboard = () => {
       const response = await piNexusContract.methods
         .liquidate(borrowId)
         .send({ from: account });
-      notify('success', 'Liquidation recorded successfully!');
+      notify("success", "Liquidation recorded successfully!");
       console.log(response);
     } catch (error) {
-      notify('error', 'Error liquidating borrow request!');
+      notify("error", "Error liquidating borrow request!");
       console.error(error);
     }
     setLoading(false);
@@ -265,9 +287,12 @@ const PI_Nexus_Dashboard = () => {
 
   useInterval(() => {
     if (piNexusContract) {
-      piNexusContract.methods.getChartData().call().then(data => {
-        setChartData(data);
-      });
+      piNexusContract.methods
+        .getChartData()
+        .call()
+        .then((data) => {
+          setChartData(data);
+        });
     }
   }, 10000);
 
@@ -292,7 +317,8 @@ const PI_Nexus_Dashboard = () => {
                 Governance
               </Typography>
               <Typography variant="body1" component="p">
-                Add a new proposal, vote on existing proposals, and manage the queue.
+                Add a new proposal, vote on existing proposals, and manage the
+                queue.
               </Typography>
             </CardContent>
             <CardActions>
@@ -344,7 +370,7 @@ const PI_Nexus_Dashboard = () => {
               </Button>
             </CardActions>
           </Card>
-</Grid>
+        </Grid>
         <Grid item xs={12} md={6} lg={4}>
           <Card className={classes.card}>
             <CardContent>
