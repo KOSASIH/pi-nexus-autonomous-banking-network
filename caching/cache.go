@@ -39,7 +39,7 @@ func (c *Cache) Set(key string, val interface{}, expiry time.Duration) {
 	c.Mutex.Lock()
 	defer c.Mutex.Unlock()
 	if len(c.Data) >= c.Capacity {
-		for k, _ := range c.Data {
+		for k := range c.Data {
 			delete(c.Data, k)
 			delete(c.Expiry, k)
 			break
