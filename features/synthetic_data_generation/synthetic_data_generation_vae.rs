@@ -8,6 +8,8 @@ struct SyntheticDataGenerationVAE {
 impl SyntheticDataGenerationVAE {
     fn new() -> Self {
         // Implement synthetic data generation using VAEs here
-        Self { vae: VariationalAutoencoder::new() }
+        Self {
+            vae: VariationalAutoencoder::new(),
+        }
     }
 }
