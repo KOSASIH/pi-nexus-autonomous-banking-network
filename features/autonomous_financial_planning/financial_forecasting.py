@@ -1,8 +1,9 @@
 # File name: financial_forecasting.py
 import torch
 import torch.nn as nn
-import torch_geometric.nn as pyg_nn
 import torch_geometric.data as pyg_data
+import torch_geometric.nn as pyg_nn
+
 
 class FinancialForecastingModel(nn.Module):
     def __init__(self, num_features, num_classes):
@@ -19,6 +20,7 @@ class FinancialForecastingModel(nn.Module):
         x = torch.relu(self.fc1(x))
         x = self.fc2(x)
         return x
+
 
 model = FinancialForecastingModel(num_features=10, num_classes=1)
 data = pyg_data.Data(x=torch.randn(100, 10), edge_index=torch.tensor([[0, 1], [1, 2]]))
