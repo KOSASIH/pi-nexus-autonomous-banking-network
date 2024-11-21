@@ -1,6 +1,8 @@
 # monitoring_and_logging/log_collector.py
 import logging
+
 import requests
+
 
 class LogCollector:
     def __init__(self, config):
