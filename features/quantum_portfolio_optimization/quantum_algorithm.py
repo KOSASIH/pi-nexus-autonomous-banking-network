@@ -1,21 +1,23 @@
 # quantum_algorithm.py
 import numpy as np
+from cvxpy import Minimize, Problem, Variable
 from qiskit import QuantumCircuit, execute
+
 
 def quantum_portfolio_optimization(portfolio_matrix, risk_tolerance):
     # Define the quantum circuit
     qc = QuantumCircuit(5, 5)
     qc.h(range(5))
     qc.barrier()
-    qc.cry(np.pi/4, 0, 1)
-    qc.cry(np.pi/4, 1, 2)
-    qc.cry(np.pi/4, 2, 3)
-    qc.cry(np.pi/4, 3, 4)
+    qc.cry(np.pi / 4, 0, 1)
+    qc.cry(np.pi / 4, 1, 2)
+    qc.cry(np.pi / 4, 2, 3)
+    qc.cry(np.pi / 4, 3, 4)
     qc.barrier()
     qc.measure(range(5), range(5))
 
     # Execute the quantum circuit
-    job = execute(qc, backend='ibmq_qasm_simulator', shots=1024)
+    job = execute(qc, backend="ibmq_qasm_simulator", shots=1024)
     result = job.result()
     counts = result.get_counts(qc)
 
@@ -27,9 +29,9 @@ def quantum_portfolio_optimization(portfolio_matrix, risk_tolerance):
 
     return optimal_portfolio
 
+
 # portfolio_optimizer.py
-import numpy as np
-from cvxpy import Variable, Minimize, Problem
+
 
 def portfolio_optimizer(portfolio_matrix, risk_tolerance):
     # Define the optimization problem
