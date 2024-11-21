@@ -1,14 +1,14 @@
-const { expect } = require('chai');
-const { deployContract } = require('@truffle/hdwallet-provider');
+const { expect } = require("chai");
+const { deployContract } = require("@truffle/hdwallet-provider");
 
-describe('PiNexusIdentityManager', () => {
+describe("PiNexusIdentityManager", () => {
   let contract;
 
   beforeEach(async () => {
-    contract = await deployContract('PiNexusIdentityManager');
+    contract = await deployContract("PiNexusIdentityManager");
   });
 
-  it('should have a valid owner', async () => {
+  it("should have a valid owner", async () => {
     const owner = await contract.owner();
     expect(owner).to.not.be.null;
   });
