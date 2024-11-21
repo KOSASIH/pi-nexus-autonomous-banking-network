@@ -1,6 +1,7 @@
 # code_security/security_engine.py
 import ast
 
+
 class SecurityEngine:
     def __init__(self):
         self.security_rules = SecurityRules()
