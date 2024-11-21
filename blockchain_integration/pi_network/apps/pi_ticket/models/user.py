@@ -1,9 +1,11 @@
 from django.db import models
 
+
 class User(models.Model):
     """
     User model
     """
+
     user_id = models.AutoField(primary_key=True)
     username = models.CharField(max_length=50, unique=True)
     email = models.EmailField(unique=True)
@@ -18,4 +20,4 @@ class User(models.Model):
         return self.username
 
     class Meta:
-        ordering = ['username']
+        ordering = ["username"]
