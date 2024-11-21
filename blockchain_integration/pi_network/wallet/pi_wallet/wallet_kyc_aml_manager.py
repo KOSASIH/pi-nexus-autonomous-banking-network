@@ -1,6 +1,7 @@
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 
+
 class KYCAMLManager:
     def __init__(self, customer_data):
         self.customer_data = customer_data
@@ -30,7 +31,8 @@ class KYCAMLManager:
         # TO DO: implement KYC checks using customer information
         pass
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     customer_data = pd.read_csv("customer_data.csv")
     kyc_aml_manager = KYCAMLManager(customer_data)
 
