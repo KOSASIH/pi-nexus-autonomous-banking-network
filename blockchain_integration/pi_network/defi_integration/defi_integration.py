@@ -4,8 +4,9 @@ import json
 import logging
 from typing import Dict, List
 
-import web3
 import defipy
+import web3
+
 
 class DeFiIntegration:
     def __init__(self, web3_provider_url: str, defi_api_key: str):
@@ -22,13 +23,17 @@ class DeFiIntegration:
     def get_borrowing_rates(self, asset: str) -> Dict[str, float]:
         # Get the borrowing rates for a given asset
         borrowing_rates = self.defi_api.get_borrowing_rates(asset)
-        self.logger.info(f"Retrieved borrowing rates for asset {asset}: {borrowing_rates}")
+        self.logger.info(
+            f"Retrieved borrowing rates for asset {asset}: {borrowing_rates}"
+        )
         return borrowing_rates
 
     def get_yield_farming_opportunities(self) -> List[Dict]:
         # Get the yield farming opportunities
         yield_farming_opportunities = self.defi_api.get_yield_farming_opportunities()
-        self.logger.info(f"Retrieved yield farming opportunities: {yield_farming_opportunities}")
+        self.logger.info(
+            f"Retrieved yield farming opportunities: {yield_farming_opportunities}"
+        )
         return yield_farming_opportunities
 
     def lend_asset(self, asset: str, amount: float) -> None:
@@ -48,6 +53,7 @@ class DeFiIntegration:
         yield_farm_tx = self.defi_api.yield_farm(opportunity)
         self.web3.eth.sendTransaction(yield_farm_tx)
         self.logger.info(f"Yield farmed opportunity {opportunity}")
+
 
 if __name__ == "__main__":
     config = Config()
