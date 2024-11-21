@@ -7,14 +7,18 @@ from sidra_chain_api import SidraChainAPI
 
 app = dash.Dash(__name__)
 
-app.layout = html.Div([
-    html.H1('Sidra Chain Dashboard'),
-    dcc.Graph(id='chain-data-graph'),
-    dcc.Interval(id='interval-component', interval=1000)
-])
+app.layout = html.Div(
+    [
+        html.H1("Sidra Chain Dashboard"),
+        dcc.Graph(id="chain-data-graph"),
+        dcc.Interval(id="interval-component", interval=1000),
+    ]
+)
 
-@app.callback(Output('chain-data-graph', 'figure'),
-              [Input('interval-component', 'n_intervals')])
+
+@app.callback(
+    Output("chain-data-graph", "figure"), [Input("interval-component", "n_intervals")]
+)
 def update_graph(n):
     # Retrieve chain data from the Sidra Chain API
     sidra_chain_api = SidraChainAPI()
@@ -26,5 +30,6 @@ def update_graph(n):
     fig = go.Figure(data=[go.Scatter(x=predictions.index, y=predictions.values)])
     return fig
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     app.run_server()
