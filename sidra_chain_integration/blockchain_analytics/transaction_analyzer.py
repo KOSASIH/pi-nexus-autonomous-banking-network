@@ -1,6 +1,7 @@
 import pandas as pd
 from sidra_chain_sdk import SidraChainSDK
 
+
 class TransactionAnalyzer:
     def __init__(self, network, api_key):
         self.sdk = SidraChainSDK(network, api_key)
