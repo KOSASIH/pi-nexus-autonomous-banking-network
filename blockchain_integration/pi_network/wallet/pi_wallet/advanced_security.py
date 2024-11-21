@@ -2,12 +2,14 @@ import hashlib
 import hmac
 import secrets
 import time
-from flask import Flask, request, jsonify
+
+from flask import Flask, jsonify, request
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///security.db"
 db = SQLAlchemy(app)
+
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -23,7 +25,9 @@ class User(db.Model):
         self.password = hashlib.sha256(password.encode()).hexdigest()
 
     def check_password(self, password):
-        return hmac.compare_digest(self.password, hashlib.sha256(password.encode()).hexdigest())
+        return hmac.compare_digest(
+            self.password, hashlib.sha256(password.encode()).hexdigest()
+        )
 
     def generate_two_factor_secret(self):
         self.two_factor_secret = secrets.token_urlsafe(16)
@@ -36,6 +40,7 @@ class User(db.Model):
 
     def check_multi_factor_code(self, code):
         return hmac.compare_digest(self.multi_factor_secret, code)
+
 
 @app.route("/login", methods=["POST"])
 def login():
@@ -66,6 +71,7 @@ def login():
         return jsonify({"message": "Login successful"}), 200
     else:
         return jsonify({"error": "Invalid username or password"}), 401
+
 
 if __name__ == "__main__":
     app.run(debug=True)
