@@ -2,6 +2,7 @@
 import pandas as pd
 from sidra_chain_api import SidraChainAPI
 
+
 class SidraChainDataProcessor:
     def __init__(self, sidra_chain_api: SidraChainAPI):
         self.sidra_chain_api = sidra_chain_api
@@ -20,6 +21,7 @@ class SidraChainDataProcessor:
     def train_model(self, df: pd.DataFrame):
         # Train a machine learning model using the processed chain data
         from sklearn.ensemble import RandomForestRegressor
+
         model = RandomForestRegressor(n_estimators=100, random_state=42)
-        model.fit(df.drop('target', axis=1), df['target'])
+        model.fit(df.drop("target", axis=1), df["target"])
         return model
