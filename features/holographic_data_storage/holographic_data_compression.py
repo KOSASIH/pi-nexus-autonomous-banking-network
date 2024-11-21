@@ -2,6 +2,7 @@
 import numpy as np
 from sklearn.ensemble import RandomForestClassifier
 
+
 class HolographicDataCompression:
     def __init__(self):
         self.model = RandomForestClassifier()
