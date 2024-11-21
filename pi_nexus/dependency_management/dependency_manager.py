@@ -1,6 +1,7 @@
 # dependency_management/dependency_manager.py
 import subprocess
 
+
 class DependencyManager:
     def __init__(self):
         self.dependencies = []
