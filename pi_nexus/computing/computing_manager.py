@@ -1,6 +1,8 @@
-import os
 import json
+import os
+
 import web3
+
 
 class ComputingManager:
     def __init__(self, provider_url):
@@ -12,15 +14,21 @@ class ComputingManager:
         with open(computing_contract_path) as f:
             computing_contract_code = f.read()
 
-        computing_contract = self.web3.eth.contract(abi=computing_contract_code['abi'], bytecode=computing_contract_code['bin'])
-        tx_hash = computing_contract.constructor().transact({'from': self.web3.eth.defaultAccount, 'gas': 1000000})
+        computing_contract = self.web3.eth.contract(
+            abi=computing_contract_code["abi"], bytecode=computing_contract_code["bin"]
+        )
+        tx_hash = computing_contract.constructor().transact(
+            {"from": self.web3.eth.defaultAccount, "gas": 1000000}
+        )
         tx_receipt = self.web3.eth.waitForTransactionReceipt(tx_hash)
-        computing_address = tx_receipt['contractAddress']
+        computing_address = tx_receipt["contractAddress"]
 
         return computing_address
 
     def call_computing_function(self, computing_address, function_name, *args):
-        computing_contract = self.web3.eth.contract(address=computing_address, abi=self.get_computing_contract_abi())
+        computing_contract = self.web3.eth.contract(
+            address=computing_address, abi=self.get_computing_contract_abi()
+        )
         result = computing_contract.functions[function_name](*args).call()
 
         return result
@@ -30,7 +38,9 @@ class ComputingManager:
         pass
 
     def submit_job(self, computing_address, name, input):
-        tx_hash = computing_contract.functions.submitJob(name, input).transact({'from': self.web3.eth.defaultAccount, 'gas': 1000000})
+        tx_hash = computing_contract.functions.submitJob(name, input).transact(
+            {"from": self.web3.eth.defaultAccount, "gas": 1000000}
+        )
         tx_receipt = self.web3.eth.waitForTransactionReceipt(tx_hash)
 
         return tx_receipt
@@ -41,7 +51,9 @@ class ComputingManager:
         return job
 
     def complete_job(self, computing_address, owner, job_id, output):
-        tx_hash = computing_contract.functions.completeJob(owner, job_id, output).transact({'from': self.web3.eth.defaultAccount, 'gas': 1000000})
+        tx_hash = computing_contract.functions.completeJob(
+            owner, job_id, output
+        ).transact({"from": self.web3.eth.defaultAccount, "gas": 1000000})
         tx_receipt = self.web3.eth.waitForTransactionReceipt(tx_hash)
 
         return tx_receipt
