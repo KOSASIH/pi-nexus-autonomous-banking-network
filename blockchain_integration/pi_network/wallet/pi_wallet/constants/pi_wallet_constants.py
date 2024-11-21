@@ -1,1 +1,1 @@
-WALLET_PASSWORD = 'your_wallet_password'
+WALLET_PASSWORD = "your_wallet_password"
