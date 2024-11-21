@@ -1,5 +1,6 @@
 import logging
 
+
 def get_logger(name):
     """
     Returns a logger object with the given name.
@@ -12,11 +13,13 @@ def get_logger(name):
     console_handler.setLevel(logging.DEBUG)
 
     # Create a file handler
-    file_handler = logging.FileHandler('app.log')
+    file_handler = logging.FileHandler("app.log")
     file_handler.setLevel(logging.INFO)
 
     # Create a formatter
-    formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+    formatter = logging.Formatter(
+        "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+    )
 
     # Add the formatter to the handlers
     console_handler.setFormatter(formatter)
