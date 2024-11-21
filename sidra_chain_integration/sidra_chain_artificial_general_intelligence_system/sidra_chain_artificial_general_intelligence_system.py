@@ -2,6 +2,7 @@
 import agi
 from sidra_chain_api import SidraChainAPI
 
+
 class SidraChainArtificialGeneralIntelligenceSystem:
     def __init__(self, sidra_chain_api: SidraChainAPI):
         self.sidra_chain_api = sidra_chain_api
@@ -9,9 +10,9 @@ class SidraChainArtificialGeneralIntelligenceSystem:
     def design_agi_system(self, agi_system_config: dict):
         # Design an artificial general intelligence system using the AGI library
         agi_system = agi.AGISystem()
-        agi_system.add_module(agi.Module('natural_language_processing'))
-        agi_system.add_module(agi.Module('computer_vision'))
-        #...
+        agi_system.add_module(agi.Module("natural_language_processing"))
+        agi_system.add_module(agi.Module("computer_vision"))
+        # ...
         return agi_system
 
     def train_agi_system(self, agi_system: agi.AGISystem):
