@@ -1,0 +1,45 @@
+# DeFi Protocol
+
+This directory contains the implementation of a lending protocol and a yield farming contract for decentralized finance (DeFi) applications.
+
+## Directory Structure
+
+- `lending_protocol.sol`: Smart contract for managing lending and borrowing.
+- `yield_farming.sol`: Smart contract for yield farming.
+- `README.md`: Documentation for the DeFi protocol.
+
+## Lending Protocol (`lending_protocol.sol`)
+
+The Lending Protocol allows users to request loans and repay them. It tracks active loans and calculates the total repayment amount based on the interest rate.
+
+### Functions
+
+- `requestLoan(uint256 _amount, uint256 _interestRate, uint256 _duration)`: Allows users to request a loan.
+- `repayLoan()`: Allows users to repay their active loan.
+- `getLoanDetails(address _borrower)`: Retrieves details of a specific loan.
+
+### Events
+
+- `LoanRequested(address indexed borrower, uint256 amount, uint256 interestRate, uint256 duration)`: Emitted when a loan is requested.
+- `LoanRepaid(address indexed borrower, uint256 amount)`: Emitted when a loan is repaid.
+
+## Yield Farming (`yield_farming.sol`)
+
+The Yield Farming contract allows users to stake tokens and earn rewards over time. It tracks the amount staked by each user and calculates rewards based on the staking amount.
+
+### Functions
+
+- `stake(uint256 _amount)`: Allows users to stake tokens.
+- `unstake(uint256 _amount)`: Allows users to unstake tokens.
+- `claimRewards()`: Allows users to claim their earned rewards.
+- `getStakerDetails(address _staker)`: Retrieves details of a specific staker.
+
+### Events
+
+- `Staked(address indexed user, uint256 amount)`: Emitted when tokens are staked.
+- `Unstaked(address indexed user, uint256 amount)`: Emitted when tokens are unstaked.
+- `RewardClaimed(address indexed user, uint256 amount)`: Emitted when rewards are claimed.
+
+## License
+
+This project is licensed under the MIT License.
