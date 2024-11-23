@@ -1,0 +1,95 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.19;
+
+contract PiNexusBanking {
+
+    struct Transaction {
+        uint256 id;
+        address sender;
+        string receiverBank; // SWIFT or Stellar address
+        string receiverAccount;
+        uint256 amount;
+        string currency;
+        string protocol; // SWIFT or STELLAR
+        string status; // pending, completed, failed
+    }
+
+    uint256 public transactionCount;
+    mapping(uint256 => Transaction) public transactions;
+    mapping(address => uint256) public balances;
+
+    event TransactionCreated(
+        uint256 id,
+        address indexed sender,
+        string receiverBank,
+        string receiverAccount,
+        uint256 amount,
+        string currency,
+        string protocol,
+        string status
+    );
+
+    event TransactionUpdated(
+        uint256 id,
+        string status
+    );
+
+    modifier onlyValidProtocol(string memory protocol) {
+        require(
+            keccak256(abi.encodePacked(protocol)) == keccak256(abi.encodePacked("SWIFT")) ||
+            keccak256(abi.encodePacked(protocol)) == keccak256(abi.encodePacked("STELLAR")),
+            "Invalid protocol"
+        );
+        _;
+    }
+
+    constructor() {
+        transactionCount = 0;
+    }
+
+    function deposit() public payable {
+        balances[msg.sender] += msg.value;
+    }
+
+    function createTransaction(
+        string memory receiverBank,
+        string memory receiverAccount,
+        uint256 amount,
+        string memory currency,
+        string memory protocol
+    ) public onlyValidProtocol(protocol) {
+        require(balances[msg.sender] >= amount, "Insufficient balance");
+        balances[msg.sender] -= amount;
+
+        transactions[transactionCount] = Transaction(
+            transactionCount,
+            msg.sender,
+            receiverBank,
+            receiverAccount,
+            amount,
+            currency,
+            protocol,
+            "pending"
+        );
+
+        emit TransactionCreated(
+            transactionCount,
+            msg.sender,
+            receiverBank,
+            receiverAccount,
+            amount,
+            currency,
+            protocol,
+            "pending"
+        );
+
+        transactionCount++;
+    }
+
+    function updateTransactionStatus(uint256 id, string memory status) public {
+        require(id < transactionCount, "Transaction does not exist");
+        transactions[id].status = status;
+
+        emit TransactionUpdated(id, status);
+    }
+}
