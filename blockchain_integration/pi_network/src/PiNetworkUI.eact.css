@@ -23,14 +23,14 @@ label {
   margin-bottom: 10px;
 }
 
-input[type="text"],
-input[type="number"] {
+input[type='text'],
+input[type='number'] {
   border: 1px solid #ccc;
   padding: 10px;
   width: 100%;
 }
 
-button[type="submit"] {
+button[type='submit'] {
   background-color: #333;
   border: none;
   color: #fff;
@@ -38,7 +38,7 @@ button[type="submit"] {
   margin-top: 10px;
 }
 
-button[type="submit"]:hover {
+button[type='submit']:hover {
   cursor: pointer;
 }
 
