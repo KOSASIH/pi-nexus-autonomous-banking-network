@@ -1,0 +1,41 @@
+import requests
+
+def send_swift_message(sender_bank, sender_account, receiver_bank, receiver_account, amount, currency):
+    swift_message = f"""
+    <Document xmlns="urn:iso:std:iso:20022:tech:xsd:pacs.008.001.02">
+        <FIToFICstmrCdtTrf>
+            <GrpHdr>
+                <MsgId>{sender_bank}-{receiver_bank}-001</MsgId>
+                <CreDtTm>2024-11-23T10:00:00</CreDtTm>
+                <NbOfTxs>1</NbOfTxs>
+                <SttlmInf>
+                    <SttlmMtd>CLRG</SttlmMtd>
+                </SttlmInf>
+            </GrpHdr>
+            <CdtTrfTxInf>
+                <PmtId>
+                    <InstrId>{sender_account}-TX001</InstrId>
+                    <EndToEndId>{receiver_account}-TX001</EndToEndId>
+                </PmtId>
+                <Amt>
+                    <InstdAmt Ccy="{currency}">{amount}</InstdAmt>
+                </Amt>
+                <CdtrAgt>
+                    <FinInstnId>
+                        <BIC>{receiver_bank}</BIC>
+                    </FinInstnId>
+                </CdtrAgt>
+                <Cdtr>
+                    <Nm>{receiver_account}</Nm>
+                </Cdtr>
+            </CdtTrfTxInf>
+        </FIToFICstmrCdtTrf>
+    </Document>
+    """
+    # Send the SWIFT message to the receiver bank's endpoint
+    response = requests.post(
+        url="https://api.swiftbank.com/send",
+        headers={"Content-Type": "application/xml"},
+        data=swift_message,
+    )
+    return response.status_code, response.text
