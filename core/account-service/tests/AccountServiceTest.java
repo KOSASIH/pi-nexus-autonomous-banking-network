@@ -13,7 +13,7 @@ import org.testcontainers.junit.jupiter.Testcontainers;
 @SpringBootTest
 @Testcontainers
 @ExtendWith(MockitoExtension.class)
-public class AccountServiceTest {
+class AccountServiceTest {
     @Container
     private static final PostgreSQLContainer postgreSQLContainer = new PostgreSQLContainer("postgres:11.1");
 
@@ -29,7 +29,7 @@ public class AccountServiceTest {
     }
 
     @Test
-    public void testGetAccount() {
+    void testGetAccount() {
         // Given
         Long accountId = 1L;
         Account account = new Account(accountId, "John Doe", "john.doe@example.com");
@@ -43,7 +43,7 @@ public class AccountServiceTest {
     }
 
     @Test
-    public void testCreateAccount() {
+    void testCreateAccount() {
         // Given
         Account account = new Account("John Doe", "john.doe@example.com");
 

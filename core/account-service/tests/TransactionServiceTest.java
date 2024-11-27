@@ -13,7 +13,7 @@ import org.testcontainers.junit.jupiter.Testcontainers;
 @SpringBootTest
 @Testcontainers
 @ExtendWith(MockitoExtension.class)
-public class TransactionServiceTest {
+class TransactionServiceTest {
     @Container
     private static final KafkaContainer kafkaContainer = new KafkaContainer("confluentinc/cp-kafka:5.5.1");
 
@@ -29,7 +29,7 @@ public class TransactionServiceTest {
     }
 
     @Test
-    public void testCreateTransaction() {
+    void testCreateTransaction() {
         // Given
         Transaction transaction = new Transaction("John Doe", 100.0);
 
@@ -41,7 +41,7 @@ public class TransactionServiceTest {
     }
 
     @Test
-    public void testUpdateTransaction() {
+    void testUpdateTransaction() {
         // Given
         Transaction transaction = new Transaction("John Doe", 100.0);
 
