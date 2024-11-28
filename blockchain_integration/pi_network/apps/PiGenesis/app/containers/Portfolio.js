@@ -73,7 +73,7 @@ const Portfolio = () => {
           ))}
         </TableBody>
       </Table>
-    </div>
+</div>
   );
 };
 
