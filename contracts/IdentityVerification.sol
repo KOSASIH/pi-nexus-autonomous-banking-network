@@ -1,79 +1,87 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-contract IdentityVerification {
+import "@openzeppelin/contracts/access/AccessControl.sol";
+import "@openzeppelin/contracts/utils/Counters.sol";
+import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
+
+contract IdentityVerification is AccessControl, ERC721URIStorage {
+    using Counters for Counters.Counter;
+    Counters.Counter private _identityIdCounter;
+
+    bytes32 public constant ADMIN_ROLE = keccak256("ADMIN_ROLE");
+    bytes32 public constant VERIFIER_ROLE = keccak256("VERIFIER_ROLE");
+
     struct Identity {
-        string name;
-        string email;
-        string phoneNumber;
+        uint256 id;
+        address owner;
+        string ipfsHash; // IPFS hash for off-chain data
         bool isVerified;
-        address verifier;
+        uint256 verificationTimestamp;
     }
 
-    mapping(address => Identity) private identities;
-    mapping(address => bool) private verifiers;
+    mapping(uint256 => Identity) private _identities;
+    mapping(address => uint256) private _ownerToIdentityId;
 
-    event IdentityRegistered(address indexed user, string name, string email, string phoneNumber);
-    event IdentityVerified(address indexed user, address indexed verifier);
-    event IdentityUpdated(address indexed user, string name, string email, string phoneNumber);
+    event IdentityCreated(uint256 indexed identityId, address indexed owner, string ipfsHash);
+    event IdentityVerified(uint256 indexed identityId, address indexed verifier);
+    event IdentityRevoked(uint256 indexed identityId, address indexed admin);
 
-    modifier onlyVerifier() {
-        require(verifiers[msg.sender], "Not an authorized verifier");
-        _;
+    constructor() ERC721("IdentityToken", "IDT") {
+        _setupRole(DEFAULT_ADMIN_ROLE, msg.sender);
+        _setupRole(VERIFIER_ROLE, msg.sender);
     }
 
-    modifier identityExists(address user) {
-        require(bytes(identities[user].name).length > 0, "Identity does not exist");
-        _;
-    }
+    // Function to create a new identity
+    function createIdentity(string memory ipfsHash) public {
+        require(_ownerToIdentityId[msg.sender] == 0, "Identity already exists for this address");
 
-    // Function to register a new identity
-    function registerIdentity(string memory _name, string memory _email, string memory _phoneNumber) public {
-        require(bytes(identities[msg.sender].name).length == 0, "Identity already registered");
+        uint256 identityId = _identityIdCounter.current();
+        _identities[identityId] = Identity(identityId, msg.sender, ipfsHash, false, 0);
+        _ownerToIdentityId[msg.sender] = identityId;
 
-        identities[msg.sender] = Identity({
-            name: _name,
-            email: _email,
-            phoneNumber: _phoneNumber,
-            isVerified: false,
-            verifier: address(0)
-        });
+        _mint(msg.sender, identityId);
+        _setTokenURI(identityId, ipfsHash);
 
-        emit IdentityRegistered(msg.sender, _name, _email, _phoneNumber);
+        emit IdentityCreated(identityId, msg.sender, ipfsHash);
+        _identityIdCounter.increment();
     }
 
     // Function to verify an identity
-    function verifyIdentity(address _user) public onlyVerifier identityExists(_user) {
-        identities[_user].isVerified = true;
-        identities[_user].verifier = msg.sender;
+    function verifyIdentity(uint256 identityId) public onlyRole(VERIFIER_ROLE) {
+        require(_exists(identityId), "Identity does not exist");
+        require(!_identities[identityId].isVerified, "Identity already verified");
 
-        emit IdentityVerified(_user, msg.sender);
+        _identities[identityId].isVerified = true;
+        _identities[identityId].verificationTimestamp = block.timestamp;
+
+        emit IdentityVerified(identityId, msg.sender);
     }
 
-    // Function to update identity information
-    function updateIdentity(string memory _name, string memory _email, string memory _phoneNumber) public identityExists(msg.sender) {
-        identities[msg.sender].name = _name;
-        identities[msg.sender].email = _email;
-        identities[msg.sender].phoneNumber = _phoneNumber;
+    // Function to revoke an identity
+    function revokeIdentity(uint256 identityId) public onlyRole(ADMIN_ROLE) {
+        require(_exists(identityId), "Identity does not exist");
+        require(_identities[identityId].isVerified, "Identity is not verified");
 
-        emit IdentityUpdated(msg.sender, _name, _email, _phoneNumber);
+        _identities[identityId].isVerified = false;
+
+        emit IdentityRevoked(identityId, msg.sender);
     }
 
-    // Function to get identity information
-    function getIdentity(address _user) public view returns (string memory, string memory, string memory, bool, address) {
-        Identity memory identity = identities[_user];
-        return (identity.name, identity.email, identity.phoneNumber, identity.isVerified, identity.verifier);
+    // Function to get identity details
+    function getIdentityDetails(uint256 identityId) public view returns (Identity memory) {
+        require(_exists(identityId), "Identity does not exist");
+        return _identities[identityId];
     }
 
-    // Function to add a verifier
-    function addVerifier(address _verifier) public {
-        require(!verifiers[_verifier], "Already a verifier");
-        verifiers[_verifier] = true;
+    // Function to get the identity ID of an address
+    function getIdentityIdByOwner(address owner) public view returns (uint256) {
+        return _ownerToIdentityId[owner];
     }
 
-    // Function to remove a verifier
-    function removeVerifier(address _verifier) public {
-        require(verifiers[_verifier], "Not a verifier");
-        verifiers[_verifier] = false;
+    // Override supportsInterface to include AccessControl
+    function supportsInterface(bytes4 interfaceId) public view virtual override(ERC721, AccessControl) returns (bool) {
+        return super.supportsInterface(interfaceId);
     }
 }
