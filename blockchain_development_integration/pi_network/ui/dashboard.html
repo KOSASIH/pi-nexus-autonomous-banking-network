@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Processing Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Loan Processing Dashboard</h1>
+
+        <div class="loan-application">
+            <h2>Apply for a Loan</h2>
+            <form id="loanForm">
+                <input type="number" id="amount" placeholder="Loan Amount" required>
+                <input type="number" id="interestRate" placeholder="Interest Rate (in basis points)" required>
+                <input type="number" id="duration" placeholder="Duration (in seconds)" required>
+                <button type="submit">Apply</button>
+            </form>
+        </div>
+
+        <div class="loan-status">
+            <h2>Loan Status</h2>
+            <input type="number" id="loanId" placeholder="Loan ID" required>
+            <button id="checkStatus">Check Status</button>
+            <div id="statusResult"></div>
+        </div>
+
+        <div class="loan-repayment">
+            <h2>Repay Loan</h2>
+            <input type="number" id="repayLoanId" placeholder="Loan ID" required>
+            <input type="number" id="repayAmount" placeholder="Repayment Amount" required>
+            <button id="repayLoan">Repay</button>
+        </div>
+
+        <div id="message"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/web3/dist/web3.min.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html>
