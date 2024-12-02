@@ -16,30 +16,30 @@ To get started with BigBossQ, follow these steps:
 Install the required dependencies:
 
 ```
-1. pip install Flask Flask-SQLAlchemy cryptography PyJWT
+1 pip install Flask Flask-SQLAlchemy cryptography PyJWT
 ```
 
 Run the following command to create the database:
 
 ```python
 
-1. >>> from bigboss_q import db
-2. >>> db.create_all()
-3. >>> exit()
+1 >>> from bigboss_q import db
+2 >>> db.create_all()
+3 >>> exit()
 ```
 
 Run the BigBossQ system:
 
 ```
-1. python bigboss_q.py
+1 python bigboss_q.py
 ```
 
 Use a RESTful API client to test the API endpoints:
 
 ```
-1. Create a user: POST /users
-2. Login: POST /login
-3. Access protected resource: GET /protected
+1 Create a user: POST /users
+2 Login: POST /login
+3 Access protected resource: GET /protected
 ```
 
 API Documentation
@@ -47,28 +47,28 @@ API Documentation
 The following API endpoints are provided:
 
 ```
-1. POST /users: Create a new user.
+1 POST /users: Create a new user.
 ```
 
 Request body:
 
 ```json
 
-1. {
-2.    "username": "string",
-3.    "email": "string",
-4.    "password": "string",
-5.    "role": "string"
-6. }
+1 {
+2    "username": "string",
+3    "email": "string",
+4    "password": "string",
+5    "role": "string"
+6 }
 ```
 
 Response:
 
 ```json
 
-1. {
-2.    "user_id": "integer"
-3. }
+1 {
+2    "user_id": "integer"
+3 }
 ```
 
 POST /login: Authenticate a user and generate a JWT.
@@ -76,18 +76,18 @@ POST /login: Authenticate a user and generate a JWT.
 Request body:
 
 ```json
-{
-  "username": "string",
-  "password": "string"
-}
+1 {
+2   "username": "string",
+3  "password": "string"
+4 }
 ```
 
 Response:
 
 ```json
-{
-  "token": "string"
-}
+1 {
+2   "token": "string"
+3 }
 ```
 
 GET /protected: Access a protected resource.
@@ -95,9 +95,9 @@ GET /protected: Access a protected resource.
 Response:
 
 ```json
-{
-  "message": "string"
-}
+1 {
+2   "message": "string"
+3 }
 ```
 
 # License
