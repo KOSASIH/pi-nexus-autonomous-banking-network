@@ -1,26 +1,37 @@
-<!doctype html>
+<!-- src/ui/index.html -->
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css" />
-    <title>Super Advanced High-Tech UI</title>
-  </head>
-  <body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Pi Nexus - User Authentication</title>
+</head>
+<body>
     <header>
-      <h1>Super Advanced High-Tech UI</h1>
+        <h1>Welcome to Pi Nexus</h1>
     </header>
-    <main>
-      <section id="content">
-        <!-- Dynamic content will be inserted here -->
-      </section>
-      <section id="controls">
-        <button id="load-content">Load Content</button>
-      </section>
-    </main>
+
+    <div class="container">
+        <form id="register-form">
+            <h2>Register</h2>
+            <input type="text" id="register-username" placeholder="Username" required>
+            <input type="password" id="register-password" placeholder="Password" required>
+            <button type="submit">Register</button>
+        </form>
+
+        <form id="login-form">
+            <h2>Login</h2>
+            <input type="text" id="login-username" placeholder="Username" required>
+            <input type="password" id="login-password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
     <footer>
-      <p>&copy; 2023 Super Advanced High-Tech UI</p>
+        <p>&copy; 2023 Pi Nexus. All rights reserved.</p>
     </footer>
-    <script src="script.js"></script>
-  </body>
+
+    <script src="app.js"></script>
+</body>
 </html>
