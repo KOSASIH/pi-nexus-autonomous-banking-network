@@ -1,69 +1,79 @@
 import hashlib
 import json
 from time import time
-from typing import Any
-
+from urllib.parse import urlparse
+from uuid import uuid4
 
 class Blockchain:
     def __init__(self):
-        self.chain = [self.create_genesis_block()]
-        self.difficulty = 2
-        self.pending_transactions = []
+        self.chain = []
+        self.current_transactions = []
+        self.nodes = set()
+        self.create_block(previous_hash='1', proof=100)  # Create the genesis block
 
-    def create_genesis_block(self) -> Block:
-        return Block(
-            index=0, previous_hash="0" * 64, timestamp=time(), transactions=[], nonce=0
-        )
+    def create_block(self, proof, previous_hash=None):
+        block = {
+            'index': len(self.chain) + 1,
+            'timestamp': time(),
+            'transactions': self.current_transactions,
+            'proof': proof,
+            'previous_hash': previous_hash or self.hash(self.chain[-1]),
+        }
+        self.current_transactions = []  # Reset the current list of transactions
+        self.chain.append(block)
+        return block
 
-    def get_latest_block(self) -> Block:
+    def new_transaction(self, sender, recipient, amount):
+        self.current_transactions.append({
+            'sender': sender,
+            'recipient': recipient,
+            'amount': amount,
+        })
+        return self.last_block['index'] + 1
+
+    @property
+    def last_block(self):
         return self.chain[-1]
 
-    def add_block(self, block: Block):
-        block.previous_hash = self.get_latest_block().hash
-        block.mine_block(self.difficulty)
-        self.chain.append(block)
+    @staticmethod
+    def hash(block):
+        block_string = json.dumps(block, sort_keys=True).encode()
+        return hashlib.sha256(block_string).hexdigest()
 
-    def add_transaction(self, transaction: Transaction):
-        self.pending_transactions.append(transaction)
+    def add_node(self, address):
+        parsed_url = urlparse(address)
+        self.nodes.add(parsed_url.netloc)
 
-    def create_merkle_tree(self):
-        merkle_tree = []
-        for transaction in self.pending_transactions:
-            merkle_tree.append(transaction.to_dict())
-        while len(merkle_tree) > 1:
-            parent_nodes = []
-            for i in range(0, len(merkle_tree), 2):
-                if i + 1 < len(merkle_tree):
-                    left_node = merkle_tree[i]
-                    right_node = merkle_tree[i + 1]
-                    parent_nodes.append(self.hash_pair(left_node, right_node))
-                else:
-                    parent_nodes.append(merkle_tree[i])
-            merkle_tree = parent_nodes
-        return merkle_tree[0]
+    def valid_chain(self, chain):
+        last_block = chain[0]
+        current_index = 1
 
-    def hash_pair(self, left_node: Any, right_node: Any) -> str:
-        left_node_json = json.dumps(left_node, sort_keys=True).encode()
-        right_node_json = json.dumps(right_node, sort_keys=True).encode()
-        pair_data = left_node_json + right_node_json
-        return hashlib.sha256(pair_data).hexdigest()
-
-    def validate_transaction(self, transaction: Transaction) -> bool:
-        sender_balance = 0
-        for block in self.chain:
-            for tx in block.transactions:
-                if tx.sender == transaction.sender:
-                    sender_balance += tx.amount
-                if tx.receiver == transaction.sender:
-                    sender_balance -= tx.amount
-        return sender_balance >= transaction.amount
-
-    def validate_chain(self) -> bool:
-        for i in range(1, len(self.chain)):
-            current_block = self.chain[i]
-            previous_block = self.chain[i - 1]
-            if current_block.hash != current_block.calculate_hash():
+        while current_index < len(chain):
+            block = chain[current_index]
+            if block['previous_hash'] != self.hash(last_block):
                 return False
-            if current_block.previous_hash != previous_block.hash:
-                return False
+            last_block = block
+            current_index += 1
+
         return True
+
+    def resolve_conflicts(self):
+        # Consensus algorithm to resolve conflicts
+        longest_chain = None
+        max_length = len(self.chain)
+
+        for node in self.nodes:
+            response = requests.get(f'http://{node}/chain')
+            if response.status_code == 200:
+                length = response.json()['length']
+                chain = response.json()['chain']
+
+                if length > max_length and self.valid_chain(chain):
+                    max_length = length
+                    longest_chain = chain
+
+        if longest_chain:
+            self.chain = longest_chain
+            return True
+
+        return False
