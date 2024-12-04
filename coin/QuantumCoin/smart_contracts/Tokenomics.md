@@ -6,7 +6,7 @@ QuantumCoin (QTC) is designed to be a high-tech digital currency that leverages 
 ## Token Details
 - **Token Name**: QuantumCoin
 - **Token Symbol**: QTC
-- **Total Supply**: 1,000,000,000 QTC (1 billion)
+- **Total Supply**: 10,000,000,000 QTC (10 billion)
 - **Decimals**: 18
 
 ## Distribution
@@ -14,27 +14,27 @@ The total supply of QuantumCoin will be distributed as follows:
 
 | Category                     | Percentage | Amount (QTC)      |
 |------------------------------|------------|--------------------|
-| **Public Sale**              | 30%        | 300,000,000        |
-| **Team and Advisors**        | 20%        | 200,000,000        |
-| **Staking Rewards**          | 25%        | 250,000,000        |
-| **Ecosystem Development**    | 15%        | 150,000,000        |
-| **Reserve Fund**             | 10%        | 100,000,000        |
+| **Public Sale**              | 25%        | 2,500,000,000      |
+| **Team and Advisors**        | 15%        | 1,500,000,000      |
+| **Staking Rewards**          | 30%        | 3,000,000,000      |
+| **Ecosystem Development**    | 20%        | 2,000,000,000      |
+| **Reserve Fund**             | 10%        | 1,000,000,000      |
 
 ### Detailed Breakdown
 
-1. **Public Sale (30%)**:
+1. **Public Sale (25%)**:
    - Aimed at raising funds for development and marketing.
    - Tokens will be sold in multiple rounds to ensure broad participation.
 
-2. **Team and Advisors (20%)**:
+2. **Team and Advisors (15%)**:
    - Allocated to the founding team and advisors to incentivize long-term commitment.
    - Tokens will be vested over a period of 4 years with a 1-year cliff.
 
-3. **Staking Rewards (25%)**:
+3. **Staking Rewards (30%)**:
    - Reserved for rewarding users who stake their QuantumCoins.
    - Encourages community participation and long-term holding.
 
-4. **Ecosystem Development (15%)**:
+4. **Ecosystem Development (20%)**:
    - Funds allocated for partnerships, integrations, and community initiatives.
    - Supports the growth of the QuantumCoin ecosystem.
 
