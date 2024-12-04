@@ -1,0 +1,9 @@
+{
+    "welcome": "Tervetuloa PiNexus Autonomiseen Pankkiverkostoon.",
+    "login": "Kirjaudu sisään",
+    "logout": "Kirjaudu ulos",
+    "dashboard": "Ohjauspaneeli",
+    "settings": "Asetukset",
+    "profile": "Profiili",
+    "language": "Kieli"
+}
