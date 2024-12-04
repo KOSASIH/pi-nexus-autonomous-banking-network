@@ -14,6 +14,22 @@
 [![G20](https://img.shields.io/badge/G20-Partner-FF6347.svg)](https://g20.org/)
 [![G7](https://img.shields.io/badge/G7-Partner-4682B4.svg)](https://www.g7germany.de/)
 [![OECD Development Centre](https://img.shields.io/badge/OECD%20Development%20Centre-Partner-FF69B4.svg)](https://www.oecd.org/dev/)
+[![Python](https://img.shields.io/badge/Python-3.9%2B-blue.svg)](https://www.python.org/)
+[![Java](https://img.shields.io/badge/Java-11%2B-red.svg)](https://www.oracle.com/java/)
+[![JavaScript](https://img.shields.io/badge/JavaScript-ES6%2B-yellow.svg)](https://www.javascript.com/)
+[![Node.js](https://img.shields.io/badge/Node.js-14%2B-green.svg)](https://nodejs.org/)
+[![React](https://img.shields.io/badge/React-17%2B-blue.svg)](https://reactjs.org/)
+[![Vue.js](https://img.shields.io/badge/Vue.js-3.0%2B-brightgreen.svg)](https://vuejs.org/)
+[![Django](https://img.shields.io/badge/Django-3.2%2B-green.svg)](https://www.djangoproject.com/)
+[![Flask](https://img.shields.io/badge/Flask-2.0%2B-blue.svg)](https://flask.palletsprojects.com/)
+[![Ruby on Rails](https://img.shields.io/badge/Ruby%20on%20Rails-6.1%2B-red.svg)](https://rubyonrails.org/)
+[![PHP](https://img.shields.io/badge/PHP-8.0%2B-purple.svg)](https://www.php.net/)
+[![Go](https://img.shields.io/badge/Go-1.16%2B-blue.svg)](https://golang.org/)
+[![Swift](https://img.shields.io/badge/Swift-5.0%2B-orange.svg)](https://swift.org/)
+[![Kotlin](https://img.shields.io/badge/Kotlin-1.5%2B-blue.svg)](https://kotlinlang.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-4.0%2B-blue.svg)](https://www.typescriptlang.org/)
+[![HTML5](https://img.shields.io/badge/HTML5-5.0%2B-orange.svg)](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5)
+[![CSS3](https://img.shields.io/badge/CSS3-3.0%2B-blue.svg)](https://www.w3.org/Style/CSS/)
 
 # QuantumCoin
 
