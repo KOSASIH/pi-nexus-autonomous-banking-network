@@ -28,6 +28,7 @@ const supportedLanguages = {
     'el': 'Greek',
     'id': 'Indonesian',
     'vi': 'Vietnamese'
+    'su': 'Sundanese'
 };
 
 // Cache for translations
