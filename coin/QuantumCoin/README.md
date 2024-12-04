@@ -1,3 +1,10 @@
+[![World Bank](https://img.shields.io/badge/World%20Bank-Partner-34C759.svg)](https://www.worldbank.org/)
+[![IFC](https://img.shields.io/badge/IFC-Partner-6495ed.svg)](https://www.ifc.org/)
+[![IMF](https://img.shields.io/badge/IMF-Partner-FF5733.svg)](https://www.imf.org/)
+[![OECD](https://img.shields.io/badge/OECD-Partner-FFCC00.svg)](https://www.oecd.org/)
+[![UN](https://img.shields.io/badge/UN-Partner-0072B8.svg)](https://www.un.org/)
+[![FATF](https://img.shields.io/badge/FATF-Partner-FF4500.svg)](https://www.fatf-gafi.org/)
+
 # QuantumCoin
 
 ## Overview
