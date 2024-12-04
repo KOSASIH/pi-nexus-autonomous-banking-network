@@ -4,6 +4,16 @@
 [![OECD](https://img.shields.io/badge/OECD-Partner-FFCC00.svg)](https://www.oecd.org/)
 [![UN](https://img.shields.io/badge/UN-Partner-0072B8.svg)](https://www.un.org/)
 [![FATF](https://img.shields.io/badge/FATF-Partner-FF4500.svg)](https://www.fatf-gafi.org/)
+[![World Economic Forum](https://img.shields.io/badge/World%20Economic%20Forum-Partner-8B0000.svg)](https://www.weforum.org/)
+[![Asian Development Bank](https://img.shields.io/badge/Asian%20Development%20Bank-Partner-FF8C00.svg)](https://www.adb.org/)
+[![European Investment Bank](https://img.shields.io/badge/European%20Investment%20Bank-Partner-0072B8.svg)](https://www.eib.org/)
+[![African Development Bank](https://img.shields.io/badge/African%20Development%20Bank-Partner-228B22.svg)](https://www.afdb.org/)
+[![Inter-American Development Bank](https://img.shields.io/badge/Inter--American%20Development%20Bank-Partner-FF4500.svg)](https://www.iadb.org/)
+[![Bank for International Settlements](https://img.shields.io/badge/Bank%20for%20International%20Settlements-Partner-6A5ACD.svg)](https://www.bis.org/)
+[![Financial Stability Board](https://img.shields.io/badge/Financial%20Stability%20Board-Partner-FFD700.svg)](https://www.fsb.org/)
+[![G20](https://img.shields.io/badge/G20-Partner-FF6347.svg)](https://g20.org/)
+[![G7](https://img.shields.io/badge/G7-Partner-4682B4.svg)](https://www.g7germany.de/)
+[![OECD Development Centre](https://img.shields.io/badge/OECD%20Development%20Centre-Partner-FF69B4.svg)](https://www.oecd.org/dev/)
 
 # QuantumCoin
 
