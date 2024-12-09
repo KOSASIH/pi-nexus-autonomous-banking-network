@@ -1,6 +1,5 @@
 import uuid
 import time
-from cryptography.fernet import Fernet
 from notification import Notification
 
 class PaymentGateway:

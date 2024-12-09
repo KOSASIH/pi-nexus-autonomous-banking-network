@@ -1,7 +1,5 @@
 import secrets
 import hashlib
-import base64
-import os
 
 class HDWallet:
     def __init__(self, seed):

@@ -1,11 +1,7 @@
-import os
-import json
 import hashlib
 import secrets
 from collections import defaultdict
 from cryptography.fernet import Fernet
-import base64
-import binascii
 
 class HDWallet:
     def __init__(self, seed):
