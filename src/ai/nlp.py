@@ -11,7 +11,8 @@ class NLP:
         self.vectorizer = TfidfVectorizer()
         self.model = None
 
-    def load_data(self, file_path):
+    @staticmethod
+    def load_data(file_path):
         """Load textual data from a CSV file."""
         data = pd.read_csv(file_path)
         return data

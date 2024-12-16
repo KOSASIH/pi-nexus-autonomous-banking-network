@@ -11,14 +11,16 @@ class DifferentialPrivacy:
         noisy_data = data + np.random.laplace(0, self.epsilon, size=data.shape)
         return noisy_data
 
-    def train_model(self, X, y):
+    @staticmethod
+    def train_model(X, y):
         scaler = StandardScaler()
         X_scaled = scaler.fit_transform(X)
         svm = SVC()
         svm.fit(X_scaled, y)
         return svm
 
-    def evaluate_model(self, model, X, y):
+    @staticmethod
+    def evaluate_model(model, X, y):
         y_pred = model.predict(X)
         accuracy = accuracy_score(y, y_pred)
         return accuracy
