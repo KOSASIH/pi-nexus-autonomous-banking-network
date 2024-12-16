@@ -4,7 +4,8 @@ class CrossChain:
     def __init__(self, blockchain):
         self.blockchain = blockchain
 
-    def send_transaction(self, recipient, amount):
+    @staticmethod
+    def send_transaction(recipient, amount):
         # Send a transaction to another blockchain
         transaction_data = {
             'sender': str(uuid4()),  # Simulate sender address
@@ -14,7 +15,8 @@ class CrossChain:
         response = requests.post('http://other-blockchain-url/transactions/new', json=transaction_data)
         return response.json()
 
-    def fetch_chain(self, node):
+    @staticmethod
+    def fetch_chain(node):
         response = requests.get(f'http://{node}/chain')
         if response.status_code == 200:
             return response.json()

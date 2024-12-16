@@ -12,7 +12,8 @@ class HDWallet:
         self.addresses[index] = (private_key, public_key)
         return public_key
 
-    def _generate_public_key(self, private_key):
+    @staticmethod
+    def _generate_public_key(private_key):
         return hashlib.sha256(private_key.encode()).hexdigest()
 
     def get_address(self, index):
