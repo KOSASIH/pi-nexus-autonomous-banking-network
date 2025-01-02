@@ -13,7 +13,7 @@ import org.testcontainers.junit.jupiter.Testcontainers;
 @SpringBootTest
 @Testcontainers
 @ExtendWith(MockitoExtension.class)
-public class UserServiceTest {
+class UserServiceTest {
     @Container
     private static final Neo4jContainer neo4jContainer = new Neo4jContainer("neo4j:4.2.1");
 
@@ -29,7 +29,7 @@ public class UserServiceTest {
     }
 
     @Test
-    public void testFindByUsername() {
+    void testFindByUsername() {
         // Given
         String username = "john.doe";
         User user = new User(username, "John Doe", "john.doe@example.com");
@@ -43,7 +43,7 @@ public class UserServiceTest {
     }
 
     @Test
-    public void testFindByEmail() {
+    void testFindByEmail() {
         // Given
         String email = "john.doe@example.com";
         User user = new User("john.doe", "John Doe", email);

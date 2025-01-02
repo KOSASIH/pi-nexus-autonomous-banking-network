@@ -1,4 +1,3 @@
-import numpy as np
 from qiskit import QuantumCircuit, execute, Aer
 
 class QuantumCrypto:
