@@ -36,7 +36,7 @@ PI_COIN_MAX_TRANSACTION_SIZE = 1_000_000  # Maximum transaction size in bytes
 PI_COIN_DECIMALS = 18  # Number of decimal places for Pi Coin
 
 # Pi Coin Genesis Block Timestamp
-PI_COIN_GENESIS_BLOCK_TIMESTAMP = "2023-01-01T00:00:00Z"  # Timestamp of the genesis block
+PI_COIN_GENESIS_BLOCK_TIMESTAMP = "2025-01-01T00:00:00Z"  # Timestamp of the genesis block
 
 # Pi Coin Governance Model
 PI_COIN_GOVERNANCE_MODEL = "Decentralized"  # Governance model for Pi Coin
