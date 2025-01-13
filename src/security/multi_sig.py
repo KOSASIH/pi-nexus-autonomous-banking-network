@@ -20,7 +20,8 @@ class MultiSig:
         except ecdsa.BadSignatureError:
             return False
 
-    def combine_signatures(self, signatures):
+    @staticmethod
+    def combine_signatures(signatures):
         combined_signature = b''
         for signature in signatures:
             combined_signature += signature
