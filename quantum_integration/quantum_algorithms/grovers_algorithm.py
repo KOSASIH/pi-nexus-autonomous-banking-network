@@ -1,6 +1,5 @@
 from qiskit import QuantumCircuit, Aer, execute
 from qiskit.visualization import plot_histogram
-import numpy as np
 
 def grovers_algorithm(n, target):
     # Create a quantum circuit with n qubits
