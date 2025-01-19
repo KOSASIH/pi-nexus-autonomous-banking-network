@@ -59,4 +59,4 @@ To use the notebooks, open them in Jupyter Notebook or JupyterLab. You can run t
 Contributions to the notebooks are welcome! If you have suggestions for improvements or new demonstrations to implement, please open an issue or submit a pull request.
 
 ## License
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the Apache 2.0 License. See the [LICENSE](LICENSE) file for details.
