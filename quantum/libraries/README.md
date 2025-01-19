@@ -70,4 +70,4 @@ Make sure to adjust the parameters as needed for each function.
 Contributions are welcome! If you have suggestions for improvements or new features to implement, please open an issue or submit a pull request.
 
 ## License
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the Apache 2.0 License. See the [LICENSE](LICENSE) file for details.
