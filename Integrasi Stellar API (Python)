@@ -1,0 +1,30 @@
+from stellar_sdk import Server, Keypair, TransactionBuilder, Network
+
+# Konfigurasi Stellar
+server = Server("https://horizon.stellar.org")
+source_secret_key = "SXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+destination_public_key = "GXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+
+source_keypair = Keypair.from_secret(source_secret_key)
+source_account = server.load_account(source_keypair.public_key)
+
+def send_payment(amount, memo_text="Payment from Pi-Nexus"):
+    transaction = (
+        TransactionBuilder(
+            source_account=source_account,
+            network_passphrase=Network.PUBLIC_NETWORK_PASSPHRASE,
+            base_fee=100
+        )
+        .add_text_memo(memo_text)
+        .append_payment_op(
+            destination=destination_public_key,
+            asset_code="XLM",
+            asset_issuer=None,
+            amount=str(amount),
+        )
+        .set_timeout(30)
+        .build()
+    )
+    transaction.sign(source_keypair)
+    response = server.submit_transaction(transaction)
+    return response
