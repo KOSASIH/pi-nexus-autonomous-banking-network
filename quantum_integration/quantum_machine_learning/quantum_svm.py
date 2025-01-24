@@ -1,7 +1,6 @@
 from qiskit import Aer
 from qiskit_machine_learning.algorithms import QSVC
 from qiskit_machine_learning.kernels import QuantumKernel
-import numpy as np
 from sklearn.datasets import make_classification
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score

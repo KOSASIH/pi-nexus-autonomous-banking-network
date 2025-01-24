@@ -21,7 +21,7 @@ public class AutonomousRobotics {
     }
 
     public static void Main(string[] args) {
-        AutonomousRobotics robotics = new AutonomousRobotics();
+        AutonomousRobotics robotics = new();
         robotics.navigateToATM();
         robotics.performTransaction();
     }

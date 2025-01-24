@@ -9,12 +9,14 @@ class RiskAssessment:
         self.model_path = model_path
         self.model = None
 
-    def load_data(self, file_path):
+    @staticmethod
+    def load_data(file_path):
         """Load data from a CSV file."""
         data = pd.read_csv(file_path)
         return data
 
-    def preprocess_data(self, data):
+    @staticmethod
+    def preprocess_data(data):
         """Preprocess the data for training."""
         # Example preprocessing steps
         data.fillna(0, inplace=True)  # Fill missing values
