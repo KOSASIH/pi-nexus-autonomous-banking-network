@@ -45,7 +45,12 @@ name = "javascript"
     "vue",
     "ember"
   ]
-  environment = ["nodejs"]
+  environment = [
+    "nodejs",
+    "jest",
+    "mongo",
+    "vitest"
+  ]
 
 [[analyzers]]
 name = "shell"
@@ -59,3 +64,6 @@ name = "kotlin"
   [analyzers.meta]
   runtime_version = "1.8"
   language_version = "1.7"
+
+[[transformers]]
+name = "ktlint"
