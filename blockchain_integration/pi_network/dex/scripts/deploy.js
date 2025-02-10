@@ -15,26 +15,38 @@ const gasPrice = ethers.utils.parseUnits("20", "gwei");
 const gasLimit = 8000000;
 
 // Load the compiled contract artifacts
-const exchangeContractArtifact = readFileSync(join(__dirname, "../contracts/ExchangeContract.sol/ExchangeContract.json"));
-const factoryContractArtifact = readFileSync(join(__dirname, "../contracts/FactoryContract.sol/FactoryContract.json"));
+const exchangeContractArtifact = readFileSync(
+  join(__dirname, "../contracts/ExchangeContract.sol/ExchangeContract.json"),
+);
+const factoryContractArtifact = readFileSync(
+  join(__dirname, "../contracts/FactoryContract.sol/FactoryContract.json"),
+);
 
 // Deploy the factory contract
 async function deployFactoryContract() {
-  const factoryContract = await deployContract(deployerWallet, factoryContractArtifact, {
-    gasPrice,
-    gasLimit,
-  });
+  const factoryContract = await deployContract(
+    deployerWallet,
+    factoryContractArtifact,
+    {
+      gasPrice,
+      gasLimit,
+    },
+  );
   console.log(`Factory contract deployed to ${factoryContract.address}`);
   return factoryContract.address;
 }
 
 // Deploy the exchange contract
 async function deployExchangeContract(factoryContractAddress) {
-  const exchangeContract = await deployContract(deployerWallet, exchangeContractArtifact, {
-    gasPrice,
-    gasLimit,
-    args: [factoryContractAddress],
-  });
+  const exchangeContract = await deployContract(
+    deployerWallet,
+    exchangeContractArtifact,
+    {
+      gasPrice,
+      gasLimit,
+      args: [factoryContractAddress],
+    },
+  );
   console.log(`Exchange contract deployed to ${exchangeContract.address}`);
   return exchangeContract.address;
 }
@@ -42,10 +54,16 @@ async function deployExchangeContract(factoryContractAddress) {
 // Main deployment function
 async function deploy() {
   const factoryContractAddress = await deployFactoryContract();
-  const exchangeContractAddress = await deployExchangeContract(factoryContractAddress);
+  const exchangeContractAddress = await deployExchangeContract(
+    factoryContractAddress,
+  );
 
   // Set the exchange contract address in the factory contract
-  const factoryContract = new ethers.Contract(factoryContractAddress, factoryContractArtifact.abi, deployerWallet);
+  const factoryContract = new ethers.Contract(
+    factoryContractAddress,
+    factoryContractArtifact.abi,
+    deployerWallet,
+  );
   await factoryContract.setExchangeContract(exchangeContractAddress);
 
   console.log("Deployment complete!");
