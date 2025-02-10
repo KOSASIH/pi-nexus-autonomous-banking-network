@@ -19,9 +19,23 @@ describe('User API', () => {
         expect(res.body.success).toBe(true);
     });
 
-    it('should get a user by ID', async () => {
+    it('should login a user', async () => {
+        const res = await request(app)
+            .post('/api/users/login')
+            .send({
+                email: 'test@example.com',
+                password: 'password123',
+            });
+        expect(res.statusCode).toEqual(200);
+        expect(res.body.success).toBe(true);
+        expect(res.body.token).toBeDefined();
+    });
+
+    it('should get user details', async () => {
         const user = await UserModel.findOne({ email: 'test@example.com' });
-        const res = await request(app).get(`/api/users/${user._id}`);
+        const res = await request(app)
+            .get('/api/users/me')
+            .set('Authorization', `Bearer ${user.token}`); // Assuming you have a way to get the token
         expect(res.statusCode).toEqual(200);
         expect(res.body.success).toBe(true);
         expect(res.body.user.username).toBe('testuser');
