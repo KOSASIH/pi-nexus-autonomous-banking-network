@@ -3,7 +3,13 @@ const TransactionModel = require('../models/transactionModel');
 // Create a new transaction
 const createTransaction = async (req, res) => {
     try {
-        const transaction = new TransactionModel(req.body);
+        const { receiver, amount, currency } = req.body;
+        const transaction = new TransactionModel({
+            sender: req.user.id,
+            receiver,
+            amount,
+            currency,
+        });
         await transaction.save();
         res.status(201).json({ success: true, transaction });
     } catch (error) {
@@ -14,7 +20,7 @@ const createTransaction = async (req, res) => {
 // Get a specific transaction by ID
 const getTransaction = async (req, res) => {
     try {
-        const transaction = await TransactionModel.findById(req.params.id);
+        const transaction = await TransactionModel.findById(req.params.id).populate('sender receiver', 'username');
         if (!transaction) {
             return res.status(404).json({ success: false, message: 'Transaction not found' });
         }
@@ -24,10 +30,12 @@ const getTransaction = async (req, res) => {
     }
 };
 
-// Get all transactions
-const getAllTransactions = async (req, res) => {
+// Get all transactions for a user
+const getUserTransactions = async (req, res) => {
     try {
-        const transactions = await TransactionModel.find();
+        const transactions = await TransactionModel.find({
+            $or: [{ sender: req.user.id }, { receiver: req.user.id }],
+        }).populate('sender receiver', 'username');
         res.json({ success: true, transactions });
     } catch (error) {
         res.status(500).json({ success: false, message: error.message });
@@ -37,5 +45,5 @@ const getAllTransactions = async (req, res) => {
 module.exports = {
     createTransaction,
     getTransaction,
-    getAllTransactions,
+    getUserTransactions,
 };
