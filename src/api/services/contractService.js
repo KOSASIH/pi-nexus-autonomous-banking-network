@@ -1,35 +1,32 @@
-const Web3 = require('web3');
-const { CONTRACT_ABI, CONTRACT_BYTECODE } = require('../config/blockchainConfig');
-const web3 = new Web3(new Web3.providers.HttpProvider(process.env.BLOCKCHAIN_NODE_URL));
+const ContractModel = require('../models/contractModel');
 
-// Deploy a new smart contract
-const deployContract = async (req, res) => {
+// Create a new smart contract
+const createContract = async (req, res) => {
     try {
-        const { from, gas } = req.body;
-        const contract = new web3.eth.Contract(CONTRACT_ABI);
-        const deployTx = contract.deploy({ data: CONTRACT_BYTECODE });
-
-        const gasEstimate = await deployTx.estimateGas();
-        const result = await deployTx.send({ from, gas: gasEstimate });
-
-        res.status(201).json({ success: true, contractAddress: result.options.address });
+        const { address, abi } = req.body;
+        const contract = new ContractModel({
+            address,
+            abi,
+            owner: req.user.id,
+        });
+        await contract.save();
+        res.status(201).json({ success: true, contract });
     } catch (error) {
         res.status(400).json({ success: false, message: error.message });
     }
 };
 
-// Get details of a specific contract
-const getContractDetails = async (req, res) => {
+// Get all contracts for a user
+const getUserContracts = async (req, res) => {
     try {
-        const contract = new web3.eth.Contract(CONTRACT_ABI, req.params.contractAddress);
-        const details = await contract.methods.getDetails().call();
-        res.json({ success: true, details });
+        const contracts = await ContractModel.find({ owner: req.user.id });
+        res.json({ success: true, contracts });
     } catch (error) {
         res.status(500).json({ success: false, message: error.message });
     }
 };
 
 module.exports = {
-    deployContract,
-    getContractDetails,
+    createContract,
+    getUserContracts,
 };
