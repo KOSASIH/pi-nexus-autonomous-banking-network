@@ -1,13 +1,29 @@
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
+import "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
 
-contract PiNexus {
+contract MLModel {
+    mapping (address => uint256) public modelWeights;
+
+    function update() public {
+        // Implement the model update logic
+    }
+
+    function predict(uint256 _data) public view returns (uint256) {
+        // Implement the prediction logic using the model weights
+        return _data; // Placeholder for actual prediction logic
+    }
+}
+
+contract PiNexus is Ownable, ReentrancyGuard, UUPSUpgradeable {
     mapping (address => uint256) public userPiValues;
     mapping (address => uint256) public userPredictions;
     IERC20 public token;
     MLModel public mlModel;
-    address public owner;
 
     event NewUser(address indexed user);
     event PiValueUpdated(address indexed user, uint256 piValue);
@@ -15,26 +31,23 @@ contract PiNexus {
     event RewardClaimed(address indexed user, uint256 reward);
     event ModelUpdated(address indexed owner);
 
-    modifier onlyOwner {
-        require(msg.sender == owner, "Only the contract owner can update the AI model");
-        _;
-    }
-
-    constructor(address _token, address _mlModel) {
+    function initialize(address _token, address _mlModel) public initializer {
         token = IERC20(_token);
         mlModel = MLModel(_mlModel);
-        owner = msg.sender;
     }
+
+    function _authorizeUpgrade(address newImplementation) internal override onlyOwner {}
 
     function calculatePi(address _user) public returns (uint256) {
         uint256 piValue = 0;
         for (uint256 k = 0; k < 100; k++) {
-            piValue += (1 / (16 ** k)) * (
-                (4 / (8 * k + 1)) -
-                (2 / (8 * k + 4)) -
-                (1 / (8 * k + 5)) -
-                (1 / (8 * k + 6))
+            uint256 term = (1e18 / (16 ** k)) * (
+                (4e18 / (8 * k + 1)) -
+                (2e18 / (8 * k + 4)) -
+                (1e18 / (8 * k + 5)) -
+                (1e18 / (8 * k + 6))
             );
+            piValue += term / 1e18; // Adjust back to the original scale
         }
         userPiValues[_user] = piValue;
         emit PiValueUpdated(_user, piValue);
@@ -46,29 +59,26 @@ contract PiNexus {
         emit ModelUpdated(owner);
     }
 
-    function getPrediction(address _user) public view returns (uint256) {
+    function getPrediction(address _user) public returns (uint256) {
         uint256 prediction = mlModel.predict(userPiValues[_user]);
-        userPredictions[_user] = prediction;
-        emit PredictionUpdated(_user, prediction);
+        if (userPredictions[_user] != prediction) {
+            userPredictions[_user] = prediction;
+            emit PredictionUpdated(_user, prediction);
+        }
         return prediction;
     }
 
-    function claimReward(address _user) public {
+    function claimReward(address _user) public nonReentrant {
         require(userPiValues[_user] > 0, "User has no pi value");
-        uint256 reward = token.balanceOf(address(this)) * (userPredictions[_user] / userPiValues[_user]);
-        token .transfer(_user, reward);
+        uint256 reward = (token.balanceOf(address(this)) * userPredictions[_user]) / userPiValues[_user];
+        require(reward > 0, "No reward available");
+        token.transfer(_user, reward);
         emit RewardClaimed(_user, reward);
     }
-}
 
-contract MLModel {
-    mapping (address => uint256) public modelWeights;
-
-    function update() public {
-        // Implement the model update logic
-    }
-
-    function predict(uint256 _data) public view returns (uint256) {
-        // Implement the prediction logic using the model weights
+    function batchCalculatePi(address[] calldata users) public {
+        for (uint256 i = 0; i < users.length; i++) {
+            calculatePi(users[i]);
+        }
     }
 }
