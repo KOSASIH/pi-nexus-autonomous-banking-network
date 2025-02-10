@@ -1,15 +1,17 @@
 const express = require('express');
-const { createUser , getUser , loginUser  } = require('../services/userService');
+const { createUser, loginUser, getUser } = require('../services/userService');
+const authMiddleware = require('../middleware/authMiddleware');
+const validateUser = require('../middleware/validationMiddleware');
 
 const router = express.Router();
 
 // Route to create a new user
-router.post('/', createUser );
+router.post('/', validateUser, createUser);
+
+// Route for user login
+router.post('/login', loginUser);
 
 // Route to get user details
-router.get('/:id', getUser );
-
-// Route to login a user
-router.post('/login', loginUser );
+router.get('/me', authMiddleware, getUser);
 
 module.exports = router;
