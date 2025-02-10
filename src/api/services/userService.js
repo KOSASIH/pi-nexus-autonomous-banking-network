@@ -3,9 +3,10 @@ const jwt = require('jsonwebtoken');
 const { JWT_SECRET } = require('../config/serverConfig');
 
 // Create a new user
-const createUser  = async (req, res) => {
+const createUser = async (req, res) => {
     try {
-        const user = new UserModel(req.body);
+        const { username, email, password } = req.body;
+        const user = new UserModel({ username, email, password });
         await user.save();
         res.status(201).json({ success: true, user });
     } catch (error) {
@@ -13,21 +14,8 @@ const createUser  = async (req, res) => {
     }
 };
 
-// Get user details
-const getUser  = async (req, res) => {
-    try {
-        const user = await UserModel.findById(req.params.id);
-        if (!user) {
-            return res.status(404).json({ success: false, message: 'User  not found' });
-        }
-        res.json({ success: true, user });
-    } catch (error) {
-        res.status(500).json({ success: false, message: error.message });
-    }
-};
-
-// Login user
-const loginUser  = async (req, res) => {
+// User login
+const loginUser = async (req, res) => {
     try {
         const { email, password } = req.body;
         const user = await UserModel.findOne({ email });
@@ -41,8 +29,21 @@ const loginUser  = async (req, res) => {
     }
 };
 
+// Get user details
+const getUser = async (req, res) => {
+    try {
+        const user = await UserModel.findById(req.user.id).select('-password');
+        if (!user) {
+            return res.status(404).json({ success: false, message: 'User not found' });
+        }
+        res.json({ success: true, user });
+    } catch (error) {
+        res.status(500).json({ success: false, message: error.message });
+    }
+};
+
 module.exports = {
-    createUser ,
-    getUser ,
-    loginUser ,
+    createUser,
+    loginUser,
+    getUser,
 };
