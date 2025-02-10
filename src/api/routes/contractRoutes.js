@@ -1,12 +1,13 @@
 const express = require('express');
-const { deployContract, getContractDetails } = require('../services/contractService');
+const { createContract, getUserContracts } = require('../services/contractService');
+const authMiddleware = require('../middleware/authMiddleware');
 
 const router = express.Router();
 
-// Route to deploy a new smart contract
-router.post('/deploy', deployContract);
+// Route to create a new smart contract
+router.post('/', authMiddleware, createContract);
 
-// Route to get details of a specific contract
-router.get('/:contractAddress', getContractDetails);
+// Route to get all contracts for the logged-in user
+router.get('/', authMiddleware, getUserContracts);
 
 module.exports = router;
