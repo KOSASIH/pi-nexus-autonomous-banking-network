@@ -2,7 +2,7 @@
 import org.jcuda.*;
 
 public class HighPerformancePortfolioOptimization {
-    public static void main(String[] args) {
-        // Implement high-performance portfolio optimization using GPU acceleration here
-    }
+  public static void main(String[] args) {
+    // Implement high-performance portfolio optimization using GPU acceleration here
+  }
 }
