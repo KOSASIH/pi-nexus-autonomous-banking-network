@@ -3,7 +3,8 @@
 
 class QuantumInspiredPortfolioOptimization {
 public:
-    QuantumInspiredPortfolioOptimization() {
-        // Implement quantum-inspired portfolio optimization using evolutionary algorithms here
-    }
+  QuantumInspiredPortfolioOptimization() {
+    // Implement quantum-inspired portfolio optimization using evolutionary
+    // algorithms here
+  }
 };
