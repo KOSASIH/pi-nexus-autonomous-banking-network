@@ -1,5 +1,5 @@
 from qiskit import Aer
-from qiskit_machine_learning.algorithms import QSVC
+from qiskit_machine_learning.algorithms import QSVC # type: ignore
 from qiskit_machine_learning.kernels import QuantumKernel
 from sklearn.datasets import make_classification
 from sklearn.model_selection import train_test_split
