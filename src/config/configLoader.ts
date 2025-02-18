@@ -31,21 +31,22 @@ interface AppConfig {
     logging: LoggingConfig;
 }
 
+// Define the validation schema
 const schema = Joi.object({
     database: Joi.object({
-        host: Joi.string().required(),
+        host: Joi.string().hostname().required(),
         port: Joi.number().integer().min(1).max(65535).required(),
-        user: Joi.string().required(),
-        password: Joi.string().required(),
-        name: Joi.string().required(),
-    }),
+        user: Joi.string().min(1).required(),
+        password: Joi.string().min(8).required(), // Require a minimum length for security
+        name: Joi.string().min(1).required(),
+    }).required(),
     api: Joi.object({
-        key: Joi.string().required(),
-    }),
+        key: Joi.string().min(1).required(),
+    }).required(),
     logging: Joi.object({
         level: Joi.string().valid('error', 'warn', 'info', 'debug').required(),
         file: Joi.string().required(),
-    }),
+    }).required(),
 });
 
 const loadConfig = (): AppConfig => {
@@ -61,7 +62,7 @@ const loadConfig = (): AppConfig => {
         config = { ...config, ...jsonConfig[env] };
     }
 
-    // Load YAML config (if you have a YAML parser installed)
+    // Load YAML config
     if (fs.existsSync(yamlConfigPath)) {
         const yamlConfig = yaml.load(fs.readFileSync(yamlConfigPath, 'utf8'));
         config = { ...config, ...yamlConfig[env] };
