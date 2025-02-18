@@ -1,16 +1,34 @@
 {
-  "api": {
-    "port": 8080,
-    "cors": "*"
-  },
-  "db": {
-    "url": "postgres://user:password@host:port/dbname"
-  },
-  "network": {
-    "private_key": "0x0000000000000000000000000000000000000000000000000000000000000000",
-    "private_key_password": "my-password",
-    "private_key_password_salt": "my-salt",
-    "endpoint": "http://pi-nexus-autonomous-banking-network.com:8080",
-    "chain_id": 12345
-  }
+    "development": {
+        "database": {
+            "host": "localhost",
+            "port": 5432,
+            "user": "devuser",
+            "password": "devpassword",
+            "name": "devdatabase"
+        },
+        "api": {
+            "key": "dev_api_key_here"
+        },
+        "logging": {
+            "level": "debug",
+            "file": "logs/dev.log"
+        }
+    },
+    "production": {
+        "database": {
+            "host": "prod-db-host",
+            "port": 5432,
+            "user": "produser",
+            "password": "prodpassword",
+            "name": "proddatabase"
+        },
+        "api": {
+            "key": "prod_api_key_here"
+        },
+        "logging": {
+            "level": "error",
+            "file": "logs/prod.log"
+        }
+    }
 }
