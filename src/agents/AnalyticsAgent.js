@@ -1,20 +1,19 @@
-// src/agents/AnalyticsAgent.js
 import Agent from './Agent';
 
 class AnalyticsAgent extends Agent {
     constructor() {
         super('AnalyticsAgent');
-        this.data = [];
+        this.userActions = [];
     }
 
-    logTransaction(transaction) {
-        this.data.push(transaction);
-        this.log(`Transaction logged for analysis: ${JSON.stringify(transaction)}`);
+    logUser Action(action) {
+        this.userActions.push(action);
+        this.log(`User  action logged: ${action}`);
     }
 
-    generateReport() {
-        // Logic to generate reports based on logged data
-        return this.data; // Placeholder for report generation
+    generateUser Report() {
+        // Logic to generate a report based on user actions
+        return this.userActions;
     }
 }
 
