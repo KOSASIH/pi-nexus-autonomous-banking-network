@@ -4,34 +4,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
     <title>Pi Nexus - User Authentication</title>
+    <style>
+        body.dark-mode {
+            background-color: #121212;
+            color: #ffffff;
+        }
+        .dark-mode .bg-primary {
+            background-color: #1e1e1e !important;
+        }
+        .dark-mode .btn-light {
+            background-color: #333;
+            color: #fff;
+        }
+        .dark-mode .btn-dark {
+            background-color: #fff;
+            color: #333;
+        }
+    </style>
 </head>
 <body>
-    <header>
+    <header class="bg-primary text-white text-center py-4">
         <h1>Welcome to Pi Nexus</h1>
+        <button id="theme-toggle" class="btn btn-light">Toggle Dark Mode</button>
+        <select id="language-select" class="ml-2">
+            <option value="en">English</option>
+            <option value="es">Español</option>
+            <option value="fr">Français</option>
+        </select>
     </header>
 
-    <div class="container">
-        <form id="register-form">
-            <h2>Register</h2>
-            <input type="text" id="register-username" placeholder="Username" required>
-            <input type="password" id="register-password" placeholder="Password" required>
-            <button type="submit">Register</button>
-        </form>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+                <form id="register-form" class="border p-4 rounded shadow">
+                    <h2 class="text-center">Register</h2>
+                    <div class="form-group">
+                        <input type="text" id="register-username" class="form-control" placeholder="Username" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" id="register-password" class="form-control" placeholder="Password" required>
+                        <small id="passwordHelp" class="form-text text-muted">Password must be at least 8 characters long.</small>
+                        <div id="password-strength" class="mt-1"></div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Register</button>
+                    <div id="register-message" class="mt-2"></div>
+                </form>
 
-        <form id="login-form">
-            <h2>Login</h2>
-            <input type="text" id="login-username" placeholder="Username" required>
-            <input type="password" id="login-password" placeholder="Password" required>
-            <button type="submit">Login</button>
-        </form>
+                <form id="login-form" class="border p-4 rounded shadow mt-4">
+                    <h2 class="text-center">Login</h2>
+                    <div class="form-group">
+                        <input type="text" id="login-username" class="form-control" placeholder="Username" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" id="login-password" class="form-control" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="btn btn-success btn-block">Login</button>
+                    <div id="login-message" class="mt-2"></div>
+                </form>
+
+                <div class="text-center mt-3">
+                    <p>Or login with:</p>
+                    <button class="btn btn-danger"><i class="fab fa-google"></i> Google</button>
+                    <button class="btn btn-primary"><i class="fab fa-facebook "></i> Facebook</button>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <footer>
+    <footer class="text-center py-4">
         <p>&copy; 2023 Pi Nexus. All rights reserved.</p>
     </footer>
 
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="app.js"></script>
+    <script>
+        // Dark mode toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            themeToggle.classList.toggle('btn-light');
+            themeToggle.classList.toggle('btn-dark');
+            themeToggle.textContent = document.body.classList.contains('dark-mode') ? 'Light Mode' : 'Dark Mode';
+        });
+
+        // Password strength indicator
+        const passwordInput = document.getElementById('register-password');
+        const passwordStrength = document.getElementById('password-strength');
+        passwordInput.addEventListener('input', () => {
+            const strength = getPasswordStrength(passwordInput.value);
+            passwordStrength.textContent = `Strength: ${strength}`;
+        });
+
+        function getPasswordStrength(password) {
+            let strength = 'Weak';
+            if (password.length >= 8) {
+                strength = 'Medium';
+                if (/[A-Z]/.test(password) && /[0-9]/.test(password)) {
+                    strength = 'Strong';
+                }
+            }
+            return strength;
+        }
+
+        // Language selection functionality
+        const languageSelect = document.getElementById('language-select');
+        languageSelect.addEventListener('change', (event) => {
+            const selectedLanguage = event.target.value;
+            // Implement language change logic here
+            alert(`Language changed to: ${selectedLanguage}`);
+        });
+    </script>
 </body>
-</html>
+            </html>

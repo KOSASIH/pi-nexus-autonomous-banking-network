@@ -1,104 +1,84 @@
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import "https://github.com/OpenZeppelin/openzeppelin-solidity/contracts/token/ERC20/SafeERC20.sol";
-import "https://github.com/OpenZeppelin/openzeppelin-solidity/contracts/math/SafeMath.sol";
-import "https://github.com/ethereum/dapp-bin/library/math/FixedPoint.sol";
+import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
+import "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
 
-contract PiNexus {
-    // Mapping of users to their respective pi-calculated values
+contract MLModel {
+    mapping (address => uint256) public modelWeights;
+
+    function update() public {
+        // Implement the model update logic
+    }
+
+    function predict(uint256 _data) public view returns (uint256) {
+        // Implement the prediction logic using the model weights
+        return _data; // Placeholder for actual prediction logic
+    }
+}
+
+contract PiNexus is Ownable, ReentrancyGuard, UUPSUpgradeable {
     mapping (address => uint256) public userPiValues;
-
-    // Mapping of users to their respective AI model predictions
     mapping (address => uint256) public userPredictions;
-
-    // ERC20 token instance for rewards and incentives
-    ERC20 public token;
-
-    // Machine learning model instance for pi value predictions
+    IERC20 public token;
     MLModel public mlModel;
 
-    // Event emitted when a new user joins the network
     event NewUser(address indexed user);
-
-    // Event emitted when a user's pi value is updated
     event PiValueUpdated(address indexed user, uint256 piValue);
-
-    // Event emitted when a user's prediction is updated
     event PredictionUpdated(address indexed user, uint256 prediction);
-
-    // Event emitted when a user claims their reward
     event RewardClaimed(address indexed user, uint256 reward);
-
-    // Event emitted when the AI model is updated
     event ModelUpdated(address indexed owner);
 
-    // Modifier to ensure only the contract owner can update the AI model
-    modifier onlyOwner {
-        require(msg.sender == owner, "Only the contract owner can update the AI model");
-        _;
-    }
-
-    // Constructor function to initialize the contract
-    constructor(address _token, address _mlModel) public {
-        token = ERC20(_token);
+    function initialize(address _token, address _mlModel) public initializer {
+        token = IERC20(_token);
         mlModel = MLModel(_mlModel);
-        owner = msg.sender;
     }
 
-    // Function to calculate the pi value for a given user
+    function _authorizeUpgrade(address newImplementation) internal override onlyOwner {}
+
     function calculatePi(address _user) public returns (uint256) {
-        // Implement the Bailey–Borwein–Plouffe formula for pi calculation
         uint256 piValue = 0;
         for (uint256 k = 0; k < 100; k++) {
-            piValue += (1 / (16 ** k)) * (
-                (4 / (8 * k + 1)) -
-                (2 / (8 * k + 4)) -
-                (1 / (8 * k + 5)) -
-                (1 / (8 * k + 6))
+            uint256 term = (1e18 / (16 ** k)) * (
+                (4e18 / (8 * k + 1)) -
+                (2e18 / (8 * k + 4)) -
+                (1e18 / (8 * k + 5)) -
+                (1e18 / (8 * k + 6))
             );
+            piValue += term / 1e18; // Adjust back to the original scale
         }
         userPiValues[_user] = piValue;
         emit PiValueUpdated(_user, piValue);
         return piValue;
     }
 
-    // Function to update the AI model with new data
-    function updateModel(address _owner) public onlyOwner {
-        // Update the AI model with new data
+    function updateModel() public onlyOwner {
         mlModel.update();
-        emit ModelUpdated(_owner);
+        emit ModelUpdated(owner);
     }
 
-    // Function to get the predicted pi value for a given user
     function getPrediction(address _user) public returns (uint256) {
-        // Use the machine learning model to predict the pi value
         uint256 prediction = mlModel.predict(userPiValues[_user]);
-        userPredictions[_user] = prediction;
-        emit PredictionUpdated(_user, prediction);
+        if (userPredictions[_user] != prediction) {
+            userPredictions[_user] = prediction;
+            emit PredictionUpdated(_user, prediction);
+        }
         return prediction;
     }
 
-    // Function to claim rewards for accurate predictions
-    function claimReward(address _user) public {
-        // Calculate the reward based on the accuracy of the prediction
-        uint256 reward = token.balanceOf(address(this)) * (userPredictions[_user] / userPiValues[_user]);
+    function claimReward(address _user) public nonReentrant {
+        require(userPiValues[_user] > 0, "User has no pi value");
+        uint256 reward = (token.balanceOf(address(this)) * userPredictions[_user]) / userPiValues[_user];
+        require(reward > 0, "No reward available");
         token.transfer(_user, reward);
         emit RewardClaimed(_user, reward);
     }
-}
 
-// Machine learning model contract
-contract MLModel {
-    // Mapping of users to their respective model weights
-    mapping (address => uint256) public modelWeights;
-
-    // Function to update the model weights
-    function update() public {
-        // Implement the model update logic
-    }
-
-    // Function to predict the pi value based on the user's data
-    function predict(uint256 _data) public returns (uint256) {
-        // Implement the prediction logic using the model weights
+    function batchCalculatePi(address[] calldata users) public {
+        for (uint256 i = 0; i < users.length; i++) {
+            calculatePi(users[i]);
+        }
     }
 }
