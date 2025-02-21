@@ -146,7 +146,7 @@ PI_COIN_SUSTAINABLE_DEVELOPMENT_GOALS = True  # Alignment with global sustainabl
 PI_COIN_UNSTOPPABLE_NETWORK = True  # Features to ensure the network remains operational and resilient against attacks
 PI_COIN_UNMATCHED_SCALABILITY = True  # Unparalleled scalability to accommodate exponential growth and user demand
 PI_COIN_HIGHEST_LEVEL_SECURITY = True  # Top-tier security measures to protect user assets and data integrity
-PI _COIN_SUPER_ADVANCED_TECHNOLOGY = True  # Utilization of cutting-edge technology to maintain a competitive edge in the market and ensure continuous innovation.
+PI_COIN_SUPER_ADVANCED_TECHNOLOGY = True  # Utilization of cutting-edge technology to maintain a competitive edge in the market and ensure continuous innovation.
 
 # Global Financial Connectivity
 PI_COIN_GLOBAL_CONNECTIVITY = True  # Enable automatic connection to global financial systems
