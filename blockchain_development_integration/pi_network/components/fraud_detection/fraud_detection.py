@@ -1,5 +1,4 @@
 # fraud_detection.py
-import pandas as pd
 from sklearn.ensemble import IsolationForest
 
 def detect_fraud(transactions):
