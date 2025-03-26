@@ -1,5 +1,7 @@
-import requests
 import json
+
+import requests
+
 
 class StandardBank:
     def __init__(self, client_id, client_secret, use_sandbox=True):
@@ -39,7 +41,9 @@ class StandardBank:
         response = self.session.post(f"{self.base_url}/{endpoint}", data=data)
 
         if response.status_code != 200:
-            raise Exception(f"Failed to get access token with status code {response.status_code}")
+            raise Exception(
+                f"Failed to get access token with status code {response.status_code}"
+            )
 
         response_data = response.json()
         return response_data["access_token"]
@@ -82,4 +86,6 @@ class StandardBank:
             "currency": "ZAR",
             "narrative": "Test transfer",
         }
-        return self.make_request(endpoint, method="POST", headers=headers, data=json.dumps(data))
+        return self.make_request(
+            endpoint, method="POST", headers=headers, data=json.dumps(data)
+        )
