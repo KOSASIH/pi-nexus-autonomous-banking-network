@@ -10,6 +10,6 @@ func NewNexarionCore() *NexarionCore {
 	return &NexarionCore{}
 }
 
-func (c *NexarionCore) Start() {
+func (*NexarionCore) Start() {
 	// Implement the Nexarion Core's decision-making processes and functionality
 }
