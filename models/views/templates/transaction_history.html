@@ -9,11 +9,11 @@
   </thead>
   <tbody>
     {% for transaction in transactions %}
-      <tr>
-        <td>{{ transaction['date'] }}</td>
-        <td>{{ transaction['type'] }}</td>
-        <td>{{ transaction['amount'] }}</td>
-      </tr>
+    <tr>
+      <td>{{ transaction['date'] }}</td>
+      <td>{{ transaction['type'] }}</td>
+      <td>{{ transaction['amount'] }}</td>
+    </tr>
     {% endfor %}
   </tbody>
 </table>
