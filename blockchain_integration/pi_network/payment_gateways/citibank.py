@@ -1,5 +1,6 @@
 import citibank
 
+
 class CitibankPaymentGateway:
     def __init__(self, api_key, api_secret):
         self.api_key = api_key
@@ -7,8 +8,5 @@ class CitibankPaymentGateway:
         citibank.Configuration.configure(api_key, api_secret)
 
     def create_payment(self, amount, currency):
-        payment = citibank.Payment.create({
-            'amount': amount,
-            'currency': currency
-        })
+        payment = citibank.Payment.create({"amount": amount, "currency": currency})
         return payment
