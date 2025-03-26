@@ -1,16 +1,15 @@
 # hyperledger.py
 import os
 import sys
+
 from fabric_sdk_py import FabricSDK
+
 
 class HyperledgerFabric:
     def __init__(self, network, user, org, peer):
-        self.sdk = FabricSDK({
-            'network': network,
-            'user': user,
-            'org': org,
-            'peer': peer
-        })
+        self.sdk = FabricSDK(
+            {"network": network, "user": user, "org": org, "peer": peer}
+        )
 
     def query_ledger(self, chaincode_id, fcn, args):
         try:
