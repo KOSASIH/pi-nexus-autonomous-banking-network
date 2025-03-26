@@ -1,8 +1,11 @@
 import networkx as nx
-from.node import Node
-from.edge import Edge
+
+from .edge import Edge
+from .node import Node
+
 
 class NexusNetwork:
+
     def __init__(self):
         self.graph = nx.Graph()
         self.nodes = {}
