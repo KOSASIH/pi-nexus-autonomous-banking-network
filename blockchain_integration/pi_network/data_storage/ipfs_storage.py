@@ -1,12 +1,16 @@
-import ipfshttpclient
 import json
-from cryptography.hazmat.primitives import serialization, hashes
-from cryptography.hazmat.primitives.asymmetric import rsa, padding
+
+import ipfshttpclient
 from cryptography.hazmat.backends import default_backend
+from cryptography.hazmat.primitives import hashes, serialization
+from cryptography.hazmat.primitives.asymmetric import padding, rsa
+
 
 class IPFSStorage:
     def __init__(self, ipfs_api_url, ipfs_api_port, private_key_path):
-        self.ipfs_client = ipfshttpclient.connect(f"/ip4/{ipfs_api_url}/tcp/{ipfs_api_port}/http")
+        self.ipfs_client = ipfshttpclient.connect(
+            f"/ip4/{ipfs_api_url}/tcp/{ipfs_api_port}/http"
+        )
         self.private_key = self._load_private_key(private_key_path)
         self.data_cache = {}
 
@@ -38,7 +42,9 @@ class IPFSStorage:
     def _load_private_key(self, private_key_path):
         with open(private_key_path, "rb") as f:
             private_key_pem = f.read()
-        private_key = serialization.load_pem_private_key(private_key_pem, password=None, backend=default_backend())
+        private_key = serialization.load_pem_private_key(
+            private_key_pem, password=None, backend=default_backend()
+        )
         return private_key
 
     def _encrypt_data(self, data, encryption_key):
@@ -48,8 +54,8 @@ class IPFSStorage:
             padding.OAEP(
                 mgf=padding.MGF1(algorithm=hashes.SHA256()),
                 algorithm=hashes.SHA256(),
-                label=None
-            )
+                label=None,
+            ),
         )
         return encrypted_data
 
@@ -60,10 +66,11 @@ class IPFSStorage:
             padding.OAEP(
                 mgf=padding.MGF1(algorithm=hashes.SHA256()),
                 algorithm=hashes.SHA256(),
-                label=None
-            )
+                label=None,
+            ),
         )
         return json.loads(decrypted_data.decode())
+
 
 # Example usage
 ipfs_storage = IPFSStorage("localhost", 5001, "path/to/private/key")
