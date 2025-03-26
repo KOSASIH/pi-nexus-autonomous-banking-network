@@ -1,10 +1,12 @@
 from typing import Optional
 
+
 class ConsensusRound:
     def __init__(self, round_number: int, validators: List[str], block_hash: str):
         self.round_number = round_number
         self.validators = validators
         self.block_hash = block_hash
+
 
 class Consensus:
     def __init__(self, api_client):
