@@ -2,6 +2,7 @@
 from dataclasses import dataclass
 from typing import List
 
+
 @dataclass
 class BankAccount:
     account_number: str
