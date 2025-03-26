@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import ttk
 
+
 class UIDesigner:
     def __init__(self, master):
         self.master = master
@@ -23,7 +24,9 @@ class UIDesigner:
         self.notebook.add(self.settings_tab, text="Settings")
 
         # Add UI elements to the dashboard tab
-        self.dashboard_label = ttk.Label(self.dashboard_tab, text="Welcome to your wallet!")
+        self.dashboard_label = ttk.Label(
+            self.dashboard_tab, text="Welcome to your wallet!"
+        )
         self.dashboard_label.pack(pady=20)
 
         self.balance_label = ttk.Label(self.dashboard_tab, text="Balance: $0.00")
@@ -36,7 +39,9 @@ class UIDesigner:
         self.receive_button.pack(pady=10)
 
         # Add UI elements to the transaction tab
-        self.transaction_treeview = ttk.Treeview(self.transaction_tab, columns=("Date", "Type", "Amount"))
+        self.transaction_treeview = ttk.Treeview(
+            self.transaction_tab, columns=("Date", "Type", "Amount")
+        )
         self.transaction_treeview.pack(fill="both", expand=True)
 
         # Add UI elements to the settings tab
@@ -49,7 +54,8 @@ class UIDesigner:
         self.theme_option = ttk.Combobox(self.settings_tab, values=["Light", "Dark"])
         self.theme_option.pack(pady=10)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     root = tk.Tk()
     ui_designer = UIDesigner(root)
     root.mainloop()
