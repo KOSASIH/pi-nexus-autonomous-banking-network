@@ -1,7 +1,9 @@
-import pandas as pd
-import numpy as np
-from sklearn.ensemble import RandomForestRegressor
 from typing import Optional
+
+import numpy as np
+import pandas as pd
+from sklearn.ensemble import RandomForestRegressor
+
 
 class MarketPredictor:
     """Predicts market trends using a random forest regression model.
@@ -19,7 +21,7 @@ class MarketPredictor:
         """
         self.data = data
         self.model = RandomForestRegressor(n_estimators=100, max_depth=5)
-        self.model.fit(self.data.drop(['trend'], axis=1), self.data['trend'])
+        self.model.fit(self.data.drop(["trend"], axis=1), self.data["trend"])
 
     def predict(self, features: pd.DataFrame) -> Optional[float]:
         """Predicts the market trend based on the given features.
