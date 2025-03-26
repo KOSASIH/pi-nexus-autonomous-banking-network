@@ -86,12 +86,12 @@ Orderer: &OrdererDefaults
   OrdererType: etcdraft
   EtcdRaft:
     Consenters:
-    - Host: orderer.example.com
-      Port: 7050
-      ClientTLSCert: crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/tls/server.crt
-      ServerTLSCert: crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/tls/server.crt
-      PersistentPrevoteWait: 500ms
-      PersistentViewWait: 500ms
+      - Host: orderer.example.com
+        Port: 7050
+        ClientTLSCert: crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/tls/server.crt
+        ServerTLSCert: crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/tls/server.crt
+        PersistentPrevoteWait: 500ms
+        PersistentViewWait: 500ms
   BatchTimeout: 2s
   BatchSize:
     MaxMessageCount: 10
@@ -134,17 +134,17 @@ Profiles:
     Orderer:
       <<: *OrdererDefaults
       Organizations:
-      - *OrdererOrg
+        - *OrdererOrg
     Consortiums:
       SampleConsortium:
         Organizations:
-        - *Org1
-        - *Org2
+          - *Org1
+          - *Org2
     Application:
       <<: *ApplicationDefaults
       Organizations:
-      - *Org1
-      - *Org2
+        - *Org1
+        - *Org2
   TwoOrgsChannel:
     Capabilities:
       Global: &ChannelCapabilities
@@ -158,5 +158,5 @@ Profiles:
     Application:
       <<: *ApplicationDefaults
       Organizations:
-      - *Org1
-      - *Org2
+        - *Org1
+        - *Org2
