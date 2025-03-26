@@ -1,5 +1,7 @@
-import requests
 import json
+
+import requests
+
 
 class AlBarakaBank:
     def __init__(self, api_key):
@@ -17,11 +19,14 @@ class AlBarakaBank:
 
     def transfer_funds(self, from_account_number, to_account_number, amount):
         url = f"{self.base_url}/transfers"
-        headers = {"Authorization": f"Bearer {self.api_key}", "Content-Type": "application/json"}
+        headers = {
+            "Authorization": f"Bearer {self.api_key}",
+            "Content-Type": "application/json",
+        }
         data = {
             "fromAccountNumber": from_account_number,
             "toAccountNumber": to_account_number,
-            "amount": amount
+            "amount": amount,
         }
         response = requests.post(url, headers=headers, data=json.dumps(data))
         if response.status_code == 200:
