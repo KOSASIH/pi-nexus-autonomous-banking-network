@@ -1,5 +1,7 @@
-import requests
 from typing import Dict, Union
+
+import requests
+
 
 class KrakenExchange:
     def __init__(self, api_key: str, api_secret: str):
@@ -12,7 +14,9 @@ class KrakenExchange:
         nonce = str(int(requests.get("https://api.kraken.com/0/time").json()["epoch"]))
         message = f"{nonce}{endpoint}"
         secret_key = self.api_secret.encode("utf-8")
-        signature = requests.hmac.new(secret_key, message.encode("utf-8"), hashlib.sha256).hexdigest()
+        signature = requests.hmac.new(
+            secret_key, message.encode("utf-8"), hashlib.sha256
+        ).hexdigest()
         return {
             "API-Key": self.api_key,
             "API-Sign": signature,
@@ -31,7 +35,9 @@ class KrakenExchange:
                 exchange_rates["USD"] = float(rate["c"][1])
         return exchange_rates
 
-    def place_order(self, order: Dict[str, Union[str, float]]) -> Dict[str, Union[str, float]]:
+    def place_order(
+        self, order: Dict[str, Union[str, float]]
+    ) -> Dict[str, Union[str, float]]:
         """Places an order on Kraken."""
         url = f"{self.base_url}/0/private/Order/Place"
         headers = self._get_signed_request_headers(url)
