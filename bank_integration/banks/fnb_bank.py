@@ -1,5 +1,7 @@
-import requests
 import json
+
+import requests
+
 
 class FNBBank:
     def __init__(self, username, password):
