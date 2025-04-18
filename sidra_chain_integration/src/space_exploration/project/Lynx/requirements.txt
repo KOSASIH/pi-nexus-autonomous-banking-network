@@ -6,7 +6,7 @@ matplotlib==3.4.3
 scikit-learn==1.0.2
 
 # AGI dependencies
-torch==2.2.0
+torch==2.6.0
 torchvision==0.10.0
 transformers==4.38.0
 
