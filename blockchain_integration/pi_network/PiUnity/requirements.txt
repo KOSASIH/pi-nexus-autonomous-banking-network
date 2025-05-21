@@ -1,6 +1,6 @@
 # requirements.txt
 
-Django==4.2.16
+Django==4.2.21
 django-crispy-forms==1.11.2
 Pillow==10.3.0
 django-filter==2.4.0
