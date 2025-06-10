@@ -1,6 +1,6 @@
 # requirements.txt
 tensorflow==2.12.1
 boto3==1.18.32
-requests==2.26.0
+requests==2.32.4
 pandas==1.3.5
 sklearn==0.0
