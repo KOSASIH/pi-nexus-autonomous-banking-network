@@ -7,5 +7,5 @@ python==3.9.5
 flask==2.0.1
 flask_sqlalchemy==2.5.1
 psycopg2-binary==2.9.3
-requests==2.26.0
+requests==2.32.4
 loguru==0.5.3
