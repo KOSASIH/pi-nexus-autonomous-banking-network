@@ -1,4 +1,4 @@
 # requirements.txt
 python==3.9.5
 flask==2.0.1
-requests==2.25.1
+requests==2.32.4
