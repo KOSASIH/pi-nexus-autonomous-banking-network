@@ -1,6 +1,7 @@
 from Crypto.Cipher import AES
 from Crypto.Random import get_random_bytes
 
+
 class AESCipher:
     def __init__(self, key: bytes):
         self.key = key
@@ -12,7 +13,7 @@ class AESCipher:
         return encrypted_data
 
     def decrypt(self, encrypted_data: bytes) -> bytes:
-        iv = encrypted_data[:AES.block_size]
+        iv = encrypted_data[: AES.block_size]
         cipher = AES.new(self.key, AES.MODE_CFB, iv)
-        decrypted_data = cipher.decrypt(encrypted_data[AES.block_size:])
+        decrypted_data = cipher.decrypt(encrypted_data[AES.block_size :])
         return decrypted_data
