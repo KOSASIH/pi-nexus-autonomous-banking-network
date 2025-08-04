@@ -1,6 +1,8 @@
 import pytest
 from block_model import Block
-from utils import proof_of_work, calculate_difficulty
+
+from utils import calculate_difficulty, proof_of_work
+
 
 def test_proof_of_work():
     """Test the proof_of_work function."""
@@ -13,9 +15,12 @@ def test_proof_of_work():
 
     assert block.hash.startswith("0" * difficulty)
 
+
 def test_calculate_difficulty():
     """Test the calculate_difficulty function."""
-    previous_block = Block(index=0, previous_hash="abc", data="Hello, world!", nonce=123)
+    previous_block = Block(
+        index=0, previous_hash="abc", data="Hello, world!", nonce=123
+    )
 
     assert calculate_difficulty(previous_block, 1, 10) == 1
     assert calculate_difficulty(previous_block, 2, 10) == 1
