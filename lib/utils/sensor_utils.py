@@ -20,6 +20,7 @@ def read_sensor_data(sensor_type, port):
 
     return process_sensor_data(data)
 
+
 def process_sensor_data(data):
     """
     Process sensor data (e.g., clean, transform).
