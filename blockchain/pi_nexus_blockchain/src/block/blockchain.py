@@ -1,6 +1,8 @@
 from block_model import Block
 from block_repository import BlockRepository
-from utils import proof_of_work, calculate_difficulty
+
+from utils import calculate_difficulty, proof_of_work
+
 
 class Blockchain:
     """
@@ -29,9 +31,16 @@ class Blockchain:
             self.create_genesis_block()
             latest_block = self.repository.get_latest_block()
 
-        difficulty = calculate_difficulty(latest_block, self.min_difficulty, self.time_between_blocks)
+        difficulty = calculate_difficulty(
+            latest_block, self.min_difficulty, self.time_between_blocks
+        )
         nonce = proof_of_work(latest_block.hash, data, difficulty)
-        new_block = Block(index=latest_block.index + 1, previous_hash=latest_block.hash, data=data, nonce=nonce)
+        new_block = Block(
+            index=latest_block.index + 1,
+            previous_hash=latest_block.hash,
+            data=data,
+            nonce=nonce,
+        )
         self.repository.add_block(new_block)
 
     def get_blockchain(self) -> list[Block]:
