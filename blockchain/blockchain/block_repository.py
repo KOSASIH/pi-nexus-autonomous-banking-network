@@ -1,5 +1,7 @@
 from typing import List
+
 from blockchain import Blockchain
+
 
 class BlockRepository:
     """
