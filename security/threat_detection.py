@@ -1,5 +1,6 @@
 from scapy.all import *
 
+
 def detect_threats(pcap_file):
     packets = rdpcap(pcap_file)
     for packet in packets:
@@ -11,6 +12,7 @@ def detect_threats(pcap_file):
         elif packet.haslayer(ICMP):
             if packet[ICMP].type == 8:
                 print(f"Ping flood detected from {packet[IP].src}")
+
 
 if __name__ == "__main__":
     detect_threats("example.pcap")
