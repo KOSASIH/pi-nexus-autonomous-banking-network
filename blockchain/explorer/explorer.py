@@ -1,6 +1,8 @@
 import time
+from typing import Any, Dict
+
 import requests
-from typing import Dict, Any
+
 
 class Explorer:
     def __init__(self, api_keys: Dict[str, str]):
@@ -16,7 +18,7 @@ class Explorer:
         url = "http://localhost:8080/api/blockchain-info"
         headers = {
             "Content-Type": "application/json",
-            "Authorization": f"Bearer {self.api_keys['pi-nexus']}"
+            "Authorization": f"Bearer {self.api_keys['pi-nexus']}",
         }
         response = requests.get(url, headers=headers)
         response.raise_for_status()
@@ -29,7 +31,7 @@ class Explorer:
         url = f"http://localhost:8080/api/block-by-number/{block_number}"
         headers = {
             "Content-Type": "application/json",
-            "Authorization": f"Bearer {self.api_keys['pi-nexus']}"
+            "Authorization": f"Bearer {self.api_keys['pi-nexus']}",
         }
         response = requests.get(url, headers=headers)
         response.raise_for_status()
@@ -42,7 +44,7 @@ class Explorer:
         url = f"http://localhost:8080/api/transaction-by-id/{transaction_id}"
         headers = {
             "Content-Type": "application/json",
-            "Authorization": f"Bearer {self.api_keys['pi-nexus']}"
+            "Authorization": f"Bearer {self.api_keys['pi-nexus']}",
         }
         response = requests.get(url, headers=headers)
         response.raise_for_status()
@@ -55,16 +57,15 @@ class Explorer:
         url = f"http://localhost:8080/api/smart-contract-by-address/{contract_address}"
         headers = {
             "Content-Type": "application/json",
-            "Authorization": f"Bearer {self.api_keys['pi-nexus']}"
+            "Authorization": f"Bearer {self.api_keys['pi-nexus']}",
         }
         response = requests.get(url, headers=headers)
         response.raise_for_status()
         return response.json()
 
+
 # Example usage
-api_keys = {
-    "pi-nexus": "your_pi_nexus_api_key"
-}
+api_keys = {"pi-nexus": "your_pi_nexus_api_key"}
 explorer = Explorer(api_keys)
 
 # Get information about the Pi-Nexus Autonomous Banking Network blockchain
