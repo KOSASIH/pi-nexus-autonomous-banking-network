@@ -1,24 +1,26 @@
 import os
 
 # Ethereum network configuration
-ETH_NETWORK = os.environ.get('ETH_NETWORK', 'rinkeby')
-ETH_INFURA_PROJECT_ID = os.environ.get('ETH_INFURA_PROJECT_ID', '')
-ETH_PRIVATE_KEY = os.environ.get('ETH_PRIVATE_KEY', '')
+ETH_NETWORK = os.environ.get("ETH_NETWORK", "rinkeby")
+ETH_INFURA_PROJECT_ID = os.environ.get("ETH_INFURA_PROJECT_ID", "")
+ETH_PRIVATE_KEY = os.environ.get("ETH_PRIVATE_KEY", "")
 
 # Contract addresses
-BANK_CONTRACT_ADDRESS = os.environ.get('BANK_CONTRACT_ADDRESS', '')
-INTEREST_CONTRACT_ADDRESS = os.environ.get('INTEREST_CONTRACT_ADDRESS', '')
-LOAN_CONTRACT_ADDRESS = os.environ.get('LOAN_CONTRACT_ADDRESS', '')
-SECURITY_CONTRACT_ADDRESS = os.environ.get('SECURITY_CONTRACT_ADDRESS', '')
+BANK_CONTRACT_ADDRESS = os.environ.get("BANK_CONTRACT_ADDRESS", "")
+INTEREST_CONTRACT_ADDRESS = os.environ.get("INTEREST_CONTRACT_ADDRESS", "")
+LOAN_CONTRACT_ADDRESS = os.environ.get("LOAN_CONTRACT_ADDRESS", "")
+SECURITY_CONTRACT_ADDRESS = os.environ.get("SECURITY_CONTRACT_ADDRESS", "")
 
 # Contract ABI
-BANK_ABI = os.environ.get('BANK_ABI', '')
-INTEREST_ABI = os.environ.get('INTEREST_ABI', '')
-LOAN_ABI = os.environ.get('LOAN_ABI', '')
-SECURITY_ABI = os.environ.get('SECURITY_ABI', '')
+BANK_ABI = os.environ.get("BANK_ABI", "")
+INTEREST_ABI = os.environ.get("INTEREST_ABI", "")
+LOAN_ABI = os.environ.get("LOAN_ABI", "")
+SECURITY_ABI = os.environ.get("SECURITY_ABI", "")
 
 # Web3 provider
-w3 = web3.Web3(web3.HTTPProvider(f'https://{ETH_NETWORK}.infura.io/v3/{ETH_INFURA_PROJECT_ID}'))
+w3 = web3.Web3(
+    web3.HTTPProvider(f"https://{ETH_NETWORK}.infura.io/v3/{ETH_INFURA_PROJECT_ID}")
+)
 
 # Contract instances
 bank = w3.eth.contract(address=BANK_CONTRACT_ADDRESS, abi=BANK_ABI)
@@ -41,7 +43,9 @@ API_DEBUG = os.getenv("API_DEBUG", "True").lower() == "true"
 # Authentication configuration
 AUTH_SECRET_KEY = os.getenv("AUTH_SECRET_KEY", "secret_key")
 AUTH_ALGORITHM = os.getenv("AUTH_ALGORITHM", "HS256")
-AUTH_ACCESS_TOKEN_EXPIRE_MINUTES = int(os.getenv("AUTH_ACCESS_TOKEN_EXPIRE_MINUTES", 30))
+AUTH_ACCESS_TOKEN_EXPIRE_MINUTES = int(
+    os.getenv("AUTH_ACCESS_TOKEN_EXPIRE_MINUTES", 30)
+)
 AUTH_REFRESH_TOKEN_EXPIRE_DAYS = int(os.getenv("AUTH_REFRESH_TOKEN_EXPIRE_DAYS", 7))
 
 # Email configuration
