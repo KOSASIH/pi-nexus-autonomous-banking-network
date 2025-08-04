@@ -1,5 +1,7 @@
-import requests
 from typing import Dict, Union
+
+import requests
+
 
 class BinanceExchange:
     def __init__(self, api_key: str, api_secret: str):
@@ -9,7 +11,12 @@ class BinanceExchange:
 
     def _get_signed_request_headers(self, endpoint: str) -> Dict[str, str]:
         """Returns the signed request headers for a given endpoint."""
-        timestamp = str(int(requests.get("https://api.binance.com/api/v3/time").json()["serverTime"] / 1000))
+        timestamp = str(
+            int(
+                requests.get("https://api.binance.com/api/v3/time").json()["serverTime"]
+                / 1000
+            )
+        )
         signature = self._create_signature(endpoint, timestamp)
         return {
             "X-MBX-APIKEY": self.api_key,
@@ -21,7 +28,9 @@ class BinanceExchange:
         """Creates a signature for a given endpoint and timestamp."""
         query_string = "{}&timestamp={}".format(endpoint, timestamp)
         secret_key = self.api_secret.encode("utf-8")
-        return requests.utils.requote_uri(query_string).encode("utf-8").hex()[:64].upper()
+        return (
+            requests.utils.requote_uri(query_string).encode("utf-8").hex()[:64].upper()
+        )
 
     def fetch_exchange_rates(self) -> Dict[str, float]:
         """Fetches the current exchange rates for Binance."""
@@ -32,7 +41,9 @@ class BinanceExchange:
             exchange_rates[rate["symbol"].replace("USDT", "")] = float(rate["price"])
         return exchange_rates
 
-    def place_order(self, order: Dict[str, Union[str, float]]) -> Dict[str, Union[str, float]]:
+    def place_order(
+        self, order: Dict[str, Union[str, float]]
+    ) -> Dict[str, Union[str, float]]:
         """Places an order on Binance."""
         url = f"{self.base_url}/api/v3/order"
         headers = self._get_signed_request_headers(url)
