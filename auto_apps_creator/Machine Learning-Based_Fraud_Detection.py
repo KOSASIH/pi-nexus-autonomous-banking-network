@@ -1,12 +1,13 @@
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 
+
 class FraudDetector:
     def __init__(self):
         self.classifier = RandomForestClassifier(n_estimators=100)
 
     def train(self, data):
-        self.classifier.fit(data.drop('label', axis=1), data['label'])
+        self.classifier.fit(data.drop("label", axis=1), data["label"])
 
     def predict(self, input_data):
         prediction = self.classifier.predict(input_data)
