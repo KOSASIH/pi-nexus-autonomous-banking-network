@@ -1,5 +1,6 @@
 import flask
 
+
 class Dashboard:
     def __init__(self, app):
         self.app = app
