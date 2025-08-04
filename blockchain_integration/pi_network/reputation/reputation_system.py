@@ -1,5 +1,6 @@
 import pandas as pd
 
+
 class ReputationSystem:
     def __init__(self, user_data):
         self.user_data = pd.DataFrame(user_data)
