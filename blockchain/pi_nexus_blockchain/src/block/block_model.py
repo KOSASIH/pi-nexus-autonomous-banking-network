@@ -1,7 +1,9 @@
-from typing import Any, Union
 from datetime import datetime
 from hashlib import sha256
-from base58 import b58encode, b58decode
+from typing import Any, Union
+
+from base58 import b58decode, b58encode
+
 
 class BlockHeader:
     """
@@ -16,7 +18,14 @@ class BlockHeader:
         hash (str): The hash of the block header.
     """
 
-    def __init__(self, index: int, previous_hash: str, timestamp: float, data: Any, nonce: int = 0):
+    def __init__(
+        self,
+        index: int,
+        previous_hash: str,
+        timestamp: float,
+        data: Any,
+        nonce: int = 0,
+    ):
         self.index = index
         self.previous_hash = previous_hash
         self.timestamp = timestamp
@@ -49,7 +58,9 @@ class Block:
         self.previous_hash = previous_hash
         self.timestamp = datetime.now().timestamp()
         self.data = data
-        self.block_header = BlockHeader(index, previous_hash, self.timestamp, self.data, nonce)
+        self.block_header = BlockHeader(
+            index, previous_hash, self.timestamp, self.data, nonce
+        )
         self.hash = self.block_header.hash
 
     def __str__(self):
