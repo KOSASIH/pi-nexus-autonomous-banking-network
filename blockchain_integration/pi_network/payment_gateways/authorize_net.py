@@ -1,5 +1,6 @@
 import authorize
 
+
 class AuthorizeNetPaymentGateway:
     def __init__(self, api_key, api_secret):
         self.api_key = api_key
