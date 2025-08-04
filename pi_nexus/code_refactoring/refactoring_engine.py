@@ -1,6 +1,7 @@
 # code_refactoring/refactoring_engine.py
 import ast
 
+
 class RefactoringEngine:
     def __init__(self):
         self.refactoring_rules = RefactoringRules()
