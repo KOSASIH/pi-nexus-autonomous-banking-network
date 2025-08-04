@@ -1,20 +1,20 @@
 // edge_computing.js
-const edgeComputing = require('edge-computing-sdk');
+const edgeComputing = require('edge-computing-sdk')
 
 class EdgeComputingManager {
-  constructor() {
-    this.edgeNodes = [];
+  constructor () {
+    this.edgeNodes = []
   }
 
-  async registerEdgeNode(node) {
+  async registerEdgeNode (node) {
     // Implement edge node registration
   }
 
-  async deployModel(modelId, nodeId) {
+  async deployModel (modelId, nodeId) {
     // Implement model deployment on edge nodes
   }
 
-  async updateModel(modelId, newModel) {
+  async updateModel (modelId, newModel) {
     // Implement model update on edge nodes
   }
 }
