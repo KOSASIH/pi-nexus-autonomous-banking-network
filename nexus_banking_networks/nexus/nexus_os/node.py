@@ -2,6 +2,7 @@
 import logging
 import os
 
+
 class Node:
     def __init__(self, node_id: str, blockchain):
         """
