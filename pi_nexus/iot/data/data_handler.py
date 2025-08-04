@@ -1,6 +1,7 @@
 # iot/data/data_handler.py
 import pandas as pd
 
+
 class DataHandler:
     def __init__(self):
         self.data = pd.DataFrame()
