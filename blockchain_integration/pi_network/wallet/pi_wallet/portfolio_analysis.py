@@ -1,6 +1,7 @@
-import pandas as pd
-import numpy as np
 import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+
 
 def calculate_annualized_standard_deviation(data):
     """
@@ -15,6 +16,7 @@ def calculate_annualized_standard_deviation(data):
     std_dev = data.std() * np.sqrt(253)
     return std_dev
 
+
 def calculate_annualized_variance(std_dev):
     """
     Calculate the annualized variance of a portfolio.
@@ -25,8 +27,9 @@ def calculate_annualized_variance(std_dev):
     Returns:
     float: Annualized variance.
     """
-    var = std_dev ** 2
+    var = std_dev**2
     return var
+
 
 def calculate_sharpe_ratio(data, risk_free_rate):
     """
@@ -44,6 +47,7 @@ def calculate_sharpe_ratio(data, risk_free_rate):
     sharpe_ratio = (mean_return - risk_free_rate) / std_dev
     return sharpe_ratio
 
+
 def plot_annualized_standard_deviation(data):
     """
     Plot the annualized standard deviation of a portfolio over time.
@@ -53,10 +57,11 @@ def plot_annualized_standard_deviation(data):
     """
     std_dev = calculate_annualized_standard_deviation(data)
     plt.plot(std_dev.index, std_dev.values)
-    plt.xlabel('Year')
-    plt.ylabel('Annualized Standard Deviation')
-    plt.title('Annualized Standard Deviation Over Time')
+    plt.xlabel("Year")
+    plt.ylabel("Annualized Standard Deviation")
+    plt.title("Annualized Standard Deviation Over Time")
     plt.show()
+
 
 def plot_sharpe_ratio(data, risk_free_rate):
     """
@@ -68,13 +73,14 @@ def plot_sharpe_ratio(data, risk_free_rate):
     """
     sharpe_ratio = calculate_sharpe_ratio(data, risk_free_rate)
     plt.plot(sharpe_ratio.index, sharpe_ratio.values)
-    plt.xlabel('Year')
-    plt.ylabel('Sharpe Ratio')
-    plt.title('Sharpe Ratio Over Time')
+    plt.xlabel("Year")
+    plt.ylabel("Sharpe Ratio")
+    plt.title("Sharpe Ratio Over Time")
     plt.show()
 
+
 # Load data
-data = pd.read_csv('portfolio_data.csv', index_col='Date', parse_dates=['Date'])
+data = pd.read_csv("portfolio_data.csv", index_col="Date", parse_dates=["Date"])
 
 # Calculate annualized standard deviation
 std_dev = calculate_annualized_standard_deviation(data)
