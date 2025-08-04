@@ -1,6 +1,7 @@
 import torch
-from torch.nn import Module, Sequential
 from gan import CodeGAN
+from torch.nn import Module, Sequential
+
 
 class CodeGenerator:
     def __init__(self, model_path: str):
@@ -9,4 +10,4 @@ class CodeGenerator:
     def generate_code(self, prompt: str) -> str:
         input_tensor = torch.tensor([prompt])
         output = self.model(input_tensor)
-        return output.detach().numpy().decode('utf-8')
+        return output.detach().numpy().decode("utf-8")
