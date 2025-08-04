@@ -1,8 +1,9 @@
+import numpy as np
 import pandas as pd
-from sklearn.preprocessing import StandardScaler
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score
-import numpy as np
+from sklearn.preprocessing import StandardScaler
+
 
 class WalletAIAssistant:
     def __init__(self, user_data):
@@ -10,8 +11,10 @@ class WalletAIAssistant:
 
     def train_model(self):
         # Extract features from user data
-        features = self.user_data[['income', 'expenses', 'credit_score', 'transaction_history']]
-        labels = self.user_data['financial_goal']
+        features = self.user_data[
+            ["income", "expenses", "credit_score", "transaction_history"]
+        ]
+        labels = self.user_data["financial_goal"]
 
         # Scale features
         scaler = StandardScaler()
@@ -25,7 +28,14 @@ class WalletAIAssistant:
 
     def provide_advice(self, user_input):
         # Extract features from user input
-        user_features = np.array([user_input['income'], user_input['expenses'], user_input['credit_score'], user_input['transaction_history']])
+        user_features = np.array(
+            [
+                user_input["income"],
+                user_input["expenses"],
+                user_input["credit_score"],
+                user_input["transaction_history"],
+            ]
+        )
 
         # Scale features
         scaler = StandardScaler()
@@ -43,15 +53,16 @@ class WalletAIAssistant:
         else:
             return "Based on your financial profile, we recommend reducing your debt by consolidating high-interest loans and credit cards."
 
-if __name__ == '__main__':
-    user_data = pd.read_csv('user_data.csv')
+
+if __name__ == "__main__":
+    user_data = pd.read_csv("user_data.csv")
     wallet_ai_assistant = WalletAIAssistant(user_data)
 
     user_input = {
-        'income': 50000,
-        'expenses': 30000,
-        'credit_score': 750,
-        'transaction_history': ['rent', 'utilities', 'groceries']
+        "income": 50000,
+        "expenses": 30000,
+        "credit_score": 750,
+        "transaction_history": ["rent", "utilities", "groceries"],
     }
 
     advice = wallet_ai_assistant.provide_advice(user_input)
