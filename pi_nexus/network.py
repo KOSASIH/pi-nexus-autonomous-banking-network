@@ -3,6 +3,7 @@ import logging
 
 logger = logging.getLogger(__name__)
 
+
 class Network:
     def __init__(self, host: str, port: int) -> None:
         self.host = host
