@@ -31,12 +31,12 @@ func (db *DB) Close() error {
 }
 
 type Config struct {
-	Host     string
-	Port     int
-	User     string
-	Password string
-	DBName   string
-	MaxIdleConns int
-	MaxOpenConns int
+	Host            string
+	Port            int
+	User            string
+	Password        string
+	DBName          string
+	MaxIdleConns    int
+	MaxOpenConns    int
 	ConnMaxLifetime int
 }
