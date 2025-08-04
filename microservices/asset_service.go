@@ -28,8 +28,8 @@ func (s *AssetService) CreateAsset(name string) (*Asset, error) {
 	defer s.Mutex.Unlock()
 	id := GenerateAssetID()
 	asset := &Asset{
-		ID:     id,
-		Name:   name,
+		ID:       id,
+		Name:     name,
 		Quantity: 0,
 	}
 	s.Assets[id] = asset
