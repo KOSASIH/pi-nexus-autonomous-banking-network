@@ -1,6 +1,7 @@
 # feedback_loop/feedback_collector.py
 import requests
 
+
 class FeedbackCollector:
     def __init__(self, config):
         self.config = config
