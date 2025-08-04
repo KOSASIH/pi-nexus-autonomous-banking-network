@@ -1,5 +1,7 @@
+from typing import Dict, List, Union
+
 import requests
-from typing import List, Dict, Union
+
 
 class Exchange:
     def __init__(self, api_key: str, api_secret: str):
@@ -11,13 +13,16 @@ class Exchange:
         """Fetches the current exchange rates for the exchange."""
         pass
 
-    def place_order(self, order: Dict[str, Union[str, float]]) -> Dict[str, Union[str, float]]:
+    def place_order(
+        self, order: Dict[str, Union[str, float]]
+    ) -> Dict[str, Union[str, float]]:
         """Places an order on the exchange."""
         pass
 
     def get_account_balance(self) -> Dict[str, float]:
         """Fetches the current account balance for the exchange."""
         pass
+
 
 class ExchangeManager:
     def __init__(self, exchanges: List[Exchange]):
@@ -30,7 +35,9 @@ class ExchangeManager:
             exchange_rates[exchange.name] = exchange.fetch_exchange_rates()
         return exchange_rates
 
-    def place_order_on_all_exchanges(self, order: Dict[str, Union[str, float]]) -> List[Dict[str, Union[str, float]]]:
+    def place_order_on_all_exchanges(
+        self, order: Dict[str, Union[str, float]]
+    ) -> List[Dict[str, Union[str, float]]]:
         """Places an order on all exchanges."""
         orders = []
         for exchange in self.exchanges:
