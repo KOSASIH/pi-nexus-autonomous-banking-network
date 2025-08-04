@@ -1,6 +1,7 @@
-from Crypto.PublicKey import RSA
 from Crypto.Cipher import PKCS1_OAEP
+from Crypto.PublicKey import RSA
 from Crypto.Random import get_random_bytes
+
 
 class RSACipher:
     def __init__(self, key_size: int = 2048):
