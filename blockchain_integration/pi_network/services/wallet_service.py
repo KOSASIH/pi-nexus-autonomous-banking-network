@@ -1,8 +1,11 @@
 # services/wallet_service.py
 
 from typing import Optional
+
 from components.wallet import Wallet
+
 from config import Config
+
 
 class WalletService:
     def __init__(self, config: Config):
@@ -16,7 +19,9 @@ class WalletService:
     def get_balance(self, address: str) -> Optional[float]:
         return self.wallet.get_balance(address)
 
-    def send_transaction(self, sender: str, receiver: str, amount: float) -> Optional[Transaction]:
+    def send_transaction(
+        self, sender: str, receiver: str, amount: float
+    ) -> Optional[Transaction]:
         return self.wallet.send_transaction(sender, receiver, amount)
 
     def get_transaction_history(self, address: str) -> List[Transaction]:
