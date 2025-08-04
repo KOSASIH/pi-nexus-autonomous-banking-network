@@ -1,5 +1,7 @@
 import ast
+
 from refactor import RefactoringTool
+
 
 class CodeRefactorer:
     def __init__(self, code: str):
