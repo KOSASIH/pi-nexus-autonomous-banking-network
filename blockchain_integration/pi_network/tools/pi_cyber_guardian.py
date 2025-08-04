@@ -1,14 +1,18 @@
-import requests
 import re
 import socket
 from typing import List, Tuple
+
+import requests
+
 
 class PiCyberGuardian:
     def __init__(self, target_ip: str, target_port: int):
         self.target_ip = target_ip
         self.target_port = target_port
 
-    def _send_request(self, request_type: str, request_data: bytes) -> Tuple[bytes, bytes]:
+    def _send_request(
+        self, request_type: str, request_data: bytes
+    ) -> Tuple[bytes, bytes]:
         """Sends a request to the target IP and port and returns the response."""
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         sock.connect((self.target_ip, self.target_port))
@@ -18,12 +22,17 @@ class PiCyberGuardian:
         sock.close()
         return response_type.encode("utf-8"), response_data
 
-    def _parse_response(self, response_type: bytes, response_data: bytes) -> Dict[str, Union[str, bool]]:
+    def _parse_response(
+        self, response_type: bytes, response_data: bytes
+    ) -> Dict[str, Union[str, bool]]:
         """Parses the response from the target IP and port and returns a dictionary of response data."""
         response_data_str = response_data.decode("utf-8")
         response_data_dict = {}
         if response_type == b"GET":
-            match = re.search(r"HTTP/1\.1 200 OK\r\nContent-Length: (\d+)\r\n\r\n(.+)", response_data_str)
+            match = re.search(
+                r"HTTP/1\.1 200 OK\r\nContent-Length: (\d+)\r\n\r\n(.+)",
+                response_data_str,
+            )
             if match:
                 content_length = int(match.group(1))
                 response_data_str = match.group(2)[:content_length]
@@ -50,7 +59,9 @@ class PiCyberGuardian:
                 }
         return response_data_dict
 
-    def _check_for_vulnerabilities(self, response_data: Dict[str, Union[str, bool]]) -> List[str]:
+    def _check_for_vulnerabilities(
+        self, response_data: Dict[str, Union[str, bool]]
+    ) -> List[str]:
         """Checks the response data for vulnerabilities and returns a list of vulnerabilities found."""
         vulnerabilities = []
         if "HTTP/1.1 200 OK" not in response_data["body"]:
