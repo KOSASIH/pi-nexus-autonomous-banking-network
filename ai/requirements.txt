@@ -69,10 +69,10 @@ pyglet==1.5.26
 # identity_verification/requirements.txt
 web3==5.24.0
 eth-account==0.5.4
-cryptography==3.4.7
+cryptography==46.0.5
 
 # cryptography/requirements.txt
-cryptography==3.4.7
+cryptography==46.0.5
 pycryptodome==3.10.1
 hashlib==3.4.7
 
