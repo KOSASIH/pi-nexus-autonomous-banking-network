@@ -9,7 +9,7 @@ setup(
     url='https://github.com/KOSASIH/pi-nexus-autonomous-banking-network/tree/main/projects/piguardian',
     packages=find_packages(),
     install_requires=[
-        'requests==2.25.1',
+        'requests==2.33.0',
         'statsmodels==0.12.2',
         'plotly==4.14.3',
         'numpy==1.22.0',
