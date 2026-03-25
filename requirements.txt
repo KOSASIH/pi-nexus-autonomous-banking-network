@@ -19,7 +19,7 @@ Flask==2.0.1
 Flask-SQLAlchemy==2.5.1
 Flask-Marshmallow==0.14.0
 marshmallow==3.13.0
-requests==2.26.0
+requests==2.33.0
 web3==5.24.0
 
 # New dependencies for cryptography, access control, and input validation
