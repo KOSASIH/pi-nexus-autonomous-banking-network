@@ -2,7 +2,7 @@
 python==3.9.5
 
 # Dependencies
-requests==2.25.1
+requests==2.33.0
 statsmodels==0.12.2
 plotly==4.14.3
 numpy==1.22.0
