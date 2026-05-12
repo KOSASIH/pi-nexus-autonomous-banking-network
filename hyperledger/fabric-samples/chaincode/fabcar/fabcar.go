@@ -8,8 +8,7 @@ import (
 	pb "github.com/hyperledger/fabric/protos/peer"
 )
 
-type SimpleAsset struct {
-}
+type SimpleAsset struct{}
 
 func (t *SimpleAsset) Init(stub shim.ChaincodeStubInterface) pb.Response {
 	// TODO: Implement initialization logic here
