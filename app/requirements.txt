@@ -24,7 +24,7 @@ Flask-Msearch==0.1.1
 Flask-Cache==1.10.1
 Flask-JWT==1.0.1
 Flask-Principal==0.4.0
-Flask-Security==4.0.0
+Flask-Security==5.8.1
 Flask-Sentry==1.0.0
 Flask-Analytics==2.0.0
 Flask-WhooshAlchemy==0.60
