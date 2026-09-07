@@ -1,29 +1,19 @@
-python-dotenv
-web3.py==5.24.0
-eth-sig-util==2.1.0
-cryptography==42.0.4
-bandit==1.7.4
-safety==1.10.3
-Flask
-Flask-SQLAlchemy
-OpenZeppelin-Solidity
-pandas
-scikit-learn
-psycopg2
-web3
-uport
-ipfs-http-client
-apache-spark
-# Existing dependencies
-Flask==2.0.1
-Flask-SQLAlchemy==2.5.1
-Flask-Marshmallow==0.14.0
-marshmallow==3.13.0
-requests==2.26.0
-web3==5.24.0
-
-# New dependencies for cryptography, access control, and input validation
-cryptography==3.4.7
-pycryptodome==3.10.1
-pyjwt==2.3.0
-Flask-JWT-Extended==3.25.1
+# Upgraded Pi-Nexus Autonomous Banking Dependencies
+    python-dotenv==1.0.1
+    web3==6.15.0
+    eth-sig-util==0.4.0
+    cryptography==42.0.5
+    bandit==1.7.8
+    safety==3.1.0
+    Flask==3.0.2
+    Flask-SQLAlchemy==3.1.1
+    Flask-Marshmallow==1.2.0
+    marshmallow==3.21.1
+    requests==2.31.0
+    pandas==2.2.1
+    scikit-learn==1.4.1.post1
+    psycopg2-binary==2.9.9
+    pycryptodome==3.20.0
+    pyjwt==2.8.0
+    Flask-JWT-Extended==4.6.0
+    
