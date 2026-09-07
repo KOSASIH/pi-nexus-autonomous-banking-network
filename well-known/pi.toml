@@ -1,20 +1,13 @@
-# pi.toml configuration for Pi-Nexus Autonomous Banking Network ($PiNEXUS)
 NETWORK_PASSPHRASE="Pi Network"
 HOME_DOMAIN="pi-nexus-autonomous-banking-network.kosasih.github.io"
 
-# Founder Information
+# Founder
 FOUNDERS="KOSASIH"
 FOUNDER_WALLET="GCKUNNC6X6LKYJXKTQEJAQQ2J6NTIHMRNJFM2KY6KIBB46BOPMKVXDQN"
 
 [[CURRENCIES]]
 code="PiNEXUS"
-issuer="PI_ISSUER_WALLET_ADDRESS_FOR_PINEXUS" # REPLACE THIS
-display_decimals=7
+issuer="GC_ISSUER_WALLET_KAMU_DISINI" # GANTI DENGAN WALLET ISSUER KAMU
 name="Pi-Nexus Autonomous Stablecoin"
-symbol="PiNEXUS"
-description="The most super smart stablecoin for Pi Nexus Autonomous Banking Network. AI Governance + Quantum Security."
-logo="https://pi-nexus-autonomous-banking-network.kosasih.github.io/logo.png"
-anchor="KOSASIH"
-anchor_wallet="GCKUNNC6X6LKYJXKTQEJAQQ2J6NTIHMRNJFM2KY6KIBB46BOPMKVXDQN"
-conditions="Total Supply: 100,000,000,000 PiNEXUS. Allocation: 20% Founder, 80% Treasury."
-website="https://pi-nexus-autonomous-banking-network.kosasih.github.io"
+desc="The most super smart stablecoin for Pi Nexus Autonomous Banking Network. Total Supply: 100B. 20% to Founder: GCKUNNC6X6LKYJXKTQEJAQQ2J6NTIHMRNJFM2KY6KIBB46BOPMKVXDQN"
+image="https://pi-nexus-autonomous-banking-network.kosasih.github.io/logo.png"
