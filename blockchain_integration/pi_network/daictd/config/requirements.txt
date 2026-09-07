@@ -28,5 +28,5 @@ scikit-image==0.18.3
 OpenCV==4.5.3
 
 # Security dependencies
-cryptography==3.4.7
+cryptography==50.0.0
 pycryptodome==3.19.1
