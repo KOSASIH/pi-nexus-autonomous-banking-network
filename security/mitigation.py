@@ -23,5 +23,5 @@ def mitigate_threats(pcap_file):
                 block_ip(packet[IP].src)
                 blocked_ips.add(packet[IP].src)
 
-if __name__ == "__main__**:
+if __name__ == "__main__":
     mitigate_threats("example.pcap")

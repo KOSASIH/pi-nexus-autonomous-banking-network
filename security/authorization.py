@@ -1,7 +1,7 @@
 import os
 from cryptography.fernet import Fernet
 
-class Authentication:
+class Authorization:
     def __init__(self, key):
         self.key = key
         self.cipher_suite = Fernet(self.key)

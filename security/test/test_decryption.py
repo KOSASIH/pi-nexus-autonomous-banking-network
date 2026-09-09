@@ -2,7 +2,7 @@ import unittest
 from security.decryption import Decryption
 
 class TestDecryption(unittest.TestCase):
-def setUp(self):
+    def setUp(self):
         self.decryption = Decryption("mysecretkey")
 
     def test_decrypt(self):
