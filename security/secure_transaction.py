@@ -23,14 +23,15 @@ from typing import Optional, Tuple
 
 # Matches a 32-byte (64 hex character) private key with an optional 0x prefix.
 _PRIVATE_KEY_RE = re.compile(r"^(?:0x)?[0-9a-fA-F]{64}$")
-# Matches a 20-byte (40 hex character) Ethereum address with an optional 0x prefix.
+# Matches a 20-byte (40 hex digit) Ether address with optional 0x prefix.
 _ADDRESS_RE = re.compile(r"^(?:0x)?[0-9a-fA-F]{40}$")
 
 _MIN_KEY_SIZE = 2048
 _MIN_TRANSFER_GAS = 21000
 _GAS_BUFFER_FACTOR = 1.1
 _GAS_BUFFER_WEI = 1000
-_FEE_PRIORITY_FALLBACK = 1000000000  # 1 gwei, only used when no fee API is available.
+# 1 gwei; only used when no fee-history API is available.
+_FEE_PRIORITY_FALLBACK = 1_000_000_000
 
 
 def _normalize_private_key(private_key_hex: str) -> str:
@@ -47,9 +48,15 @@ def _normalize_private_key(private_key_hex: str) -> str:
     Raises:
         ValueError: if the value is not a hex-encoded 32-byte key.
     """
-    if not isinstance(private_key_hex, str) or not _PRIVATE_KEY_RE.match(private_key_hex):
+    is_key = isinstance(private_key_hex, str) and bool(
+        _PRIVATE_KEY_RE.match(private_key_hex)
+    )
+    if not is_key:
         raise ValueError("private_key_hex must be a hex-encoded 32-byte key")
-    normalized = private_key_hex[2:] if private_key_hex.startswith("0x") else private_key_hex
+    if private_key_hex.startswith("0x"):
+        normalized = private_key_hex[2:]
+    else:
+        normalized = private_key_hex
     return "0x" + normalized.lower()
 
 
@@ -67,11 +74,21 @@ def _validate_address(web3, to_address: str) -> str:
         ValueError: if the address is malformed.
     """
     if not isinstance(to_address, str) or not _ADDRESS_RE.match(to_address):
-        raise ValueError("to_address must be a hex-encoded 40-character Ethereum address")
+        raise ValueError("to_address must be a 40-character Ethereum address")
 
     is_address = getattr(web3, "is_address", None)
     if callable(is_address) and not is_address(to_address):
         raise ValueError("to_address is not a valid Ethereum address")
+
+    raw = to_address[2:] if to_address.startswith("0x") else to_address
+    if raw != raw.lower() and raw != raw.upper():
+        # Mixed-case addresses are only trustworthy when they carry a valid
+        # EIP-55 checksum; accepting them silently would let a one-character
+        # typo change the destination account.
+        is_checksum_address = getattr(web3, "is_checksum_address", None)
+        if callable(is_checksum_address):
+            if not is_checksum_address(to_address):
+                raise ValueError("to_address has an invalid EIP-55 checksum")
 
     to_checksum_address = getattr(web3, "to_checksum_address", None)
     if callable(to_checksum_address):
@@ -79,8 +96,7 @@ def _validate_address(web3, to_address: str) -> str:
             return to_checksum_address(to_address)
         except Exception:
             pass
-    address = to_address[2:] if to_address.startswith("0x") else to_address
-    return "0x" + address.lower()
+    return "0x" + raw.lower()
 
 
 def _validate_value(value_wei: int) -> int:
@@ -102,35 +118,61 @@ def _validate_value(value_wei: int) -> int:
     return value_wei
 
 
-def _estimate_gas(web3, from_address: str, to_address: str, value_wei: int) -> int:
-    """Estimate gas for a transfer, falling back to the intrinsic transfer cost.
+def _estimate_gas(
+    web3, from_address: str, to_address: str, value_wei: int
+) -> int:
+    """Estimate gas for a transfer, falling back to the intrinsic cost.
 
     Some node states (e.g. blank senders, exotic chain state) make
     ``estimate_gas`` raise even though the transfer is valid. In that case we
     return the intrinsic cost of a plain value transfer instead of failing the
-    whole payment path.
+    whole payment path. Failure modes that mean the transfer itself would
+    revert or exceed available funds are re-raised so the payment is not
+    signed and broadcast with too little gas.
 
     Returns:
         A gas amount with a small buffer, never below ``_MIN_TRANSFER_GAS``.
+
+    Raises:
+        RuntimeError: if gas estimation fails in a way that puts the payment
+            itself at risk (contract recipient or RPC/client instability).
     """
+    is_contract = False
+    try:
+        code = web3.eth.get_code(to_address)
+        is_contract = code not in (None, b"", "0x")
+    except Exception:
+        is_contract = False
+
     try:
         estimate = web3.eth.estimate_gas(
             {"from": from_address, "to": to_address, "value": value_wei}
         )
         gas = int(estimate)
-    except Exception:
+    except Exception as exc:
+        # A plain EOA-to-EOA value transfer cannot revert, so an estimation
+        # failure there is observational (blank sender, RPC hiccup) and the
+        # intrinsic 21000-gas cost is safe. Contract recipients routinely
+        # need more than that - signing with 21000 would burn fees on a
+        # failing transfer, so surface the estimation error instead.
+        if is_contract:
+            raise RuntimeError(
+                "gas estimation failed for a contract recipient"
+            ) from exc
         return _MIN_TRANSFER_GAS
     buffered = int(gas * _GAS_BUFFER_FACTOR) + _GAS_BUFFER_WEI
     return max(buffered, _MIN_TRANSFER_GAS)
 
 
-def secure_send_transaction(web3, private_key_hex: str, to_address: str, value_wei: int) -> str:
+def secure_send_transaction(
+    web3, private_key_hex: str, to_address: str, value_wei: int
+) -> str:
     """Securely sign and broadcast a value transfer, returning its hash.
 
     The transaction is built with dynamic EIP-1559 fee fields when the chain
-    supports them, and falls back to a legacy ``gasPrice`` transaction otherwise.
-    All inputs are validated up front so that malformed keys, destinations or
-    values never reach the signing path.
+    supports them; otherwise it falls back to a legacy ``gasPrice``
+    transaction. All inputs are validated up front so that malformed keys,
+    destinations or values never reach the signing path.
 
     Args:
         web3: an initialized web3.Web3 instance (duck-typed; only ``.eth`` and
@@ -151,7 +193,9 @@ def secure_send_transaction(web3, private_key_hex: str, to_address: str, value_w
     value = _validate_value(value_wei)
 
     account = web3.eth.account.from_key(private_key)
-    nonce = web3.eth.get_transaction_count(account.address)
+    # "pending" avoids reusing a nonce when an earlier send from the same
+    # account is still in the mempool, which would silently replace/reject it.
+    nonce = web3.eth.get_transaction_count(account.address, "pending")
     gas = _estimate_gas(web3, account.address, destination, value)
 
     chain_id = getattr(web3.eth, "chain_id", None)
@@ -213,16 +257,21 @@ def secure_generate_keypair(
         ValueError: if ``key_size`` is smaller than ``_MIN_KEY_SIZE`` or the
             cryptography library is unavailable.
     """
-    if isinstance(key_size, bool) or not isinstance(key_size, int) or key_size < _MIN_KEY_SIZE:
-        raise ValueError("key_size must be an integer of at least " + str(_MIN_KEY_SIZE))
+    is_bad = isinstance(key_size, bool) or not isinstance(key_size, int)
+    if is_bad or key_size < _MIN_KEY_SIZE:
+        message = "key_size must be at least " + str(_MIN_KEY_SIZE)
+        raise ValueError(message)
 
     try:
         from cryptography.hazmat.primitives import serialization
         from cryptography.hazmat.primitives.asymmetric import rsa
     except ImportError as exc:  # pragma: no cover - environment dependency
-        raise ValueError("cryptography is required to generate keypairs") from exc
+        message = "cryptography required for keypair generation"
+        raise ValueError(message) from exc
 
-    private_key = rsa.generate_private_key(public_exponent=65537, key_size=key_size)
+    private_key = rsa.generate_private_key(
+        public_exponent=65537, key_size=key_size
+    )
 
     if password is None:
         encryption_algorithm = serialization.NoEncryption()

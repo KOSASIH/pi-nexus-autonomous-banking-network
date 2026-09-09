@@ -10,6 +10,9 @@ security`` resolves to the package; its ``__init__`` re-exports the same two
 helpers.
 """
 
-from security.secure_transaction import secure_generate_keypair, secure_send_transaction
+from security.secure_transaction import (
+    secure_generate_keypair,
+    secure_send_transaction,
+)
 
 __all__ = ["secure_generate_keypair", "secure_send_transaction"]
