@@ -142,6 +142,7 @@ class FakeEth:
 
     @property
     def max_priority_fee(self):
+        """Return the configured tip or raise when fee markets are off."""
         if not self.fee_market:
             raise AttributeError(
                 "max_priority_fee is not supported by this node"
@@ -352,6 +353,7 @@ class TestSecureSendTransactionBehavior(unittest.TestCase):
             """A provider that cannot validate checksums."""
 
             def is_checksum_address(self, value):
+                """Return None to signal that no checksum check is known."""
                 return None
 
         with self.assertRaises(ValueError):
@@ -390,6 +392,7 @@ class TestLazyImports(unittest.TestCase):
             capture_output=True,
             text=True,
             cwd=probe,
+            check=False,
         )
         self.assertEqual(result.returncode, 0, result.stderr)
         self.assertIn("ok", result.stdout)
