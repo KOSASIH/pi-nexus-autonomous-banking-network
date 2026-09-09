@@ -2,7 +2,7 @@
 
 The package re-exports the signing, keypair and authorization helpers from
 their implementing modules. Heavy optional dependencies are imported lazily
-so that merely importing ``security`` stays cheap and works in constrained
+so that merely importing `security` stays cheap and works in constrained
 environments.
 """
 
@@ -54,5 +54,5 @@ def __getattr__(name):
 
 
 def __dir__():
-    """Expose the declared public API for ``help`` and ``dir``."""
+    """Expose the declared public API for `help` and `dir`."""
     return sorted(set(list(globals().keys()) + __all__))

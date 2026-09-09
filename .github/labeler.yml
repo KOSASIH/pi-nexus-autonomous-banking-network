@@ -1,0 +1,25 @@
+# Configuration for the repo-wide "Labeler" workflow
+# (.github/workflows/label.yml, actions/labeler@v4).
+#
+# History: the default branch never shipped this file, so the Labeler check
+# failed on every pull request with "HttpError: Not Found". Shipping it here
+# repairs the check once merged. Only labels that already exist in this
+# repository are referenced, so applying them never creates new labels.
+
+security fix:
+  - security.py
+  - 'security/**/*'
+  - '**/*security*/**'
+
+python:
+  - '**/*.py'
+
+documentation:
+  - '**/*.md'
+  - docs/**/*
+
+dependencies:
+  - requirements.txt
+  - '**/requirements*.txt'
+  - package.json
+  - '**/package*.json'
