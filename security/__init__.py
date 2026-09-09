@@ -1,11 +1,9 @@
-"""Backward-compatible lazy exports for the ``security`` package.
+"""Security primitives for the Pi-Nexus Autonomous Banking Network.
 
-The package re-exports the signing helpers from
-:mod:`security.secure_transaction` and the classic authorization helpers
-without importing the ``cryptography`` dependency at load time (PEP 562):
-the heavy imports happen only when a symbol is actually accessed, which lets
-``import security`` work in constrained environments and keeps the offline
-test suite hermetic.
+The package re-exports the signing, keypair and authorization helpers from
+their implementing modules. Heavy optional dependencies are imported lazily
+so that merely importing ``security`` stays cheap and works in constrained
+environments.
 """
 
 import typing
@@ -21,8 +19,8 @@ if typing.TYPE_CHECKING:  # pragma: no cover - typing only
     )
 
 __all__ = [
-    "Authorization",
     "Authentication",
+    "Authorization",
     "Decryption",
     "Encryption",
     "secure_generate_keypair",
@@ -30,8 +28,8 @@ __all__ = [
 ]
 
 _LAZY_EXPORTS = {
-    "Authorization": "authorization",
     "Authentication": "authentication",
+    "Authorization": "authorization",
     "Decryption": "decryption",
     "Encryption": "encryption",
     "secure_generate_keypair": "secure_transaction",
@@ -40,7 +38,7 @@ _LAZY_EXPORTS = {
 
 
 def __getattr__(name):
-    """Resolve lazily exported members on first access (PEP 562)."""
+    """Resolve public package members on demand (PEP 562)."""
     if name in _LAZY_EXPORTS:
         from importlib import import_module
 

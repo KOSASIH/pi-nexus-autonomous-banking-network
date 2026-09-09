@@ -82,12 +82,12 @@ def _validate_address(web3, to_address: str) -> str:
 
     raw = to_address[2:] if to_address.startswith("0x") else to_address
     if raw != raw.lower() and raw != raw.upper():
-        # Mixed-case addresses are only trustworthy when they carry a valid
-        # EIP-55 checksum; accepting them silently would let a one-character
-        # typo change the destination account.
+        # Mixed-case addresses are only trustworthy when the provider can
+        # confirm a valid EIP-55 checksum. Without that confirmation a
+        # single-character typo in a checksummed destination would be
+        # silently re-checksummed and broadcast to the wrong account.
         is_cs = getattr(web3, "is_checksum_address", None)
-        bad_checksum = callable(is_cs) and not is_cs(to_address)
-        if bad_checksum:
+        if not callable(is_cs) or not is_cs(to_address):
             raise ValueError("to_address has an invalid EIP-55 checksum")
 
     to_checksum_address = getattr(web3, "to_checksum_address", None)
@@ -152,12 +152,17 @@ def _estimate_gas(
     except Exception as exc:
         # A plain EOA-to-EOA value transfer cannot revert, so an estimation
         # failure there is observational (blank sender, RPC hiccup) and the
-        # intrinsic 21000-gas cost is safe. Contract recipients routinely
-        # need more than that - signing with 21000 would burn fees on a
-        # failing transfer, so surface the estimation error instead.
+        # intrinsic 21000-gas cost is safe. Contract recipients and VM
+        # execution/revert errors routinely need more gas than that - signing
+        # with 21000 would burn fees on a failing transfer, so surface them.
         if is_contract:
             raise RuntimeError(
                 "gas estimation failed for a contract recipient"
+            ) from exc
+        lowered = str(exc).lower()
+        if "revert" in lowered or "execution" in lowered:
+            raise RuntimeError(
+                "gas estimation failed; the transfer may revert"
             ) from exc
         return _MIN_TRANSFER_GAS
     buffered = int(gas * _GAS_BUFFER_FACTOR) + _GAS_BUFFER_WEI
