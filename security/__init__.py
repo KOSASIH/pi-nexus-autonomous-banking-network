@@ -47,7 +47,7 @@ def __getattr__(name):
         module = import_module("." + _LAZY_EXPORTS[name], __name__)
         value = getattr(module, name, None)
         if value is None:
-            message = "{!r} is not exported by {!r}".format(name, module)
+            message = f"{name!r} is not exported by {module!r}"
             raise AttributeError(message)
         globals()[name] = value
         return value

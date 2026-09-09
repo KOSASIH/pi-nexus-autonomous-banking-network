@@ -129,11 +129,13 @@ class FakeEth:
         return self.contract_code
 
     def estimate_gas(self, payload):
+        """Return the configured gas estimate or raise when disabled."""
         if self.gas_estimate is None:
             raise ValueError("gas estimation failed")
         return self.gas_estimate
 
     def fee_history(self, block_count, newest_block):
+        """Return base fee history, honouring the fee-market flag."""
         if not self.fee_market:
             raise AttributeError("fee_history is not supported by this node")
         return {"baseFeePerGas": [self.base_fee]}
@@ -147,6 +149,7 @@ class FakeEth:
         return self.priority_fee
 
     def send_raw_transaction(self, raw_transaction):
+        """Record the sent payload and return a fixed fake hash."""
         self.last_sent_raw = raw_transaction
         return _SEND_HASH
 
@@ -157,16 +160,24 @@ class FakeWeb3:
     def __init__(self, **kwargs):
         self.eth = FakeEth(**kwargs)
 
-    def to_hex(self, value):
+    @staticmethod
+    def to_hex(value):
+        """Encode bytes as a ``0x``-prefixed hex string."""
         return "0x" + value.hex()
 
-    def is_address(self, value):
+    @staticmethod
+    def is_address(value):
+        """Return whether ``value`` looks like a 40-hex address."""
         return isinstance(value, str) and bool(_ADDRESS_RE.match(value))
 
-    def is_checksum_address(self, value):
+    @staticmethod
+    def is_checksum_address(value):
+        """Return whether ``value`` carries a valid EIP-55 checksum."""
         return isinstance(value, str) and value == eip55_checksum(value)
 
-    def to_checksum_address(self, value):
+    @staticmethod
+    def to_checksum_address(value):
+        """Return the EIP-55 checksummed form of ``value``."""
         return eip55_checksum(value)
 
 
@@ -246,7 +257,17 @@ class TestSecureSendTransactionBehavior(unittest.TestCase):
         """Provide a fresh fake provider per test."""
         self.web3 = FakeWeb3()
 
-    def send(self, web3, **kwargs):
+    @staticmethod
+    def send(web3, **kwargs):
+        """Send a transfer via the given provider and return its account.
+
+        Args:
+            web3: the fake provider to drive.
+            kwargs: any of ``private_key``, ``recipient``, ``value``.
+
+        Returns:
+            A ``(hash, account)`` pair for assertions.
+        """
         return secure_send_transaction(
             web3,
             kwargs.get("private_key", VALID_PRIVATE_KEY),
@@ -328,6 +349,8 @@ class TestSecureSendTransactionBehavior(unittest.TestCase):
         """Mixed case is unsafe when the provider knows no checksum."""
 
         class MinimalWeb3(FakeWeb3):
+            """A provider that cannot validate checksums."""
+
             def is_checksum_address(self, value):
                 return None
 
