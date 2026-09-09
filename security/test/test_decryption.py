@@ -11,6 +11,7 @@ class TestDecryption(unittest.TestCase):
     """Round-trip coverage for the Fernet-backed decryption wrapper."""
 
     def setUp(self):
+        """Prepare a fresh Fernet key and wrapper for each test."""
         self.key = Fernet.generate_key()
         self.decryption = Decryption(self.key)
         self.cipher_suite = Fernet(self.key)

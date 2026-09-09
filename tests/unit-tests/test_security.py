@@ -72,6 +72,7 @@ class FakeAccount:
         self.signed_transaction = None
 
     def sign_transaction(self, transaction):
+        """Record the transaction and return a fake signed payload."""
         self.signed_transaction = transaction
         return SimpleNamespace(raw_transaction=b"\xab" * 32)
 
@@ -83,11 +84,13 @@ class FakeAccountManager:
         self._accounts = {}
 
     def from_key(self, private_key_hex):
+        """Return a shared fake account for a private key."""
         if private_key_hex not in self._accounts:
             self._accounts[private_key_hex] = FakeAccount(SENDER_ADDRESS)
         return self._accounts[private_key_hex]
 
     def last_account(self):
+        """Return the most recently created fake account."""
         return self._accounts[list(self._accounts.keys())[-1]]
 
 
@@ -205,6 +208,7 @@ class TestSecureSendTransactionValidation(unittest.TestCase):
     """Input validation coverage for :func:`secure_send_transaction`."""
 
     def setUp(self):
+        """Provide a fresh fake provider per test."""
         self.web3 = FakeWeb3()
 
     def test_rejects_malformed_private_key(self):
@@ -239,6 +243,7 @@ class TestSecureSendTransactionBehavior(unittest.TestCase):
     """Transaction building and broadcasting behavior."""
 
     def setUp(self):
+        """Provide a fresh fake provider per test."""
         self.web3 = FakeWeb3()
 
     def send(self, web3, **kwargs):

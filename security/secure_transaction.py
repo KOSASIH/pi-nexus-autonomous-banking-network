@@ -85,10 +85,10 @@ def _validate_address(web3, to_address: str) -> str:
         # Mixed-case addresses are only trustworthy when they carry a valid
         # EIP-55 checksum; accepting them silently would let a one-character
         # typo change the destination account.
-        is_checksum_address = getattr(web3, "is_checksum_address", None)
-        if callable(is_checksum_address):
-            if not is_checksum_address(to_address):
-                raise ValueError("to_address has an invalid EIP-55 checksum")
+        is_cs = getattr(web3, "is_checksum_address", None)
+        bad_checksum = callable(is_cs) and not is_cs(to_address)
+        if bad_checksum:
+            raise ValueError("to_address has an invalid EIP-55 checksum")
 
     to_checksum_address = getattr(web3, "to_checksum_address", None)
     if callable(to_checksum_address):
@@ -232,7 +232,9 @@ def secure_send_transaction(
     signed = account.sign_transaction(transaction)
     raw_transaction = getattr(signed, "raw_transaction", None)
     if raw_transaction is None:
-        raw_transaction = getattr(signed, "rawTransaction")
+        raw_transaction = getattr(signed, "rawTransaction", None)
+    if raw_transaction is None:
+        raise RuntimeError("signed transaction lacks a raw payload")
     transaction_hash = web3.eth.send_raw_transaction(raw_transaction)
     return web3.to_hex(transaction_hash)
 

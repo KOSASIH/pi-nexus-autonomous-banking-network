@@ -8,6 +8,18 @@ the heavy imports happen only when a symbol is actually accessed, which lets
 test suite hermetic.
 """
 
+import typing
+
+if typing.TYPE_CHECKING:  # pragma: no cover - typing only
+    from .authentication import Authentication
+    from .authorization import Authorization
+    from .decryption import Decryption
+    from .encryption import Encryption
+    from .secure_transaction import (
+        secure_generate_keypair,
+        secure_send_transaction,
+    )
+
 __all__ = [
     "Authorization",
     "Authentication",
@@ -33,10 +45,13 @@ def __getattr__(name):
         from importlib import import_module
 
         module = import_module("." + _LAZY_EXPORTS[name], __name__)
-        value = getattr(module, name)
+        value = getattr(module, name, None)
+        if value is None:
+            message = "{!r} is not exported by {!r}".format(name, module)
+            raise AttributeError(message)
         globals()[name] = value
         return value
-    message = "module {!r} has no attribute {!r}".format(__name__, name)
+    message = f"module {__name__!r} has no attribute {name!r}"
     raise AttributeError(message)
 
 
