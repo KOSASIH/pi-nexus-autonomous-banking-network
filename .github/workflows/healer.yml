@@ -26,7 +26,7 @@ jobs:
           if [[ -n $(git status --porcelain) ]]; then
             git config user.name "healer-agent[bot]"
             git config user.email "healer@pi-nexus.ai"
-            git add.
+            git add .
             git commit -m "auto-heal: fixed"
             git push
           else
