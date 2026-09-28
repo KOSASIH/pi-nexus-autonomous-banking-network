@@ -19,8 +19,8 @@ jobs:
           python-version: '3.11'
       - name: Run Healer Agent
         run: |
-          python autonomous_healer_agent/scanner.py.
-          python autonomous_healer_agent/healer.py.
+          python autonomous_healer_agent/scanner.py .
+          python autonomous_healer_agent/healer.py .
       - name: Auto-commit if healed
         run: |
           if [[ -n $(git status --porcelain) ]]; then
