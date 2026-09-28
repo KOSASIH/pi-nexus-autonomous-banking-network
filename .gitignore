@@ -30,3 +30,42 @@
 *.exe
 *.out
 *.app
+
+# --- TAMBAHAN WAJIB BUAT FIX SECURITY INI ---
+# Environment variables - JANGAN PERNAH PUSH!
+.env
+.env.local
+.env.*.local
+*.env
+
+# Database SQLite - isinya user & password hash
+*.db
+*.sqlite
+*.sqlite3
+token_api.db
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+venv/
+.venv/
+env/
+ENV/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# IDE & OS
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# JWT & Secrets
+*.key
+*.pem
+secrets.txt
