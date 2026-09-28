@@ -1,0 +1,4 @@
+qiskit
+qiskit-aer
+cirq
+pycryptodome
