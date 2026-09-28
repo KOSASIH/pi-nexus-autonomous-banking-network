@@ -1,0 +1,36 @@
+name: Pi Nexus Self-Healing Agent 24/7
+
+on:
+  push:
+    branches: [ main ]
+  schedule:
+    - cron: '0 * * * *' # jalan tiap jam kayak fitur Pro
+  workflow_dispatch:
+
+jobs:
+  heal:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Run Healer Agent
+        run: |
+          python autonomous_healer_agent/scanner.py.
+          python autonomous_healer_agent/healer.py.
+      - name: Auto-commit if healed
+        run: |
+          if [[ -n $(git status --porcelain) ]]; then
+            git config user.name "healer-agent[bot]"
+            git config user.email "healer@pi-nexus.ai"
+            git add.
+            git commit -m "auto-heal: fixed hardcoded secrets detected by Self-Healing Agent"
+            git push
+          else
+            echo "No secrets found - system secure"
+          fi
