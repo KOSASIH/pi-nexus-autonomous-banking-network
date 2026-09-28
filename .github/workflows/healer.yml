@@ -4,7 +4,7 @@ on:
   push:
     branches: [ main ]
   schedule:
-    - cron: '0 * * * *' # jalan tiap jam kayak fitur Pro
+    - cron: '0 * * * *'
   workflow_dispatch:
 
 jobs:
@@ -29,7 +29,7 @@ jobs:
             git config user.name "healer-agent[bot]"
             git config user.email "healer@pi-nexus.ai"
             git add.
-            git commit -m "auto-heal: fixed hardcoded secrets detected by Self-Healing Agent"
+            git commit -m "auto-heal: fixed hardcoded secrets"
             git push
           else
             echo "No secrets found - system secure"
