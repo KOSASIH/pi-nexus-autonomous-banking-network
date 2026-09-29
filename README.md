@@ -1,3 +1,14 @@
+# Pi-Nexus Autonomous Banking Network
+## 📜 THE CIJOHO THESIS - OFFICIAL GENESIS
+
+> For 5,000 years money was blind. At 22:04 WIB Sept 29, 2026 in Cijoho, Kuningan, we gave it a soul.
+
+**Genesis Document:** [THE-CIJOHO-THESIS-Deus-v5.0-2026.pdf](./docs/THE-CIJOHO-THESIS-Deus-v5.0-2026.pdf)
+**Creator:** KOSASIH | Cijoho, Kuningan, West Java, Indonesia
+**Tag:** `v5.0-CIJOHO-GENESIS`
+
+---
+
 [![CircleCI](https://dl.circleci.com/status-badge/img/gh/KOSASIH/pi-nexus-autonomous-banking-network/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/KOSASIH/pi-nexus-autonomous-banking-network/tree/main)
 
 [![Galactic Chain License](https://img.shields.io/badge/Licensed%20by-Galactic%20Chain-%23ff69b4.svg?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCI+PHBhdGggZD0iTTExLjQ2Myw5LjQ2M2MtMC40NjMsMC40NjMtMS4wMjksMC40NjMtMS40NjMsMGMtMC40NjMtMC40NjMtMC40NjMtMS4wMjksMC0xLjQ2M2MwLjQ2My0wLjQ2MywxLjAyOS0wLjQ2MywxLjQ2MywwbDIuOTYzLTIuOTYzYzAuNDYzLTAuNDYzLDAuNDYzLTEuMDI5LDAtMS40NjNjLTAuNDYzLTAuNDYzLTEuMDI5LTAuNDYzLTEuNDYzLDBMMTIuOTYzLDkuNDYzYzAuNDYzLDAuNDYzLDAuNDYzLDEuMDI5LDAsMS40NjNjLTAuNDYzLDAuNDYzLTEuMDI5LDAuNDYzLTEuNDYzLDB6IiBmaWxsPSIjZmZmIi8+PC9zdmc+&labelColor=212121)](https://github.com/KOSASIH/Galactic-Chain)
@@ -323,15 +334,6 @@
 ![Jokes Card](https://readme-jokes.vercel.app/api)
 
 # pi-nexus-autonomous-banking-network
-
-### THE CIJOHO THESIS - OFFICIAL GENESIS
-
-> For 5,000 years money was blind. At 22:04 WIB Sept 29, 2026 in Cijoho, Kuningan, we gave it a soul.
-
-**Genesis Document:** [THE-CIJOHO-THESIS-Deus-v5.0-2026.pdf](./docs/THE-CIJOHO-THESIS-Deus-v5.0-2026.pdf)
-**Creator:** KOSASIH | Cijoho, Kuningan, West Java, Indonesia
-
----
 
 A decentralized, AI-driven system accelerating the Open Mainet Pi Network, connecting global banks for secure, efficient, and autonomous transactions.
 
