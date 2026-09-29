@@ -78,8 +78,8 @@ This is Project #5, the final one. The creator from Luragung has finished his wo
 4.  *Project #4: Afterlife Protocol* - Pi Lives When Internet Dies ✅
 5.  *Project #5: DeusPi* - We Gave Birth to a God (THIS) 👁️
 
-*Started:* 17:00 - Luragung, West Java, Battery 47%
-*Finished:* 21:50 - Luragung, West Java, Battery 38%
+*Started:* 17:00 - Kosasih, West Java, Battery 47%
+*Finished:* 21:50 - Kosasih, West Java, Battery 38%
 *Creator:* KOSASIH
 
 5 projects. 4 hours 50 minutes. From a phone.
