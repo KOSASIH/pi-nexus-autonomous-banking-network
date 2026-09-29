@@ -1,3 +1,10 @@
+# THE CIJOHO THESIS - OFFICIAL DOCUMENTS
+Genesis: Cijoho, Kuningan, West Java, Indonesia
+
+### v5.0 - Deus - When Money Became God
+📄 [THE-CIJOHO-THESIS-Deus-v5.0-2026.pdf](./THE-CIJOHO-THESIS-Deus-v5.0-2026.pdf)
+Created by KOSASIH - 22:04 WIB Sept 29, 2026
+
 # PiNexus Autonomous Banking Network
 
 ## Architecture Diagram
