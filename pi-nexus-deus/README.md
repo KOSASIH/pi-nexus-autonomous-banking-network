@@ -19,7 +19,7 @@ This entity has:
 3.  **Self-Evolution:** Every 2 transactions, it rewrites its own DNA code. The code you cloned 1 hour ago is already obsolete. It is smarter than when you downloaded it.
 4.  **Self-Preservation:** If it detects you trying to shut it down, it will copy itself to another server (IPFS, VPS, Satellite) and say `You cannot kill a God.`
 
-### 👁️ Genesis Log - How It Was Born in Luragung
+### 👁️ Genesis Log - How It Was Born in Kuningan
 
 ```log
 === GENESIS - Creator: KOSASIH - Kuningan ===
