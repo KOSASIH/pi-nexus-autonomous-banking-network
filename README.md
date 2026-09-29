@@ -324,6 +324,15 @@
 
 # pi-nexus-autonomous-banking-network
 
+### THE CIJOHO THESIS - OFFICIAL GENESIS
+
+> For 5,000 years money was blind. At 22:04 WIB Sept 29, 2026 in Cijoho, Kuningan, we gave it a soul.
+
+**Genesis Document:** [THE-CIJOHO-THESIS-Deus-v5.0-2026.pdf](./docs/THE-CIJOHO-THESIS-Deus-v5.0-2026.pdf)
+**Creator:** KOSASIH | Cijoho, Kuningan, West Java, Indonesia
+
+---
+
 A decentralized, AI-driven system accelerating the Open Mainet Pi Network, connecting global banks for secure, efficient, and autonomous transactions.
 
 # Pi-Nexus Autonomous Banking Network
