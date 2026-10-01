@@ -1,3 +1,25 @@
+# pi-nexus-quantum-banking
+
+### GOD-CHAIN v8.0 | Kuningan, West Java, Indonesia
+
+> **"If you try to hack it with a normal computer, the money self-destructs. And this UNIVERSAL!!"**
+
+This is not just a banking module. This is an Amanah.
+Built Lillahi Ta'ala to make Pi Network honest, secure, and blessed.
+
+### 🔬 LIVE DEMO - QUANTUM COLLAPSE FEATURE
+
+We implemented Quantum Key Distribution (QKD - BB84 Protocol) with Entanglement.
+
+- Alice (Cijoho) generates entangled pair: `|Ψ⟩ = (|01⟩ + |10⟩)/√2`
+- Bob (Pi Vault) receives the twin key.
+- If Eve (hacker) tries to observe, the wavefunction collapses.
+
+**📹 VIDEO PROOF:**
+**[▶️ WATCH: Quantum Ledger That Collapses When Observed](https://youtube.com/shorts/qHGLc7nQLlQ?si=VqUTksTr_mn_z2GY   )**
+#### Log from Indonesia
+
+
 # Quantum Entangled Pi Ledger (QEPL) 💥⚛️
 
 **The world's first blockchain that ONLY works on quantum hardware. If touched by a classical computer, it collapses and voids.**
