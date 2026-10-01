@@ -16,7 +16,7 @@ We implemented Quantum Key Distribution (QKD - BB84 Protocol) with Entanglement.
 - If Eve (hacker) tries to observe, the wavefunction collapses.
 
 **📹 VIDEO PROOF:**
-**[▶️ WATCH: Quantum Ledger That Collapses When Observed](   )**
+**[▶️ WATCH: Quantum Ledger That Collapses When Observed](https://youtube.com/shorts/DswsZ6iGefk?si=SOcNVHItb0btMK6e)**
 #### Log from Indonesia
 
 
