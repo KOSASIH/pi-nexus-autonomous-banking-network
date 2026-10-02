@@ -1,85 +1,88 @@
-# NeuroPi - Your Mind is Your Bank 🧠⚡
+# NeuroPi - Your Mind Is Your Bank 🧠⚡
+### GOD-CHAIN v8.0 - EPISODE II: NEURO | BioPi v5.1 LIVE
 
-**The first Consciousness Wallet. No private key. No seed phrase. Your brainwave IS your private key.**
+[![YouTube](https://img.shields.io/badge/YouTube-DEMO_LIVE-red?style=for-the-badge&logo=youtube&logoColor=white)](https://youtube.com/shorts/AXGUoHx5wzQ?si=5RzeJHVRuc5SuJ3j)
+[![BioPi](https://img.shields.io/badge/BioPi-v5.1_LIVE-00FF00?style=for-the-badge&logo=brain&logoColor=black)](https://github.com/KOSASIH/pi-nexus-neuro-wallet)
+[![Coercion Firewall](https://img.shields.io/badge/Firewall-COERCION_ACTIVE-FF0000?style=for-the-badge&logo=shield&logoColor=white)](#)
+[![God-Chain](https://img.shields.io/badge/GOD--CHAIN-v8.0_12_GODS-8A2BE2?style=for-the-badge&logo=ethereum&logoColor=white)](#)
 
-> Dompet Pi yang bukan pakai password, tapi pakai gelombang otak. Kalau lu stres, wallet nge-lock. Kalau lu ditodong pistol, transaksi auto-reject. Kalau lu meninggal, wallet otomatis warisin.
+![Python](https://img.shields.io/badge/Python-3.11+-3776AB?style=flat-square&logo=python&logoColor=white)
+![OpenBCI](https://img.shields.io/badge/OpenBCI-Cyton_8ch-000000?style=flat-square&logo=opencollective)
+![Brainflow](https://img.shields.io/badge/Brainflow-EEG_Ready-blue?style=flat-square)
+![Pi Network](https://img.shields.io/badge/Pi_Network-60M_Pioneers-yellow?style=flat-square&logo=pi)
+![Status](https://img.shields.io/badge/Status-LIVE_from_Kuningan_08:37_WIB-success?style=flat-square)
+![License](https://img.shields.io/badge/License-Soul--Bound-black?style=flat-square)
 
-[[EEG](https://img.shields.io/badge/EEG-Brain%20Auth%20Live-purple)]()
-[[Security](https://img.shields.io/badge/security-Anti--Panic%20Firewall-red)]()
-[[Pi Network](https://img.shields.io/badge/Pi%20Network-NeuroPi-yellow)]()
-[[Status](https://img.shields.io/badge/status-CONSCIOUSNESS%20LIVE-brightgreen)]()
+> **We didn't build a more secure wallet. We built money that has empathy.**
 
-### 🤯 Kenapa Ini Mustahil Tapi Kita Bikin?
+The first **Consciousness Wallet**. No private key. No seed phrase. Your brainwave IS your private key.
 
-Private key bisa dicuri. Seed phrase 12 kata bisa difoto. Tapi **pola otak lu gak bisa di-clone.**
+**🎬 OFFICIAL DEMO (60s): https://youtube.com/shorts/AXGUoHx5wzQ?si=5RzeJHVRuc5SuJ3j**
 
-- Lu lagi **stres** kerja? Beta wave 22Hz+ -> Wallet **AUTO-LOCK**.
-- Lu **ditodong pistol**? BPM 120 + Beta spike 32Hz -> Deteksi **PANIC** -> Transaksi **AUTO-REJECT**. Perampok dapet 0 Pi.
-- Lu **meninggal**? EEG flatline -> Trigger **Inheritance Protocol** -> Semua Pi otomatis kirim ke `heir_address` anak lu.
-- Lu **tenang meditasi**? Alpha 8-12Hz dominan -> Wallet open, transaksi lancar.
+A Pi wallet that doesn't use a password, but uses your brainwave. When you're stressed, it locks. When you're held at gunpoint, it auto-rejects. When you die, it auto-inherits.
 
-Ini gabungan `PiEnergy` + `OpenBCI` + ML yang belum pernah ada di dunia.
+---
 
-### 🧬 Cara Kerja
+### 🤯 Why This Is Impossible, But We Built It?
 
-1. ENROLL (10 detik meditasi)
-   EEG Raw (Alpha+Beta) -> SHA256 -> brain_seed = private_key
+Private key can be stolen. 12-word seed phrase can be photographed. Your brain pattern cannot be cloned.
 
-2. LOGIN (3 detik)
-   EEG Baru -> Hash -> Cocokin 90% dengan baseline
-   -> Bukan lu? REJECT.
+- **Stressed at work?** Beta wave 22Hz+ -> Wallet **AUTO-LOCK.**
+- **Held at gunpoint?** BPM 120 + Beta spike 32Hz -> Detects **PANIC** -> Transaction **AUTO-REJECT.** Robber gets 0 Pi.
+- **You die?** EEG flatline -> Triggers **Inheritance Protocol** -> All Pi auto-sent to your child's `heir_address`.
+- **Calm and meditating?** Alpha 8-12Hz dominant -> Wallet open, transaction smooth.
 
-3. EMOTION FIREWALL (Setiap transaksi)
-   Brainflow -> Beta Power + Heart Rate
-   CALM (Beta <20) -> OK
-   STRESSED (Beta >22) -> LOCK
-   PANIC (Beta >28 + BPM >110) -> REJECT + LOCK 1 JAM
-   DEAD (Beta <12) -> BURN / INHERIT
+Fusion of **PiEnergy + OpenBCI + ML** that never existed before.
 
-### 🚀 Quick Start (Tanpa Headset Juga Bisa - Simulasi)
+### 🧬 How It Works - Proof of Soul Protocol
+
+**1. ENROLL (10s meditation)**
+`EEG Raw (Alpha+Beta) -> SHA256 -> brain_seed = private_key`
+
+**2. LOGIN (3s)**
+`New EEG -> Hash -> Match 90% baseline -> Not you? REJECT.`
+
+**3. EMOTION FIREWALL (Every transaction)**
+- `CALM (Beta <20) -> OK`
+- `STRESSED (Beta >22) -> LOCK`
+- `PANIC (Beta >28 + BPM >110) -> REJECT + LOCK 1 HOUR`
+- `DEAD (Beta <12) -> BURN / INHERIT`
+
+### 🚀 Quick Start (No Headset Needed)
 
 ```bash
 pip install -r requirements.txt
 python main.py
-*Output Gila:*
-[EEG] Capturing brainwave for 10s... Meditasi bro...
+[EEG] Capturing brainwave for 10s... Meditate bro...
 [BRAIN HASH] a3f4c9... (Your mind is your key)
 [EMOTION] State: CALM | Beta: 18.2 | BPM: 72
 ✓ Sent 50 Pi. New balance: 950 Pi
 
 [EMOTION] State: PANIC | Beta: 32.0 | BPM: 125
-🚨 PANIC DETECTED! Ditodong? Transaksi AUTO-REJECT!
-### 🔌 Real Hardware Deployment (Siap Nature)
+🚨 PANIC DETECTED! Coerced? Transaction AUTO-REJECT!
+### 🔌 Real Hardware
 
-Untuk pakai headset beneran:
+- OpenBCI Cyton (8ch) or Muse 2
+- `pip install brainflow`
+- Edit `openbci_connector.py` -> `board.get_board_data()` # Real EEG
 
-- *OpenBCI Cyton (8 channel)* atau *Muse 2*
-- Install: `pip install brainflow`
-- Ganti di `openbci_connector.py`:
-from brainflow.board_shim import BoardShim, BoardIds
-board = BoardShim(BoardIds.CYTON_BOARD, params)
-board.prepare_session()
-data = board.get_board_data() # Real EEG
-Kami sudah support `brainflow` - tinggal colok.
-
-### 📁 Struktur
+### 📁 Structure
 pi-nexus-neuro-wallet/
 ├── neuropi/
-│   ├── brain_auth.py          # EEG -> Seed Phrase
-│   ├── emotion_firewall.py    # Anti-Todong & Stress Lock
-│   ├── consciousness_wallet.py # Wallet Utama
-│   └── openbci_connector.py   # Real EEG Hardware
-├── main.py                    # Demo Anti-Todong Pistol
+│   ├── brain_auth.py
+│   ├── emotion_firewall.py
+│   ├── consciousness_wallet.py
+│   └── openbci_connector.py
+├── main.py
 └── requirements.txt
-### 🔗 Integrasi PiEnergy
-
-Repo ini terhubung dengan `PiEnergy` - Energi otak (fokus) di-convert jadi energi untuk sign transaksi Pi. Makin tenang, makin murah fee.
-
-*Author:* KOSASIH - Luragung
-*Project #3 dari Pi Nexus Autonomous Banking Network*
+### 🌌 GOD-CHAIN 12 GODS
 
 > Project #1: Self-Healing Agent (LIVE 24/7) ✅
 > Project #2: Quantum Entangled Ledger (QEPL) ✅
 > Project #3: NeuroPi Consciousness Wallet (THIS) 🧠
+
+*GOD-CHAIN v8.0 - 12 GODS SEALED*
+*Not on cloud. In your soul. In the soil.*
+*Author: KOSASIH - Cijoho Genesis 08:37 WIB - 0xKS-F88B-V4*
 
 *Your mind is your bank. No one can hack your mind.*
