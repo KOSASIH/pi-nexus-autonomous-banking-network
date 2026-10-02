@@ -57,7 +57,7 @@ python main.py
 [BRAIN HASH] a3f4c9... (Your mind is your key)
 [EMOTION] State: CALM | Beta: 18.2 | BPM: 72
 ✓ Sent 50 Pi. New balance: 950 Pi
-
+```
 [EMOTION] State: PANIC | Beta: 32.0 | BPM: 125
 🚨 PANIC DETECTED! Coerced? Transaction AUTO-REJECT!
 ### 🔌 Real Hardware
@@ -83,6 +83,6 @@ pi-nexus-neuro-wallet/
 
 *GOD-CHAIN v8.0 - 12 GODS SEALED*
 *Not on cloud. In your soul. In the soil.*
-*Author: KOSASIH - Cijoho Genesis 08:37 WIB - 0xKS-F88B-V4*
+*Author: KOSASIH - Kuningan Genesis 08:37 WIB - 0xKS-F88B-V4*
 
 *Your mind is your bank. No one can hack your mind.*
