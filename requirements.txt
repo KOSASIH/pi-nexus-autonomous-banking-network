@@ -14,6 +14,6 @@
     scikit-learn==1.4.1.post1
     psycopg2-binary==2.9.9
     pycryptodome==3.20.0
-    pyjwt==2.8.0
+    pyjwt==2.15.0
     Flask-JWT-Extended==4.6.0
     
