@@ -8,9 +8,7 @@
 [![DTN](https://img.shields.io/badge/DTN-Delay%20Tolerant-e67e22?style=for-the-badge&logo=truck)](./afterlife/dtn_postman.py)
 [![Satellite](https://img.shields.io/badge/Satellite-Blockstream-3498db?style=for-the-badge&logo=satellite)](https://blockstream.com/satellite/)
 [![Status](https://img.shields.io/badge/status-APOCALYPSE%20READY-c0392b?style=for-the-badge&logo=shield)](https://github.com/)
-[![AEGIS OS](https://img.shields.io/badge/Powered%20by-AEGIS%20OS%20V10-8e44ad?style=for-the-badge&logo=pi)](https://)
-[![Pi Apps](https://img.shields.io/badge/Pi%20Apps-Testnet%20%233-1abc9c?style=for-the-badge&logo=pi)](https://)
-[![License](https://img.shields.io/badge/license-MIT-black?style=for-the-badge)](#)
+[[![License](https://img.shields.io/badge/license-MIT-black?style=for-the-badge)](#)
 
 ### 🎬 Video Bukti Simulated
 
